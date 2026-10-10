@@ -692,10 +692,10 @@ function renderDocsPage() {
 						.map((ch) => {
 							const active = state.docViewMode === "single" && ch.id === state.activeChapterId ? "active" : "";
 							return `
-								<button type="button" class="docs-nav-item ${active}" data-doc-chapter="${ch.id}">
-									<span>${ch.icon}</span>
-									<span style="overflow:hidden;text-overflow:ellipsis;white-space:nowrap;">${escapeHtml(
-										t(ch.title, ch.titleEn)
+								<button type="button" class="docs-nav-item ${active}" data-doc-chapter="${ch.id}" title="${escapeHtml(t(ch.title, ch.titleEn))}">
+									<span class="docs-nav-item-icon">${ch.icon}</span>
+									<span class="docs-nav-item-text">${escapeHtml(
+										t(ch.navTitle || ch.title, ch.navTitleEn || ch.titleEn)
 									)}</span>
 								</button>
 							`;

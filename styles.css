@@ -1085,11 +1085,11 @@ pre,
    Documentation Portal Layout (docs.html)
    ========================================================================== */
 .docs-layout {
-	max-width: 1420px;
+	max-width: 1460px;
 	margin: 0 auto;
 	display: grid;
-	grid-template-columns: 270px minmax(0, 1fr) 230px;
-	gap: 32px;
+	grid-template-columns: 296px minmax(0, 1fr) 230px;
+	gap: 30px;
 	padding: 28px 24px 80px;
 	align-items: start;
 }
@@ -1119,7 +1119,7 @@ pre,
 
 .docs-nav-item {
 	display: flex;
-	align-items: center;
+	align-items: flex-start;
 	gap: 8px;
 	width: 100%;
 	text-align: left;
@@ -1128,10 +1128,23 @@ pre,
 	border: none;
 	background: transparent;
 	color: var(--text-dim);
-	font-size: 0.87rem;
+	font-size: 0.855rem;
+	line-height: 1.38;
 	font-weight: 500;
 	cursor: pointer;
 	transition: all 0.14s ease;
+}
+
+.docs-nav-item-icon {
+	flex-shrink: 0;
+	margin-top: 1px;
+}
+
+.docs-nav-item-text {
+	flex: 1;
+	min-width: 0;
+	white-space: normal;
+	word-break: break-word;
 }
 
 .docs-nav-item:hover {
