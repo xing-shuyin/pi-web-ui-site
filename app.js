@@ -673,7 +673,7 @@ function renderDocsPage() {
 				${escapeHtml(
 					state.docViewMode === "all"
 						? t("📄 切换为单章节阅读模式", "📄 Switch to Single-Chapter View")
-						: t("📚 展开全部 16 章连续阅读", "📚 Expand All 16 Chapters")
+						: t("📚 展开全部 20 章连续阅读", "📚 Expand All 20 Chapters")
 				)}
 			</button>
 		</div>

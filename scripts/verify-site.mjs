@@ -44,8 +44,8 @@ if (SITE_DATA.themes.length < 25) {
 	throw new Error(`Expected at least 25 themes in SITE_DATA, got ${SITE_DATA.themes.length}`);
 }
 
-if (DOCS_CHAPTERS.length !== 16) {
-	throw new Error(`Expected 16 documentation chapters, got ${DOCS_CHAPTERS.length}`);
+if (DOCS_CHAPTERS.length !== 20) {
+	throw new Error(`Expected 20 documentation chapters, got ${DOCS_CHAPTERS.length}`);
 }
 
 const groupedIds = DOCS_GROUPS.flatMap((g) => g.items);

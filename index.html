@@ -71,13 +71,16 @@
 
 				<div class="hero-cta-row">
 					<a href="./docs.html" class="btn-primary">
-						<span data-i18n-zh="📖 阅读完整使用文档 (16 章)" data-i18n-en="📖 Read Full Documentation (16 Chapters)">📖 阅读完整使用文档 (16 章)</span>
+						<span data-i18n-zh="📖 阅读完整使用文档 (20 章全集)" data-i18n-en="📖 Read Full Documentation (20 Chapters)">📖 阅读完整使用文档 (20 章全集)</span>
+					</a>
+					<a href="./docs.html#remote-ssh-projects" class="btn-secondary">
+						<span data-i18n-zh="🌐 SSH 远程项目指南" data-i18n-en="🌐 Remote SSH Guide">🌐 SSH 远程项目指南</span>
+					</a>
+					<a href="./docs.html#subagents-and-delegation" class="btn-secondary">
+						<span data-i18n-zh="🤖 子代理与委派手册" data-i18n-en="🤖 Subagents Guide">🤖 子代理与委派手册</span>
 					</a>
 					<a href="https://github.com/xing-shuyin/pi-web-ui" target="_blank" rel="noreferrer" class="btn-secondary">
-						<span data-i18n-zh="⭐ 访问 GitHub 仓库" data-i18n-en="⭐ View on GitHub">⭐ 访问 GitHub 仓库</span>
-					</a>
-					<a href="https://www.npmjs.com/package/pi-web-ui" target="_blank" rel="noreferrer" class="btn-secondary">
-						<span>📦 npm: pi-web-ui</span>
+						<span data-i18n-zh="⭐ GitHub 仓库" data-i18n-en="⭐ View on GitHub">⭐ GitHub 仓库</span>
 					</a>
 				</div>
 
@@ -143,88 +146,127 @@
 		<div class="container">
 			<div class="section-header">
 				<span class="section-tag">Why pi-web-ui</span>
-				<h2 class="section-title" data-i18n-zh="为高频日常研发打磨的六大核心支柱" data-i18n-en="Six Core Pillars Engineered for Daily Development">为高频日常研发打磨的六大核心支柱</h2>
-				<p class="section-desc" data-i18n-zh="不只是把命令行搬上网页，而是围绕开发者真实工作流重构的全功能 AI 驾驶舱。" data-i18n-en="More than a web wrapper — a complete AI engineering cockpit designed around real developer workflows.">
-					不只是把命令行搬上网页，而是围绕开发者真实工作流重构的全功能 AI 驾驶舱。
+				<h2 class="section-title" data-i18n-zh="为高频日常研发打磨的九大核心能力" data-i18n-en="Nine Core Capabilities Engineered for Daily Development">为高频日常研发打磨的九大核心能力</h2>
+				<p class="section-desc" data-i18n-zh="从本机到远程 SSH 服务器，从单会话快聊到多子代理并行编码，覆盖研发全链路。" data-i18n-en="From local folders to Remote SSH servers, from fast chat to parallel multi-subagent engineering.">
+					从本机到远程 SSH 服务器，从单会话快聊到多子代理并行编码，覆盖研发全链路。
 				</p>
 			</div>
 
 			<div class="pillars-grid">
 				<div class="pillar-card">
-					<div class="pillar-icon">💬</div>
-					<h3 data-i18n-zh="流式对话、Steer 插队与跨端接管" data-i18n-en="Streaming Chat, Mid-Turn Steer & Takeover">流式对话、Steer 插队与跨端接管</h3>
-					<p data-i18n-zh="回复途中随时排队发送补充指令（Steer），排队消息可一键撤回草稿；支持任意历史节点 Fork 分支重问、内存无痕临时对话，以及电脑与手机间事务性过户接管（Takeover）。" data-i18n-en="Queue follow-up instructions mid-stream, recall queued bubbles back to draft, fork historical turns, run ephemeral in-memory chats, and take over active sessions across devices.">
-						回复途中随时排队发送补充指令（Steer），排队消息可一键撤回草稿；支持任意历史节点 Fork 分支重问、内存无痕临时对话，以及电脑与手机间事务性过户接管（Takeover）。
+					<div class="pillar-icon">🌐</div>
+					<h3 data-i18n-zh="直接打开 SSH 远程服务器项目" data-i18n-en="Open Remote SSH Projects Directly">直接打开 SSH 远程服务器项目</h3>
+					<p data-i18n-zh="无需在远端装 Web 服务！通过 ssh://user@host/path 直接连接远程服务器（支持私钥/密码/Agent 与 AES-256-GCM 凭据加密），自动探测远端环境并一键补齐依赖；文件树、AI 读写编辑、PTY 终端与 Git 全部无缝远端执行。" data-i18n-en="Connect to ssh://user@host/path directly with AES-256-GCM encrypted profiles and remote environment probing. File tree, read/write/edit/bash tools, PTY terminals, and Git all run natively over SSH.">
+						无需在远端装 Web 服务！通过 ssh://user@host/path 直接连接远程服务器（支持私钥/密码/Agent 与 AES-256-GCM 凭据加密），自动探测远端环境并一键补齐依赖；文件树、AI 读写编辑、PTY 终端与 Git 全部无缝远端执行。
 					</p>
 					<div class="pillar-tags">
-						<span class="pillar-tag">60ms Snapshot</span>
-						<span class="pillar-tag">Mid-Stream Steer</span>
-						<span class="pillar-tag">Session Takeover</span>
+						<span class="pillar-tag">ssh:// Workspace</span>
+						<span class="pillar-tag">AES-256-GCM</span>
+						<a href="./docs.html#remote-ssh-projects" class="pillar-tag" style="color:var(--accent);">查看第 05 章 →</a>
 					</div>
 				</div>
 
 				<div class="pillar-card">
 					<div class="pillar-icon">📁</div>
-					<h3 data-i18n-zh="零上下文污染附件与视觉桥" data-i18n-en="Zero-Bloat File References & Vision Bridge">零上下文污染附件与视觉桥</h3>
-					<p data-i18n-zh="文件引用采用轻量化 reference / lines 行号范围传递，绝不把大文件整块塞爆 Prompt；内置 UTF-8/GBK 自动嗅探预览；非视觉代码模型自动经 Vision Bridge 转写截图。" data-i18n-en="Pass lightweight path or line-range references without bloating context. Automatic UTF-8/GBK preview fallback and Vision Bridge image transcription for text-only models.">
-						文件引用采用轻量化 reference / lines 行号范围传递，绝不把大文件整块塞爆 Prompt；内置 UTF-8/GBK 自动嗅探预览；非视觉代码模型自动经 Vision Bridge 转写截图。
+					<h3 data-i18n-zh="文件列表拖拽上传文件/文件夹与解压" data-i18n-en="File Tree Upload, Folder Stream & Archive">文件列表拖拽上传文件/文件夹与解压</h3>
+					<p data-i18n-zh="右栏文件列表支持类 VSCode 拖拽上传文件到指定子目录、流式 TAR 管道上传整个文件夹（带实时速率与进度条）、右键打包下载目录、在线压缩/解压 (.zip/.tar.gz/.7z)、跨盘符 @root 浏览与 8 根目录挂载。" data-i18n-en="Drag-and-drop files into target folders, stream-upload entire directory trees via TAR, compress/download folders as ZIP/TAR.GZ, extract archives in place, browse @root drives, and mount 8 roots.">
+						右栏文件列表支持类 VSCode 拖拽上传文件到指定子目录、流式 TAR 管道上传整个文件夹（带实时速率与进度条）、右键打包下载目录、在线压缩/解压 (.zip/.tar.gz/.7z)、跨盘符 @root 浏览与 8 根目录挂载。
 					</p>
 					<div class="pillar-tags">
-						<span class="pillar-tag">Multi-Root (8)</span>
+						<span class="pillar-tag">Drag & Drop Upload</span>
+						<span class="pillar-tag">ZIP / TAR Extract</span>
+						<a href="./docs.html#file-tree-and-transfer" class="pillar-tag" style="color:var(--accent);">查看第 06 章 →</a>
+					</div>
+				</div>
+
+				<div class="pillar-card">
+					<div class="pillar-icon">🤖</div>
+					<h3 data-i18n-zh="并发子代理与六段式严谨委派" data-i18n-en="Parallel Subagents & 6-Section Delegation">并发子代理与六段式严谨委派</h3>
+					<p data-i18n-zh="支持并行派生多个后台子代理（subagent）、六段式强校验任务书（delegate_task）、可配工具白名单与专属模型的专家模板库、子代理间点对点移交（handoff），以及防并发踩踏的 claim_files 文件排他锁。" data-i18n-en="Spawn parallel background subagents, enforce 6-section briefs via delegate_task, configure specialist templates, handoff payloads peer-to-peer, and lock files exclusively with claim_files.">
+						支持并行派生多个后台子代理（subagent）、六段式强校验任务书（delegate_task）、可配工具白名单与专属模型的专家模板库、子代理间点对点移交（handoff），以及防并发踩踏的 claim_files 文件排他锁。
+					</p>
+					<div class="pillar-tags">
+						<span class="pillar-tag">delegate_task</span>
+						<span class="pillar-tag">Peer Handoff</span>
+						<a href="./docs.html#subagents-and-delegation" class="pillar-tag" style="color:var(--accent);">查看第 11 章 →</a>
+					</div>
+				</div>
+
+				<div class="pillar-card">
+					<div class="pillar-icon">💬</div>
+					<h3 data-i18n-zh="划词引用、按轮次回滚与跨端过户" data-i18n-en="Selection Quote, Snapshot Rollback & Takeover">划词引用、按轮次回滚与跨端过户</h3>
+					<p data-i18n-zh="在回复或文件预览中划词即浮出「引用」按钮；每轮改码前自动建立工作区快照，支持一键回滚（Rollback）到任意历史轮次；支持回复中 Steer 插队与撤回、8 会话并发及手机/电脑间事务性过户接管。" data-i18n-en="Highlight text to quote, rollback workspace file changes to any historical turn, steer mid-stream, run 8 concurrent sessions per project, and take over active sessions across devices.">
+						在回复或文件预览中划词即浮出「引用」按钮；每轮改码前自动建立工作区快照，支持一键回滚（Rollback）到任意历史轮次；支持回复中 Steer 插队与撤回、8 会话并发及手机/电脑间事务性过户接管。
+					</p>
+					<div class="pillar-tags">
+						<span class="pillar-tag">Selection Quote</span>
+						<span class="pillar-tag">Turn Rollback</span>
+						<a href="./docs.html#chat-and-sessions" class="pillar-tag" style="color:var(--accent);">查看第 04 章 →</a>
+					</div>
+				</div>
+
+				<div class="pillar-card">
+					<div class="pillar-icon">📎</div>
+					<h3 data-i18n-zh="Office/PDF 预览、在线编辑与视觉桥" data-i18n-en="Office/PDF Preview, Inline Edit & Vision Bridge">Office/PDF 预览、在线编辑与视觉桥</h3>
+					<p data-i18n-zh="文件引用采用轻量 reference/lines 传递不撑爆上下文；内置 .docx/.xlsx/.pptx/.pdf 原生预览、UTF-8/GBK 防乱码嗅探与源码在线编辑保存；非视觉模型自动经 Vision Bridge 转写截图。" data-i18n-en="Zero-bloat file/line references, native .docx/.xlsx/.pptx/.pdf preview, inline code editing with GBK fallback, and automatic Vision Bridge transcription for text-only models.">
+						文件引用采用轻量 reference/lines 传递不撑爆上下文；内置 .docx/.xlsx/.pptx/.pdf 原生预览、UTF-8/GBK 防乱码嗅探与源码在线编辑保存；非视觉模型自动经 Vision Bridge 转写截图。
+					</p>
+					<div class="pillar-tags">
+						<span class="pillar-tag">Office & PDF</span>
 						<span class="pillar-tag">Vision Bridge</span>
-						<span class="pillar-tag">present_files Card</span>
+						<a href="./docs.html#attachments-and-vision" class="pillar-tag" style="color:var(--accent);">查看第 07 章 →</a>
 					</div>
 				</div>
 
 				<div class="pillar-card">
 					<div class="pillar-icon">💻</div>
-					<h3 data-i18n-zh="内置真 PTY 终端与 AI Bash 接管" data-i18n-en="Native PTY Terminal & AI Bash Takeover">内置真 PTY 终端与 AI Bash 接管</h3>
-					<p data-i18n-zh="每会话独立多标签 node-pty + xterm.js 终端。开启「默认 bash 走终端」后，AI 命令在可见终端内实时执行，支持 persist=true 持久 ai-bash 会话与 3 秒静默进程树活力探测。" data-i18n-en="Per-session multi-tab node-pty terminals. Route AI bash calls into visible terminals with persistent ai-bash state (cd/venv/ssh) and 3-second silence liveness probing.">
-						每会话独立多标签 node-pty + xterm.js 终端。开启「默认 bash 走终端」后，AI 命令在可见终端内实时执行，支持 persist=true 持久 ai-bash 会话与 3 秒静默进程树活力探测。
+					<h3 data-i18n-zh="真 PTY 终端、AI Bash 与 AI Git 提交" data-i18n-en="Native/SSH PTY, AI Bash & AI Git Commit">真 PTY 终端、AI Bash 与 AI Git 提交</h3>
+					<p data-i18n-zh="每会话独立多标签本机/SSH 远端 PTY 终端；开启「默认 bash 走终端」后 AI 命令实时可见可交互（含 persist=true 持久会话与 3 秒静默活力探测）；内置 Git 面板支持一键 ✨ AI 生成 Commit Message。" data-i18n-en="Per-session local or SSH PTY terminals with live AI Bash takeover, persistent ai-bash state, 3s silence liveness probe, and built-in Git SCM with one-click AI Commit Message generation.">
+						每会话独立多标签本机/SSH 远端 PTY 终端；开启「默认 bash 走终端」后 AI 命令实时可见可交互（含 persist=true 持久会话与 3 秒静默活力探测）；内置 Git 面板支持一键 ✨ AI 生成 Commit Message。
 					</p>
 					<div class="pillar-tags">
-						<span class="pillar-tag">node-pty + xterm.js</span>
 						<span class="pillar-tag">Persistent ai-bash</span>
-						<span class="pillar-tag">3s Liveness Probe</span>
+						<span class="pillar-tag">AI Commit Msg</span>
+						<a href="./docs.html#terminal-and-bash" class="pillar-tag" style="color:var(--accent);">查看第 08/09 章 →</a>
 					</div>
 				</div>
 
 				<div class="pillar-card">
-					<div class="pillar-icon">🌿</div>
-					<h3 data-i18n-zh="内置 Git 面板与三级工具审批门禁" data-i18n-en="Built-in Git SCM & 3-Tier Approval Gate">内置 Git 面板与三级工具审批门禁</h3>
-					<p data-i18n-zh="侧栏直接查看 Staged / Changes / Untracked、语法高亮 Diff，一键 Stage / Commit / Push / Pull / Stash。配合三级工具审批门禁（approval-rules.json）与默认 Loopback 安全边界。" data-i18n-en="Stage, diff, commit, push, pull, and stash directly in the sidebar. Protected by a 3-tier tool approval gate, loopback default, and strict Origin verification.">
-						侧栏直接查看 Staged / Changes / Untracked、语法高亮 Diff，一键 Stage / Commit / Push / Pull / Stash。配合三级工具审批门禁（approval-rules.json）与默认 Loopback 安全边界。
+					<div class="pillar-icon">🔌</div>
+					<h3 data-i18n-zh="MCP 市场热重载与浏览器页面控制" data-i18n-en="MCP Marketplace & Live Browser Control">MCP 市场热重载与浏览器页面控制</h3>
+					<p data-i18n-zh="可视化管理 Stdio / SSE / HTTP MCP 服务器，支持免重启热重载与公开 MCP 市场在线搜索一键导入；配合 Page Picker 浏览器扩展可点选网页 DOM、读取控制台日志并由 AI 交互操控。" data-i18n-en="Connect Stdio/SSE/HTTP MCP servers with hot-reload and public marketplace search. Pair with the Page Picker extension to inspect DOM elements and control browser tabs.">
+						可视化管理 Stdio / SSE / HTTP MCP 服务器，支持免重启热重载与公开 MCP 市场在线搜索一键导入；配合 Page Picker 浏览器扩展可点选网页 DOM、读取控制台日志并由 AI 交互操控。
 					</p>
 					<div class="pillar-tags">
-						<span class="pillar-tag">Git Diff & Commit</span>
-						<span class="pillar-tag">Approval Rules</span>
-						<span class="pillar-tag">Zero Key Leak</span>
+						<span class="pillar-tag">MCP Hot-Reload</span>
+						<span class="pillar-tag">Page Picker</span>
+						<a href="./docs.html#mcp-and-browser" class="pillar-tag" style="color:var(--accent);">查看第 14 章 →</a>
 					</div>
 				</div>
 
 				<div class="pillar-card">
-					<div class="pillar-icon">⚡</div>
-					<h3 data-i18n-zh="前缀缓存安全的工具延迟加载" data-i18n-en="Cache-Safe Lazy Tool Loading & Soft Cap">前缀缓存安全的工具延迟加载</h3>
-					<p data-i18n-zh="系统提示词工具目录恒定不变，外围工具通过 load_tools 按需追加完整 Schema，确保 Anthropic/OpenAI/DeepSeek 前缀缓存 100% 命中；支持上下文压缩软上限（Soft Cap）。" data-i18n-en="Keep system prompt prefix caches 100% warm by attaching secondary tool schemas on demand via load_tools, paired with configurable context compaction Soft Cap.">
-						系统提示词工具目录恒定不变，外围工具通过 load_tools 按需追加完整 Schema，确保 Anthropic/OpenAI/DeepSeek 前缀缓存 100% 命中；支持上下文压缩软上限（Soft Cap）。
+					<div class="pillar-icon">⏰</div>
+					<h3 data-i18n-zh="后台任务管家、定时唤醒与缓存安全" data-i18n-en="Bg Tasks, Scheduler & Cache-Safe Lazy Tools">后台任务管家、定时唤醒与缓存安全</h3>
+					<p data-i18n-zh="顶栏一键管控常驻后台服务（BgTasksModal），支持 schedule_task 创建延时/周期自动唤醒任务；工具延迟加载确保 Prompt 前缀缓存 100% 命中，配合 edit_soft / hashline / lsp / codemode 等 30+ 工具。" data-i18n-en="Manage background daemons, schedule autonomous wake-up tasks, and keep prompt prefix caches 100% warm with lazy tool loading across 30+ advanced tools.">
+						顶栏一键管控常驻后台服务（BgTasksModal），支持 schedule_task 创建延时/周期自动唤醒任务；工具延迟加载确保 Prompt 前缀缓存 100% 命中，配合 edit_soft / hashline / lsp / codemode 等 30+ 工具。
 					</p>
 					<div class="pillar-tags">
+						<span class="pillar-tag">Scheduler</span>
 						<span class="pillar-tag">100% Prefix Cache</span>
-						<span class="pillar-tag">Soft Cap Compaction</span>
-						<span class="pillar-tag">Inline Markers</span>
+						<a href="./docs.html#tools-and-markers" class="pillar-tag" style="color:var(--accent);">查看第 13/15 章 →</a>
 					</div>
 				</div>
 
 				<div class="pillar-card">
 					<div class="pillar-icon">🧩</div>
-					<h3 data-i18n-zh="插件 API v2、社区预设与双引擎" data-i18n-en="Plugin SDK v2, Preset Sharing & Dual Engines">插件 API v2、社区预设与双引擎</h3>
-					<p data-i18n-zh="同时支持 pi SDK 与 DeepSeek Harness (DSH) 引擎；33 个 UI 插槽支持自由拖拽排序与重命名；设置预设经四道白名单闸门净化，一键导入导出或分享到社区仓库。" data-i18n-en="Run pi or DSH engine, customize 33 UI slots via drag-and-drop, and share settings presets safely through a 4-gate whitelist sanitizer.">
-						同时支持 pi SDK 与 DeepSeek Harness (DSH) 引擎；33 个 UI 插槽支持自由拖拽排序与重命名；设置预设经四道白名单闸门净化，一键导入导出或分享到社区仓库。
+					<h3 data-i18n-zh="双引擎、社区预设、10 国语言与三级审批" data-i18n-en="Dual Engines, Presets, 10 Locales & Security">双引擎、社区预设、10 国语言与三级审批</h3>
+					<p data-i18n-zh="同时支持 pi 与 DeepSeek Harness (DSH) 引擎及 OAuth 登录；设置预设经四道白名单闸门净化一键分享；33 个 UI 插槽自由拖拽；内置三级工具审批门禁、10 国界面语言与提示音合成器。" data-i18n-en="Run pi or DSH engine, share presets via a 4-gate whitelist sanitizer, customize 33 UI slots, enforce 3-tier tool approval rules, and switch across 10 languages.">
+						同时支持 pi 与 DeepSeek Harness (DSH) 引擎及 OAuth 登录；设置预设经四道白名单闸门净化一键分享；33 个 UI 插槽自由拖拽；内置三级工具审批门禁、10 国界面语言与提示音合成器。
 					</p>
 					<div class="pillar-tags">
-						<span class="pillar-tag">pi + DSH Engines</span>
-						<span class="pillar-tag">4-Gate Preset Share</span>
-						<span class="pillar-tag">Electron Desktop</span>
+						<span class="pillar-tag">pi + DSH</span>
+						<span class="pillar-tag">3-Tier Approval</span>
+						<a href="./docs.html#dual-engines-and-presets" class="pillar-tag" style="color:var(--accent);">查看第 16/17 章 →</a>
 					</div>
 				</div>
 			</div>
@@ -339,7 +381,7 @@ PI_WEB_TOKEN=secret docker compose up -d</code></pre>
 
 			<div style="text-align:center;margin-top:42px;">
 				<a href="./docs.html" class="btn-primary" style="font-size:1.05rem;padding:14px 28px;">
-					<span data-i18n-zh="📚 进入文档中心查看全部 16 章详细手册 →" data-i18n-en="📚 Explore All 16 Chapters in the Documentation Portal →">📚 进入文档中心查看全部 16 章详细手册 →</span>
+					<span data-i18n-zh="📚 进入文档中心查看全部 20 章详细手册 →" data-i18n-en="📚 Explore All 20 Chapters in the Documentation Portal →">📚 进入文档中心查看全部 20 章详细手册 →</span>
 				</a>
 			</div>
 		</div>

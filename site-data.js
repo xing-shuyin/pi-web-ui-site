@@ -810,95 +810,95 @@ export const SITE_DATA = {
 			"id": "chat-prompts",
 			"title": "对话工作台 + 提示词模板",
 			"titleEn": "Chat Cockpit & Prompt Templates",
-			"caption": "流式对话、思考块、工具调用卡片、快捷短语栏与空状态一键提示词模板库，左右双栏文件树与会话列表随时折叠。",
-			"captionEn": "Streaming chat, thinking blocks, tool cards, quick phrases bar, and one-click prompt templates with collapsible dual sidebars.",
+			"caption": "流式对话、思考块、工具调用卡片、划词引用、一键回滚快照与空状态提示词模板库，左右双栏文件树与会话列表随时折叠。",
+			"captionEn": "Streaming chat, thinking blocks, tool cards, selection quote, workspace rollback, and starter prompt templates with collapsible sidebars.",
 			"src": "./assets/chat-prompts.jpeg",
 			"badge": "Core Workspace",
 			"highlights": [
-				"60ms 节流快照驱动 + message_delta 实时流式输出",
-				"支持回复途中补充（Steer）插队、排队撤回与任意历史分支重问",
-				"空对话一键提示词模板（代码审查、仓库初始化、合并冲突排查等）"
+				"60ms 节流快照驱动 + 回复中 Steer 插队补充 + 任意历史分支编辑重问",
+				"支持直接打开本机目录或 🌐 远程 SSH 服务器项目（ssh://user@host/path）",
+				"支持划词选中文字一键引用提问，以及按对话轮次一键回滚（Rollback）代码修改"
 			],
 			"highlightsEn": [
-				"60ms throttled snapshot engine + real-time message_delta streaming",
-				"Mid-stream Steer queueing, queue recall, and non-destructive branch re-ask",
-				"One-click starter prompt templates for code review, repo init, conflict resolution"
+				"60ms throttled snapshot engine + mid-stream Steer queueing + branch re-asking",
+				"Open local folders or 🌐 Remote SSH server projects (ssh://user@host/path) directly",
+				"Highlight any text/code to quote & rollback workspace file changes to any turn"
 			]
 		},
 		{
 			"id": "trajectory",
 			"title": "运行轨迹时间线 (Run-Trace)",
 			"titleEn": "Run Trajectory Timeline (run-trace)",
-			"caption": "将任务 → 思考 → 工具调用 → 文件改动 → 最终结果聚合为可视化时间线，支持按轮次回放与节点耗时诊断。",
-			"captionEn": "Aggregates Task → Thinking → Tool Calls → File Diffs → Results into an interactive timeline with replay & latency diagnostics.",
+			"caption": "将任务 → 思考 → 子代理派发 → 工具调用 → 文件改动 → 结果聚合为可视化时间线，支持按轮次回放与耗时诊断。",
+			"captionEn": "Aggregates Task → Thinking → Subagents → Tool Calls → File Diffs → Results into an interactive timeline.",
 			"src": "./assets/trajectory.jpeg",
 			"badge": "Observability",
 			"highlights": [
-				"全景透视智能体每一步推理、工具入参、终端输出与文件变更",
+				"全景透视主智能体与并发子代理（Subagents）的每一步推理、入参、终端输出与文件变更",
 				"直观定位耗时瓶颈与失败工具，支持一键跳转对应对话气泡",
-				"内置离线渲染引擎，大会话依然丝滑流畅"
+				"内置离线渲染引擎，长周期大型会话依然丝滑流畅"
 			],
 			"highlightsEn": [
-				"Full visibility into every reasoning step, tool argument, terminal output, and file diff",
+				"Full visibility into main agent and parallel subagent reasoning, tools, and file diffs",
 				"Pinpoint latency bottlenecks and failed tool calls with one-click message jump",
 				"Built-in offline rendering engine for smooth playback on long sessions"
 			]
 		},
 		{
 			"id": "terminal",
-			"title": "内置多标签真终端 (node-pty + xterm.js)",
-			"titleEn": "Built-in Multi-Tab PTY Terminal",
-			"caption": "服务端真实 PTY 经 WebSocket 桥接至浏览器，支持 AI Bash 可见终端接管、持久 ai-bash 会话与 3 秒静默活力探测。",
-			"captionEn": "Server-side native PTY bridged over WebSocket with AI Bash takeover, persistent ai-bash tab, and 3s silence liveness probing.",
+			"title": "内置多标签真终端 (本机 PTY + 远程 SSH Shell)",
+			"titleEn": "Built-in Multi-Tab PTY & Remote SSH Terminal",
+			"caption": "服务端真实 PTY（或 SSH 远端伪终端）经 WebSocket 桥接至浏览器，支持 AI Bash 可见终端接管、持久 ai-bash 会话与 3 秒静默活力探测。",
+			"captionEn": "Native local PTY or remote SSH PTY bridged over WebSocket with AI Bash takeover, persistent ai-bash tab, and 3s liveness probing.",
 			"src": "./assets/terminal.jpeg",
-			"badge": "Native PTY",
+			"badge": "Native & SSH PTY",
 			"highlights": [
-				"每对话独立多标签终端，默认在当前项目工作区目录启动",
-				"开启「默认 bash 走终端」后，AI 执行命令实时可见、可随时按键介入交互",
-				"底栏 3 秒无输出自动探测进程树（正常等待 / 交互提示 / 疑似卡死告警）"
+				"每对话独立多标签终端，打开远程 SSH 项目时自动在远端服务器目录启动 Shell",
+				"开启「默认 bash 走终端」后，AI 执行命令实时可见、可随时按键介入交互（y/n 确认等）",
+				"底栏 3 秒无输出自动探测进程树（正常计算中 / 等待交互输入 / 疑似卡死告警）"
 			],
 			"highlightsEn": [
-				"Per-conversation multi-tab PTY shells starting automatically in project cwd",
+				"Per-conversation multi-tab PTY shells (automatically connects to remote SSH cwd)",
 				"Optional AI Bash takeover lets you watch and interact with agent commands live",
 				"3-second silence detector inspects OS process tree for interactive prompts or stalls"
 			]
 		},
 		{
 			"id": "git",
-			"title": "内置 Git 源代码管理面板",
-			"titleEn": "Built-in Git Source Control Panel",
-			"caption": "无需离开浏览器即可查看 Staged / Unstaged / Untracked 变更、点击文件预览高亮 Diff、填写说明一键 Commit / Push / Pull / Stash。",
-			"captionEn": "Inspect Staged/Unstaged/Untracked changes, view syntax-highlighted diffs, and Commit/Push/Pull/Stash without leaving your tab.",
+			"title": "内置 Git 源代码管理面板 (含 AI 生成提交说明)",
+			"titleEn": "Built-in Git SCM Panel (with AI Commit Message)",
+			"caption": "无需离开浏览器即可查看 Staged / Changes / Untracked 变更、预览高亮 Diff、✨ AI 一键生成 Commit Message 并执行 Commit / Push / Pull / Stash。",
+			"captionEn": "Inspect Staged/Changes/Untracked files, view diffs, generate commit messages with AI, and Commit/Push/Pull/Stash in one tab.",
 			"src": "./assets/git.jpeg",
 			"badge": "Git SCM",
 			"highlights": [
-				"只读状态与 Diff 走轻量级 execFile，写操作可联动可见终端",
-				"支持一键 Stage / Unstage、丢弃修改、分支切换与远端同步",
-				"搭配 multi-git 插件更可升级为多仓库聚合总览与跨仓搜索"
+				"支持一键 ✨ AI 根据当前 Diff 自动生成规范 Commit Message",
+				"支持单文件/全量 Stage、Unstage、丢弃修改（Discard）、Stash 贮藏与分支切换",
+				"本机项目与 🌐 远程 SSH 项目均原生支持完整的 Git 面板操作"
 			],
 			"highlightsEn": [
-				"Fast read-only status/diff via execFile; write actions integrate with terminal",
-				"One-click Stage/Unstage, discard changes, branch switching, and remote sync",
-				"Pair with multi-git plugin for multi-repository workspace overview & search"
+				"One-click ✨ AI Commit Message generator based on staged/unstaged diffs",
+				"Stage, unstage, discard changes, stash, switch branches, and push/pull",
+				"Works seamlessly on both local workspaces and 🌐 Remote SSH workspaces"
 			]
 		},
 		{
 			"id": "settings",
-			"title": "全维度设置面板与预设共享",
-			"titleEn": "Comprehensive Settings & Preset Sharing",
-			"caption": "从系统提示词、31 项工具开关、延迟加载、子代理模板、模型管理到 UI 插槽排布与社区预设一键导入导出。",
-			"captionEn": "Control system prompts, 31 tool toggles, lazy loading, subagent templates, models, UI slot layout, and community presets.",
+			"title": "全维度设置面板：子代理模板、MCP、工具与预设共享",
+			"titleEn": "Settings Center: Subagent Templates, MCP, Tools & Presets",
+			"caption": "集中管理 31 项工具开关、专家子代理模板库、MCP 服务器与公开市场、定时唤醒任务、三级审批规则与社区预设一键分享。",
+			"captionEn": "Manage 31 tool toggles, specialist subagent templates, MCP servers & marketplace, scheduled tasks, approval rules, and presets.",
 			"src": "./assets/settings.jpeg",
 			"badge": "Control Center",
 			"highlights": [
+				"可视化配置专家子代理模板（Subagent Templates）与 MCP 服务器（支持热重载与市场检索）",
 				"31 个内置/扩展工具独立开关 + 逐工具提示词微调 + 前缀缓存安全的延迟加载",
-				"支持导出/导入 JSON 设置预设（四道白名单闸门净化），一键浏览与分享到社区仓库",
-				"33 个宿主 UI 扩展点自由拖拽排序、重命名与显隐控制"
+				"支持导出/导入 JSON 设置预设（四道白名单闸门净化），一键浏览与分享到社区仓库"
 			],
 			"highlightsEn": [
+				"Configure specialist Subagent Templates and MCP servers (with hot-reload & market search)",
 				"31 granular tool toggles + per-tool prompt overrides + cache-safe lazy tool loading",
-				"Export/import JSON presets (4-gate whitelist sanitizer) & browse community presets",
-				"Customize 33 host UI extension slots with drag-and-drop ordering and renaming"
+				"Export/import JSON presets (4-gate whitelist sanitizer) & browse community presets"
 			]
 		}
 	],
@@ -907,26 +907,26 @@ export const SITE_DATA = {
 			"id": "chat",
 			"badge": "Mode 01",
 			"icon": "💬",
-			"name": "标准对话模式",
-			"nameEn": "Standard Interactive Mode",
-			"tagline": "高频日常开发首选：流式响应、Steer 插队、全工具协同",
-			"taglineEn": "Tuned for daily coding: real-time streaming, mid-turn steering & full tool access",
-			"summary": "智能体在主会话中直接阅读代码、编辑文件、执行终端命令并展示产物卡片。你可随时排队发送补充指令（Steer），或从任意历史问题分叉（Fork）探索不同实现方案。",
-			"summaryEn": "The agent reads, edits, runs bash commands, and presents artifacts directly in your active session. Queue mid-stream steer instructions or fork any historical turn.",
+			"name": "标准对话 + 并发子代理模式",
+			"nameEn": "Standard Chat + Parallel Subagents",
+			"tagline": "高频日常开发首选：流式响应、Steer 插队、六段式子代理并发委派",
+			"taglineEn": "Tuned for daily coding: real-time streaming, mid-turn steering & parallel subagent delegation",
+			"summary": "主智能体直接读写文件、执行终端命令，并可通过 subagent 或 delegate_task（六段式严谨任务书）派生多个后台专家子代理并发探索、实现或审查代码，子代理间还可通过 handoff 点对点移交成果。",
+			"summaryEn": "The main agent reads/edits files, runs bash commands, and spawns parallel specialist subagents via subagent or 6-section delegate_task briefs with peer-to-peer handoff.",
 			"flow": [
-				"用户输入需求 / 粘贴截图 / @引用文件",
-				"智能体流式思考 + 调取工具 (Read/Edit/Bash)",
-				"实时渲染 Diff、终端输出与产物预览卡",
-				"随时 Steer 补充指令或一键 Commit 提交"
+				"用户输入需求 / 划词引用 / 拖拽上传文件",
+				"主代理或并发子代理 (Subagents) 协同编码",
+				"实时渲染 Diff、终端输出与 present_files 作品卡",
+				"随时 Steer 插队补充、一键回滚快照或 Git 提交"
 			],
 			"flowEn": [
-				"Prompt / Paste Image / @File Ref",
-				"Streaming Thinking + Tool Execution",
+				"Prompt / Selection Quote / Drag-Drop Upload",
+				"Main Agent & Parallel Subagents Execute",
 				"Live Diff, PTY Output & Artifact Cards",
-				"Mid-Stream Steer or One-Click Git Commit"
+				"Mid-Stream Steer, Snapshot Rollback or Commit"
 			],
-			"bestFor": "日常写代码、修 Bug、重构、交互式调试、快速问答",
-			"bestForEn": "Daily feature work, bug fixing, refactoring, interactive debugging"
+			"bestFor": "日常写代码、多模块并行调研与开发、修 Bug、重构、交互式调试",
+			"bestForEn": "Daily feature work, parallel multi-module exploration, bug fixing, refactoring"
 		},
 		{
 			"id": "goal",
@@ -1013,8 +1013,8 @@ export const SITE_DATA = {
 				"pi",
 				"dsh"
 			],
-			"desc": "执行 Shell 命令（支持原生进程或可见 PTY 终端接管、head/tail 截断与超时保护）",
-			"descEn": "Execute shell commands (native spawn or visible PTY terminal takeover with timeout & head/tail)"
+			"desc": "执行 Shell 命令（本机或远程 SSH 均可；支持原生进程或可见 PTY 终端接管、persist=true 持久会话、head/tail 截断与超时保护）",
+			"descEn": "Execute shell commands locally or over Remote SSH (native or visible PTY takeover with persist=true & timeout)"
 		},
 		{
 			"name": "read",
@@ -1024,8 +1024,8 @@ export const SITE_DATA = {
 				"pi",
 				"dsh"
 			],
-			"desc": "读取文本文件、图片附件或直接列出目录内容（readDirEnabled 行为开关）",
-			"descEn": "Read text files, images, or directory listings directly (with offset/limit pagination)"
+			"desc": "读取本机或远程 SSH 文本文件、图片、Office 文档或直接列出目录内容（readDirEnabled 行为开关）",
+			"descEn": "Read local/remote text files, images, Office docs, or directory listings directly"
 		},
 		{
 			"name": "edit",
@@ -1035,8 +1035,8 @@ export const SITE_DATA = {
 				"pi",
 				"dsh"
 			],
-			"desc": "精确文本替换修改文件，支持单次调用 edits[] 批量修改同一文件多处不重叠位置",
-			"descEn": "Precise file editing with multi-edit support (edits[]) in a single atomic call"
+			"desc": "精确文本替换修改文件（支持本机与远程 SSH），支持单次调用 edits[] 批量修改同一文件多处不重叠位置",
+			"descEn": "Precise file editing with multi-edit support (edits[]) on local or remote SSH files"
 		},
 		{
 			"name": "write",
@@ -1046,8 +1046,8 @@ export const SITE_DATA = {
 				"pi",
 				"dsh"
 			],
-			"desc": "创建新文件或完整覆写文件，自动创建父级目录",
-			"descEn": "Create or overwrite files, automatically creating parent directories"
+			"desc": "创建新文件或完整覆写文件（支持本机与远程 SSH），自动创建父级目录",
+			"descEn": "Create or overwrite local or remote SSH files, automatically creating parent directories"
 		},
 		{
 			"name": "grep",
@@ -1089,8 +1089,48 @@ export const SITE_DATA = {
 			"engines": [
 				"pi"
 			],
-			"desc": "缩进容错文件编辑：按行 trim 匹配，解决 JS/JSON 空格与 Tab 漂移导致的替换失败",
+			"desc": "缩进容错文件编辑：按行 trim 匹配，解决 JS/JSON 空格与 Tab 漂移导致的替换失败（支持本机与远程 SSH）",
 			"descEn": "Whitespace-tolerant file edit matching trimmed line content when exact edit fails"
+		},
+		{
+			"name": "hashline",
+			"group": "files",
+			"defaultOn": false,
+			"engines": [
+				"pi"
+			],
+			"desc": "基于行内容短哈希（Line Hash）锚定的高精度防漂移编辑引擎，彻底杜绝行号偏移错改",
+			"descEn": "Content-hash anchored line editing tool that prevents line-number drift"
+		},
+		{
+			"name": "patch",
+			"group": "files",
+			"defaultOn": false,
+			"engines": [
+				"pi"
+			],
+			"desc": "原子化应用多文件 Unified Diff 补丁（支持新增、修改、删除与重命名文件）",
+			"descEn": "Apply multi-file unified diff patches atomically"
+		},
+		{
+			"name": "lsp",
+			"group": "files",
+			"defaultOn": false,
+			"engines": [
+				"pi"
+			],
+			"desc": "调用语言服务器协议（LSP）查询符号定义、引用、悬停类型签名与诊断错误",
+			"descEn": "Query Language Server Protocol (LSP) for definitions, references, hover types, and diagnostics"
+		},
+		{
+			"name": "claim_files",
+			"group": "files",
+			"defaultOn": true,
+			"engines": [
+				"pi"
+			],
+			"desc": "多会话/多子代理并发编码时认领文件排他锁（Claim Lock），防止多个智能体同时踩踏修改同一文件",
+			"descEn": "Acquire exclusive file locks across concurrent sessions/subagents to prevent conflicting edits"
 		},
 		{
 			"name": "present_files",
@@ -1110,7 +1150,7 @@ export const SITE_DATA = {
 				"pi",
 				"dsh"
 			],
-			"desc": "弹出结构化多选/单选交互问卷向用户确认需求与技术决策（刷新可恢复，豁免看门狗超时）",
+			"desc": "弹出结构化多选/单选/依赖联动交互问卷向用户确认需求与技术决策（刷新可恢复，豁免看门狗超时）",
 			"descEn": "Render a rich browser questionnaire dialog to clarify requirements or confirm decisions"
 		},
 		{
@@ -1120,7 +1160,7 @@ export const SITE_DATA = {
 			"engines": [
 				"pi"
 			],
-			"desc": "结合 Page Picker 浏览器扩展读取或操作已授权的浏览器标签页 DOM 与截图",
+			"desc": "结合 Page Picker 浏览器扩展读取或操作已授权的浏览器标签页 DOM、提取元素与截图",
 			"descEn": "Inspect and interact with authorized browser tabs via the Page Picker extension"
 		},
 		{
@@ -1130,8 +1170,8 @@ export const SITE_DATA = {
 			"engines": [
 				"pi"
 			],
-			"desc": "管理后台子代理会话（spawn / wait_all / get_result / steer / stop / handoff / templates）",
-			"descEn": "Spawn, steer, wait for, and manage parallel background subagent conversations"
+			"desc": "全生命周期管理后台子代理会话：spawn（派生）、wait_all（等待）、get_result、steer（中途指导）、stop、templates、handoff（子代理间直接移交）",
+			"descEn": "Spawn, steer, wait for, handoff between, and manage parallel background subagent conversations"
 		},
 		{
 			"name": "delegate_task",
@@ -1140,8 +1180,8 @@ export const SITE_DATA = {
 			"engines": [
 				"pi"
 			],
-			"desc": "通过六段式严谨任务书（TASK/OUTCOME/TOOLS/MUST DO/MUST NOT DO/CONTEXT）向专家模板委派任务",
-			"descEn": "Delegate atomic tasks to specialist subagent templates via a validated 6-section brief"
+			"desc": "通过六段式严谨任务书（TASK/EXPECTED OUTCOME/REQUIRED TOOLS/MUST DO/MUST NOT DO/CONTEXT）向专家模板委派任务，服务端强校验拒绝笼统指令",
+			"descEn": "Delegate atomic tasks to specialist subagent templates via a server-validated 6-section brief"
 		},
 		{
 			"name": "conversation_list",
@@ -1304,8 +1344,8 @@ export const SITE_DATA = {
 			"flag": "--data-dir <dir>",
 			"env": "PI_WEB_DATA_DIR",
 			"def": "~/.pi-web",
-			"desc": "持久化数据目录（存放界面状态、插件、上传附件、自定义主题、审批规则库等）",
-			"descEn": "Data directory for UI state, plugins, uploads, custom themes, and approval rules"
+			"desc": "持久化数据目录（存放界面状态、插件、上传附件、自定义主题、SSH 加密配置、审批规则库等）",
+			"descEn": "Data directory for UI state, plugins, uploads, custom themes, SSH profiles, and approval rules"
 		},
 		{
 			"flag": "--engine <pi|dsh>",
@@ -1315,7 +1355,7 @@ export const SITE_DATA = {
 			"descEn": "Agent engine: pi (default) or dsh (DeepSeek Harness)"
 		},
 		{
-			"flag": "--dsh-Zone <path>",
+			"flag": "--dsh-cli <path>",
 			"env": "PI_WEB_DSH_CLI",
 			"def": "自动探测",
 			"desc": "DSH 引擎的 cli.js 路径（仅 --engine dsh 时生效）",
@@ -1333,7 +1373,7 @@ export const SITE_DATA = {
 			"env": "PI_WEB_ALLOW_ORIGINS",
 			"def": "同源校验",
 			"desc": "逗号分隔的额外允许 Origin 白名单（用于跨域反向代理或特殊端口映射）",
-			"descEn": "Comma-separated allowed Origins for reverse proxies Changing port/host"
+			"descEn": "Comma-separated allowed Origins for reverse proxies changing port/host"
 		},
 		{
 			"flag": "—",
@@ -1418,13 +1458,23 @@ export const SITE_DATA = {
 		},
 		{
 			"key": "@",
-			"action": "在输入框唤起工作区文件与对话引用选择器",
-			"actionEn": "Mention workspace files or reference other conversations"
+			"action": "在输入框唤起工作区文件与跨对话引用（<conversation-ref>）选择器",
+			"actionEn": "Mention workspace files or reference other conversations (<conversation-ref>)"
 		},
 		{
-			"key": "Ctrl / Cmd + V",
-			"action": "直接粘贴剪贴板截图/图片或文件作为对话附件",
-			"actionEn": "Paste clipboard images or files directly as attachments"
+			"key": "划词选中任意文本",
+			"action": "在助手回复或文件预览中划词选中文字，浮出「💬 引用」按钮一键作为引用卡片挂入输入框",
+			"actionEn": "Select any text in messages or file previews to pop up the one-click Quote button"
+		},
+		{
+			"key": "拖拽文件到右栏文件树",
+			"action": "拖到文件夹行即上传进该文件夹；拖到文件行或列表空白处即上传到当前所在目录",
+			"actionEn": "Drag files from OS into the right File Tree to upload directly into the target folder"
+		},
+		{
+			"key": "拖拽文件到主聊天区 / Ctrl+V",
+			"action": "将文件或剪贴板截图作为当前对话的附件卡片添加到输入框",
+			"actionEn": "Drop files onto main chat or press Ctrl+V to attach to composer"
 		},
 		{
 			"key": "Esc",
@@ -1459,9 +1509,9 @@ export const SITE_DATA = {
 			"descEn": "Manually compact conversation context into a summary card"
 		},
 		{
-			"cmd": "/cwd [路径]",
-			"desc": "查看或立即切换当前项目的工作区根目录（无需重启服务）",
-			"descEn": "Show or switch the workspace root directory on the fly"
+			"cmd": "/cwd [路径 | ssh://...]",
+			"desc": "查看或立即切换当前项目的工作区根目录（支持本机路径与 ssh://user@host/path 远程项目）",
+			"descEn": "Show or switch workspace root directory (supports local paths and ssh:// remote URIs)"
 		},
 		{
 			"cmd": "/resume",
@@ -1470,8 +1520,8 @@ export const SITE_DATA = {
 		},
 		{
 			"cmd": "/reload",
-			"desc": "热重载磁盘上的配置、AGENTS.md、技能（Skills）、插件与主题",
-			"descEn": "Hot-reload configuration, AGENTS.md, skills, plugins, and themes"
+			"desc": "热重载磁盘上的配置、AGENTS.md、技能（Skills）、插件、MCP 与主题",
+			"descEn": "Hot-reload configuration, AGENTS.md, skills, plugins, MCP, and themes"
 		},
 		{
 			"cmd": "/copy",
