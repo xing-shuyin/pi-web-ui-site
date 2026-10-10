@@ -67,10 +67,10 @@ export const DOCS_CHAPTERS = [
 		summaryEn: "Discover the full landscape of pi-web-ui: streaming chat, Remote SSH workspaces, file tree uploads, parallel subagents, and Goal Mode 2.0.",
 		contentZh: `
 <h2 id="what-is-pi-web-ui">什么是 pi-web-ui？</h2>
-<p><strong>pi-web-ui</strong> 是基于 <code>@earendil-works/pi-coding-agent</code> SDK 与 DeepSeek Harness (DSH) 构建的全栈浏览器端 AI 编程智能体工作台。它的核心设计理念只有一句话：</p>
+<p><strong>pi-web-ui</strong> 是基于 <code>@earendil-works/pi-coding-agent</code> SDK 与 DeepSeek Harness (DSH) 构建的<strong>跨平台全栈 AI 研发工作台（同时提供 Web 端与 Electron 原生桌面客户端）</strong>：</p>
 <div class="doc-callout doc-callout-tip">
-	<strong>💡 核心宗旨：打开浏览器，什么都能干（Just open your browser — get all your work done）</strong>
-	<p>无论项目在本机磁盘还是<strong>远程 SSH 服务器（<code>ssh://user@host/path</code>）</strong>，你只需打开一个浏览器标签页，即可完成：流式对话、划词引用提问、按轮次一键回滚代码、派发并发子代理（Subagents）、浏览并拖拽上传文件/文件夹、在线解压/打包下载、预览 Office/PDF/媒体、使用多标签真 PTY 终端、管理 Git 暂存与 AI 生成提交说明，以及运行多轮自治的目标模式 2.0 审查。</p>
+	<strong>💡 核心定位：多智能体协同，全栈 AI 研发工作台（Full-Stack AI Coding Workbench）</strong>
+	<p>无论你习惯使用<strong>原生桌面客户端（Desktop App）</strong>还是<strong>浏览器（Web / 移动端）</strong>，无论项目位于本机磁盘还是<strong>远程 SSH 服务器（<code>ssh://user@host/path</code>）</strong>，都能在一个统一的工作台中完成：流式对话、划词引用提问、按轮次一键回滚代码、派发并发子代理（Subagents）、浏览并拖拽上传文件/文件夹、在线解压/打包下载、预览 Office/PDF/媒体、使用多标签真 PTY 终端、管理 Git 暂存与 AI 生成提交说明，以及运行多轮自治的目标模式 2.0 审查。</p>
 </div>
 
 <h2 id="thirty-second-quickstart">30 秒极速启动</h2>
@@ -107,7 +107,7 @@ npx pi-web-ui@latest
 `,
 		contentEn: `
 <h2 id="what-is-pi-web-ui">What is pi-web-ui?</h2>
-<p>A full-stack browser cockpit for AI coding agents. Run local code or connect to <strong>Remote SSH servers (<code>ssh://user@host/path</code>)</strong> directly in one tab with streaming chat, selection quotes, turn rollbacks, parallel subagents, drag-drop file/folder uploads, PTY terminals, and Git SCM.</p>
+<p>A cross-platform, full-stack AI coding workbench available as both a <strong>native Electron Desktop app</strong> and a <strong>Web application</strong>. Work on local repositories or connect directly to <strong>Remote SSH servers (<code>ssh://user@host/path</code>)</strong> with streaming chat, selection quotes, turn rollbacks, parallel subagents, drag-drop file/folder uploads, PTY terminals, and Git SCM.</p>
 <pre><code class="language-bash">npm i -g pi-web-ui@latest
 pi-web-ui</code></pre>
 `,

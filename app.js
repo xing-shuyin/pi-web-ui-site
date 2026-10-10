@@ -25,6 +25,11 @@ const INSTALL_COMMANDS = {
 		labelEn: "npx Zero-Install",
 		cmd: "npx pi-web-ui@latest",
 	},
+	desktop: {
+		labelZh: "🖥️ Electron 桌面客户端",
+		labelEn: "🖥️ Desktop App (Electron)",
+		cmd: "git clone https://github.com/xing-shuyin/pi-web-ui.git && cd pi-web-ui && npm i && npm run build && npm --prefix desktop i && npm --prefix desktop start",
+	},
 	npm12: {
 		labelZh: "npm 12+ 放行原生编译",
 		labelEn: "npm 12+ Native Scripts",
