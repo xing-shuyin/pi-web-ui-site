@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="zh-CN" data-site-theme="dark">
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>详细说明与使用文档 — pi-web-ui 官方手册 (16 章全集)</title>
+	<meta name="description" content="pi-web-ui 官方完整使用手册与技术架构文档：涵盖快速开始、多平台安装、CLI 与环境变量、流式对话、多根文件树与视觉桥、真 PTY 终端与 Git、目标模式 2.0、计划模式、31 项内置工具、21 款插件开发与 Nginx 部署。" />
+	<link rel="icon" type="image/svg+xml" href="./assets/favicon.svg" />
+	<link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+	<!-- Top Sticky Glass Navigation -->
+	<header class="site-header">
+		<div class="header-inner">
+			<a href="./index.html" class="brand">
+				<img src="./assets/favicon.svg" alt="pi-web-ui logo" />
+				<span>pi-web-ui</span>
+				<span class="version-pill">Docs · v0.102.0</span>
+			</a>
+
+			<nav class="nav-links">
+				<a href="./index.html" class="nav-link" data-i18n-zh="← 返回宣传首页" data-i18n-en="← Product Home">← 返回宣传首页</a>
+				<a href="#overview" class="nav-link" data-i18n-zh="快速开始" data-i18n-en="Quick Start">快速开始</a>
+				<a href="#cli-and-env" class="nav-link" data-i18n-zh="CLI 与环境变量" data-i18n-en="CLI & Env">CLI 与环境变量</a>
+				<a href="#modes-guide" class="nav-link" data-i18n-zh="目标模式 2.0" data-i18n-en="Goal Mode 2.0">目标模式 2.0</a>
+				<a href="#tools-and-markers" class="nav-link" data-i18n-zh="工具与标记" data-i18n-en="Tools & Markers">工具与标记</a>
+				<a href="#plugin-sdk" class="nav-link" data-i18n-zh="插件开发 v2" data-i18n-en="Plugin SDK v2">插件开发 v2</a>
+				<a href="#daemon-and-proxy" class="nav-link" data-i18n-zh="生产部署" data-i18n-en="Deployment">生产部署</a>
+			</nav>
+
+			<div class="header-actions">
+				<button type="button" class="search-trigger" data-open-search="1">
+					<span data-i18n-zh="🔍 全文检索 16 章手册..." data-i18n-en="🔍 Search all 16 chapters...">🔍 全文检索 16 章手册...</span>
+					<kbd class="search-kbd">Ctrl K</kbd>
+				</button>
+
+				<select id="site-theme-select" class="select-pill" aria-label="Site Theme">
+					<option value="dark">🌙 暗夜深邃 (Dark)</option>
+					<option value="light">☀️ 纯净浅色 (Light)</option>
+					<option value="cyberpunk">⚡ 赛博霓虹 (Cyberpunk)</option>
+					<option value="zhupi">📜 朱批御览 (Vermilion)</option>
+				</select>
+
+				<button type="button" id="lang-toggle-btn" class="icon-btn">🌐 English</button>
+
+				<a href="https://github.com/xing-shuyin/pi-web-ui" target="_blank" rel="noreferrer" class="icon-btn btn-github">
+					⭐ GitHub
+				</a>
+			</div>
+		</div>
+	</header>
+
+	<!-- 3-Column Documentation Portal -->
+	<div class="docs-layout">
+		<aside class="docs-sidebar" id="docs-sidebar" aria-label="Documentation Chapters"></aside>
+
+		<main class="docs-main" id="docs-article"></main>
+
+		<aside class="docs-toc" aria-label="Table of Contents">
+			<div class="docs-toc-title" data-i18n-zh="本页目录 (On This Page)" data-i18n-en="On This Page">本页目录 (On This Page)</div>
+			<ul class="docs-toc-list" id="docs-toc-list"></ul>
+			<div style="margin-top:24px;padding-top:16px;border-top:1px solid var(--border);display:flex;flex-direction:column;gap:8px;font-size:0.8rem;">
+				<a href="https://github.com/xing-shuyin/pi-web-ui/issues" target="_blank" rel="noreferrer">🐞 反馈问题 (GitHub Issues) ↗</a>
+				<a href="https://github.com/xing-shuyin/pi-web-ui/discussions" target="_blank" rel="noreferrer">💬 社区讨论 (Discussions) ↗</a>
+				<a href="https://github.com/xing-shuyin/pi-web-ui-presets" target="_blank" rel="noreferrer">🎁 浏览社区设置预设 ↗</a>
+			</div>
+		</aside>
+	</div>
+
+	<!-- Footer -->
+	<footer class="site-footer">
+		<div class="container footer-grid">
+			<div>
+				<div style="font-weight:700;color:var(--text);font-size:1rem;margin-bottom:6px;">
+					💬 pi-web-ui Official Documentation Portal
+				</div>
+				<div>
+					MIT License · Created by <a href="https://github.com/xing-shuyin" target="_blank" rel="noreferrer">xingshuyin</a> · QQ 交流群：<code>1126050727</code>
+				</div>
+			</div>
+			<div style="display:flex;gap:18px;flex-wrap:wrap;">
+				<a href="./index.html">宣传首页 (Home)</a>
+				<a href="https://github.com/xing-shuyin/pi-web-ui" target="_blank" rel="noreferrer">GitHub</a>
+				<a href="https://www.npmjs.com/package/pi-web-ui" target="_blank" rel="noreferrer">npm</a>
+			</div>
+		</div>
+	</footer>
+
+	<!-- Global Search Modal (Ctrl + K) -->
+	<div class="modal-backdrop" id="search-modal-backdrop">
+		<div class="search-modal">
+			<div class="search-modal-input-wrap">
+				<span>🔍</span>
+				<input
+					type="search"
+					id="global-search-input"
+					class="search-modal-input"
+					placeholder="搜索 16 章文档、31 个工具、21 款插件、CLI 参数与环境变量..."
+					data-i18n-placeholder-zh="搜索 16 章文档、31 个工具、21 款插件、CLI 参数与环境变量..."
+					data-i18n-placeholder-en="Search 16 doc chapters, 31 tools, 21 plugins, CLI flags & env vars..."
+				/>
+				<kbd class="search-kbd">ESC</kbd>
+			</div>
+			<div class="search-results-list" id="global-search-results"></div>
+		</div>
+	</div>
+
+	<script type="module" src="./app.js"></script>
+</body>
+</html>

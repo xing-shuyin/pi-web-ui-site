@@ -1,0 +1,399 @@
+<!doctype html>
+<html lang="zh-CN" data-site-theme="dark">
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>pi-web-ui — 打开浏览器，什么都能干 | AI 编程智能体全栈浏览器工作台</title>
+	<meta name="description" content="pi-web-ui 是 pi 与 DeepSeek Harness (DSH) 编程智能体的全栈浏览器工作台：流式对话、思考块、多根文件树、真 PTY 终端、Git 版本管理、目标模式 2.0、21+ 插件与 29 套主题，尽在一个标签页。" />
+	<link rel="icon" type="image/svg+xml" href="./assets/favicon.svg" />
+	<link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+	<!-- Top Sticky Glass Navigation -->
+	<header class="site-header">
+		<div class="header-inner">
+			<a href="./index.html" class="brand">
+				<img src="./assets/favicon.svg" alt="pi-web-ui logo" />
+				<span>pi-web-ui</span>
+				<span class="version-pill">v0.102.0</span>
+			</a>
+
+			<nav class="nav-links">
+				<a href="#features" class="nav-link" data-i18n-zh="核心特性" data-i18n-en="Features">核心特性</a>
+				<a href="#modes" class="nav-link" data-i18n-zh="四大模式" data-i18n-en="4 Agent Modes">四大模式</a>
+				<a href="#plugins" class="nav-link" data-i18n-zh="插件市场 (21)" data-i18n-en="Plugins (21)">插件市场 (21)</a>
+				<a href="#themes" class="nav-link" data-i18n-zh="主题演播室 (29)" data-i18n-en="Themes (29)">主题演播室 (29)</a>
+				<a href="#deploy" class="nav-link" data-i18n-zh="部署与守护" data-i18n-en="Deployment">部署与守护</a>
+				<a href="./docs.html" class="nav-link nav-cta-docs" data-i18n-zh="📖 详细使用文档" data-i18n-en="📖 Full Docs">📖 详细使用文档</a>
+			</nav>
+
+			<div class="header-actions">
+				<button type="button" class="search-trigger" data-open-search="1">
+					<span data-i18n-zh="🔍 搜索文档 / 工具 / 插件..." data-i18n-en="🔍 Search docs / tools...">🔍 搜索文档 / 工具 / 插件...</span>
+					<kbd class="search-kbd">Ctrl K</kbd>
+				</button>
+
+				<select id="site-theme-select" class="select-pill" aria-label="Site Theme">
+					<option value="dark">🌙 暗夜深邃 (Dark)</option>
+					<option value="light">☀️ 纯净浅色 (Light)</option>
+					<option value="cyberpunk">⚡ 赛博霓虹 (Cyberpunk)</option>
+					<option value="zhupi">📜 朱批御览 (Vermilion)</option>
+				</select>
+
+				<button type="button" id="lang-toggle-btn" class="icon-btn">🌐 English</button>
+
+				<a href="https://github.com/xing-shuyin/pi-web-ui" target="_blank" rel="noreferrer" class="icon-btn btn-github">
+					⭐ GitHub
+				</a>
+			</div>
+		</div>
+	</header>
+
+	<!-- Hero Section -->
+	<section class="hero">
+		<div class="container">
+			<div class="hero-center">
+				<div class="hero-eyebrow">
+					<span>🚀</span>
+					<span data-i18n-zh="支持 pi SDK 与 DeepSeek Harness (DSH) 双引擎 · Node.js ≥ 22.19" data-i18n-en="Powered by pi SDK & DeepSeek Harness (DSH) Dual Engines · Node.js ≥ 22.19">
+						支持 pi SDK 与 DeepSeek Harness (DSH) 双引擎 · Node.js ≥ 22.19
+					</span>
+				</div>
+
+				<h1 class="hero-title">
+					<span data-i18n-zh="打开浏览器，" data-i18n-en="Just Open Your Browser — ">打开浏览器，</span>
+					<span class="gradient-text" data-i18n-zh="什么都能干。" data-i18n-en="Get All Your Work Done.">什么都能干。</span>
+				</h1>
+
+				<p class="hero-subtitle" data-i18n-zh="聊天推理、阅读与修改代码、管理多根文件树、运行真 PTY 终端、Git 版本控制、目标模式 2.0 自治审查 —— 全部浓缩在一个浏览器标签页内，无需开 IDE，无需来回切换。" data-i18n-en="Chat, inspect thinking blocks, edit code, browse multi-root file trees, use native PTY terminals, manage Git, and run autonomous Goal Mode 2.0 reviews — all in a single browser tab.">
+					聊天推理、阅读与修改代码、管理多根文件树、运行真 PTY 终端、Git 版本控制、目标模式 2.0 自治审查 —— 全部浓缩在一个浏览器标签页内，无需开 IDE，无需来回切换。
+				</p>
+
+				<div class="hero-cta-row">
+					<a href="./docs.html" class="btn-primary">
+						<span data-i18n-zh="📖 阅读完整使用文档 (16 章)" data-i18n-en="📖 Read Full Documentation (16 Chapters)">📖 阅读完整使用文档 (16 章)</span>
+					</a>
+					<a href="https://github.com/xing-shuyin/pi-web-ui" target="_blank" rel="noreferrer" class="btn-secondary">
+						<span data-i18n-zh="⭐ 访问 GitHub 仓库" data-i18n-en="⭐ View on GitHub">⭐ 访问 GitHub 仓库</span>
+					</a>
+					<a href="https://www.npmjs.com/package/pi-web-ui" target="_blank" rel="noreferrer" class="btn-secondary">
+						<span>📦 npm: pi-web-ui</span>
+					</a>
+				</div>
+
+				<!-- Interactive One-Line Install Bar -->
+				<div class="install-box">
+					<div class="install-tabs" id="install-tabs"></div>
+					<div class="install-cmd-row">
+						<div class="install-cmd-text mono">
+							<span class="prompt-sign">$</span>
+							<span id="install-cmd-value">npm i -g pi-web-ui@latest && pi-web-ui</span>
+						</div>
+						<button type="button" class="copy-btn" id="install-copy-btn" data-i18n-zh="复制命令" data-i18n-en="Copy">复制命令</button>
+					</div>
+				</div>
+			</div>
+
+			<!-- Interactive Live Cockpit Showcase -->
+			<div class="cockpit-showcase">
+				<div class="cockpit-topbar">
+					<div class="window-dots">
+						<span class="window-dot red"></span>
+						<span class="window-dot amber"></span>
+						<span class="window-dot green"></span>
+						<span class="mono" style="font-size:0.78rem;color:var(--text-muted);margin-left:8px;">http://localhost:8787 — pi-web-ui cockpit</span>
+					</div>
+					<div class="cockpit-tabs" id="cockpit-tabs"></div>
+				</div>
+				<div class="cockpit-body" id="cockpit-body"></div>
+			</div>
+
+			<!-- Key Metrics Strip -->
+			<div class="stats-strip">
+				<div class="stat-card">
+					<div class="stat-num">60ms</div>
+					<div class="stat-label" data-i18n-zh="WebSocket 增量快照节流" data-i18n-en="Snapshot Delta Stream">WebSocket 增量快照节流</div>
+				</div>
+				<div class="stat-card">
+					<div class="stat-num">8 并发</div>
+					<div class="stat-label" data-i18n-zh="每项目独立后台 Runtime" data-i18n-en="Concurrent Sessions / Project">每项目独立后台 Runtime</div>
+				</div>
+				<div class="stat-card">
+					<div class="stat-num">31 项</div>
+					<div class="stat-label" data-i18n-zh="可控工具与内联标记" data-i18n-en="Configurable Agent Tools">可控工具与内联标记</div>
+				</div>
+				<div class="stat-card">
+					<div class="stat-num">21 款</div>
+					<div class="stat-label" data-i18n-zh="官方与社区插件一键装" data-i18n-en="Official & Community Plugins">官方与社区插件一键装</div>
+				</div>
+				<div class="stat-card">
+					<div class="stat-num">29 套</div>
+					<div class="stat-label" data-i18n-zh="全站 + 终端联动主题" data-i18n-en="Built-in UI + PTY Themes">全站 + 终端联动主题</div>
+				</div>
+				<div class="stat-card">
+					<div class="stat-num">33 个</div>
+					<div class="stat-label" data-i18n-zh="宿主声明式 UI 扩展插槽" data-i18n-en="Declarative Host UI Slots">宿主声明式 UI 扩展插槽</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- 6 Core Pillars Section -->
+	<section class="section" id="features">
+		<div class="container">
+			<div class="section-header">
+				<span class="section-tag">Why pi-web-ui</span>
+				<h2 class="section-title" data-i18n-zh="为高频日常研发打磨的六大核心支柱" data-i18n-en="Six Core Pillars Engineered for Daily Development">为高频日常研发打磨的六大核心支柱</h2>
+				<p class="section-desc" data-i18n-zh="不只是把命令行搬上网页，而是围绕开发者真实工作流重构的全功能 AI 驾驶舱。" data-i18n-en="More than a web wrapper — a complete AI engineering cockpit designed around real developer workflows.">
+					不只是把命令行搬上网页，而是围绕开发者真实工作流重构的全功能 AI 驾驶舱。
+				</p>
+			</div>
+
+			<div class="pillars-grid">
+				<div class="pillar-card">
+					<div class="pillar-icon">💬</div>
+					<h3 data-i18n-zh="流式对话、Steer 插队与跨端接管" data-i18n-en="Streaming Chat, Mid-Turn Steer & Takeover">流式对话、Steer 插队与跨端接管</h3>
+					<p data-i18n-zh="回复途中随时排队发送补充指令（Steer），排队消息可一键撤回草稿；支持任意历史节点 Fork 分支重问、内存无痕临时对话，以及电脑与手机间事务性过户接管（Takeover）。" data-i18n-en="Queue follow-up instructions mid-stream, recall queued bubbles back to draft, fork historical turns, run ephemeral in-memory chats, and take over active sessions across devices.">
+						回复途中随时排队发送补充指令（Steer），排队消息可一键撤回草稿；支持任意历史节点 Fork 分支重问、内存无痕临时对话，以及电脑与手机间事务性过户接管（Takeover）。
+					</p>
+					<div class="pillar-tags">
+						<span class="pillar-tag">60ms Snapshot</span>
+						<span class="pillar-tag">Mid-Stream Steer</span>
+						<span class="pillar-tag">Session Takeover</span>
+					</div>
+				</div>
+
+				<div class="pillar-card">
+					<div class="pillar-icon">📁</div>
+					<h3 data-i18n-zh="零上下文污染附件与视觉桥" data-i18n-en="Zero-Bloat File References & Vision Bridge">零上下文污染附件与视觉桥</h3>
+					<p data-i18n-zh="文件引用采用轻量化 reference / lines 行号范围传递，绝不把大文件整块塞爆 Prompt；内置 UTF-8/GBK 自动嗅探预览；非视觉代码模型自动经 Vision Bridge 转写截图。" data-i18n-en="Pass lightweight path or line-range references without bloating context. Automatic UTF-8/GBK preview fallback and Vision Bridge image transcription for text-only models.">
+						文件引用采用轻量化 reference / lines 行号范围传递，绝不把大文件整块塞爆 Prompt；内置 UTF-8/GBK 自动嗅探预览；非视觉代码模型自动经 Vision Bridge 转写截图。
+					</p>
+					<div class="pillar-tags">
+						<span class="pillar-tag">Multi-Root (8)</span>
+						<span class="pillar-tag">Vision Bridge</span>
+						<span class="pillar-tag">present_files Card</span>
+					</div>
+				</div>
+
+				<div class="pillar-card">
+					<div class="pillar-icon">💻</div>
+					<h3 data-i18n-zh="内置真 PTY 终端与 AI Bash 接管" data-i18n-en="Native PTY Terminal & AI Bash Takeover">内置真 PTY 终端与 AI Bash 接管</h3>
+					<p data-i18n-zh="每会话独立多标签 node-pty + xterm.js 终端。开启「默认 bash 走终端」后，AI 命令在可见终端内实时执行，支持 persist=true 持久 ai-bash 会话与 3 秒静默进程树活力探测。" data-i18n-en="Per-session multi-tab node-pty terminals. Route AI bash calls into visible terminals with persistent ai-bash state (cd/venv/ssh) and 3-second silence liveness probing.">
+						每会话独立多标签 node-pty + xterm.js 终端。开启「默认 bash 走终端」后，AI 命令在可见终端内实时执行，支持 persist=true 持久 ai-bash 会话与 3 秒静默进程树活力探测。
+					</p>
+					<div class="pillar-tags">
+						<span class="pillar-tag">node-pty + xterm.js</span>
+						<span class="pillar-tag">Persistent ai-bash</span>
+						<span class="pillar-tag">3s Liveness Probe</span>
+					</div>
+				</div>
+
+				<div class="pillar-card">
+					<div class="pillar-icon">🌿</div>
+					<h3 data-i18n-zh="内置 Git 面板与三级工具审批门禁" data-i18n-en="Built-in Git SCM & 3-Tier Approval Gate">内置 Git 面板与三级工具审批门禁</h3>
+					<p data-i18n-zh="侧栏直接查看 Staged / Changes / Untracked、语法高亮 Diff，一键 Stage / Commit / Push / Pull / Stash。配合三级工具审批门禁（approval-rules.json）与默认 Loopback 安全边界。" data-i18n-en="Stage, diff, commit, push, pull, and stash directly in the sidebar. Protected by a 3-tier tool approval gate, loopback default, and strict Origin verification.">
+						侧栏直接查看 Staged / Changes / Untracked、语法高亮 Diff，一键 Stage / Commit / Push / Pull / Stash。配合三级工具审批门禁（approval-rules.json）与默认 Loopback 安全边界。
+					</p>
+					<div class="pillar-tags">
+						<span class="pillar-tag">Git Diff & Commit</span>
+						<span class="pillar-tag">Approval Rules</span>
+						<span class="pillar-tag">Zero Key Leak</span>
+					</div>
+				</div>
+
+				<div class="pillar-card">
+					<div class="pillar-icon">⚡</div>
+					<h3 data-i18n-zh="前缀缓存安全的工具延迟加载" data-i18n-en="Cache-Safe Lazy Tool Loading & Soft Cap">前缀缓存安全的工具延迟加载</h3>
+					<p data-i18n-zh="系统提示词工具目录恒定不变，外围工具通过 load_tools 按需追加完整 Schema，确保 Anthropic/OpenAI/DeepSeek 前缀缓存 100% 命中；支持上下文压缩软上限（Soft Cap）。" data-i18n-en="Keep system prompt prefix caches 100% warm by attaching secondary tool schemas on demand via load_tools, paired with configurable context compaction Soft Cap.">
+						系统提示词工具目录恒定不变，外围工具通过 load_tools 按需追加完整 Schema，确保 Anthropic/OpenAI/DeepSeek 前缀缓存 100% 命中；支持上下文压缩软上限（Soft Cap）。
+					</p>
+					<div class="pillar-tags">
+						<span class="pillar-tag">100% Prefix Cache</span>
+						<span class="pillar-tag">Soft Cap Compaction</span>
+						<span class="pillar-tag">Inline Markers</span>
+					</div>
+				</div>
+
+				<div class="pillar-card">
+					<div class="pillar-icon">🧩</div>
+					<h3 data-i18n-zh="插件 API v2、社区预设与双引擎" data-i18n-en="Plugin SDK v2, Preset Sharing & Dual Engines">插件 API v2、社区预设与双引擎</h3>
+					<p data-i18n-zh="同时支持 pi SDK 与 DeepSeek Harness (DSH) 引擎；33 个 UI 插槽支持自由拖拽排序与重命名；设置预设经四道白名单闸门净化，一键导入导出或分享到社区仓库。" data-i18n-en="Run pi or DSH engine, customize 33 UI slots via drag-and-drop, and share settings presets safely through a 4-gate whitelist sanitizer.">
+						同时支持 pi SDK 与 DeepSeek Harness (DSH) 引擎；33 个 UI 插槽支持自由拖拽排序与重命名；设置预设经四道白名单闸门净化，一键导入导出或分享到社区仓库。
+					</p>
+					<div class="pillar-tags">
+						<span class="pillar-tag">pi + DSH Engines</span>
+						<span class="pillar-tag">4-Gate Preset Share</span>
+						<span class="pillar-tag">Electron Desktop</span>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- 4 Agent Collaboration Modes Explorer -->
+	<section class="section" id="modes">
+		<div class="container">
+			<div class="section-header">
+				<span class="section-tag">Collaboration Modes</span>
+				<h2 class="section-title" data-i18n-zh="四大智能体工程模式：从日常快聊到严密自治审查" data-i18n-en="Four Engineering Modes: From Fast Chat to Autonomous Review">四大智能体工程模式：从日常快聊到严密自治审查</h2>
+				<p class="section-desc" data-i18n-zh="点击下方卡片切换查看四种模式的工作流与底层硬闸门机制。" data-i18n-en="Click any mode below to inspect its workflow and server-side safety gates.">
+					点击下方卡片切换查看四种模式的工作流与底层硬闸门机制。
+				</p>
+			</div>
+
+			<div class="modes-selector" id="modes-selector"></div>
+			<div class="mode-detail-card" id="mode-detail-card"></div>
+		</div>
+	</section>
+
+	<!-- 21 Official & Community Plugins Marketplace -->
+	<section class="section" id="plugins">
+		<div class="container">
+			<div class="section-header">
+				<span class="section-tag">Plugin Ecosystem · PLUGIN_API_VERSION 2</span>
+				<h2 class="section-title" data-i18n-zh="21 款官方与社区插件：一行命令或网页一键即装" data-i18n-en="21 Official & Community Plugins: One-Click Install">21 款官方与社区插件：一行命令或网页一键即装</h2>
+				<p class="section-desc" data-i18n-zh="涵盖 VSCode 编辑器、数据库连接池、SFTP 同步、微信通道、语音输入、运行轨迹时间线、多仓 Git 与 Windows 桌面自动化。" data-i18n-en="From VSCode Workbench, DB Client, and SFTP Sync to WeChat Channel, Voice Input, Run-Trace Timeline, Multi-Git, and Desktop Automation.">
+					涵盖 VSCode 编辑器、数据库连接池、SFTP 同步、微信通道、语音输入、运行轨迹时间线、多仓 Git 与 Windows 桌面自动化。
+				</p>
+			</div>
+
+			<div class="marketplace-toolbar">
+				<div class="filter-pills" id="plugin-filter-pills"></div>
+				<input
+					type="search"
+					id="plugin-search-input"
+					class="filter-input"
+					placeholder="搜索插件名称、ID 或功能..."
+					data-i18n-placeholder-zh="搜索插件名称、ID 或功能..."
+					data-i18n-placeholder-en="Filter plugins by name, ID, or feature..."
+				/>
+			</div>
+
+			<div class="plugins-grid" id="plugins-grid"></div>
+		</div>
+	</section>
+
+	<!-- 29 Built-in Themes Interactive Studio -->
+	<section class="section" id="themes">
+		<div class="container">
+			<div class="section-header">
+				<span class="section-tag">Theme Studio · 29 Built-in Palettes</span>
+				<h2 class="section-title" data-i18n-zh="29 套内置主题实时演播室（全界面 + 终端联动）" data-i18n-en="Interactive 29-Theme Studio (UI + Terminal Palette Sync)">29 套内置主题实时演播室（全界面 + 终端联动）</h2>
+				<p class="section-desc" data-i18n-zh="点击左侧任意主题色卡，实时预览该配色在 pi-web-ui 对话气泡、思考块与内置终端中的真实视觉效果。" data-i18n-en="Click any theme swatch on the left to preview how it styles pi-web-ui chat bubbles, thinking blocks, and terminals.">
+					点击左侧任意主题色卡，实时预览该配色在 pi-web-ui 对话气泡、思考块与内置终端中的真实视觉效果。
+				</p>
+			</div>
+
+			<div class="theme-studio">
+				<div class="theme-picker-list" id="theme-picker-list"></div>
+				<div class="theme-preview-stage" id="theme-preview-stage"></div>
+			</div>
+		</div>
+	</section>
+
+	<!-- Quick Deployment & Operations Section -->
+	<section class="section" id="deploy">
+		<div class="container">
+			<div class="section-header">
+				<span class="section-tag">Deployment & Operations</span>
+				<h2 class="section-title" data-i18n-zh="随处可跑：本机守护进程、Docker、Nginx 反代与手机 Termux" data-i18n-en="Run Anywhere: Native Daemon, Docker, Nginx & Android Termux">随处可跑：本机守护进程、Docker、Nginx 反代与手机 Termux</h2>
+				<p class="section-desc" data-i18n-zh="无论是个人笔记本开机自启、远程开发机 HTTPS 子路径反代，还是在 Android 手机 Termux 上随身运行，都有开箱即用的官方方案。" data-i18n-en="Run as a zero-admin login service on macOS/Linux/Windows, in Docker, behind Nginx subpath reverse proxy, or on Android Termux.">
+					无论是个人笔记本开机自启、远程开发机 HTTPS 子路径反代，还是在 Android 手机 Termux 上随身运行，都有开箱即用的官方方案。
+				</p>
+			</div>
+
+			<div class="pillars-grid">
+				<div class="pillar-card">
+					<h3>🚀 跨平台开机自启守护进程</h3>
+					<p data-i18n-zh="免管理员权限自动配置 macOS launchd、Linux systemd 用户服务或 Windows 注册表 Run 自启项。" data-i18n-en="Zero-sudo background service installer for macOS launchd, Linux systemd user unit, and Windows HKCU Run.">
+						免管理员权限自动配置 macOS launchd、Linux systemd 用户服务或 Windows 注册表 Run 自启项。
+					</p>
+					<pre style="background:var(--code-bg);color:#e6edf3;padding:12px;border-radius:8px;font-size:0.78rem;overflow-x:auto;"><code>pi-web-ui server install --port 8787
+pi-web-ui server status
+pi-web-ui server restart
+pi-web-ui server logs -f</code></pre>
+				</div>
+
+				<div class="pillar-card">
+					<h3>🐳 Docker Compose 一键容器化</h3>
+					<p data-i18n-zh="挂载 ~/.pi 配置与 ~/.pi-web 数据目录，配合 PI_WEB_TOKEN 口令保护，轻松部署在云服务器或 NAS。" data-i18n-en="Mount ~/.pi and ~/.pi-web volumes with PI_WEB_TOKEN authentication for cloud servers or NAS.">
+						挂载 ~/.pi 配置与 ~/.pi-web 数据目录，配合 PI_WEB_TOKEN 口令保护，轻松部署在云服务器或 NAS。
+					</p>
+					<pre style="background:var(--code-bg);color:#e6edf3;padding:12px;border-radius:8px;font-size:0.78rem;overflow-x:auto;"><code>git clone https://github.com/xing-shuyin/pi-web-ui.git
+cd pi-web-ui
+PI_WEB_TOKEN=secret docker compose up -d</code></pre>
+				</div>
+
+				<div class="pillar-card">
+					<h3>🛡️ Nginx 子路径 (/pi/) 反向代理</h3>
+					<p data-i18n-zh="全服务端路由均由 appUrl() 包装，只需在 Nginx 转发 Host $http_host 与 /ws Upgrade 头即可安全暴露。" data-i18n-en="All server URLs are wrapped in appUrl(). Forward Host $http_host and WebSocket Upgrade headers for subpath hosting.">
+						全服务端路由均由 appUrl() 包装，只需在 Nginx 转发 Host $http_host 与 /ws Upgrade 头即可安全暴露。
+					</p>
+					<pre style="background:var(--code-bg);color:#e6edf3;padding:12px;border-radius:8px;font-size:0.78rem;overflow-x:auto;"><code>location /pi/ {
+  proxy_pass http://127.0.0.1:8787/;
+  proxy_set_header Host $http_host;
+}</code></pre>
+				</div>
+			</div>
+
+			<div style="text-align:center;margin-top:42px;">
+				<a href="./docs.html" class="btn-primary" style="font-size:1.05rem;padding:14px 28px;">
+					<span data-i18n-zh="📚 进入文档中心查看全部 16 章详细手册 →" data-i18n-en="📚 Explore All 16 Chapters in the Documentation Portal →">📚 进入文档中心查看全部 16 章详细手册 →</span>
+				</a>
+			</div>
+		</div>
+	</section>
+
+	<!-- Footer -->
+	<footer class="site-footer">
+		<div class="container footer-grid">
+			<div>
+				<div style="font-weight:700;color:var(--text);font-size:1rem;margin-bottom:6px;">
+					💬 pi-web-ui · Just open your browser — get all your work done.
+				</div>
+				<div>
+					MIT License · Created by <a href="https://github.com/xing-shuyin" target="_blank" rel="noreferrer">xingshuyin</a> · QQ 交流群：<code>1126050727</code>
+				</div>
+			</div>
+			<div style="display:flex;gap:18px;flex-wrap:wrap;">
+				<a href="./docs.html">使用文档 (Docs)</a>
+				<a href="https://github.com/xing-shuyin/pi-web-ui" target="_blank" rel="noreferrer">GitHub 主仓库</a>
+				<a href="https://github.com/xing-shuyin/pi-web-ui-plugins" target="_blank" rel="noreferrer">插件仓库 (Plugins)</a>
+				<a href="https://github.com/xing-shuyin/pi-web-ui-presets" target="_blank" rel="noreferrer">社区预设 (Presets)</a>
+				<a href="https://github.com/xing-shuyin/dsh-ui-tools" target="_blank" rel="noreferrer">dsh-ui-tools</a>
+				<a href="https://www.npmjs.com/package/pi-web-ui" target="_blank" rel="noreferrer">npm</a>
+			</div>
+		</div>
+	</footer>
+
+	<!-- Global Search Modal (Ctrl + K) -->
+	<div class="modal-backdrop" id="search-modal-backdrop">
+		<div class="search-modal">
+			<div class="search-modal-input-wrap">
+				<span>🔍</span>
+				<input
+					type="search"
+					id="global-search-input"
+					class="search-modal-input"
+					placeholder="搜索 16 章文档、31 个工具、21 款插件、CLI 参数与环境变量..."
+					data-i18n-placeholder-zh="搜索 16 章文档、31 个工具、21 款插件、CLI 参数与环境变量..."
+					data-i18n-placeholder-en="Search 16 doc chapters, 31 tools, 21 plugins, CLI flags & env vars..."
+				/>
+				<kbd class="search-kbd">ESC</kbd>
+			</div>
+			<div class="search-results-list" id="global-search-results"></div>
+		</div>
+	</div>
+
+	<!-- Image Zoom Lightbox -->
+	<div class="modal-backdrop" id="image-lightbox" style="align-items:center;cursor:zoom-out;">
+		<div style="max-width:92vw;max-height:90vh;text-align:center;">
+			<img id="lightbox-img" src="" alt="Screenshot preview" style="max-width:100%;max-height:84vh;border-radius:12px;border:1px solid var(--border-bright);box-shadow:var(--shadow-lg);" />
+			<div id="lightbox-caption" style="color:#fff;margin-top:10px;font-weight:600;"></div>
+		</div>
+	</div>
+
+	<script type="module" src="./app.js"></script>
+</body>
+</html>
