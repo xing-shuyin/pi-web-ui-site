@@ -1508,6 +1508,139 @@ pre,
 	}
 }
 
+/* ==========================================================================
+   Documentation Visual Components: Screenshots, Steps, Badges, FAQs
+   ========================================================================== */
+.doc-figure {
+	margin: 24px 0 28px;
+	background: var(--bg-elev);
+	border: 1px solid var(--border);
+	border-radius: 12px;
+	overflow: hidden;
+	box-shadow: 0 8px 24px rgba(0, 0, 0, 0.28);
+	transition: border-color 0.2s ease;
+}
+
+.doc-figure:hover {
+	border-color: var(--accent);
+}
+
+.doc-figure img {
+	width: 100%;
+	height: auto;
+	display: block;
+	object-fit: cover;
+	border-bottom: 1px solid var(--border);
+	background: #000;
+}
+
+.doc-figure figcaption {
+	padding: 12px 18px;
+	font-size: 0.88rem;
+	color: var(--text-dim);
+	display: flex;
+	align-items: center;
+	gap: 10px;
+	background: var(--bg-elev2);
+}
+
+.doc-figure figcaption strong {
+	color: var(--accent);
+	font-weight: 600;
+}
+
+.doc-step-box {
+	display: flex;
+	gap: 16px;
+	background: var(--bg-elev);
+	border: 1px solid var(--border);
+	border-radius: 12px;
+	padding: 18px 20px;
+	margin: 16px 0;
+	align-items: flex-start;
+}
+
+.doc-step-num {
+	width: 32px;
+	height: 32px;
+	min-width: 32px;
+	border-radius: 50%;
+	background: var(--accent);
+	color: #fff;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-weight: 700;
+	font-size: 0.95rem;
+}
+
+.doc-step-content {
+	flex: 1;
+	min-width: 0;
+}
+
+.doc-step-content h4 {
+	margin: 0 0 6px 0;
+	font-size: 1.02rem;
+	color: var(--text);
+}
+
+.doc-step-content p {
+	margin: 0 0 8px 0;
+	font-size: 0.9rem;
+	color: var(--text-dim);
+}
+
+.doc-badge-pill {
+	display: inline-flex;
+	align-items: center;
+	padding: 2px 8px;
+	border-radius: 4px;
+	font-size: 0.76rem;
+	font-weight: 600;
+	background: var(--accent-alpha);
+	color: var(--accent);
+	border: 1px solid var(--accent);
+	margin-right: 6px;
+}
+
+.doc-badge-pill.warn {
+	background: rgba(245, 158, 11, 0.15);
+	color: var(--amber);
+	border-color: var(--amber);
+}
+
+.doc-badge-pill.success {
+	background: rgba(16, 185, 129, 0.15);
+	color: var(--emerald);
+	border-color: var(--emerald);
+}
+
+.doc-faq-card {
+	background: var(--bg-elev2);
+	border: 1px solid var(--border);
+	border-radius: 10px;
+	padding: 16px 18px;
+	margin-bottom: 12px;
+}
+
+.doc-faq-q {
+	font-weight: 600;
+	color: var(--text);
+	font-size: 0.96rem;
+	margin-bottom: 6px;
+	display: flex;
+	align-items: center;
+	gap: 8px;
+}
+
+.doc-faq-a {
+	font-size: 0.89rem;
+	color: var(--text-dim);
+	margin: 0;
+	line-height: 1.65;
+}
+
 @media (max-width: 760px) {
 	.nav-links {
 		display: none;

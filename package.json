@@ -8,6 +8,7 @@
 		"dev": "node scripts/serve.mjs",
 		"start": "node scripts/serve.mjs",
 		"sync": "node scripts/sync-data.mjs",
+		"build:docs": "node scripts/build-docs-data.mjs",
 		"check": "node scripts/verify-site.mjs"
 	},
 	"repository": {

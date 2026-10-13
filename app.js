@@ -829,6 +829,16 @@ function renderDocsPage() {
 			)
 			.join("");
 	}
+
+	// Attach image zoom lightbox on all documentation figures
+	articleEl.querySelectorAll(".doc-body img").forEach((img) => {
+		img.style.cursor = "zoom-in";
+		img.onclick = () => {
+			const figure = img.closest("figure");
+			const caption = figure ? figure.querySelector("figcaption")?.innerText : img.alt;
+			openImageLightbox(img.src, caption);
+		};
+	});
 }
 
 /* ==========================================================================
@@ -983,6 +993,15 @@ window.addEventListener("DOMContentLoaded", () => {
 	if (lb) {
 		lb.onclick = () => lb.classList.remove("open");
 	}
+
+	window.addEventListener("keydown", (e) => {
+		if (e.key === "Escape") {
+			const activeLb = document.getElementById("image-lightbox");
+			if (activeLb && activeLb.classList.contains("open")) {
+				activeLb.classList.remove("open");
+			}
+		}
+	});
 
 	window.addEventListener("hashchange", () => {
 		if (document.getElementById("docs-article")) {
