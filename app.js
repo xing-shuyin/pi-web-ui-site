@@ -15,6 +15,12 @@ const state = {
 };
 
 const INSTALL_COMMANDS = {
+	desktop: {
+		labelZh: "🖥️ 桌面客户端 (Release 下载)",
+		labelEn: "🖥️ Desktop App (Releases)",
+		cmd: "https://github.com/xing-shuyin/pi-web-ui/releases/latest",
+		isDownload: true,
+	},
 	npm: {
 		labelZh: "npm 全局安装（推荐）",
 		labelEn: "npm Global (Recommended)",
@@ -24,11 +30,6 @@ const INSTALL_COMMANDS = {
 		labelZh: "npx 免安装即跑",
 		labelEn: "npx Zero-Install",
 		cmd: "npx pi-web-ui@latest",
-	},
-	desktop: {
-		labelZh: "🖥️ Electron 桌面客户端",
-		labelEn: "🖥️ Desktop App (Electron)",
-		cmd: "git clone https://github.com/xing-shuyin/pi-web-ui.git && cd pi-web-ui && npm i && npm run build && npm --prefix desktop i && npm --prefix desktop start",
 	},
 	npm12: {
 		labelZh: "npm 12+ 放行原生编译",
@@ -119,6 +120,7 @@ function applyLanguage(lang) {
    ========================================================================== */
 function renderInstallBox() {
 	const tabsEl = document.getElementById("install-tabs");
+	const cmdRowEl = document.querySelector(".install-cmd-row");
 	const cmdEl = document.getElementById("install-cmd-value");
 	const copyBtn = document.getElementById("install-copy-btn");
 	if (!tabsEl || !cmdEl) return;
@@ -132,8 +134,32 @@ function renderInstallBox() {
 		})
 		.join("");
 
-	const current = INSTALL_COMMANDS[state.installTab] || INSTALL_COMMANDS.npm;
-	cmdEl.textContent = current.cmd;
+	const current = INSTALL_COMMANDS[state.installTab] || INSTALL_COMMANDS.desktop;
+
+	if (current.isDownload) {
+		const promptSign = cmdRowEl?.querySelector(".prompt-sign");
+		if (promptSign) promptSign.style.display = "none";
+		cmdEl.innerHTML = `
+			<div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap;font-family:inherit;">
+				<span style="color:var(--emerald);font-weight:600;">${escapeHtml(t("📦 官方预编译桌面安装包（免装 Node.js）：", "📦 Pre-built Desktop Installers (Zero-Setup):"))}</span>
+				<span style="font-size:0.84rem;color:var(--text-dim);">🪟 Windows (.exe / 便携版.zip) ｜ 🍎 macOS (.dmg) ｜ 🐧 Linux (.AppImage)</span>
+			</div>
+		`;
+		if (copyBtn) {
+			copyBtn.textContent = t("前往下载页 ↗", "Go to Releases ↗");
+			copyBtn.onclick = () => {
+				window.open(current.cmd, "_blank");
+			};
+		}
+	} else {
+		const promptSign = cmdRowEl?.querySelector(".prompt-sign");
+		if (promptSign) promptSign.style.display = "";
+		cmdEl.textContent = current.cmd;
+		if (copyBtn) {
+			copyBtn.textContent = t("复制命令", "Copy");
+			copyBtn.onclick = () => copyText(current.cmd, copyBtn);
+		}
+	}
 
 	tabsEl.querySelectorAll("[data-install-key]").forEach((btn) => {
 		btn.onclick = () => {
@@ -141,10 +167,6 @@ function renderInstallBox() {
 			renderInstallBox();
 		};
 	});
-
-	if (copyBtn) {
-		copyBtn.onclick = () => copyText(current.cmd, copyBtn);
-	}
 }
 
 function renderCockpitShowcase() {

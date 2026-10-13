@@ -87,23 +87,21 @@ export const ch01 = {
 	</div>
 </div>
 
-<h2 id="thirty-second-quickstart">3. 新手 3 步：30 秒极速启动</h2>
-<p>无需繁复的环境配置，仅需本地安装有 <strong>Node.js (≥ 22.19.0)</strong>，在终端中执行以下命令即可：</p>
+<h2 id="thirty-second-quickstart">3. 新手起步：选择最适合你的启动方式</h2>
 
-<div class="doc-callout doc-callout-tip">
-	<strong>💡 推荐日常使用方式：全局安装最新版</strong>
-	<p>全局安装后，在任何想要进行开发的工程目录下打开命令行，敲入 <code>pi-web-ui</code> 即可自动以该目录为工作区启动！</p>
+<div class="doc-grid-2">
+	<div class="doc-card" style="border-color:var(--accent);">
+		<h4>🖥️ 方式 A：小白推荐 · 官方桌面客户端 Release（免配环境）</h4>
+		<p>不想在黑窗口敲命令、电脑没装 Node.js？直接前往 GitHub Releases 下载 Windows <code>.exe</code>、便携版 <code>.zip</code> 或 macOS <code>.dmg</code> 安装包，双击即可打开！（详见<strong>第 02 章</strong>）</p>
+		<p style="margin-top:10px;"><a href="https://github.com/xing-shuyin/pi-web-ui/releases/latest" target="_blank" rel="noreferrer" style="color:var(--accent);font-weight:600;">👉 前往 GitHub Releases 获取最新客户端 ↗</a></p>
+	</div>
+	<div class="doc-card">
+		<h4>💻 方式 B：开发者推荐 · npm 全局安装（随时随地呼出）</h4>
+		<p>确保环境已安装 <strong>Node.js ≥ 22.19.0</strong>，在终端中敲入全局安装命令，在任意项目目录下敲 <code>pi-web-ui</code> 即可极速启动 Web 版。</p>
+		<pre style="margin-top:8px;"><code class="language-bash">npm i -g pi-web-ui@latest
+pi-web-ui</code></pre>
+	</div>
 </div>
-
-<pre><code class="language-bash"># 第 1 步：全局安装最新版本
-npm i -g pi-web-ui@latest
-
-# 第 2 步：进入你的项目目录并启动
-cd /path/to/your-project
-pi-web-ui
-
-# 第 3 步：在浏览器访问
-# http://localhost:8787</code></pre>
 
 <p>如果你只是想先体验一下、不想在全局安装任何模块，可以使用 <code>npx</code> 临时试跑：</p>
 <pre><code class="language-bash">npx pi-web-ui@latest</code></pre>
