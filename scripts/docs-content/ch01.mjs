@@ -47,6 +47,32 @@ export const ch01 = {
 	</figcaption>
 </figure>
 
+<h3 id="demo-video">🎬 官方 2 分钟实机功能演示视频</h3>
+<p>在深入了解各功能模块之前，强烈建议先观看下方官方实机演示录屏。视频直观展现了流式对话、思维链、真 PTY 终端 AI Bash 透明接管、Git 变更审查与多智能体协同的完整实战工作流：</p>
+
+<div class="doc-video-card" style="margin:20px 0 28px;background:var(--bg-elev);border:1px solid var(--border);border-radius:14px;overflow:hidden;box-shadow:var(--shadow-lg);">
+	<div style="display:flex;align-items:center;justify-content:space-between;padding:10px 16px;background:var(--bg-elev2);border-bottom:1px solid var(--border);">
+		<div style="display:flex;align-items:center;gap:6px;">
+			<span style="width:10px;height:10px;border-radius:50%;background:#ef4444;display:inline-block;"></span>
+			<span style="width:10px;height:10px;border-radius:50%;background:#f59e0b;display:inline-block;"></span>
+			<span style="width:10px;height:10px;border-radius:50%;background:#22c55e;display:inline-block;"></span>
+			<span class="mono" style="font-size:0.78rem;color:var(--text-dim);margin-left:6px;">demo-video.mp4 (1080P Full HD)</span>
+		</div>
+		<a href="https://raw.githubusercontent.com/xing-shuyin/pi-web-ui/main/assets/demo-video.mp4" target="_blank" rel="noreferrer" style="font-size:0.78rem;color:var(--accent);text-decoration:none;font-weight:600;">在新标签页打开 ↗</a>
+	</div>
+	<div style="position:relative;background:#000;aspect-ratio:16/9;width:100%;overflow:hidden;">
+		<video controls preload="metadata" poster="./assets/demo-video-poster.png" playsinline style="width:100%;height:100%;object-fit:contain;display:block;">
+			<source src="./assets/demo-video.mp4" type="video/mp4" />
+			<source src="https://raw.githubusercontent.com/xing-shuyin/pi-web-ui/main/assets/demo-video.mp4" type="video/mp4" />
+			您的浏览器不支持 HTML5 视频，请直接访问：<a href="https://raw.githubusercontent.com/xing-shuyin/pi-web-ui/main/assets/demo-video.mp4">下载演示视频</a>
+		</video>
+	</div>
+	<div style="padding:10px 16px;background:var(--bg-elev2);font-size:0.84rem;color:var(--text-dim);display:flex;align-items:center;gap:8px;">
+		<span>✨</span>
+		<span>实机实录涵盖：双引擎流式生成、并发子代理委派、真 PTY 终端 AI Bash 透明接管与交互确认、Git 变更审查一键提交。</span>
+	</div>
+</div>
+
 <div class="doc-step-box">
 	<div class="doc-step-num">1</div>
 	<div class="doc-step-content">
@@ -145,6 +171,32 @@ pi-web-ui</code></pre>
 		① Top navigation & session selector ｜ ② Main streaming chat ｜ ③ Bottom composer strip ｜ ④ Right file tree ｜ ⑤ Bottom PTY terminal & Git SCM.
 	</figcaption>
 </figure>
+
+<h3 id="demo-video-en">🎬 Official 2-Minute Live Demo Video</h3>
+<p>Before diving into individual modules, watch the 2-minute live walkthrough below to see streaming chat, thinking traces, native PTY terminal bash takeover, Git diff review, and multi-agent coordination in action:</p>
+
+<div class="doc-video-card" style="margin:20px 0 28px;background:var(--bg-elev);border:1px solid var(--border);border-radius:14px;overflow:hidden;box-shadow:var(--shadow-lg);">
+	<div style="display:flex;align-items:center;justify-content:space-between;padding:10px 16px;background:var(--bg-elev2);border-bottom:1px solid var(--border);">
+		<div style="display:flex;align-items:center;gap:6px;">
+			<span style="width:10px;height:10px;border-radius:50%;background:#ef4444;display:inline-block;"></span>
+			<span style="width:10px;height:10px;border-radius:50%;background:#f59e0b;display:inline-block;"></span>
+			<span style="width:10px;height:10px;border-radius:50%;background:#22c55e;display:inline-block;"></span>
+			<span class="mono" style="font-size:0.78rem;color:var(--text-dim);margin-left:6px;">demo-video.mp4 (1080P Full HD)</span>
+		</div>
+		<a href="https://raw.githubusercontent.com/xing-shuyin/pi-web-ui/main/assets/demo-video.mp4" target="_blank" rel="noreferrer" style="font-size:0.78rem;color:var(--accent);text-decoration:none;font-weight:600;">Open in New Tab ↗</a>
+	</div>
+	<div style="position:relative;background:#000;aspect-ratio:16/9;width:100%;overflow:hidden;">
+		<video controls preload="metadata" poster="./assets/demo-video-poster.png" playsinline style="width:100%;height:100%;object-fit:contain;display:block;">
+			<source src="./assets/demo-video.mp4" type="video/mp4" />
+			<source src="https://raw.githubusercontent.com/xing-shuyin/pi-web-ui/main/assets/demo-video.mp4" type="video/mp4" />
+			Your browser does not support HTML5 video. Download directly: <a href="https://raw.githubusercontent.com/xing-shuyin/pi-web-ui/main/assets/demo-video.mp4">Download Demo Video</a>
+		</video>
+	</div>
+	<div style="padding:10px 16px;background:var(--bg-elev2);font-size:0.84rem;color:var(--text-dim);display:flex;align-items:center;gap:8px;">
+		<span>✨</span>
+		<span>Highlights: Dual engines streaming, subagents delegation, real PTY AI bash takeover & interactive prompts, and Git SCM one-click commit.</span>
+	</div>
+</div>
 
 <h2 id="thirty-second-quickstart">3. 30-Second Quickstart</h2>
 <pre><code class="language-bash"># Step 1: Install globally (Node.js >= 22.19.0 required)

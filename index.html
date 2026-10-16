@@ -15,14 +15,15 @@
 			<a href="./index.html" class="brand">
 				<img src="./assets/favicon.svg" alt="pi-web-ui logo" />
 				<span>pi-web-ui</span>
-				<span class="version-pill">v0.105.1</span>
+				<span class="version-pill">v0.106.0</span>
 			</a>
 
 			<nav class="nav-links">
+				<a href="#demo-video" class="nav-link" data-i18n-zh="🎬 实机演示" data-i18n-en="🎬 Demo Video">🎬 实机演示</a>
 				<a href="#features" class="nav-link" data-i18n-zh="核心特性" data-i18n-en="Features">核心特性</a>
 				<a href="#modes" class="nav-link" data-i18n-zh="四大模式" data-i18n-en="4 Agent Modes">四大模式</a>
-				<a href="#plugins" class="nav-link" data-i18n-zh="插件市场 (21)" data-i18n-en="Plugins (21)">插件市场 (21)</a>
-				<a href="#themes" class="nav-link" data-i18n-zh="主题演播室 (29)" data-i18n-en="Themes (29)">主题演播室 (29)</a>
+				<a href="#plugins" class="nav-link" data-i18n-zh="插件市场 (34)" data-i18n-en="Plugins (34)">插件市场 (34)</a>
+				<a href="#themes" class="nav-link" data-i18n-zh="主题演播室 (32)" data-i18n-en="Themes (32)">主题演播室 (32)</a>
 				<a href="#deploy" class="nav-link" data-i18n-zh="部署与守护" data-i18n-en="Deployment">部署与守护</a>
 				<a href="./docs.html" class="nav-link nav-cta-docs" data-i18n-zh="📖 详细使用文档" data-i18n-en="📖 Full Docs">📖 详细使用文档</a>
 			</nav>
@@ -70,7 +71,10 @@
 				</p>
 
 				<div class="hero-cta-row">
-					<a href="./docs.html" class="btn-primary">
+					<a href="#demo-video" class="btn-primary" style="background:linear-gradient(135deg, #2563eb, #7c3aed);">
+						<span data-i18n-zh="🎬 观看 2 分钟实机演示" data-i18n-en="🎬 Watch 2-Min Demo Video">🎬 观看 2 分钟实机演示</span>
+					</a>
+					<a href="./docs.html" class="btn-secondary">
 						<span data-i18n-zh="📖 阅读完整使用文档 (20 章全集)" data-i18n-en="📖 Read Full Documentation (20 Chapters)">📖 阅读完整使用文档 (20 章全集)</span>
 					</a>
 					<a href="./docs.html#remote-ssh-projects" class="btn-secondary">
@@ -93,6 +97,53 @@
 							<span id="install-cmd-value">npm i -g pi-web-ui@latest && pi-web-ui</span>
 						</div>
 						<button type="button" class="copy-btn" id="install-copy-btn" data-i18n-zh="复制命令" data-i18n-en="Copy">复制命令</button>
+					</div>
+				</div>
+			</div>
+
+			<!-- Hero Demo Video Showcase (Readme 官方实机全功能实录) -->
+			<div class="hero-video-wrapper" id="demo-video">
+				<div class="hero-video-card">
+					<div class="hero-video-header">
+						<div class="window-dots">
+							<span class="window-dot red"></span>
+							<span class="window-dot amber"></span>
+							<span class="window-dot green"></span>
+							<span class="mono hero-video-title">🎬 pi-web-ui-demo.mp4 — 官方实机演示 (Live Walkthrough)</span>
+						</div>
+						<div class="hero-video-tags">
+							<span class="video-badge-hd">1080P Full HD</span>
+							<span class="video-badge-duration" data-i18n-zh="2 分钟速览" data-i18n-en="2-Min Tour">2 分钟速览</span>
+						</div>
+					</div>
+					<div class="hero-video-body">
+						<video id="hero-demo-video" controls preload="metadata" poster="./assets/demo-video-poster.png" playsinline>
+							<source src="./assets/demo-video.mp4" type="video/mp4" />
+							<source src="https://raw.githubusercontent.com/xing-shuyin/pi-web-ui/main/assets/demo-video.mp4" type="video/mp4" />
+							<p>您的浏览器不支持 HTML5 视频，请直接访问：<a href="https://raw.githubusercontent.com/xing-shuyin/pi-web-ui/main/assets/demo-video.mp4">下载演示视频</a></p>
+						</video>
+						<div class="video-play-overlay" id="video-play-overlay">
+							<button type="button" class="video-play-btn" id="hero-video-play-btn" aria-label="播放演示视频">
+								<svg viewBox="0 0 24 24" fill="currentColor" width="40" height="40">
+									<path d="M8 5v14l11-7z" />
+								</svg>
+							</button>
+							<span class="video-play-caption" data-i18n-zh="🎬 点击播放 2 分钟全景实机功能演示视频" data-i18n-en="🎬 Click to Play 2-Min Live Walkthrough Video">
+								🎬 点击播放 2 分钟全景实机功能演示视频
+							</span>
+						</div>
+					</div>
+					<div class="hero-video-footer">
+						<div class="hero-video-desc">
+							<span class="sparkle-icon">✨</span>
+							<span data-i18n-zh="沉浸式实机演示：pi & DSH 双引擎流式输出、真 PTY 终端 AI Bash 透明接管、Git 差异管理与审查闭环" data-i18n-en="Live Cockpit Demo: Dual engines streaming, real PTY bash takeover, Git SCM & review loop">
+								沉浸式实机演示：pi & DSH 双引擎流式输出、真 PTY 终端 AI Bash 透明接管、Git 差异管理与审查闭环
+							</span>
+						</div>
+						<div class="hero-video-actions">
+							<a href="https://raw.githubusercontent.com/xing-shuyin/pi-web-ui/main/assets/demo-video.mp4" target="_blank" rel="noreferrer" class="video-action-link" data-i18n-zh="在新窗口打开 ↗" data-i18n-en="Open in New Tab ↗">在新窗口打开 ↗</a>
+							<a href="./docs.html" class="video-action-link primary" data-i18n-zh="查看详细文档 →" data-i18n-en="Read Docs →">查看详细文档 →</a>
+						</div>
 					</div>
 				</div>
 			</div>
@@ -122,15 +173,15 @@
 					<div class="stat-label" data-i18n-zh="每项目独立后台 Runtime" data-i18n-en="Concurrent Sessions / Project">每项目独立后台 Runtime</div>
 				</div>
 				<div class="stat-card">
-					<div class="stat-num">31 项</div>
+					<div class="stat-num">30 项</div>
 					<div class="stat-label" data-i18n-zh="可控工具与内联标记" data-i18n-en="Configurable Agent Tools">可控工具与内联标记</div>
 				</div>
 				<div class="stat-card">
-					<div class="stat-num">21 款</div>
+					<div class="stat-num">34 款</div>
 					<div class="stat-label" data-i18n-zh="官方与社区插件一键装" data-i18n-en="Official & Community Plugins">官方与社区插件一键装</div>
 				</div>
 				<div class="stat-card">
-					<div class="stat-num">29 套</div>
+					<div class="stat-num">32 套</div>
 					<div class="stat-label" data-i18n-zh="全站 + 终端联动主题" data-i18n-en="Built-in UI + PTY Themes">全站 + 终端联动主题</div>
 				</div>
 				<div class="stat-card">
@@ -289,12 +340,12 @@
 		</div>
 	</section>
 
-	<!-- 21 Official & Community Plugins Marketplace -->
+	<!-- 34 Official & Community Plugins Marketplace -->
 	<section class="section" id="plugins">
 		<div class="container">
 			<div class="section-header">
 				<span class="section-tag">Plugin Ecosystem · PLUGIN_API_VERSION 2</span>
-				<h2 class="section-title" data-i18n-zh="21 款官方与社区插件：一行命令或网页一键即装" data-i18n-en="21 Official & Community Plugins: One-Click Install">21 款官方与社区插件：一行命令或网页一键即装</h2>
+				<h2 class="section-title" data-i18n-zh="34 款官方与社区插件：一行命令或网页一键即装" data-i18n-en="34 Official & Community Plugins: One-Click Install">34 款官方与社区插件：一行命令或网页一键即装</h2>
 				<p class="section-desc" data-i18n-zh="涵盖 VSCode 编辑器、数据库连接池、SFTP 同步、微信通道、语音输入、运行轨迹时间线、多仓 Git 与 Windows 桌面自动化。" data-i18n-en="From VSCode Workbench, DB Client, and SFTP Sync to WeChat Channel, Voice Input, Run-Trace Timeline, Multi-Git, and Desktop Automation.">
 					涵盖 VSCode 编辑器、数据库连接池、SFTP 同步、微信通道、语音输入、运行轨迹时间线、多仓 Git 与 Windows 桌面自动化。
 				</p>
@@ -316,12 +367,12 @@
 		</div>
 	</section>
 
-	<!-- 29 Built-in Themes Interactive Studio -->
+	<!-- 32 Built-in Themes Interactive Studio -->
 	<section class="section" id="themes">
 		<div class="container">
 			<div class="section-header">
-				<span class="section-tag">Theme Studio · 29 Built-in Palettes</span>
-				<h2 class="section-title" data-i18n-zh="29 套内置主题实时演播室（全界面 + 终端联动）" data-i18n-en="Interactive 29-Theme Studio (UI + Terminal Palette Sync)">29 套内置主题实时演播室（全界面 + 终端联动）</h2>
+				<span class="section-tag">Theme Studio · 32 Built-in Palettes</span>
+				<h2 class="section-title" data-i18n-zh="32 套内置主题实时演播室（全界面 + 终端联动）" data-i18n-en="Interactive 32-Theme Studio (UI + Terminal Palette Sync)">32 套内置主题实时演播室（全界面 + 终端联动）</h2>
 				<p class="section-desc" data-i18n-zh="点击左侧任意主题色卡，实时预览该配色在 pi-web-ui 对话气泡、思考块与内置终端中的真实视觉效果。" data-i18n-en="Click any theme swatch on the left to preview how it styles pi-web-ui chat bubbles, thinking blocks, and terminals.">
 					点击左侧任意主题色卡，实时预览该配色在 pi-web-ui 对话气泡、思考块与内置终端中的真实视觉效果。
 				</p>
@@ -418,9 +469,9 @@ PI_WEB_TOKEN=secret docker compose up -d</code></pre>
 					type="search"
 					id="global-search-input"
 					class="search-modal-input"
-					placeholder="搜索 16 章文档、31 个工具、21 款插件、CLI 参数与环境变量..."
-					data-i18n-placeholder-zh="搜索 16 章文档、31 个工具、21 款插件、CLI 参数与环境变量..."
-					data-i18n-placeholder-en="Search 16 doc chapters, 31 tools, 21 plugins, CLI flags & env vars..."
+					placeholder="搜索 20 章文档、30 个工具、34 款插件、CLI 参数与环境变量..."
+					data-i18n-placeholder-zh="搜索 20 章文档、30 个工具、34 款插件、CLI 参数与环境变量..."
+					data-i18n-placeholder-en="Search 20 doc chapters, 30 tools, 34 plugins, CLI flags & env vars..."
 				/>
 				<kbd class="search-kbd">ESC</kbd>
 			</div>

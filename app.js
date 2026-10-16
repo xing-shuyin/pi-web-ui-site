@@ -470,7 +470,45 @@ function renderThemeStudio() {
 	`;
 }
 
+function initHeroVideo() {
+	const video = document.getElementById("hero-demo-video");
+	const overlay = document.getElementById("video-play-overlay");
+	if (!video || !overlay) return;
+
+	const playVideo = () => {
+		video
+			.play()
+			.then(() => {
+				overlay.classList.add("hidden");
+			})
+			.catch((err) => {
+				console.warn("Autoplay/play failed:", err);
+				overlay.classList.remove("hidden");
+			});
+	};
+
+	overlay.onclick = (e) => {
+		e.preventDefault();
+		playVideo();
+	};
+
+	video.addEventListener("play", () => {
+		overlay.classList.add("hidden");
+	});
+
+	video.addEventListener("pause", () => {
+		if (video.currentTime === 0) {
+			overlay.classList.remove("hidden");
+		}
+	});
+
+	video.addEventListener("ended", () => {
+		overlay.classList.remove("hidden");
+	});
+}
+
 function renderLandingInteractive() {
+	initHeroVideo();
 	renderInstallBox();
 	renderCockpitShowcase();
 	renderModesExplorer();

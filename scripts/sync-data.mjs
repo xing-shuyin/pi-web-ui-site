@@ -409,6 +409,34 @@ const siteData = {
 	],
 };
 
+// Auto copy screenshots and video assets if found in SOURCE_ROOT/assets
+const sourceAssetsDir = path.join(SOURCE_ROOT, "assets");
+const siteAssetsDir = path.join(SITE_ROOT, "assets");
+if (fs.existsSync(sourceAssetsDir) && fs.existsSync(siteAssetsDir)) {
+	const assetFiles = [
+		"demo-video-poster.png",
+		"demo-video-cover.png",
+		"demo-video.mp4",
+		"chat-prompts.jpeg",
+		"trajectory.jpeg",
+		"terminal.jpeg",
+		"git.jpeg",
+		"settings.jpeg",
+	];
+	for (const file of assetFiles) {
+		const srcFile = path.join(sourceAssetsDir, file);
+		const dstFile = path.join(siteAssetsDir, file);
+		if (fs.existsSync(srcFile) && !fs.existsSync(dstFile)) {
+			try {
+				fs.copyFileSync(srcFile, dstFile);
+				console.log(`Copied asset: ${file}`);
+			} catch (err) {
+				console.warn(`Could not copy asset ${file}:`, err.message);
+			}
+		}
+	}
+}
+
 const outPath = path.join(SITE_ROOT, "site-data.js");
 fs.writeFileSync(
 	outPath,

@@ -22,6 +22,8 @@ const MIME = {
 	".jpg": "image/jpeg",
 	".png": "image/png",
 	".ico": "image/x-icon",
+	".mp4": "video/mp4",
+	".webm": "video/webm",
 };
 
 const server = http.createServer((req, res) => {

@@ -1,5 +1,5 @@
 /**
- * Chapter 19: Plugins Ecosystem & 21 Official/Community Plugins (插件生态与21款插件全集)
+ * Chapter 19: Plugins Ecosystem & 34 Official/Community Plugins (插件生态与34款插件全集)
  */
 export const ch19 = {
 	id: "plugins-marketplace",
@@ -8,15 +8,15 @@ export const ch19 = {
 	icon: "🧩",
 	navTitle: "19. 插件市场与实用精选",
 	navTitleEn: "19. Plugins Marketplace",
-	title: "插件生态全景与 21 款实用官方/社区插件盘点",
-	titleEn: "Plugins Ecosystem & Top 21 Official/Community Plugins",
-	summary: "让工作台能力无限延伸：涵盖 VSCode 编辑器、可视化数据库客户端、手机微信通道、Live Server 实时预览、Mermaid 流程图等 21 款高频插件。",
-	summaryEn: "Extend your workbench: 21 pre-packaged plugins including VSCode editor, Database client, WeChat bridge, Live Server preview, and Mermaid diagram renderer.",
+	title: "插件生态全景与 34 款实用官方/社区插件盘点",
+	titleEn: "Plugins Ecosystem & Top 34 Official/Community Plugins",
+	summary: "让工作台能力无限延伸：涵盖 VSCode 编辑器、可视化数据库客户端、手机微信通道、Live Server 实时预览、Mermaid 流程图、桌面自动化等 34 款高频插件。",
+	summaryEn: "Extend your workbench: 34 pre-packaged plugins including VSCode editor, Database client, WeChat bridge, Live Server preview, Mermaid diagram renderer, and desktop automation.",
 	contentZh: `
 <h2 id="why-plugins-matter">1. 为什么需要插件生态？</h2>
 <p>每个开发者的业务场景截然不同：前端工程师需要实时网页预览，后端工程师离不开数据库查询，运维人员需要监控服务器进程。pi-web-ui 拥有基于 <strong>Plugin SDK v2</strong> 打造的开放插件体系，让工作台成为你定制化的研发中枢。</p>
 
-<h2 id="top-featured-plugins">2. 官方精选高频实用插件一览</h2>
+<h2 id="top-featured-plugins">2. 官方精选高频实用插件一览 (现已拓展至 34 款)</h2>
 
 <div class="doc-grid-2">
 	<div class="doc-card">
@@ -50,6 +50,14 @@ export const ch19 = {
 	<div class="doc-card">
 		<h4>📝 极客随手记与备忘 (<code>notes</code>)</h4>
 		<p>在侧边栏常驻 Markdown 笔记草稿本，随时随地记录架构灵感、待办事项或临时代码片段，自动本地持久化同步。</p>
+	</div>
+	<div class="doc-card">
+		<h4>🎙️ 语音输入交互 (<code>voice-input</code>)</h4>
+		<p>调用麦克风将语音实时转换为提示词文字，解放双手，用说话驱动 AI 编程与方案研讨。</p>
+	</div>
+	<div class="doc-card">
+		<h4>🖥️ 桌面窗口自动化 (<code>desktop-automation</code>)</h4>
+		<p>让 AI 识别屏幕、模拟键鼠操作或打开目标应用，实现本地端到端测试与自动化跨应用工作流。</p>
 	</div>
 </div>
 

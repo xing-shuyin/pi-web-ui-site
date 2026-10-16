@@ -86,6 +86,14 @@ pi-web-ui</code></pre>
 		<h4><code>PI_WEB_TOOL_TIMEOUT_MS</code></h4>
 		<p>工具看门狗执行超时时间（毫秒）。默认 20 分钟（1,200,000 ms），遇到死循环脚本时自动熔断中止并保护会话安全。</p>
 	</div>
+	<div class="doc-card">
+		<h4><code>PI_WEB_PRESET_REPO</code></h4>
+		<p>预设社区共享仓库（默认 <code>xing-shuyin/pi-web-ui-presets</code>）。设为 <code>off</code> 关闭一键分享，亦可在设置页一键导出为纯净 JSON。</p>
+	</div>
+	<div class="doc-card">
+		<h4><code>PI_WEB_ALLOW_ORIGINS</code></h4>
+		<p>额外允许跨域访问的 Origin 白名单（逗号分隔）。用于特殊反向代理、子路径挂载或不同端口的 WebSocket 握手。</p>
+	</div>
 </div>
 
 <h2 id="daemon-service">3. 一键注册开机自启动守护服务 (Daemon)</h2>
