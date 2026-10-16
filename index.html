@@ -6,7 +6,7 @@
 	<title>pi-web-ui — 多智能体协同，全栈 AI 研发工作台 | Web & 桌面端跨平台开发驾驶舱</title>
 	<meta name="description" content="pi-web-ui 是支持 pi 与 DeepSeek Harness (DSH) 双引擎的全栈 AI 编程智能体工作台（提供 Web 端与 Electron 原生桌面端）：集成流式对话、并发子代理、目标模式 2.0、文件树、真 PTY 终端、Git 管理与远程 SSH 工作区。" />
 	<link rel="icon" type="image/svg+xml" href="./assets/favicon.svg" />
-	<link rel="stylesheet" href="./styles.css" />
+	<link rel="stylesheet" href="./styles.css?v=0.106.0" />
 </head>
 <body>
 	<!-- Top Sticky Glass Navigation -->
@@ -102,47 +102,47 @@
 			</div>
 
 			<!-- Hero Demo Video Showcase (Readme 官方实机全功能实录) -->
-			<div class="hero-video-wrapper" id="demo-video">
-				<div class="hero-video-card">
-					<div class="hero-video-header">
-						<div class="window-dots">
+			<div class="hero-video-wrapper" id="demo-video" style="max-width:880px;width:100%;margin:28px auto 38px;padding:0 16px;box-sizing:border-box;">
+				<div class="hero-video-card" style="background:var(--bg-elev,#14161c);border:1px solid var(--border,#262a35);border-radius:14px;overflow:hidden;box-shadow:0 16px 40px rgba(0,0,0,0.5);width:100%;box-sizing:border-box;">
+					<div class="hero-video-header" style="display:flex;align-items:center;justify-content:space-between;gap:12px;padding:10px 16px;background:var(--bg-elev2,#1b1e27);border-bottom:1px solid var(--border,#262a35);flex-wrap:wrap;">
+						<div class="window-dots" style="display:flex;align-items:center;gap:7px;">
 							<span class="window-dot red"></span>
 							<span class="window-dot amber"></span>
 							<span class="window-dot green"></span>
-							<span class="mono hero-video-title">🎬 pi-web-ui-demo.mp4 — 官方实机演示 (Live Walkthrough)</span>
+							<span class="mono hero-video-title" style="font-size:0.82rem;color:var(--text-dim);margin-left:8px;font-weight:500;">🎬 pi-web-ui-demo.mp4 — 官方实机演示 (Live Walkthrough)</span>
 						</div>
-						<div class="hero-video-tags">
-							<span class="video-badge-hd">1080P Full HD</span>
-							<span class="video-badge-duration" data-i18n-zh="2 分钟速览" data-i18n-en="2-Min Tour">2 分钟速览</span>
+						<div class="hero-video-tags" style="display:flex;align-items:center;gap:8px;">
+							<span class="video-badge-hd" style="background:linear-gradient(135deg, #2563eb, #06b6d4);color:#fff;font-size:0.72rem;font-weight:700;padding:2px 8px;border-radius:6px;">1080P Full HD</span>
+							<span class="video-badge-duration" style="background:var(--bg,#0d0e12);border:1px solid var(--border,#262a35);color:var(--text-dim);font-size:0.72rem;padding:2px 8px;border-radius:6px;font-weight:600;" data-i18n-zh="2 分钟速览" data-i18n-en="2-Min Tour">2 分钟速览</span>
 						</div>
 					</div>
-					<div class="hero-video-body">
-						<video id="hero-demo-video" controls preload="metadata" poster="./assets/demo-video-poster.png" playsinline>
+					<div class="hero-video-body" style="position:relative;background:#000000;aspect-ratio:16/9;width:100%;max-height:495px;overflow:hidden;display:flex;align-items:center;justify-content:center;">
+						<video id="hero-demo-video" controls preload="metadata" poster="./assets/demo-video-poster.png" playsinline style="width:100%;height:100%;max-height:495px;object-fit:contain;background:#000000;display:block;">
 							<source src="./assets/demo-video.mp4" type="video/mp4" />
 							<source src="https://raw.githubusercontent.com/xing-shuyin/pi-web-ui/main/assets/demo-video.mp4" type="video/mp4" />
 							<p>您的浏览器不支持 HTML5 视频，请直接访问：<a href="https://raw.githubusercontent.com/xing-shuyin/pi-web-ui/main/assets/demo-video.mp4">下载演示视频</a></p>
 						</video>
-						<div class="video-play-overlay" id="video-play-overlay">
-							<button type="button" class="video-play-btn" id="hero-video-play-btn" aria-label="播放演示视频">
-								<svg viewBox="0 0 24 24" fill="currentColor" width="40" height="40">
+						<div class="video-play-overlay" id="video-play-overlay" style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;background:rgba(0,0,0,0.36);backdrop-filter:blur(2px);cursor:pointer;z-index:4;">
+							<button type="button" class="video-play-btn" id="hero-video-play-btn" aria-label="播放演示视频" style="width:72px;height:72px;border-radius:50%;background:rgba(37,99,235,0.92);color:#ffffff;border:2px solid rgba(255,255,255,0.7);display:flex;align-items:center;justify-content:center;cursor:pointer;box-shadow:0 8px 28px rgba(37,99,235,0.7);padding-left:4px;">
+								<svg viewBox="0 0 24 24" fill="currentColor" width="38" height="38">
 									<path d="M8 5v14l11-7z" />
 								</svg>
 							</button>
-							<span class="video-play-caption" data-i18n-zh="🎬 点击播放 2 分钟全景实机功能演示视频" data-i18n-en="🎬 Click to Play 2-Min Live Walkthrough Video">
+							<span class="video-play-caption" style="font-size:0.9rem;font-weight:600;color:#ffffff;background:rgba(0,0,0,0.6);padding:5px 16px;border-radius:999px;border:1px solid rgba(255,255,255,0.22);backdrop-filter:blur(4px);" data-i18n-zh="🎬 点击播放 2 分钟全景实机功能演示视频" data-i18n-en="🎬 Click to Play 2-Min Live Walkthrough Video">
 								🎬 点击播放 2 分钟全景实机功能演示视频
 							</span>
 						</div>
 					</div>
-					<div class="hero-video-footer">
-						<div class="hero-video-desc">
+					<div class="hero-video-footer" style="display:flex;align-items:center;justify-content:space-between;gap:12px;padding:10px 18px;background:var(--bg-elev2,#1b1e27);border-top:1px solid var(--border,#262a35);flex-wrap:wrap;">
+						<div class="hero-video-desc" style="font-size:0.84rem;color:var(--text-dim);display:flex;align-items:center;gap:8px;flex:1 1 300px;line-height:1.45;">
 							<span class="sparkle-icon">✨</span>
 							<span data-i18n-zh="沉浸式实机演示：pi & DSH 双引擎流式输出、真 PTY 终端 AI Bash 透明接管、Git 差异管理与审查闭环" data-i18n-en="Live Cockpit Demo: Dual engines streaming, real PTY bash takeover, Git SCM & review loop">
 								沉浸式实机演示：pi & DSH 双引擎流式输出、真 PTY 终端 AI Bash 透明接管、Git 差异管理与审查闭环
 							</span>
 						</div>
-						<div class="hero-video-actions">
-							<a href="https://raw.githubusercontent.com/xing-shuyin/pi-web-ui/main/assets/demo-video.mp4" target="_blank" rel="noreferrer" class="video-action-link" data-i18n-zh="在新窗口打开 ↗" data-i18n-en="Open in New Tab ↗">在新窗口打开 ↗</a>
-							<a href="./docs.html" class="video-action-link primary" data-i18n-zh="查看详细文档 →" data-i18n-en="Read Docs →">查看详细文档 →</a>
+						<div class="hero-video-actions" style="display:flex;align-items:center;gap:10px;flex-shrink:0;">
+							<a href="https://raw.githubusercontent.com/xing-shuyin/pi-web-ui/main/assets/demo-video.mp4" target="_blank" rel="noreferrer" class="video-action-link" style="padding:6px 14px;border-radius:8px;font-size:0.82rem;font-weight:600;text-decoration:none;border:1px solid var(--border,#262a35);color:var(--text,#e6e8ef);background:var(--bg-elev,#14161c);" data-i18n-zh="在新窗口打开 ↗" data-i18n-en="Open in New Tab ↗">在新窗口打开 ↗</a>
+							<a href="./docs.html" class="video-action-link primary" style="padding:6px 14px;border-radius:8px;font-size:0.82rem;font-weight:600;text-decoration:none;background:var(--accent,#3b82f6);color:#ffffff;border:1px solid transparent;" data-i18n-zh="查看详细文档 →" data-i18n-en="Read Docs →">查看详细文档 →</a>
 						</div>
 					</div>
 				</div>
@@ -487,6 +487,6 @@ PI_WEB_TOKEN=secret docker compose up -d</code></pre>
 		</div>
 	</div>
 
-	<script type="module" src="./app.js"></script>
+	<script type="module" src="./app.js?v=0.106.0"></script>
 </body>
 </html>
