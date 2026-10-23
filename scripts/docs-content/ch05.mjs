@@ -73,7 +73,7 @@ ssh://ubuntu@cloud.example.com/home/ubuntu/api-backend</code></pre>
 	</div>
 	<div class="doc-card">
 		<h4>🤖 AI 工具下沉远端执行</h4>
-		<p>AI 的 <code>read</code>、<code>write</code>、<code>edit</code>、<code>find</code> 等 30+ 项工具全部自动在远端服务器执行，绝不下载大文件到本地，高速省带宽。</p>
+		<p>AI 的 <code>read</code>、<code>write</code>、<code>edit</code>、<code>find</code> 等 30 项工具由服务端本地进程内执行（SDK 进程内直调，<code>read</code> 目录走 <code>ls</code> 口径），绝不下载大文件到本地，高速省带宽。</p>
 	</div>
 	<div class="doc-card">
 		<h4>🖥️ 远端伪终端 (Remote PTY)</h4>

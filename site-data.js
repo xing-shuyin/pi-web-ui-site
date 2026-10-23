@@ -2,7 +2,7 @@
 export const SITE_DATA = {
 	"meta": {
 		"name": "pi-web-ui",
-		"version": "0.106.0",
+		"version": "0.111.0",
 		"nodeEngine": ">=22.19.0",
 		"repoUrl": "https://github.com/xing-shuyin/pi-web-ui",
 		"npmUrl": "https://www.npmjs.com/package/pi-web-ui",
@@ -12,7 +12,7 @@ export const SITE_DATA = {
 		"qqGroup": "1126050727",
 		"license": "MIT",
 		"author": "xingshuyin",
-		"updatedAt": "2026-10-16"
+		"updatedAt": "2026-10-23"
 	},
 	"plugins": [
 		{
@@ -27,7 +27,7 @@ export const SITE_DATA = {
 			"homepage": "https://github.com/xing-shuyin/pi-web-ui/tree/main/plugins/webmail",
 			"description": "网页邮箱：IMAP 收件 + SMTP 发信 + 新邮件通知，可开放给 AI 直接管理邮件。",
 			"descriptionEn": "Web mail: IMAP inbox + SMTP send + new-mail notifications, optionally let the AI manage mail.",
-			"installCmd": "pi-web-ui plugin install xing-shuyin/pi-web-ui/plugins/webmail"
+			"installCmd": "pi-web-ui install xing-shuyin/pi-web-ui/plugins/webmail"
 		},
 		{
 			"id": "db-client",
@@ -41,7 +41,7 @@ export const SITE_DATA = {
 			"homepage": "https://github.com/xing-shuyin/pi-web-ui/tree/main/plugins/db-client",
 			"description": "数据库连接管理：MySQL / PostgreSQL / SQLite / SQL Server / MongoDB / Redis 的库表浏览、SQL 查询与数据编辑。",
 			"descriptionEn": "Database client: browse schemas, run SQL and edit data across MySQL / PostgreSQL / SQLite / SQL Server / MongoDB / Redis.",
-			"installCmd": "pi-web-ui plugin install xing-shuyin/pi-web-ui/plugins/db-client"
+			"installCmd": "pi-web-ui install xing-shuyin/pi-web-ui/plugins/db-client"
 		},
 		{
 			"id": "vscode-editor",
@@ -53,9 +53,9 @@ export const SITE_DATA = {
 			"author": "xingshuyin",
 			"source": "xing-shuyin/pi-web-ui/plugins/vscode-editor",
 			"homepage": "https://github.com/xing-shuyin/pi-web-ui/tree/main/plugins/vscode-editor",
-			"description": "类 VSCode 工作台：多根文件树 + CodeMirror 编辑器 + 底部终端 + Remote-SSH + SFTP 同步；向 AI 注册 SFTP/SSH/远端文件工具，可自主传代码。",
-			"descriptionEn": "VSCode-like workbench: multi-root file tree, CodeMirror editor, integrated terminal, Remote-SSH and SFTP sync; registers SFTP/SSH/remote-file tools so the AI can deploy code itself.",
-			"installCmd": "pi-web-ui plugin install xing-shuyin/pi-web-ui/plugins/vscode-editor"
+			"description": "类 VSCode 工作台：多根文件树 + CodeMirror 编辑器 + 底部终端 + Remote-SSH 远程文件浏览与编辑。",
+			"descriptionEn": "VSCode-like workbench: multi-root file tree, CodeMirror editor, integrated terminal, and Remote-SSH remote file browsing/editing.",
+			"installCmd": "pi-web-ui install xing-shuyin/pi-web-ui/plugins/vscode-editor"
 		},
 		{
 			"id": "sftp",
@@ -69,7 +69,7 @@ export const SITE_DATA = {
 			"homepage": "https://github.com/xing-shuyin/pi-web-ui/tree/main/plugins/sftp",
 			"description": "项目级 SFTP 同步：配置存项目 .pi/sftp.json（多环境 profile + .pi/sftp.local.json 本机覆盖），先算差异再传，扫描与传输按层/按文件并行且随时可停（面板「停止」或 action=cancel），支持 dry-run 预览与计划复用（预览完直接执行不重扫）、删除保护（进垃圾桶可回滚）、并发流式传输与原子落盘；打开远端命令执行后另有两条快通道（一次 find 完成远端扫描；一批小文件上行打成 tar 流、下行 tar -czf - 一次拉回，失败自动回落）；凭据走 ${env:} / ${secret:} / ${file:} 引用，明文永不进配置。面板里可直接手动上传/下载单个文件或整棵目录（永不动删除策略），也向 AI 注册**一个** action 式 sftp 工具（status/save/secret/test/plan/sync/cancel/ls/read/write/mkdir/mv/rm/search，可选 exec）。",
 			"descriptionEn": "Project-scoped SFTP sync: config lives in the project's .pi/sftp.json (multi-profile, with .pi/sftp.local.json machine override). Plans a diff before transferring; scanning and transfers run in parallel and can be stopped at any time (the panel's Stop button, or action=cancel); dry-run preview plus plan reuse (running right after a preview skips the rescan), delete protection (moved to a trash folder so it can be rolled back), concurrent streaming transfers and atomic writes; with exec access enabled two extra fast paths kick in (one remote find for the whole scan, and one tar batch per direction for a pile of small files, both falling back automatically); credentials use ${env:} / ${secret:} / ${file:} references so plaintext never lands in the config. The panel can upload or download a single file or a whole folder by hand (never touching the delete policy), and the AI gets one action-style sftp tool (status/save/secret/test/plan/sync/cancel/ls/read/write/mkdir/mv/rm/search, plus optional exec).",
-			"installCmd": "pi-web-ui plugin install xing-shuyin/pi-web-ui/plugins/sftp"
+			"installCmd": "pi-web-ui install xing-shuyin/pi-web-ui/plugins/sftp"
 		},
 		{
 			"id": "mermaid",
@@ -83,7 +83,7 @@ export const SITE_DATA = {
 			"homepage": "https://github.com/xing-shuyin/pi-web-ui/tree/main/plugins/mermaid",
 			"description": "把对话里的 ```mermaid 围栏渲染成 SVG 图表（fenced-code 渲染插件，本地引擎离线优先）。",
 			"descriptionEn": "Renders ```mermaid fences in messages to SVG diagrams (fenced-code renderer plugin, offline-first local engine).",
-			"installCmd": "pi-web-ui plugin install xing-shuyin/pi-web-ui/plugins/mermaid"
+			"installCmd": "pi-web-ui install xing-shuyin/pi-web-ui/plugins/mermaid"
 		},
 		{
 			"id": "run-trace",
@@ -97,7 +97,7 @@ export const SITE_DATA = {
 			"homepage": "https://github.com/xing-shuyin/pi-web-ui/tree/main/plugins/run-trace",
 			"description": "运行轨迹：任务 → 思考 → 工具 → 文件改动 → 结果的时间线聚合视图，支持回放与节点详情。",
 			"descriptionEn": "Run trajectory: task → thinking → tools → file changes → result timeline with replay and node details.",
-			"installCmd": "pi-web-ui plugin install xing-shuyin/pi-web-ui/plugins/run-trace"
+			"installCmd": "pi-web-ui install xing-shuyin/pi-web-ui/plugins/run-trace"
 		},
 		{
 			"id": "legado-web",
@@ -111,7 +111,7 @@ export const SITE_DATA = {
 			"homepage": "https://github.com/xing-shuyin/pi-web-ui/tree/main/plugins/legado-web",
 			"description": "Legado 阅读（文本源）：搜索 / 发现 / 详情 / 目录 / 正文，书源 JSON 与安卓版兼容，可导入、检测、删废源；内置跨域+GBK 代理与本地存储，并给 AI 配了修源接口（读规则、读书源文件、逐步诊断链路、试规则验证）。",
 			"descriptionEn": "Legado reader (text book sources): search / explore / info / TOC / content with Android-compatible book source JSON, plus source import and health checking. Ships its own CORS+GBK proxy, local store, and AI tools to diagnose and repair book sources.",
-			"installCmd": "pi-web-ui plugin install xing-shuyin/pi-web-ui/plugins/legado-web"
+			"installCmd": "pi-web-ui install xing-shuyin/pi-web-ui/plugins/legado-web"
 		},
 		{
 			"id": "wechat-ilink",
@@ -125,7 +125,7 @@ export const SITE_DATA = {
 			"homepage": "https://github.com/xing-shuyin/pi-web-ui/tree/main/plugins/wechat-ilink",
 			"description": "微信扫码登录（与腾讯 openclaw-weixin 同源的 ilink 协议）：出站长轮询收消息，微信里直接指挥 agent，无需公网 IP。",
 			"descriptionEn": "WeChat channel (ilink protocol, same origin as Tencent openclaw-weixin): outbound long-polling, drive the agent from WeChat, no public IP needed.",
-			"installCmd": "pi-web-ui plugin install xing-shuyin/pi-web-ui/plugins/wechat-ilink"
+			"installCmd": "pi-web-ui install xing-shuyin/pi-web-ui/plugins/wechat-ilink"
 		},
 		{
 			"id": "feishu",
@@ -139,7 +139,7 @@ export const SITE_DATA = {
 			"homepage": "https://github.com/xing-shuyin/pi-web-ui/tree/main/plugins/feishu",
 			"description": "飞书工作台与机器人：飞书 Bot 双工对话（出站长连接 / 智能 Markdown 分块 / 多轮会话隔离）/ 群聊与单聊会话列表 / 消息收发、回复与撤回 / 自定义机器人 Webhook 卡片推送 / AI 飞书工具（密钥加密落盘，零外部依赖）。",
 			"descriptionEn": "Feishu (Lark) workspace & Bot: Feishu Bot duplex chat (outbound long-connection, structure-aware Markdown chunks, isolated multi-turn sessions), chat management, Webhook cards, and AI feishu tool.",
-			"installCmd": "pi-web-ui plugin install xing-shuyin/pi-web-ui/plugins/feishu"
+			"installCmd": "pi-web-ui install xing-shuyin/pi-web-ui/plugins/feishu"
 		},
 		{
 			"id": "dingtalk",
@@ -153,7 +153,7 @@ export const SITE_DATA = {
 			"homepage": "https://github.com/xing-shuyin/pi-web-ui/tree/main/plugins/dingtalk",
 			"description": "钉钉机器人与工作台：钉钉 Bot 双工对话（出站长连接 / 智能 Markdown 分块 / 多轮会话隔离）/ 群聊与单聊消息推送 / 自定义机器人 Webhook / AI 钉钉工具（密钥加密存储，零外部依赖）。",
 			"descriptionEn": "DingTalk workspace & Bot: DingTalk Bot duplex chat (outbound long-connection, structure-aware Markdown chunks, isolated multi-turn sessions), group/single message push, custom bot Webhooks, and AI dingtalk tool.",
-			"installCmd": "pi-web-ui plugin install xing-shuyin/pi-web-ui/plugins/dingtalk"
+			"installCmd": "pi-web-ui install xing-shuyin/pi-web-ui/plugins/dingtalk"
 		},
 		{
 			"id": "telegram",
@@ -167,7 +167,7 @@ export const SITE_DATA = {
 			"homepage": "https://github.com/xing-shuyin/pi-web-ui/tree/main/plugins/telegram",
 			"description": "Telegram 机器人：出站长轮询双工对话（零公网 IP / 智能 Markdown 分块 / 多轮会话隔离）/ 用户白名单准入 / AI telegram 工具（密钥加密存储，零外部依赖）。",
 			"descriptionEn": "Telegram Bot: outbound long-polling duplex chat (zero public IP, structure-aware Markdown chunks, isolated multi-turn sessions), access control whitelist, and AI telegram tool.",
-			"installCmd": "pi-web-ui plugin install xing-shuyin/pi-web-ui/plugins/telegram"
+			"installCmd": "pi-web-ui install xing-shuyin/pi-web-ui/plugins/telegram"
 		},
 		{
 			"id": "wecom",
@@ -181,7 +181,7 @@ export const SITE_DATA = {
 			"homepage": "https://github.com/xing-shuyin/pi-web-ui/tree/main/plugins/wecom",
 			"description": "企业微信工作台与机器人：企微 Bot 双工对话（智能 Markdown 分块 / 多轮会话隔离）/ 群机器人 Webhook 卡片推送 / 自建应用消息 / AI wecom 工具（密钥加密存储，零外部依赖）。",
 			"descriptionEn": "WeCom workspace & Bot: WeCom Bot duplex chat (structure-aware Markdown chunks, isolated multi-turn sessions), group bot Webhook push, internal app messages, and AI wecom tool.",
-			"installCmd": "pi-web-ui plugin install xing-shuyin/pi-web-ui/plugins/wecom"
+			"installCmd": "pi-web-ui install xing-shuyin/pi-web-ui/plugins/wecom"
 		},
 		{
 			"id": "discord",
@@ -195,7 +195,7 @@ export const SITE_DATA = {
 			"homepage": "https://github.com/xing-shuyin/pi-web-ui/tree/main/plugins/discord",
 			"description": "Discord 机器人：官方 Gateway 出站 WebSocket 双工长连接（零公网 IP / 智能 Markdown 分块 / 多轮会话隔离）/ 用户白名单准入 / AI discord 工具（密钥加密存储，零外部依赖）。",
 			"descriptionEn": "Discord Bot: official Gateway outbound WebSocket duplex chat (zero public IP, structure-aware Markdown chunks, isolated multi-turn sessions), access control whitelist, and AI discord tool.",
-			"installCmd": "pi-web-ui plugin install xing-shuyin/pi-web-ui/plugins/discord"
+			"installCmd": "pi-web-ui install xing-shuyin/pi-web-ui/plugins/discord"
 		},
 		{
 			"id": "whatsapp",
@@ -209,7 +209,7 @@ export const SITE_DATA = {
 			"homepage": "https://github.com/xing-shuyin/pi-web-ui/tree/main/plugins/whatsapp",
 			"description": "WhatsApp 机器人与工作台：WhatsApp Cloud API 与双工对话（智能 Markdown 分块 / 多轮会话隔离）/ 用户白名单准入 / AI whatsapp 工具（密钥加密存储，零外部依赖）。",
 			"descriptionEn": "WhatsApp workspace & Bot: WhatsApp Cloud API & duplex chat (structure-aware Markdown chunks, isolated multi-turn sessions), access control whitelist, and AI whatsapp tool.",
-			"installCmd": "pi-web-ui plugin install xing-shuyin/pi-web-ui/plugins/whatsapp"
+			"installCmd": "pi-web-ui install xing-shuyin/pi-web-ui/plugins/whatsapp"
 		},
 		{
 			"id": "slack",
@@ -223,7 +223,7 @@ export const SITE_DATA = {
 			"homepage": "https://github.com/xing-shuyin/pi-web-ui/tree/main/plugins/slack",
 			"description": "Slack 机器人：官方 Socket Mode 出站 WebSocket 双工长连接（零公网 IP / 智能 Markdown 分块 / 多轮会话隔离）/ 用户白名单准入 / AI slack 工具（密钥加密存储，零外部依赖）。",
 			"descriptionEn": "Slack Bot: official Socket Mode outbound WebSocket duplex chat (zero public IP, structure-aware Markdown chunks, isolated multi-turn sessions), access control whitelist, and AI slack tool.",
-			"installCmd": "pi-web-ui plugin install xing-shuyin/pi-web-ui/plugins/slack"
+			"installCmd": "pi-web-ui install xing-shuyin/pi-web-ui/plugins/slack"
 		},
 		{
 			"id": "qq",
@@ -237,7 +237,7 @@ export const SITE_DATA = {
 			"homepage": "https://github.com/xing-shuyin/pi-web-ui/tree/main/plugins/qq",
 			"description": "QQ 机器人：腾讯官方开放平台 QQBot 出站 WebSocket 双工长连接（零公网 IP / 智能 Markdown 分块 / 多轮会话隔离）/ 用户白名单准入 / AI qq 工具（密钥加密存储，零外部依赖）。",
 			"descriptionEn": "QQ Bot: official Tencent QQBot outbound WebSocket duplex chat (zero public IP, structure-aware Markdown chunks, isolated multi-turn sessions), access control whitelist, and AI qq tool.",
-			"installCmd": "pi-web-ui plugin install xing-shuyin/pi-web-ui/plugins/qq"
+			"installCmd": "pi-web-ui install xing-shuyin/pi-web-ui/plugins/qq"
 		},
 		{
 			"id": "imessage",
@@ -251,7 +251,7 @@ export const SITE_DATA = {
 			"homepage": "https://github.com/xing-shuyin/pi-web-ui/tree/main/plugins/imessage",
 			"description": "iMessage 机器人与工作台：Apple macOS 原生 iMessage 通道（零公网 IP / 苹果生态随身触达 / 多轮会话隔离）/ 用户白名单准入 / AI imessage 工具。",
 			"descriptionEn": "iMessage workspace & Bot: Apple macOS native iMessage bridge (zero public IP, Apple ecosystem companion, isolated multi-turn sessions), access control whitelist, and AI imessage tool.",
-			"installCmd": "pi-web-ui plugin install xing-shuyin/pi-web-ui/plugins/imessage"
+			"installCmd": "pi-web-ui install xing-shuyin/pi-web-ui/plugins/imessage"
 		},
 		{
 			"id": "matrix",
@@ -265,7 +265,7 @@ export const SITE_DATA = {
 			"homepage": "https://github.com/xing-shuyin/pi-web-ui/tree/main/plugins/matrix",
 			"description": "Matrix 机器人与工作台 (实验功能)：开源去中心化通信协议 Matrix 出站长轮询双工对话（零公网 IP / 智能 Markdown 分块 / 多轮会话隔离）/ 用户白名单准入 / AI matrix 工具。",
 			"descriptionEn": "Matrix workspace & Bot (experimental): decentralized Matrix protocol outbound sync duplex chat (zero public IP, structure-aware Markdown chunks, isolated multi-turn sessions), access control whitelist, and AI matrix tool.",
-			"installCmd": "pi-web-ui plugin install xing-shuyin/pi-web-ui/plugins/matrix"
+			"installCmd": "pi-web-ui install xing-shuyin/pi-web-ui/plugins/matrix"
 		},
 		{
 			"id": "voice-input",
@@ -279,7 +279,7 @@ export const SITE_DATA = {
 			"homepage": "https://github.com/xing-shuyin/pi-web-ui/tree/main/plugins/voice-input",
 			"description": "语音输入：输入框旁的麦克风按钮，浏览器语音识别直接听写进输入框；不支持/识别失败时自动降级为服务端转写（远端接口，或一键安装的本地 Whisper，免费不出网）。",
 			"descriptionEn": "Voice input: a mic button next to the composer. Browser speech recognition dictates into the input box, with server-side transcription as automatic fallback (remote API, or one-click local Whisper that runs fully offline).",
-			"installCmd": "pi-web-ui plugin install xing-shuyin/pi-web-ui/plugins/voice-input"
+			"installCmd": "pi-web-ui install xing-shuyin/pi-web-ui/plugins/voice-input"
 		},
 		{
 			"id": "live-preview",
@@ -293,7 +293,7 @@ export const SITE_DATA = {
 			"homepage": "https://github.com/xing-shuyin/pi-web-ui/tree/main/plugins/live-preview",
 			"description": "Live Server 式预览：/liveserver 看 HTML（含相对资源与自动刷新），/md 看 Markdown 渲染；真服务只绑回环地址，经宿主通用代理对外只露同源前缀。",
 			"descriptionEn": "Live-Server-style preview: HTML under /liveserver (relative assets + auto reload), rendered Markdown under /md. Loopback-only inner server exposed via host proxy prefixes.",
-			"installCmd": "pi-web-ui plugin install xing-shuyin/pi-web-ui/plugins/live-preview"
+			"installCmd": "pi-web-ui install xing-shuyin/pi-web-ui/plugins/live-preview"
 		},
 		{
 			"id": "image-toolkit",
@@ -305,9 +305,9 @@ export const SITE_DATA = {
 			"author": "xingshuyin",
 			"source": "xing-shuyin/pi-web-ui/plugins/image-toolkit",
 			"homepage": "https://github.com/xing-shuyin/pi-web-ui/tree/main/plugins/image-toolkit",
-			"description": "一体化 AI 生图与图像处理工作台：一套配置同时接入通义万相、FLUX、OpenAI、Google Imagen/Gemini、智谱 CogView、火山豆包、Stability 与 ComfyUI 等主流生图服务；集成压缩（目标体积二分逼近）、裁剪、缩放、格式转换、水印、滤镜调色与 EXIF 分析；生图与处理在同一工作台内无缝流转。提供 7 个 AI 工具，让 agent 自己生图、配置供应商、分析并加工工作区图片。",
-			"descriptionEn": "All-in-one AI image generation & processing studio: configure DashScope (Wanx), FLUX, OpenAI, Google Imagen/Gemini, Zhipu CogView, Volcengine Seedream, Stability & ComfyUI side by side; compress (with binary search target size), crop, resize, format conversion, watermark, filters & EXIF analysis. Seamlessly flow between generation and editing in one unified workbench. Ships 7 AI tools for generation, provider configuration, analysis, and processing.",
-			"installCmd": "pi-web-ui plugin install xing-shuyin/pi-web-ui/plugins/image-toolkit"
+			"description": "一体化 AI 生图与图像处理工作台：一套配置同时接入通义万相、FLUX、OpenAI、Google Imagen/Gemini、智谱 CogView、火山豆包、Stability 与 ComfyUI 等主流生图服务；集成压缩（目标体积二分逼近）、裁剪、缩放、格式转换、水印、滤镜调色与 EXIF 分析；生图与处理在同一工作台内无缝流转。提供 8 个 AI 工具，让 agent 自己生图、配置供应商、分析并加工工作区图片与精准像素取色（附带位置截图）。",
+			"descriptionEn": "All-in-one AI image generation & processing studio: configure DashScope (Wanx), FLUX, OpenAI, Google Imagen/Gemini, Zhipu CogView, Volcengine Seedream, Stability & ComfyUI side by side; compress (with binary search target size), crop, resize, format conversion, watermark, filters & EXIF analysis. Seamlessly flow between generation and editing in one unified workbench. Ships 8 AI tools for generation, provider configuration, analysis, processing, and exact pixel color picking with context screenshot crops.",
+			"installCmd": "pi-web-ui install xing-shuyin/pi-web-ui/plugins/image-toolkit"
 		},
 		{
 			"id": "notes",
@@ -321,7 +321,7 @@ export const SITE_DATA = {
 			"homepage": "https://github.com/xing-shuyin/pi-web-ui/tree/main/plugins/notes",
 			"description": "随手记：笔记 + 待办 + 日程提醒三合一。顶栏按钮打开可自由拖拽的全局浮窗（位置/尺寸记忆，设置也在浮窗里，无独立视图页）；提醒走服务端定时（重启不丢、错过补送），另有 5 个 AI 工具与 /note /todo /remind 快速捕获。",
 			"descriptionEn": "Notes, todos and scheduled reminders in one place: a freely draggable always-on-top panel (position, size and settings all live in it, no separate view tab); reminders fire server-side (survive restarts, delivered on next open), with 5 AI tools and /note /todo /remind quick capture.",
-			"installCmd": "pi-web-ui plugin install xing-shuyin/pi-web-ui/plugins/notes"
+			"installCmd": "pi-web-ui install xing-shuyin/pi-web-ui/plugins/notes"
 		},
 		{
 			"id": "desktop-use",
@@ -335,7 +335,7 @@ export const SITE_DATA = {
 			"homepage": "https://github.com/xing-shuyin/pi-web-ui/tree/main/plugins/desktop-use",
 			"description": "让 AI 操作 Windows 桌面：按元素名查控件坐标（UI Automation，无需截图）→ 点击 / 输入（含中文粘贴）/ 按键 / 聚焦窗口。输入库缺失时自动安装，卸载时连带删除。",
 			"descriptionEn": "Let the AI drive the Windows desktop: find controls by name via UI Automation (no screenshots) → click / type (CJK via paste) / hotkeys / focus windows. The input library auto-installs on activate and is removed with the plugin.",
-			"installCmd": "pi-web-ui plugin install xing-shuyin/pi-web-ui/plugins/desktop-use"
+			"installCmd": "pi-web-ui install xing-shuyin/pi-web-ui/plugins/desktop-use"
 		},
 		{
 			"id": "pi-web-multigit",
@@ -349,7 +349,7 @@ export const SITE_DATA = {
 			"homepage": "https://github.com/EinErste/pi-web-multigit",
 			"description": "多仓库 Git 总览：工作区内每个仓库的变更、差异、历史、分支、贮藏、跨仓搜索与时间线，另有工作区分支聚合、Fetch/Pull 与内置终端（其余只读）。",
 			"descriptionEn": "Multi-repo Git overview: changes, diffs, history, branches, stashes, cross-repo search and a timeline for every repository in the workspace, plus a workspace-wide branch view, Fetch/Pull and an optional terminal.",
-			"installCmd": "pi-web-ui plugin install EinErste/pi-web-multigit"
+			"installCmd": "pi-web-ui install EinErste/pi-web-multigit"
 		},
 		{
 			"id": "codex-usage",
@@ -363,7 +363,7 @@ export const SITE_DATA = {
 			"homepage": "https://github.com/xieweimo/pi-web-ui-contrib/tree/main/plugins/codex-usage",
 			"description": "会话级多模型账本：按 API 提供商和模型连续累计成本、显示 token 与有效单价；订阅明确不计费。",
 			"descriptionEn": "Conversation-level multi-model ledger: continuous cost totals by API provider and model, token and effective-rate details, with subscription calls explicitly excluded.",
-			"installCmd": "pi-web-ui plugin install xieweimo/pi-web-ui-contrib/plugins/codex-usage"
+			"installCmd": "pi-web-ui install xieweimo/pi-web-ui-contrib/plugins/codex-usage"
 		},
 		{
 			"id": "proxy-health",
@@ -377,7 +377,7 @@ export const SITE_DATA = {
 			"homepage": "https://github.com/xieweimo/pi-web-ui-contrib/tree/main/plugins/proxy-health",
 			"description": "探测可配置的 HTTPS 目标及代理链路；无代理时检测直连，失败时对比第二目标，谨慎提示网络问题。",
 			"descriptionEn": "Probe a configurable HTTPS target via an HTTP(S) proxy or directly; compare a second site on failure without assuming the root cause.",
-			"installCmd": "pi-web-ui plugin install xieweimo/pi-web-ui-contrib/plugins/proxy-health"
+			"installCmd": "pi-web-ui install xieweimo/pi-web-ui-contrib/plugins/proxy-health"
 		},
 		{
 			"id": "reconnect",
@@ -391,7 +391,7 @@ export const SITE_DATA = {
 			"homepage": "https://github.com/xieweimo/pi-web-ui-contrib/tree/main/plugins/reconnect",
 			"description": "断连恢复：查看网页服务与重启守护状态，一键重新连接或重启网页服务（支持单服务/全服务重启，配套可选独立守护进程）。",
 			"descriptionEn": "Reconnection & service recovery: inspect web service and companion watchdog health, reconnect or restart services in one click (supports multi-service restarts with companion watchdog).",
-			"installCmd": "pi-web-ui plugin install xieweimo/pi-web-ui-contrib/plugins/reconnect"
+			"installCmd": "pi-web-ui install xieweimo/pi-web-ui-contrib/plugins/reconnect"
 		},
 		{
 			"id": "sol-savings",
@@ -405,7 +405,7 @@ export const SITE_DATA = {
 			"homepage": "https://github.com/xing-shuyin/pi-web-ui/tree/main/plugins/sol-savings",
 			"description": "SoL-Pi 会话节省统计与规划底栏：实时追踪大工具输出打包（Observation Pack）节省的上下文 Token 与在线计划（Plan）进度，借鉴 pi-sol-plan-footer 在底栏显示。",
 			"descriptionEn": "SoL-Pi session savings and plan status in the footer bar: real-time tracking of context tokens saved by Observation Pack and active Plan progress, inspired by pi-sol-plan-footer.",
-			"installCmd": "pi-web-ui plugin install xing-shuyin/pi-web-ui/plugins/sol-savings"
+			"installCmd": "pi-web-ui install xing-shuyin/pi-web-ui/plugins/sol-savings"
 		},
 		{
 			"id": "session-migrate",
@@ -419,7 +419,7 @@ export const SITE_DATA = {
 			"homepage": "https://github.com/xing-shuyin/pi-web-ui/tree/main/plugins/session-migrate",
 			"description": "扫描 ~/.omp/agent/sessions 与 ~/.pi/agent/sessions 的历史会话，只读预览后一键导入 pi 会话库（issue 286 Phase 1）。",
 			"descriptionEn": "Scan ~/.omp/agent/sessions and ~/.pi/agent/sessions history, preview read-only, then import into the pi session store (issue 286 Phase 1).",
-			"installCmd": "pi-web-ui plugin install xing-shuyin/pi-web-ui/plugins/session-migrate"
+			"installCmd": "pi-web-ui install xing-shuyin/pi-web-ui/plugins/session-migrate"
 		},
 		{
 			"id": "pm2-manager",
@@ -433,7 +433,7 @@ export const SITE_DATA = {
 			"homepage": "https://github.com/xing-shuyin/pi-web-ui/tree/main/plugins/pm2-manager",
 			"description": "用 pm2 统一托管 AI 启动的后台任务：长期服务与调试实例交给 pm2 后有名字、有状态、有日志，顶栏「后台任务」面板与插件面板同一份列表，可看状态/CPU/内存/重启/日志、单独停止或删除；未装 pm2 时一键安装。不拦截 AI 的命令，管不管由模型和用户自行决定。",
 			"descriptionEn": "Supervise AI-started background tasks with pm2: long-running services and debug instances get a name, a status and logs, so the host background-tasks panel and the plugin panel show one shared list with status/CPU/memory/restarts/logs plus per-app stop or delete; one-click pm2 install when missing. It never intercepts AI commands — whether a process goes through pm2 is up to the model and the user.",
-			"installCmd": "pi-web-ui plugin install xing-shuyin/pi-web-ui/plugins/pm2-manager"
+			"installCmd": "pi-web-ui install xing-shuyin/pi-web-ui/plugins/pm2-manager"
 		},
 		{
 			"id": "md-chat",
@@ -447,7 +447,7 @@ export const SITE_DATA = {
 			"homepage": "https://github.com/engharat/pi-web-ui-md-chat",
 			"description": "本地持久聊天归档：保留压缩前原文、按分支浏览历史、问题跳转与 Markdown 文件查看；不调用模型，不修改原会话。",
 			"descriptionEn": "Persistent local chat archive preserving pre-compaction originals, with branch history, question navigation and a Markdown file viewer. No model calls or native-session edits.",
-			"installCmd": "pi-web-ui plugin install engharat/pi-web-ui-md-chat"
+			"installCmd": "pi-web-ui install engharat/pi-web-ui-md-chat"
 		},
 		{
 			"id": "wallpaper-engine",
@@ -461,35 +461,105 @@ export const SITE_DATA = {
 			"homepage": "https://github.com/xing-shuyin/pi-web-ui/tree/main/plugins/wallpaper-engine",
 			"description": "动态壁纸：自动扫描本机 Wallpaper Engine 创意工坊壁纸，支持视频壁纸播放、液态毛玻璃磨砂效果与壁纸库抽屉。",
 			"descriptionEn": "Wallpaper Engine: scans Steam Workshop, supports video wallpapers, liquid frosted glass effects and a wallpaper library drawer.",
-			"installCmd": "pi-web-ui plugin install xing-shuyin/pi-web-ui/plugins/wallpaper-engine"
+			"installCmd": "pi-web-ui install xing-shuyin/pi-web-ui/plugins/wallpaper-engine"
 		},
 		{
 			"id": "response-speed",
 			"name": "响应速度",
 			"nameEn": "Response Speed",
 			"icon": "⚡",
-			"category": "productivity",
+			"category": "ops",
 			"official": true,
 			"author": "xingshuyin",
 			"source": "xing-shuyin/pi-web-ui/plugins/response-speed",
 			"homepage": "https://github.com/xing-shuyin/pi-web-ui/tree/main/plugins/response-speed",
 			"description": "AI 响应速度监控：实时统计并显示当前回答的 AI 首字响应耗时（TTFT，发送请求到首个响应的时间）以及底部状态栏的平均响应速度，支持点击底栏查看统计明细与历史趋势。",
 			"descriptionEn": "AI response speed monitoring: real-time tracking of Time to First Token (TTFT) latency for the current response and the average speed in the bottom status bar, with details and history dialog.",
-			"installCmd": "pi-web-ui plugin install xing-shuyin/pi-web-ui/plugins/response-speed"
+			"installCmd": "pi-web-ui install xing-shuyin/pi-web-ui/plugins/response-speed"
 		},
 		{
 			"id": "browser-use",
 			"name": "browser-use",
 			"nameEn": "browser-use",
 			"icon": "🌐",
-			"category": "productivity",
+			"category": "ai",
 			"official": true,
 			"author": "xingshuyin",
 			"source": "xing-shuyin/pi-web-ui/plugins/browser-use",
 			"homepage": "https://github.com/xing-shuyin/pi-web-ui/tree/main/plugins/browser-use",
 			"description": "常驻 Chrome 自动化：自动拉起或接管常驻浏览器窗口，支持多标签页切换、精简交互元素快照（极省 Token）、智能点击输入、反爬穿透与状态跨任务持久。",
 			"descriptionEn": "Persistent Chrome automation: launches or attaches to a persistent Chrome instance, supports tab management, human-visible element snapshots, smart clicks and inputs, and anti-bot resilience across tasks.",
-			"installCmd": "pi-web-ui plugin install xing-shuyin/pi-web-ui/plugins/browser-use"
+			"installCmd": "pi-web-ui install xing-shuyin/pi-web-ui/plugins/browser-use"
+		},
+		{
+			"id": "tts",
+			"name": "语音合成 (TTS)",
+			"nameEn": "TTS Voice Engine",
+			"icon": "🔊",
+			"category": "ai",
+			"official": true,
+			"author": "xingshuyin",
+			"source": "xing-shuyin/pi-web-ui/plugins/tts",
+			"homepage": "https://github.com/xing-shuyin/pi-web-ui/tree/main/plugins/tts",
+			"description": "多源通用语音合成插件，聚合豆包大模型语音与 DeepSeek 官方音色，支持浏览器扩展一键同步登录凭据并支持消息朗读与实时边打字边流式发声。",
+			"descriptionEn": "Multi-engine TTS plugin aggregating Doubao and DeepSeek official voices, supporting one-click browser credential sync, message narration, and real-time streaming speech playback.",
+			"installCmd": "pi-web-ui install xing-shuyin/pi-web-ui/plugins/tts"
+		},
+		{
+			"id": "tunnel",
+			"name": "网络隧道",
+			"nameEn": "网络隧道",
+			"icon": "🔗",
+			"category": "ops",
+			"official": true,
+			"author": "xingshuyin",
+			"source": "xing-shuyin/pi-web-ui/plugins/tunnel",
+			"homepage": "https://github.com/xing-shuyin/pi-web-ui/tree/main/plugins/tunnel",
+			"description": "反向隧道：主人设备 CLI 主动连入（零公网暴露，穿 NAT），pi 经本机 SOCKS5 以主人所在网络为出口做巡检与访问（DNS 在主人侧解析）。面板展示隧道在线状态/连接数/令牌管理；注册 tunnel_fetch 工具供 AI 直接探测主人网络。",
+			"descriptionEn": "Reverse tunnel: the owner's device dials in (no public exposure, NAT-friendly); pi reaches the owner's network via local SOCKS5 with DNS resolved owner-side. Panel shows tunnel status/connections/token; tunnel_fetch tool for AI probes.",
+			"installCmd": "pi-web-ui install xing-shuyin/pi-web-ui/plugins/tunnel"
+		},
+		{
+			"id": "approval-gate",
+			"name": "拍板",
+			"nameEn": "拍板",
+			"icon": "🪧",
+			"category": "ops",
+			"official": true,
+			"author": "xingshuyin",
+			"source": "xing-shuyin/pi-web-ui/plugins/approval-gate",
+			"homepage": "https://github.com/xing-shuyin/pi-web-ui/tree/main/plugins/approval-gate",
+			"description": "定时任务拍板中心：待拍板项集中列表，点击跳转对应会话完成拍板；通用 CLI 供任意定时任务登记；顶栏拍板 tab 红点显示待拍板数。",
+			"descriptionEn": "Approval gate: centralized pending-decision list from scheduled tasks; click an item to jump into its conversation; red-dot badge on the tab shows pending count. A generic CLI lets any cron job register items.",
+			"installCmd": "pi-web-ui install xing-shuyin/pi-web-ui/plugins/approval-gate"
+		},
+		{
+			"id": "live2d",
+			"name": "Live2D 看板娘",
+			"nameEn": "Live2D Companion",
+			"icon": "🐾",
+			"category": "ai",
+			"official": true,
+			"author": "xingshuyin",
+			"source": "xing-shuyin/pi-web-ui/plugins/live2d",
+			"homepage": "https://github.com/xing-shuyin/pi-web-ui/tree/main/plugins/live2d",
+			"description": "页面悬浮 Live2D 桌面看板娘宠物：支持 Cubism 2/3/4 模型渲染、鼠标视线跟随、触摸点击反应、气泡对话台词、伴随 AI 思考/回复情绪联动与 AI 动作表情操控工具。",
+			"descriptionEn": "Interactive Live2D companion on your screen: Cubism 2/3/4 models, mouse eye-tracking, tap reactions, speech bubbles, AI emotion reactivity, and agent tools.",
+			"installCmd": "pi-web-ui install xing-shuyin/pi-web-ui/plugins/live2d"
+		},
+		{
+			"id": "office",
+			"name": "office",
+			"nameEn": "office",
+			"icon": "📑",
+			"category": "productivity",
+			"official": true,
+			"author": "xingshuyin",
+			"source": "xing-shuyin/pi-web-ui/plugins/office",
+			"homepage": "https://github.com/xing-shuyin/pi-web-ui/tree/main/plugins/office",
+			"description": "基于 Univer 引擎的高保真 Office 原生画布预览与编辑：接管工作区 .pptx / .docx / .xlsx 真实渲染，支持 1:1 排版放映与 AI 结构化表格修改写回。",
+			"descriptionEn": "High-fidelity Office Canvas preview and editing powered by Univer: 1:1 true layouts for .pptx/.docx/.xlsx with AI structured editing and lossless disk save.",
+			"installCmd": "pi-web-ui install xing-shuyin/pi-web-ui/plugins/office"
 		}
 	],
 	"themes": [
@@ -538,10 +608,10 @@ export const SITE_DATA = {
 			"bgElev2": "#f0f1f3",
 			"text": "#5c6166",
 			"textDim": "#66727f",
-			"accent": "#f29718",
-			"green": "#86b300",
-			"red": "#f07171",
-			"amber": "#e59645",
+			"accent": "#b36d0a",
+			"green": "#587600",
+			"red": "#da1717",
+			"amber": "#9f5b16",
 			"border": "#e0e1e3"
 		},
 		{
@@ -556,9 +626,9 @@ export const SITE_DATA = {
 			"text": "#4c4f69",
 			"textDim": "#6c6f85",
 			"accent": "#1e66f5",
-			"green": "#40a02b",
-			"red": "#d20f39",
-			"amber": "#df8e1d",
+			"green": "#2d701e",
+			"red": "#c40e35",
+			"amber": "#895712",
 			"border": "#ccd0da"
 		},
 		{
@@ -606,10 +676,10 @@ export const SITE_DATA = {
 			"bgElev2": "#f0f0f2",
 			"text": "#0d0d0d",
 			"textDim": "#5d5d5d",
-			"accent": "#10a37f",
-			"green": "#10a37f",
-			"red": "#ef4444",
-			"amber": "#f59e0b",
+			"accent": "#0e9071",
+			"green": "#0c795e",
+			"red": "#d91313",
+			"amber": "#945f06",
 			"border": "#e5e5e5"
 		},
 		{
@@ -625,7 +695,7 @@ export const SITE_DATA = {
 			"textDim": "#9a9ac4",
 			"accent": "#00d4ff",
 			"green": "#00ff41",
-			"red": "#ff006e",
+			"red": "#ff0a74",
 			"amber": "#ffd700",
 			"border": "#2b2b4a"
 		},
@@ -674,11 +744,45 @@ export const SITE_DATA = {
 			"bgElev2": "#efebd4",
 			"text": "#5c6a72",
 			"textDim": "#687361",
-			"accent": "#3a94c5",
-			"green": "#8da101",
-			"red": "#f85552",
-			"amber": "#dfa000",
+			"accent": "#3382ad",
+			"green": "#616e01",
+			"red": "#d10c08",
+			"amber": "#886200",
 			"border": "#e6e2cc"
+		},
+		{
+			"id": "flow-light",
+			"name": "极简行文",
+			"nameEn": "Pure Flow Light",
+			"group": "builtin",
+			"scheme": "light",
+			"bg": "#ffffff",
+			"bgElev": "#f8f9fa",
+			"bgElev2": "#f1f3f5",
+			"text": "#111827",
+			"textDim": "#4b5563",
+			"accent": "#111827",
+			"green": "#047d58",
+			"red": "#d52222",
+			"amber": "#a75c05",
+			"border": "rgba(0, 0, 0, 0.08)"
+		},
+		{
+			"id": "flow",
+			"name": "极简行文",
+			"nameEn": "Pure Flow",
+			"group": "builtin",
+			"scheme": "dark",
+			"bg": "#171717",
+			"bgElev": "#212121",
+			"bgElev2": "#282828",
+			"text": "#f2f2f2",
+			"textDim": "#9e9e9e",
+			"accent": "#ffffff",
+			"green": "#10b981",
+			"red": "#f16060",
+			"amber": "#f59e0b",
+			"border": "rgba(255, 255, 255, 0.08)"
 		},
 		{
 			"id": "geist",
@@ -692,9 +796,9 @@ export const SITE_DATA = {
 			"text": "#000000",
 			"textDim": "#666666",
 			"accent": "#0070f3",
-			"green": "#059669",
-			"red": "#ee0000",
-			"amber": "#f5a623",
+			"green": "#047d58",
+			"red": "#df0000",
+			"amber": "#9c6407",
 			"border": "#eaeaea"
 		},
 		{
@@ -709,9 +813,9 @@ export const SITE_DATA = {
 			"text": "#3c3836",
 			"textDim": "#504945",
 			"accent": "#af3a03",
-			"green": "#79740e",
+			"green": "#54510a",
 			"red": "#9d0006",
-			"amber": "#b57614",
+			"amber": "#70490c",
 			"border": "#d5c4a1"
 		},
 		{
@@ -726,9 +830,9 @@ export const SITE_DATA = {
 			"text": "#545464",
 			"textDim": "#65624f",
 			"accent": "#4d699b",
-			"green": "#6f894e",
-			"red": "#c84053",
-			"amber": "#de9800",
+			"green": "#4f6238",
+			"red": "#a53040",
+			"amber": "#785200",
 			"border": "#d5cea3"
 		},
 		{
@@ -759,10 +863,10 @@ export const SITE_DATA = {
 			"bgElev2": "#dde5ec",
 			"text": "#1e293b",
 			"textDim": "#475569",
-			"accent": "#0284c7",
-			"green": "#059669",
-			"red": "#dc2626",
-			"amber": "#d97706",
+			"accent": "#027dbd",
+			"green": "#047351",
+			"red": "#c42020",
+			"amber": "#985404",
 			"border": "#cbd5e1"
 		},
 		{
@@ -777,8 +881,8 @@ export const SITE_DATA = {
 			"text": "#d8dee9",
 			"textDim": "#e5e9f0",
 			"accent": "#88c0d0",
-			"green": "#a3be8c",
-			"red": "#bf616a",
+			"green": "#abc496",
+			"red": "#dfb1b5",
 			"amber": "#ebcb8b",
 			"border": "#4c566a"
 		},
@@ -795,7 +899,7 @@ export const SITE_DATA = {
 			"textDim": "#828997",
 			"accent": "#61afef",
 			"green": "#98c379",
-			"red": "#e06c75",
+			"red": "#e37981",
 			"amber": "#e5c07b",
 			"border": "#3e4451"
 		},
@@ -811,9 +915,9 @@ export const SITE_DATA = {
 			"text": "#3f372c",
 			"textDim": "#6f6250",
 			"accent": "#b45309",
-			"green": "#15803d",
+			"green": "#147739",
 			"red": "#b91c1c",
-			"amber": "#d97706",
+			"amber": "#9d5604",
 			"border": "#ddcfae"
 		},
 		{
@@ -827,10 +931,10 @@ export const SITE_DATA = {
 			"bgElev2": "#f2e9e1",
 			"text": "#464261",
 			"textDim": "#6d687e",
-			"accent": "#907aa9",
-			"green": "#56949f",
-			"red": "#b4637a",
-			"amber": "#ea9d34",
+			"accent": "#8871a3",
+			"green": "#416f77",
+			"red": "#a44f67",
+			"amber": "#945c0f",
 			"border": "#e4dcd3"
 		},
 		{
@@ -845,9 +949,9 @@ export const SITE_DATA = {
 			"text": "#4a2b35",
 			"textDim": "#7d5561",
 			"accent": "#db2777",
-			"green": "#059669",
-			"red": "#e11d48",
-			"amber": "#d97706",
+			"green": "#047351",
+			"red": "#ca1a41",
+			"amber": "#9d5604",
 			"border": "#eccdd6"
 		},
 		{
@@ -861,10 +965,10 @@ export const SITE_DATA = {
 			"bgElev2": "#e0d8be",
 			"text": "#586e75",
 			"textDim": "#657b83",
-			"accent": "#268bd2",
-			"green": "#859900",
-			"red": "#dc322f",
-			"amber": "#b58900",
+			"accent": "#2074af",
+			"green": "#546100",
+			"red": "#b5211e",
+			"amber": "#735700",
 			"border": "#d5cbab"
 		},
 		{
@@ -929,11 +1033,28 @@ export const SITE_DATA = {
 			"bgElev2": "#2d2d2d",
 			"text": "#d4d4d4",
 			"textDim": "#9d9d9d",
-			"accent": "#297aa0",
+			"accent": "#2e89b4",
 			"green": "#4ec9b0",
 			"red": "#f48771",
 			"amber": "#dcdcaa",
 			"border": "#3c3c3c"
+		},
+		{
+			"id": "wallpaper-flow",
+			"name": "壁纸专属 · 极简行文",
+			"nameEn": "Wallpaper Pure Flow",
+			"group": "custom",
+			"scheme": "dark",
+			"bg": "#050507",
+			"bgElev": "#0c0d11",
+			"bgElev2": "#14161c",
+			"text": "#ffffff",
+			"textDim": "#cbd5e1",
+			"accent": "#ffffff",
+			"green": "#4ade80",
+			"red": "#f87171",
+			"amber": "#fbbf24",
+			"border": "rgba(255, 255, 255, 0.14)"
 		},
 		{
 			"id": "wallpaper-obsidian",
@@ -964,9 +1085,9 @@ export const SITE_DATA = {
 			"text": "#1f2328",
 			"textDim": "#59636e",
 			"accent": "#0969da",
-			"green": "#059669",
+			"green": "#04825b",
 			"red": "#dc2626",
-			"amber": "#d97706",
+			"amber": "#a75c05",
 			"border": "#d0d7de"
 		},
 		{
@@ -982,7 +1103,7 @@ export const SITE_DATA = {
 			"textDim": "#a0a0a0",
 			"accent": "#e05a35",
 			"green": "#64a874",
-			"red": "#e0654e",
+			"red": "#e16952",
 			"amber": "#d4a24a",
 			"border": "#333333"
 		},
@@ -1000,7 +1121,7 @@ export const SITE_DATA = {
 			"accent": "#bf3b1f",
 			"green": "#3d7a55",
 			"red": "#c2402a",
-			"amber": "#a8722a",
+			"amber": "#946425",
 			"border": "#dad2c0"
 		},
 		{
@@ -1016,7 +1137,7 @@ export const SITE_DATA = {
 			"textDim": "#a0a0a0",
 			"accent": "#e05a35",
 			"green": "#64a874",
-			"red": "#e0654e",
+			"red": "#e16952",
 			"amber": "#d4a24a",
 			"border": "#333333"
 		},
@@ -1034,7 +1155,7 @@ export const SITE_DATA = {
 			"accent": "#bf3b1f",
 			"green": "#3d7a55",
 			"red": "#c2402a",
-			"amber": "#a8722a",
+			"amber": "#946425",
 			"border": "#dad2c0"
 		}
 	],
@@ -1576,7 +1697,7 @@ export const SITE_DATA = {
 		{
 			"flag": "--data-dir <dir>",
 			"env": "PI_WEB_DATA_DIR",
-			"def": "~/.pi-web",
+			"def": "<cwd>/.pi-web",
 			"desc": "持久化数据目录（存放界面状态、插件、上传附件、自定义主题、SSH 加密配置、审批规则库等）",
 			"descEn": "Data directory for UI state, plugins, uploads, custom themes, SSH profiles, and approval rules"
 		},
@@ -1595,11 +1716,11 @@ export const SITE_DATA = {
 			"descEn": "Path to DSH cli.js when running with --engine dsh"
 		},
 		{
-			"flag": "--token <secret>",
+			"flag": "(环境变量)",
 			"env": "PI_WEB_TOKEN",
 			"def": "空 (免密)",
-			"desc": "开启共享口令鉴权，保护 HTTP 静态页、/api/* 与 /ws 连接",
-			"descEn": "Require shared secret token authentication for HTTP, API, and WebSocket"
+			"desc": "共享口令鉴权，仅环境变量（不走命令行）；Linux install 会写入 unit",
+			"descEn": "Shared secret token auth, env-var only (never CLI flag); Linux install persists it into the unit"
 		},
 		{
 			"flag": "--allow-origins <list>",
@@ -1618,9 +1739,9 @@ export const SITE_DATA = {
 		{
 			"flag": "—",
 			"env": "PI_WEB_TOOL_LAZY_LOADING",
-			"def": "1 (开启)",
-			"desc": "工具 Schema 延迟加载部署级默认开关（1=开启节省上下文 Token，0=全量直接挂载）",
-			"descEn": "Deployment default for lazy tool schema loading (1=enabled, 0=disabled)"
+			"def": "0 (关闭)",
+			"desc": "工具 Schema 延迟加载部署级默认开关（0=关闭全量挂载，默认；1=仅核心常驻按需加载）",
+			"descEn": "Deployment default for lazy tool schema loading (0=disabled default, 1=lazy core-only)"
 		},
 		{
 			"flag": "—",

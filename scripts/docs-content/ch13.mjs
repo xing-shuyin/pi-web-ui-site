@@ -77,7 +77,7 @@ export const ch13 = {
 
 <div class="doc-callout doc-callout-tip">
 	<strong>💡 pi-web-ui 的延迟加载机制</strong>
-	<p>系统默认开启 <code>PI_WEB_TOOL_LAZY_LOADING=1</code>：</p>
+	<p>系统默认关闭延迟加载（<code>PI_WEB_TOOL_LAZY_LOADING</code> 默认 <code>0</code>，与 pi 命令行一致全量挂载；设为 <code>1</code> 则开启）：</p>
 	<ul>
 		<li>基础读写命令始终保持在精简目录中，前缀完全恒定不变，<strong>享受各大厂商高达 50%~90% 的 Prompt Cache 命中折扣</strong>；</li>
 		<li>当 AI 遇到需要高级功能（如 <code>browser_page</code> 浏览器操控、<code>lsp</code> 诊断）时，才通过 <code>load_tools</code> 动态挂载该工具，兼具超高扩展性与极低成本。</li>

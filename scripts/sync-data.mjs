@@ -19,12 +19,23 @@ function readJson(p, fallback = null) {
 	}
 }
 
-const pkg = readJson(path.join(SOURCE_ROOT, "package.json"), { version: "0.102.0" });
+const pkg = readJson(path.join(SOURCE_ROOT, "package.json"), { version: "0.111.0" });
 const rawCatalog = readJson(path.join(SOURCE_ROOT, "plugins/catalog.json"), []);
 
 const PLUGIN_CATEGORIES = {
 	"vscode-editor": "dev",
 	"db-client": "dev",
+	"wechat-ilink": "ai",
+	"feishu": "productivity",
+	"dingtalk": "productivity",
+	"telegram": "productivity",
+	"wecom": "productivity",
+	"discord": "productivity",
+	"whatsapp": "productivity",
+	"slack": "productivity",
+	"qq": "productivity",
+	"imessage": "productivity",
+	"matrix": "productivity",
 	"sftp": "dev",
 	"live-preview": "dev",
 	"pi-web-multigit": "dev",
@@ -32,6 +43,12 @@ const PLUGIN_CATEGORIES = {
 	"run-trace": "ai",
 	"wechat-ilink": "ai",
 	"voice-input": "ai",
+	"live-preview": "dev",
+	"wallpaper-engine": "productivity",
+	"response-speed": "ops",
+	"demo-mailbox": "productivity",
+	"bili-scroll": "productivity",
+	"page-picker": "ai",
 	"desktop-use": "ai",
 	"sol-savings": "ai",
 	"codex-usage": "ai",
@@ -41,6 +58,12 @@ const PLUGIN_CATEGORIES = {
 	"mermaid": "productivity",
 	"image-toolkit": "productivity",
 	"md-chat": "productivity",
+	"live2d": "ai",
+	"tts": "ai",
+	"tunnel": "ops",
+	"approval-gate": "ops",
+	"office": "productivity",
+	"browser-use": "ai",
 	"legado-web": "productivity",
 	"proxy-health": "ops",
 	"reconnect": "ops",
@@ -86,7 +109,7 @@ const plugins = rawCatalog.map((p) => {
 		homepage: p.homepage || `https://github.com/${p.source}`,
 		description: p.description || "",
 		descriptionEn: p.descriptionEn || p.description || "",
-		installCmd: `pi-web-ui plugin install ${p.source}`,
+		installCmd: `pi-web-ui install ${p.source}`,
 	};
 });
 
@@ -153,7 +176,7 @@ const themes = [
 const siteData = {
 	meta: {
 		name: "pi-web-ui",
-		version: pkg.version || "0.102.0",
+		version: pkg.version || "0.111.0",
 		nodeEngine: pkg.engines?.node || ">=22.19.0",
 		repoUrl: "https://github.com/xing-shuyin/pi-web-ui",
 		npmUrl: "https://www.npmjs.com/package/pi-web-ui",
@@ -368,13 +391,13 @@ const siteData = {
 		{ flag: "--port <n>", env: "PI_WEB_PORT", def: "8787", desc: "HTTP 与 WebSocket 监听端口", descEn: "HTTP and WebSocket listen port" },
 		{ flag: "--host <addr>", env: "PI_WEB_HOST", def: "127.0.0.1", desc: "绑定地址（默认仅本机回环；设为 0.0.0.0 可开放局域网访问）", descEn: "Bind address (loopback by default; 0.0.0.0 for LAN access)" },
 		{ flag: "--cwd <dir>", env: "PI_WEB_CWD", def: "process.cwd()", desc: "智能体默认工作区根目录（文件树、读写工具、终端默认起点；严禁设为 $HOME）", descEn: "Default workspace root directory for file tree, tools, and terminal" },
-		{ flag: "--data-dir <dir>", env: "PI_WEB_DATA_DIR", def: "~/.pi-web", desc: "持久化数据目录（存放界面状态、插件、上传附件、自定义主题、SSH 加密配置、审批规则库等）", descEn: "Data directory for UI state, plugins, uploads, custom themes, SSH profiles, and approval rules" },
+		{ flag: "--data-dir <dir>", env: "PI_WEB_DATA_DIR", def: "<cwd>/.pi-web", desc: "持久化数据目录（存放界面状态、插件、上传附件、自定义主题、SSH 加密配置、审批规则库等）", descEn: "Data directory for UI state, plugins, uploads, custom themes, SSH profiles, and approval rules" },
 		{ flag: "--engine <pi|dsh>", env: "PI_WEB_ENGINE", def: "pi", desc: "智能体运行时引擎：pi（默认）或 dsh（DeepSeek Harness）", descEn: "Agent engine: pi (default) or dsh (DeepSeek Harness)" },
 		{ flag: "--dsh-cli <path>", env: "PI_WEB_DSH_CLI", def: "自动探测", desc: "DSH 引擎的 cli.js 路径（仅 --engine dsh 时生效）", descEn: "Path to DSH cli.js when running with --engine dsh" },
-		{ flag: "--token <secret>", env: "PI_WEB_TOKEN", def: "空 (免密)", desc: "开启共享口令鉴权，保护 HTTP 静态页、/api/* 与 /ws 连接", descEn: "Require shared secret token authentication for HTTP, API, and WebSocket" },
+		{ flag: "(环境变量)", env: "PI_WEB_TOKEN", def: "空 (免密)", desc: "共享口令鉴权，仅环境变量（不走命令行）；Linux install 会写入 unit", descEn: "Shared secret token auth, env-var only (never CLI flag); Linux install persists it into the unit" },
 		{ flag: "--allow-origins <list>", env: "PI_WEB_ALLOW_ORIGINS", def: "同源校验", desc: "逗号分隔的额外允许 Origin 白名单（用于跨域反向代理或特殊端口映射）", descEn: "Comma-separated allowed Origins for reverse proxies changing port/host" },
 		{ flag: "—", env: "PI_WEB_SDK", def: "global", desc: "引擎版本解析策略：global 优先使用机器上更新的全局 pi 引擎，bundled 强制使用自带版本", descEn: "SDK resolution: 'global' uses newer system-installed pi SDK; 'bundled' forces local copy" },
-		{ flag: "—", env: "PI_WEB_TOOL_LAZY_LOADING", def: "1 (开启)", desc: "工具 Schema 延迟加载部署级默认开关（1=开启节省上下文 Token，0=全量直接挂载）", descEn: "Deployment default for lazy tool schema loading (1=enabled, 0=disabled)" },
+		{ flag: "—", env: "PI_WEB_TOOL_LAZY_LOADING", def: "0 (关闭)", desc: "工具 Schema 延迟加载部署级默认开关（0=关闭全量挂载，默认；1=仅核心常驻按需加载）", descEn: "Deployment default for lazy tool schema loading (0=disabled default, 1=lazy core-only)" },
 		{ flag: "—", env: "PI_WEB_TOOL_TIMEOUT_MS", def: "1200000 (20m)", desc: "单工具执行看门狗超时毫秒数（超时自动 abort 会话，ask_user_question 豁免）", descEn: "Watchdog timeout in ms per tool call (20 min default; ask_user_question exempt)" },
 		{ flag: "—", env: "PI_WEB_PLUGIN_CATALOG_URL", def: "官方市场 URL", desc: "插件市场 catalog.json 地址；设为 off / 0 / false 可在纯内网环境关闭市场请求", descEn: "Plugin marketplace catalog URL; set to 'off' to disable in air-gapped networks" },
 		{ flag: "—", env: "PI_WEB_PLUGIN_CATALOG_INSTALL", def: "0", desc: "设为 1 时服务启动自动安装官方目录中的缺失插件", descEn: "Set to 1 to auto-install catalog plugins on server startup" },

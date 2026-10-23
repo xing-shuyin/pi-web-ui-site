@@ -10,7 +10,7 @@ export const ch18 = {
 	navTitleEn: "18. UI Customization",
 	title: "界面深度定制：33 插槽布局、个性壁纸、长图导出与声音",
 	titleEn: "UI Customization: 33-Slot Layout, Wallpapers, Image Export & I18n",
-	summary: "打造属于你的专属极客工作台：33 个 UI 扩展插槽自由拖拽、自定义毛玻璃壁纸、对话一键生成高清长图卡片、10 国语言与任务完成声音提示。",
+	summary: "打造属于你的专属极客工作台：33 个 UI 扩展插槽自由拖拽、自定义毛玻璃壁纸、对话一键生成高清长图卡片、中英双语核心 + 12 个语言包与任务完成声音提示。",
 	summaryEn: "Customize your cockpit: drag-and-drop 33 UI slots, frosted glass wallpapers, high-res chat poster export, 10 languages, and completion chime sounds.",
 	contentZh: `
 <h2 id="ui-slots-layout">1. 33 个 UI 插槽：按你的习惯重新编排界面</h2>
@@ -46,13 +46,13 @@ export const ch18 = {
 	<p>点击消息操作栏的「导出长图」按钮，或直接在输入框键入 <code>/export</code>：系统会自动抓取所选轮次的对话内容与代码高亮，生成一张带有<strong>精致圆角、渐变阴影与元数据徽章的高清长图海报</strong>，支持一键复制到剪贴板或下载 PNG 格式图片！</p>
 </div>
 
-<h2 id="i18n-and-sound-synth">4. 10 国语言支持与环境音效提醒</h2>
+<h2 id="i18n-and-sound-synth">4. 中英双语核心 + 12 个语言包与环境音效提醒</h2>
 
 <div class="doc-step-box">
 	<div class="doc-step-num">🌐</div>
 	<div class="doc-step-content">
-		<h4>全界面 10 国双语/多语无缝切换</h4>
-		<p>系统内置完整的国际化翻译词典，支持简体中文、English、日本語、한국어、Deutsch、Français、Español 等 10 种主流语言，点击顶栏地球图标瞬间切换，无任何刷新卡顿。</p>
+		<h4>全界面中英双语核心 + 12 个语言包无缝切换</h4>
+		<p>系统内置完整的国际化翻译词典，中英双语核心开箱即用，另有日本語、한국어、Deutsch、Français、Español 等 12 个语言包（locales/*.json，缺 key 回落英文），点击顶栏地球图标瞬间切换，无任何刷新卡顿。</p>
 	</div>
 </div>
 

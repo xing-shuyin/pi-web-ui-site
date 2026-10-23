@@ -36,11 +36,11 @@ for (const rel of requiredFiles) {
 	}
 }
 
-if (SITE_DATA.plugins.length < 20) {
+if (SITE_DATA.plugins.length < 39) {
 	throw new Error(`Expected at least 20 plugins in SITE_DATA, got ${SITE_DATA.plugins.length}`);
 }
 
-if (SITE_DATA.themes.length < 25) {
+if (SITE_DATA.themes.length < 35) {
 	throw new Error(`Expected at least 25 themes in SITE_DATA, got ${SITE_DATA.themes.length}`);
 }
 

@@ -1,5 +1,5 @@
 /**
- * Chapter 19: Plugins Ecosystem & 34 Official/Community Plugins (插件生态与34款插件全集)
+ * Chapter 19: Plugins Ecosystem & 39 Official/Community Plugins (插件生态与39款插件全集)
  */
 export const ch19 = {
 	id: "plugins-marketplace",
@@ -8,15 +8,15 @@ export const ch19 = {
 	icon: "🧩",
 	navTitle: "19. 插件市场与实用精选",
 	navTitleEn: "19. Plugins Marketplace",
-	title: "插件生态全景与 34 款实用官方/社区插件盘点",
-	titleEn: "Plugins Ecosystem & Top 34 Official/Community Plugins",
-	summary: "让工作台能力无限延伸：涵盖 VSCode 编辑器、可视化数据库客户端、手机微信通道、Live Server 实时预览、Mermaid 流程图、桌面自动化等 34 款高频插件。",
-	summaryEn: "Extend your workbench: 34 pre-packaged plugins including VSCode editor, Database client, WeChat bridge, Live Server preview, Mermaid diagram renderer, and desktop automation.",
+	title: "插件生态全景与 39 款实用官方/社区插件盘点",
+	titleEn: "Plugins Ecosystem & Top 39 Official/Community Plugins",
+	summary: "让工作台能力无限延伸：涵盖 VSCode 编辑器、可视化数据库客户端、手机微信通道、Live Server 实时预览、Mermaid 流程图、桌面自动化等 39 款高频插件。",
+	summaryEn: "Extend your workbench: 39 pre-packaged plugins including VSCode editor, Database client, WeChat bridge, Live Server preview, Mermaid diagram renderer, and desktop automation.",
 	contentZh: `
 <h2 id="why-plugins-matter">1. 为什么需要插件生态？</h2>
 <p>每个开发者的业务场景截然不同：前端工程师需要实时网页预览，后端工程师离不开数据库查询，运维人员需要监控服务器进程。pi-web-ui 拥有基于 <strong>Plugin SDK v2</strong> 打造的开放插件体系，让工作台成为你定制化的研发中枢。</p>
 
-<h2 id="top-featured-plugins">2. 官方精选高频实用插件一览 (现已拓展至 34 款)</h2>
+<h2 id="top-featured-plugins">2. 官方精选高频实用插件一览 (现已拓展至 39 款)</h2>
 
 <div class="doc-grid-2">
 	<div class="doc-card">
@@ -56,8 +56,28 @@ export const ch19 = {
 		<p>调用麦克风将语音实时转换为提示词文字，解放双手，用说话驱动 AI 编程与方案研讨。</p>
 	</div>
 	<div class="doc-card">
-		<h4>🖥️ 桌面窗口自动化 (<code>desktop-automation</code>)</h4>
+		<h4>🖥️ 桌面窗口自动化 (<code>desktop-use</code>)</h4>
 		<p>让 AI 识别屏幕、模拟键鼠操作或打开目标应用，实现本地端到端测试与自动化跨应用工作流。</p>
+	</div>
+	<div class="doc-card">
+		<h4>🛡️ 审批门禁 (<code>approval-gate</code>)</h4>
+		<p>为高危工具调用加一道人工确认闸门，敏感操作先审后放，自动化与安全兼得。</p>
+	</div>
+	<div class="doc-card">
+		<h4>🗣️ 语音合成播报 (<code>tts</code>)</h4>
+		<p>把 AI 回复转为语音播报，长任务完成、构建报错都不错过，适合挂机跑任务。</p>
+	</div>
+	<div class="doc-card">
+		<h4>🚇 内网穿透 (<code>tunnel</code>)</h4>
+		<p>一键把本地工作台安全暴露到公网，配合 FRP 随时随地用手机接管家中电脑。</p>
+	</div>
+	<div class="doc-card">
+		<h4>🧸 桌面陪伴挂件 (<code>live2d</code>)</h4>
+		<p>在工作台养一个 Live2D 看板娘，任务状态、构建结果都由她卖萌播报。</p>
+	</div>
+	<div class="doc-card">
+		<h4>📄 Office 文档处理 (<code>office</code>)</h4>
+		<p>在线预览与解析 Word / Excel / PDF，让 AI 直接读懂你的需求文档和数据表。</p>
 	</div>
 </div>
 
@@ -77,13 +97,13 @@ export const ch19 = {
 		<h4>CLI 命令行管理</h4>
 		<p>你也可以在终端中通过极简命令行管理插件：</p>
 		<pre><code class="language-bash"># 安装插件
-pi-web-ui plugin install xing-shuyin/pi-web-ui/plugins/vscode-editor
+pi-web-ui install xing-shuyin/pi-web-ui/plugins/vscode-editor
 
 # 查看已安装列表
-pi-web-ui plugin list
+pi-web-ui plugins
 
 # 卸载插件
-pi-web-ui plugin uninstall vscode-editor</code></pre>
+pi-web-ui uninstall vscode-editor</code></pre>
 	</div>
 </div>
 `,
@@ -92,9 +112,9 @@ pi-web-ui plugin uninstall vscode-editor</code></pre>
 <p>Transform your workbench into a full development hub tailored for frontend, backend, or ops needs.</p>
 
 <h2 id="top-featured-plugins">2. Top Featured Plugins</h2>
-<p>Highlights from the 21+ catalog: embedded <strong>VSCode Editor</strong>, <strong>DB Client</strong> for SQL queries, <strong>WeChat Bridge</strong> for mobile coding, <strong>Live Server</strong> for preview, and <strong>Mermaid</strong> diagram rendering.</p>
+<p>Highlights from the 39-strong catalog: embedded <strong>VSCode Editor</strong>, <strong>DB Client</strong> for SQL queries, <strong>WeChat Bridge</strong> for mobile coding, <strong>Live Server</strong> for preview, and <strong>Mermaid</strong> diagram rendering.</p>
 
 <h2 id="install-and-manage-plugins">3. Installation & Management</h2>
-<p>Install plugins in 2 seconds right from the graphical marketplace or via CLI (<code>pi-web-ui plugin install ...</code>).</p>
+<p>Install plugins in 2 seconds right from the graphical marketplace or via CLI (<code>pi-web-ui install ...</code>).</p>
 `,
 };
