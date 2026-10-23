@@ -130,9 +130,9 @@ services:
 
 <h2 id="security-best-practices">5. 生产环境安全合规清单</h2>
 <ul>
-	<li><strong>必须设置安全访问口令</strong>：通过环境变量 <code>PI_WEB_TOKEN</code>（无 <code>--token</code> 参数）强制启用身份鉴权；</li>
-	<li><strong>配置 HTTPS 证书</strong>：建议在反向代理层（如 Nginx / Caddy）启用 SSL 证书，防止传输过程中的 Token 被中间人窃听；</li>
-	<li><strong>定期备份配置数据</strong>：所有插件与会话配置均集中存储在数据目录（默认 <code>&lt;cwd&gt;/.pi-web</code>，可用 <code>--data-dir</code> 指定），定期打包备份该目录即可实现无缝迁移。</li>
+	<li><strong>访问口令</strong>：只走环境变量 <code>PI_WEB_TOKEN</code>（无 <code>--token</code> flag），细则见第 16 章 <a href="#six-security-boundaries">§4</a>；</li>
+	<li><strong>HTTPS</strong>：在反向代理层（Nginx / Caddy）终止 SSL；</li>
+	<li><strong>备份</strong>：数据目录默认 <code>~/.pi-web</code>（可用 <code>--data-dir</code> 指定），定期打包即无缝迁移。</li>
 </ul>
 `,
 	contentEn: `
@@ -149,6 +149,6 @@ services:
 <p>Configure Nginx to proxy <code>http://127.0.0.1:8787</code> with <code>Upgrade $http_upgrade</code> and <code>proxy_read_timeout 86400s</code> for full-duplex WebSocket streaming.</p>
 
 <h2 id="security-best-practices">5. Security Checklist</h2>
-<p>Always enforce <code>PI_WEB_TOKEN</code>, terminate SSL at Nginx, and back up <code>~/.pi-web/</code> regularly.</p>
+<p>Always enforce <code>PI_WEB_TOKEN</code> (env only, see ch16 §4), terminate SSL at Nginx, and back up <code>~/.pi-web/</code> regularly.</p>
 `,
 };

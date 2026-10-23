@@ -14,7 +14,7 @@ export const ch09 = {
 	summaryEn: "Visual Git source control for everyone: stage/unstage/discard, inline diff inspection, and one-click AI commit messages following Conventional Commits.",
 	contentZh: `
 <h2 id="git-scm-overview">1. 为什么无需切出外部 Git 客户端？</h2>
-<p>在编写代码时，开发者通常需要在浏览器、代码编辑器与 Git 图形软件（如 SourceTree 或命令行）之间来回频繁切换。pi-web-ui 将完整的 Git 源代码管理（SCM）面板直接无缝集成在底部抽屉中：</p>
+<p>版本控制不用再切外部客户端，底部抽屉内直接集成完整 Git 面板：</p>
 
 <figure class="doc-figure">
 	<img src="./assets/git.jpeg" alt="Git SCM 源代码管理面板" />
@@ -52,7 +52,7 @@ export const ch09 = {
 </div>
 
 <h2 id="ai-commit-generation">3. 亮点体验：一键 AI 自动生成提交说明</h2>
-<p>新手写提交说明时常常感到头疼，经常草草写一个 <code>update</code> 或 <code>fix bug</code>，既不规范也不利于后期维护：</p>
+<p>新手写提交说明常草草写个 <code>update</code>，不利维护：</p>
 
 <div class="doc-callout doc-callout-tip">
 	<strong>💡 点击一下，自动分析并生成专业 Commit 消息！</strong>

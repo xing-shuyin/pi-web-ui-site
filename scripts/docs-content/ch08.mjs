@@ -14,11 +14,11 @@ export const ch08 = {
 	summaryEn: "Full PTY terminal backed by node-pty and xterm.js. Transparent AI command execution in visible terminals, interactive CLI support, and persistent shells.",
 	contentZh: `
 <h2 id="real-pty-experience">1. 什么是“真 PTY 终端”？</h2>
-<p>市面上许多 AI 网页工具所谓的“终端”，仅仅是通过 <code>child_process.exec</code> 抓取一次性的文字输出。这种伪终端有诸多致命缺陷：无法处理彩色 ANSI 字符、不支持光标跳动，<strong>一旦执行了带 <code>[y/N]</code> 确认提示或需要按方向键选择的交互式命令（如 <code>npm init</code>、<code>vim</code>、<code>htop</code>），就会立即死锁卡死</strong>。</p>
+<p>市面上许多网页 AI 的“终端”只是 <code>child_process.exec</code> 抓取一次性输出：无彩色 ANSI、不支持光标跳动，遇到 <code>[y/N]</code> 确认或 <code>vim</code>、<code>htop</code> 这类交互式命令直接死锁。</p>
 
 <div class="doc-callout doc-callout-tip">
 	<strong>💡 pi-web-ui 的真 PTY 架构</strong>
-	<p>服务端使用高性能的 C++ 原生伪终端模块 <code>node-pty</code>，前端接入工业级 <code>@xterm/xterm</code> 渲染引擎。无论是本机环境还是远程 SSH 主机，它都是一个<strong>真实完整的系统控制台</strong>：支持键盘快捷键交互、颜色高亮、光标任意移动与所有全屏终端应用！</p>
+	<p>无论本机还是 SSH 远程项目（见第 05 章），它都是一个真实完整的系统控制台：支持交互、颜色高亮、光标移动与全屏终端应用！</p>
 </div>
 
 <figure class="doc-figure">
@@ -30,7 +30,7 @@ export const ch08 = {
 </figure>
 
 <h2 id="ai-bash-takeover">2. AI 命令透明接管：拒绝暗箱黑盒操作</h2>
-<p>新手使用 AI 编程助手时，最担心的就是 AI 在背后偷偷敲命令，把自己的开发环境搞乱。</p>
+<p>新手最担心的就是 AI 在背后偷偷敲命令搞乱环境：</p>
 
 <div class="doc-step-box">
 	<div class="doc-step-num">👀</div>
@@ -49,7 +49,7 @@ export const ch08 = {
 </div>
 
 <h2 id="persist-shell-state">3. 一次性命令 vs 持久终端 (Persistent Shell)</h2>
-<p>在默认情况下，一次性的脚本执行完毕后会清理环境；但许多深度开发需要保持状态：</p>
+<p>默认一次性执行、阅后即焚；深度开发需要保持状态时：</p>
 
 <div class="doc-grid-2">
 	<div class="doc-card">

@@ -14,7 +14,7 @@ export const ch06 = {
 	summaryEn: "VSCode-like file tree: drag & drop files and entire folders, streaming TAR uploads, zip export, in-place uncompress, @root navigation, and multi-root workspaces.",
 	contentZh: `
 <h2 id="file-tree-overview">1. 右栏文件树基础操作</h2>
-<p>在 pi-web-ui 界面右侧，常驻着全功能的文件浏览工作台。点击顶部的折叠图标可随时展开或收起：</p>
+<p>在 pi-web-ui 界面右侧常驻全功能文件工作台，点击顶部图标随时展开/收起：</p>
 
 <div class="doc-step-box">
 	<div class="doc-step-num">🔍</div>
@@ -33,7 +33,7 @@ export const ch06 = {
 </div>
 
 <h2 id="drag-drop-upload">2. 杀手级体验：拖拽上传文件与整个文件夹</h2>
-<p>很多传统 Web 工具在上传整个前端脚手架或多层级静态资源时，需要一层层手动建目录。在 pi-web-ui 中：</p>
+<p>传统 Web 工具传整个脚手架目录时要一层层手动建目录，在这里：</p>
 
 <div class="doc-callout doc-callout-tip">
 	<strong>💡 就像在本地 VSCode 一样随意拖拽！</strong>

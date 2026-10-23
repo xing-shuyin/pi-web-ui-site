@@ -75,6 +75,6 @@ export const ch18 = {
 <p>Type <code>/export</code> to capture your conversation into a beautiful long poster with syntax highlighting and drop shadows.</p>
 
 <h2 id="i18n-and-sound-synth">4. 10 Locales & Sound Notifications</h2>
-<p>Switch between 10 languages seamlessly. Web Audio chimes notify you when long tasks finish in background tabs.</p>
+<p>Switch between 12 language packs seamlessly. Web Audio chimes notify you when long tasks finish in background tabs.</p>
 `,
 };

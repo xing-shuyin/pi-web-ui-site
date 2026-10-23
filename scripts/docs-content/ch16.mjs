@@ -14,7 +14,7 @@ export const ch16 = {
 	summaryEn: "Keep your machine and codebase safe: 3-tier approval rules, high-risk bash alerts, local loopback defaults, and token security boundaries.",
 	contentZh: `
 <h2 id="why-security-matters">1. 新手的安全顾虑：AI 会毁坏我的电脑吗？</h2>
-<p>很多新手不敢给 AI 开放终端或文件写入权限，担心 AI 幻觉误敲出 <code>rm -rf /</code>，或者覆盖掉未保存的代码。在 pi-web-ui 中，你的数据和电脑处于多重安全屏障的严密保护之下。</p>
+<p>很多新手不敢给 AI 开放终端或写入权限。在 pi-web-ui 中，每次副作用调用（终端、覆写文件、网络请求）都过审批门禁（事实源 <code>server/tool-approval.ts</code>，规则库 <code>&lt;dataDir&gt;/approval-rules.json</code>，记忆只在内存、随会话过户搬迁）：</p>
 
 <h2 id="three-tier-approval">2. 三级工具审批门禁 (Tool Approval Gates)</h2>
 <p>系统为每一个可能产生副作用的工具调用（如执行终端命令、覆写文件、发起网络请求）设立了清晰的三级门禁机制：</p>

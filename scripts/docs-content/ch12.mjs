@@ -49,7 +49,8 @@ export const ch12 = {
 </div>
 
 <h2 id="plan-mode">3. 计划模式 (Plan Mode)：先出详尽方案，确认后再动手</h2>
-<p>点击底栏模式切换器的 <strong>「📋 计划模式」</strong>，工作台底层会立即激活写操作硬闸门：</p>
+<p>点击底栏模式切换器的 <strong>「📋 计划模式」</strong>，工作台底层会立即激活写操作硬闸门（事实源 <code>server/plan-mode.ts</code>，纯函数判定）：拦截 <code>write</code>/<code>edit</code> 等写工具、含写命令的 <code>bash</code>，以及 <code>spawn</code>/<code>delegate_task</code>/<code>schedule</code> 等旁路派发工具（防另起会话绕开只读约束）。AI 只能调用 <code>read</code>、<code>find</code>、<code>grep</code> 与只读 <code>bash</code>（如 <code>git status/diff/log</code>）做调研，产出走 <code>plan_update</code> 步骤看板 + 计划正文。</p>
+<p>审阅方案后点击计划看板 <strong>「🚀 开始实施」</strong> 解除只读保护进入实施；小需求可走短计划，不必先跑一轮看板。</p>
 
 <div class="doc-callout doc-callout-tip">
 	<strong>💡 绝对安全的只读沙盒探索</strong>
@@ -59,7 +60,7 @@ export const ch12 = {
 <p>你可以悠闲地审阅 AI 给出的方案，提出你的修改建议；当你对整套规划满意后，只需点击计划看板上的 <strong>「🚀 开始实施」</strong> 按钮，系统才会正式解除只读保护、进入编码实施阶段。</p>
 
 <h2 id="delegate-mode">4. 审查者委派模式 (Delegate Mode)</h2>
-<p>面向复杂长线工程：开启委派模式后，当前会话常驻为总设计师，任何时候你在该会话中输入的指令，都会被自动转译并派发给常驻的执行工作流去落实，适合带领 AI 进行千万行级大型仓库的持续演进。</p>
+<p>主审从干：开启后本会话只审不干，用户输入自动派发给常驻执行会话；硬闸门拦截写操作与子代理派发，计划模式优先级高于委派。实现细节见第 11 章 <a href="#delegate-mode">§4</a>。</p>
 `,
 	contentEn: `
 <h2 id="why-engineering-modes">1. Why Engineering Modes?</h2>
@@ -72,6 +73,6 @@ export const ch12 = {
 <p>Physically disables write/edit tools. The AI reads your repository and crafts a comprehensive blueprint. Click <strong>Start Implementation</strong> only when you approve.</p>
 
 <h2 id="delegate-mode">4. Reviewer Delegate Mode</h2>
-<p>Keeps the main session focused purely on architectural oversight while streaming tasks to worker sessions.</p>
+<p>Main session reviews only; inputs dispatch to a resident executor. Hard gate blocks writes and subagent dispatch; plan mode takes precedence. See ch11 §4 for details.</p>
 `,
 };

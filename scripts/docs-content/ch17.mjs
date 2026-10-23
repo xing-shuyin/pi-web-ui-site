@@ -32,32 +32,7 @@ export const ch17 = {
 <h2 id="oauth-one-click-login">2. 提供商 OAuth 一键免密授权</h2>
 <p>新手往往觉得去各个模型平台注册账号、充值、寻找 API Key 页面很繁琐。工作台集成了主流 AI 提供商的 <strong>OAuth 一键登录</strong>功能：</p>
 
-<div class="doc-step-box">
-	<div class="doc-step-num">🔑</div>
-	<div class="doc-step-content">
-		<h4>告别手动复制长字符串 Key</h4>
-		<p>在设置面板点击「通过提供商登录」按钮，浏览器会自动跳转至对应官方授权页面（如 Anthropic、GitHub Copilot 等），点击授权后令牌自动加密回填到本地服务，新手 3 秒钟轻松搞定连接！</p>
-	</div>
-</div>
-
-<h2 id="presets-import-export">3. 设置预设：一键导出与四道白名单净化</h2>
-<p>当你调校好了一套顺手的模型参数、系统提示词规则与主题排版后，可以将其保存为<strong>设置预设 (Settings Preset)</strong>：</p>
-
-<div class="doc-step-box">
-	<div class="doc-step-num">💾</div>
-	<div class="doc-step-content">
-		<h4>一键导出与跨设备迁移</h4>
-		<p>在预设管理中点击「导出」，系统自动生成一个轻量级的 <code>.json</code> 预设配置文件，便于备份或分享给团队同事。</p>
-	</div>
-</div>
-
-<div class="doc-step-box">
-	<div class="doc-step-num">🛡️</div>
-	<div class="doc-step-content">
-		<h4>四道安全闸门白名单净化</h4>
-		<p>导入任何外部来源的 JSON 时，系统会自动执行严格的白名单清洗：自动过滤任何未知字段或潜在恶意脚本，杜绝恶意配置文件攻击本地环境。</p>
-	</div>
-</div>
+<p>导出即得 <code>.json</code>；导入先 <code>dryRun</code> 预览，白名单外字段自动丢弃。</p>
 
 <h2 id="community-presets-hub">4. 社区预设中心：一键浏览与应用</h2>
 <p>工作台内置了官方维护的 <strong>社区预设浏览中心 (Community Presets)</strong>：</p>
@@ -75,7 +50,7 @@ export const ch17 = {
 <p>Connect official model providers through secure browser OAuth authorization without manually pasting long API key strings.</p>
 
 <h2 id="presets-import-export">3. Settings Presets & Four-Gate Sanitization</h2>
-<p>Export your perfected prompts and layouts to JSON. External presets pass through four strict validation gates before being imported.</p>
+<p>Export prompts and layouts to JSON. Imports pass <code>server/preset-share.ts</code> whitelist sanitization (unknown fields dropped) with <code>dryRun</code> preview before applying.</p>
 
 <h2 id="community-presets-hub">4. Community Presets Hub</h2>
 <p>Browse community-curated presets (Full-Stack Pro, Rust Reviewer, Minimalist Frontend) and apply them with one click.</p>

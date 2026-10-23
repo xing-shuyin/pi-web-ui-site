@@ -73,7 +73,7 @@ export const ch13 = {
 </div>
 
 <h2 id="lazy-loading-architecture">3. 延迟加载 (Lazy Loading)：硬核前缀缓存保护</h2>
-<p>绝大多数 AI 辅助工具会将数十个工具的冗长说明（Schema）全部塞进第一句系统提示词中。这存在两大灾难性问题：<strong>① 白白吃掉 4000+ 上下文 Token；② 极易破坏各大厂商的 Prompt Cache（前缀缓存），导致每一次推理都要按全量计费</strong>。</p>
+<p>绝大多数工具把数十个工具说明全塞进首句系统提示词，白白吃掉 4000+ Token 并破坏厂商 Prompt Cache。<code>{{tools}}</code> 目录保持完整恒定、新工具要点随 <code>load_tools</code> 回执进入对话、注册表只追加不修改（事实源 <code>server/tool-manager.ts</code>，<code>PI_WEB_TOOL_LAZY_LOADING</code> 默认 <code>0</code> 关闭、设 <code>1</code> 开启）。</p>
 
 <div class="doc-callout doc-callout-tip">
 	<strong>💡 pi-web-ui 的延迟加载机制</strong>

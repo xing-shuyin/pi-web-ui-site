@@ -14,7 +14,7 @@ export const ch04 = {
 	summaryEn: "Master streaming conversation: steer mid-turn, quote highlighted text with one click, rollback file edits by turn, and multi-session concurrency.",
 	contentZh: `
 <h2 id="streaming-chat-overview">1. 沉浸式流式对话体验</h2>
-<p>在 pi-web-ui 中，AI 不仅以打字机般流畅的速度逐字输出回答，还将思考过程（Thinking / Reasoning）、执行的工具调用卡片（文件读取、代码编辑、终端执行）和代码 Diff 高亮实时渲染在对话流中：</p>
+<p>在 pi-web-ui 中，AI 以打字机般流畅的速度逐字输出，思考过程、工具调用卡片和代码 Diff 高亮实时渲染在对话流中：</p>
 
 <figure class="doc-figure">
 	<img src="./assets/chat-prompts.jpeg" alt="流式对话、提示词与右侧文件树" />
@@ -25,7 +25,7 @@ export const ch04 = {
 </figure>
 
 <h2 id="steer-and-interrupt">2. 插队指导 (Steer) 与随时打断</h2>
-<p>新手常常遇到这种情况：当 AI 回复到一半时，你突然发现 AI 理解偏了，或者你想补充一个重要限制条件。在传统工具中你只能苦等它讲完，但在 pi-web-ui 中：</p>
+<p>AI 回复到一半时想补充限制条件，无需苦等它讲完：</p>
 
 <div class="doc-step-box">
 	<div class="doc-step-num">🎯</div>
@@ -44,7 +44,7 @@ export const ch04 = {
 </div>
 
 <h2 id="selection-quote">3. 划词精准引用 (Selection Quote)</h2>
-<p>当 AI 给出了很长的一段解释或代码，而你只想针对其中某一行或某句话深入提问时，最痛苦的莫过于手动去复制、粘贴并格式化：</p>
+<p>只想针对长回答中的某一行深入提问时，无需手动复制粘贴：</p>
 
 <div class="doc-callout doc-callout-tip">
 	<strong>💡 划词即引用：极速追问体验</strong>
@@ -72,7 +72,7 @@ export const ch04 = {
 
 <h2 id="multi-sessions">5. 多会话并发与跨设备过户 (Takeover)</h2>
 <ul>
-	<li><strong>8 任务并发运行</strong>：同一个项目中可同时创建多个会话，前端优化会话与后端重构会话并行不悖，互不阻塞；</li>
+	<li><strong>多会话并发（上限 8 / 项目，子代理不计）</strong>：前端优化与后端重构并行不悖，互不阻塞；</li>
 	<li><strong>文件夹归类整理</strong>：会话列表中支持新建文件夹，将相关的对话拖拽或归类整理，项目脉络清爽分明；</li>
 	<li><strong>临时会话 (Ephemeral Chat)</strong>：支持新建临时会话，随用随关不留残余记录，也可随时点击「转为正式」落盘；</li>
 	<li><strong>跨设备无缝过户 (Takeover)</strong>：你在办公室电脑上启动的长任务，下班路上用手机浏览器打开该网页，只需点击顶部「接管运行 (Takeover)」，即可将运行中的任务本体与控制流完整迁移至手机继续跟进！</li>

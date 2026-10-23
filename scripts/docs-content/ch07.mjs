@@ -32,7 +32,7 @@ src/api.ts:80-115</code></pre>
 <p>系统会在注入时精确截取该行号区间并自动带上行号索引，AI 的分析针对性极高、答复干脆利落。</p>
 
 <h2 id="office-pdf-preview">3. 强大的在线原生预览与轻量编辑</h2>
-<p>不需要切出网页去打开本地的 Office 软件！在右侧文件树单击任意文档，内置的多媒体引擎即可原地渲染：</p>
+<p>在右侧文件树单击任意文档即可原地渲染，无需切出网页：</p>
 
 <div class="doc-grid-2">
 	<div class="doc-card">
@@ -54,7 +54,7 @@ src/api.ts:80-115</code></pre>
 </div>
 
 <h2 id="vision-bridge">4. 视觉桥 (Vision Bridge)：纯文本模型也能看懂设计稿</h2>
-<p>如果你当前配置的是没有图像视觉能力的大模型（例如经典的纯文本代码模型，或者成本超低的文本模型），当你拖入一张前端 UI 设计稿或报错弹窗截图时，系统会自动启动 <strong>Vision Bridge（视觉桥）</strong>：</p>
+<p>主力模型是纯文本代码模型时，拖入 UI 设计稿或报错截图会自动启动 <strong>Vision Bridge（视觉桥）</strong>：</p>
 
 <div class="doc-step-box">
 	<div class="doc-step-num">👁️</div>

@@ -91,7 +91,10 @@ export const ch11 = {
 	</div>
 </div>
 
-<h2 id="handoff-and-templates">4. 模板库与点对点移交 (Handoff)</h2>
+<h2 id="delegate-mode">4. 审查者委派模式 (Delegate Mode)：主审从干</h2>
+<p>开启后本会话只审不干：用户输入自动派发给常驻执行会话。服务端硬闸门拦截一切写类工具（<code>write</code>/<code>edit</code>/<code>bash</code> 写命令）与派发工具（<code>delegate_task</code>/<code>schedule</code>/<code>subagent</code>），防模型绕开单执行会话；计划模式优先级高于委派。详见第 12 章 <a href="#delegate-mode">§4</a> 顶层视角。</p>
+
+<h2 id="handoff-and-templates">5. 模板库与点对点移交 (Handoff)</h2>
 <ul>
 	<li><strong>预设专家模板库</strong>：工作台自带「代码审查专家」、「单元测试生成专家」、「重构优化专家」等成熟模板，开箱即用；</li>
 	<li><strong>点对点接力移交 (Handoff)</strong>：前端子代理完成 UI 骨架后，可以直接将上下文与交付物 <code>handoff</code> 移交给接口联调子代理，形成流水线式的全自动流水作业。</li>

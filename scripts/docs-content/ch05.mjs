@@ -14,11 +14,7 @@ export const ch05 = {
 	summaryEn: "Zero remote setup! Connect directly via ssh:// protocol with full remote file trees, AI read/write tools, PTY terminal, and Git SCM.",
 	contentZh: `
 <h2 id="why-remote-ssh">1. 为什么你需要 SSH 远程项目？</h2>
-<p>在日常开发中，许多深度学习模型训练、编译繁重的大型后端服务或微服务集群都部署在云端的高性能 Linux 服务器上。传统远程开发痛点极其明显：</p>
-<ul>
-	<li>传统工具需要在远端服务器反复配置 VSCode Remote Server，消耗远端内存且网络稍微波动就频繁掉线；</li>
-	<li>或者使用普通网页 AI，在本地和云服务器之间来回用 <code>scp</code> / <code>rsync</code> 倒腾代码文件。</li>
-</ul>
+<p>日常开发中，模型训练、繁重编译或微服务集群都在云端高性能服务器上。传统方案要在远端装 VSCode Server（耗内存、网络波动易掉线），或用 <code>scp</code> 来回倒腾文件。</p>
 
 <div class="doc-callout doc-callout-tip">
 	<strong>💡 pi-web-ui 的破局设计：服务端零安装！</strong>
@@ -63,27 +59,8 @@ ssh://ubuntu@cloud.example.com/home/ubuntu/api-backend</code></pre>
 	</div>
 </div>
 
-<h2 id="remote-capabilities">3. 沉浸式远端能力：全套能力自动远端化</h2>
-<p>一旦成功建立连接，整个 pi-web-ui 工作台会自动全面切换到远端上下文：</p>
-
-<div class="doc-grid-2">
-	<div class="doc-card">
-		<h4>🌲 远端真实文件树</h4>
-		<p>右侧文件列表展示的是远端 Linux 机器上的真实目录结构，支持从本地电脑直接把文件拖拽上传到远端，支持在远端打包下载 ZIP。</p>
-	</div>
-	<div class="doc-card">
-		<h4>🤖 AI 工具下沉远端执行</h4>
-		<p>AI 的 <code>read</code>、<code>write</code>、<code>edit</code>、<code>find</code> 等 30 项工具由服务端本地进程内执行（SDK 进程内直调，<code>read</code> 目录走 <code>ls</code> 口径），绝不下载大文件到本地，高速省带宽。</p>
-	</div>
-	<div class="doc-card">
-		<h4>🖥️ 远端伪终端 (Remote PTY)</h4>
-		<p>内置的终端面板直接登录到远端机器的 bash/zsh shell，可随意运行 <code>htop</code>、<code>docker ps</code>、<code>npm run dev</code> 等远端命令。</p>
-	</div>
-	<div class="doc-card">
-		<h4>🌿 远端 Git 源代码管理</h4>
-		<p>底部的 Git SCM 面板直接读取远端项目的 Git 状态，高亮远端改动 Diff，并使用 AI 为远端生成提交说明。</p>
-	</div>
-</div>
+<h2 id="remote-capabilities">3. 远端能力一览（详见专章）</h2>
+<p>连接成功后整个工作台切换到远端上下文：右侧文件树展示远端真实目录（见第 06 章），内置终端直连远端 shell（见第 08 章），Git 面板读取远端仓库状态（见第 09 章）。AI 的 <code>read</code>、<code>write</code>、<code>edit</code> 等工具由服务端进程内在远端直接执行，绝不下载大文件到本地。</p>
 
 <h2 id="security-encryption">4. 安全性保障：AES-256-GCM 本地加密</h2>
 <p>为了保障新手开发者的服务器安全：</p>
