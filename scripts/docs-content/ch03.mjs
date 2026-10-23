@@ -46,15 +46,15 @@ export const ch03 = {
 				<td><code>pi-web-ui --cwd /home/dev/app</code></td>
 			</tr>
 			<tr>
-				<td><code>--token &lt;secret&gt;</code></td>
-				<td>启用共享口令密码鉴权，防止他人未经授权访问</td>
+				<td><code>PI_WEB_TOKEN</code>（仅环境变量）</td>
+				<td>启用共享口令鉴权，防止他人未经授权访问；无 <code>--token</code> 参数，必须用环境变量传入</td>
 				<td>空（免密码）</td>
-				<td><code>pi-web-ui --token mysecret888</code></td>
+				<td><code>PI_WEB_TOKEN=mysecret888 pi-web-ui</code></td>
 			</tr>
 			<tr>
 				<td><code>--data-dir &lt;path&gt;</code></td>
 				<td>持久化配置文件与插件的存放目录</td>
-				<td><code>~/.pi-web</code></td>
+				<td><code>&lt;cwd&gt;/.pi-web</code></td>
 				<td><code>pi-web-ui --data-dir ~/.custom-pi</code></td>
 			</tr>
 			<tr>
@@ -80,7 +80,7 @@ pi-web-ui</code></pre>
 <div class="doc-grid-2">
 	<div class="doc-card">
 		<h4><code>PI_WEB_TOOL_LAZY_LOADING</code></h4>
-		<p>工具延迟加载开关。默认为 <code>1</code>（开启），工具定义按需进入模型上下文，保护前缀缓存（Prompt Cache）并大幅节约 Token 开销。</p>
+		<p>工具延迟加载开关。默认为 <code>0</code>（关闭，全量挂载，与 pi 命令行一致）；设为 <code>1</code> 则仅核心工具常驻、其余按需加载，保护前缀缓存（Prompt Cache）并节约 Token 开销。</p>
 	</div>
 	<div class="doc-card">
 		<h4><code>PI_WEB_TOOL_TIMEOUT_MS</code></h4>
@@ -141,7 +141,8 @@ services:
 <p>Launch <code>pi-web-ui</code> with command-line flags to customize port, host, workspace, and security tokens:</p>
 <pre><code class="language-bash"># Examples:
 pi-web-ui --port 9000
-pi-web-ui --host 0.0.0.0 --token mysecret
+pi-web-ui --host 0.0.0.0
+PI_WEB_TOKEN=mysecret pi-web-ui --host 0.0.0.0
 pi-web-ui --cwd /path/to/my-repo</code></pre>
 
 <h2 id="env-vars">2. Environment Variables</h2>
