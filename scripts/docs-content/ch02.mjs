@@ -58,6 +58,24 @@ pi-web-ui</code></pre>
 <p>不想全局安装时，在同样准备好依赖的项目目录执行下列命令；npx 首次可能询问是否下载。它仍会下载 npm 缓存、编译原生模块并写入应用数据，并非免依赖或无数据运行。</p>
 <pre><code class="language-bash">npx pi-web-ui@latest --version
 npx pi-web-ui@latest</code></pre>
+<h2 id="service-install-start">以后台服务安装并启动</h2>
+<p>希望关闭终端后继续运行，或登录系统后自动启动时，先完成上面的 <strong>npm 全局安装</strong>，再安装后台服务。它与直接运行 <code>pi-web-ui</code> 的前台方式不同；下面的 <code>server install</code> 会<strong>安装并立即启动</strong>服务，无需再重复执行 start。若此前已在前台占用同一端口，先用 Ctrl+C 停止该进程。</p>
+<pre><code class="language-bash"># macOS / Linux：将目录替换为已存在的实际项目目录
+pi-web-ui server install --cwd "/path/to/project" --data-dir "/path/to/pi-data" --port 8787
+pi-web-ui server status</code></pre>
+<pre><code class="language-powershell"># Windows PowerShell：将目录替换为实际路径
+pi-web-ui server install --cwd "D:\\Projects\\my-app" --data-dir "D:\\pi-data" --port 8787
+pi-web-ui server status</code></pre>
+<p>安装成功后，在本机浏览器打开 <code>http://127.0.0.1:8787</code>。检查 status 显示运行中，再确认页面、项目目录和模型回复正常。服务数据目录与项目目录相互独立；未显式指定时，服务工作区默认 <code>~/pi-web-ui</code>，服务数据默认 <code>~/.pi-web</code>。后台进程可能不继承当前终端的全部环境变量，模型凭据与工具路径应核对服务实际运行环境。</p>
+<ul><li><strong>macOS：</strong>使用当前用户的 launchd 用户代理，登录后自启。</li><li><strong>Linux：</strong>使用 systemd，安装系统服务时可能需要 sudo/管理员权限；按 CLI 的提示执行，并确认服务账户能访问项目和数据目录。</li><li><strong>Windows：</strong>使用当前用户的登录自启 Run 键，安装不要求管理员权限；这是登录后启动，不是无人登录时运行的系统级 Windows Service。</li></ul>
+<p>服务已经安装但停止时，使用 start；日常管理命令如下，不需要重新安装 npm 包：</p>
+<pre><code class="language-bash">pi-web-ui server start
+pi-web-ui server status
+pi-web-ui server restart
+pi-web-ui server stop
+# 可选：创建桌面一键启动入口
+pi-web-ui server shortcut</code></pre>
+<p>自定义实例示例：<code>pi-web-ui server install --name my-pi --port 9000 --cwd "/path/to/project"</code>；后续使用 <code>pi-web-ui server status --name my-pi</code>、<code>pi-web-ui server restart --name my-pi</code> 等同名管理命令。<a href="#setup-page">本机 /setup 配置</a>可设置访问口令与网络；<a href="#daemon-service">服务参数说明</a>补充配置预览、排空模式与环境要求。卸载服务仅在不再需要后台运行时操作，见本章后面的升级与卸载部分。</p>
 <h2 id="npm-12-native-scripts">npm 依赖脚本与原生模块</h2>
 <p>node-pty 为终端提供原生模块，安装脚本不能被全部禁用。npm 12 及以上若阻止依赖脚本，按以下方式放行相关依赖，再检查安装日志。源码安装使用仓库 allowScripts 配置；若当前 npm 策略仍阻止脚本，可显式传入同样的 --allow-scripts 选项。</p>
 <pre><code class="language-bash">npm install -g --allow-scripts=node-pty,@google/genai,protobufjs pi-web-ui@latest
@@ -214,6 +232,24 @@ pi-web-ui</code></pre>
 <p>To run without a global installation, prepare the same dependencies and run the following in your project. npx may ask permission to download on first use. It still downloads an npm cache, builds native modules, and writes application data.</p>
 <pre><code class="language-bash">npx pi-web-ui@latest --version
 npx pi-web-ui@latest</code></pre>
+<h2 id="service-install-start">Install and start a background service</h2>
+<p>For operation after closing the terminal and automatic startup, first complete the <strong>global npm installation</strong> above. Unlike foreground <code>pi-web-ui</code>, <code>server install</code> both <strong>installs and starts</strong> the service; a separate start command is unnecessary immediately afterward. Stop an existing foreground process with Ctrl+C if it occupies the same port.</p>
+<pre><code class="language-bash"># macOS / Linux: replace with an existing project directory
+pi-web-ui server install --cwd "/path/to/project" --data-dir "/path/to/pi-data" --port 8787
+pi-web-ui server status</code></pre>
+<pre><code class="language-powershell"># Windows PowerShell: replace with your actual paths
+pi-web-ui server install --cwd "D:\\Projects\\my-app" --data-dir "D:\\pi-data" --port 8787
+pi-web-ui server status</code></pre>
+<p>Open <code>http://127.0.0.1:8787</code> locally after installation. Verify running status, the page, project path and a model response. Project and data directories are separate: service defaults are <code>~/pi-web-ui</code> for the workspace and <code>~/.pi-web</code> for data. A background process may not inherit all interactive-shell variables; verify credentials and tool paths in its actual environment.</p>
+<ul><li><strong>macOS:</strong> current-user launchd agent, started at login.</li><li><strong>Linux:</strong> systemd; system service installation may require sudo/administrator privileges. Follow CLI prompts and verify the service account can access project and data directories.</li><li><strong>Windows:</strong> current-user login Run key, without administrator privileges. This starts at login, not as a system-level Windows Service before anyone signs in.</li></ul>
+<p>Use start when an installed service is stopped. Everyday management does not require reinstalling the npm package:</p>
+<pre><code class="language-bash">pi-web-ui server start
+pi-web-ui server status
+pi-web-ui server restart
+pi-web-ui server stop
+# Optional desktop launcher
+pi-web-ui server shortcut</code></pre>
+<p>For a named instance, use <code>pi-web-ui server install --name my-pi --port 9000 --cwd "/path/to/project"</code>, then manage it with <code>pi-web-ui server status --name my-pi</code> or <code>pi-web-ui server restart --name my-pi</code>. See <a href="#setup-page">local /setup</a> for authentication and networking, and <a href="#daemon-service">service configuration</a> for previews, quiescing and environment requirements. Uninstall only when background operation is no longer needed; removal instructions appear later in this chapter.</p>
 <h2 id="npm-12-native-scripts">npm dependency scripts and native modules</h2>
 <p>node-pty supplies the terminal's native module; do not disable all install scripts. If npm 12 or later blocks dependency scripts, allow the dependencies below and inspect the installation log. Source installs use the repository's allowScripts configuration; if your npm policy still blocks scripts, pass the same --allow-scripts option explicitly.</p>
 <pre><code class="language-bash">npm install -g --allow-scripts=node-pty,@google/genai,protobufjs pi-web-ui@latest
