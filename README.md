@@ -1,66 +1,80 @@
-# 🌐 pi-web-ui Official Website & Documentation Portal (`pi-web-ui-site`)
+# pi-web-ui 官网与文档
 
-本项目是 [pi-web-ui](https://github.com/xing-shuyin/pi-web-ui) 的官网与使用文档。文档采用独立的三栏阅读界面，保留 20 篇双语指南，并按「开始使用、使用指南、进阶工作流、扩展与定制、参考」组织。支持 GitHub Pages 静态托管，无需运行服务端构建。
+[在线官网](https://xing-shuyin.github.io/pi-web-ui-site/) · [使用文档](https://xing-shuyin.github.io/pi-web-ui-site/docs.html) · [主项目](https://github.com/xing-shuyin/pi-web-ui)
 
-## ✨ 网站结构与功能亮点
+本仓库维护 pi-web-ui 的产品网站和使用文档，采用原生 HTML、CSS 与 JavaScript，可直接部署到 GitHub Pages。**要安装和运行 pi-web-ui，请阅读[安装指南](https://xing-shuyin.github.io/pi-web-ui-site/docs.html#installation)，而不是运行本仓库的预览脚本。**
 
-| 页面 / 模块                    | 文件路径                                                  | 核心内容                                                                                                                                                                                                                                   |
-| :----------------------------- | :-------------------------------------------------------- | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **🏠 官方产品宣传主页**        | `index.html`                                              | Hero 交互式一行安装切换器、5 标签真实工作台交互预览（含高清放大灯箱）、6 大核心研发支柱、4 大智能体工程模式（标准 / 目标模式 2.0 / 计划模式 / 审查者模式）可视化推演、39 款插件市场实时筛选与一键复制安装命令、35 套内置主题实时演播室预览 |
-| **📖 使用文档**                | `docs.html`                                               | 三栏阅读、首页入门路径、五组导航与 20 篇双语指南，覆盖安装与模型、会话、SSH、文件、终端、Git、任务模式、插件与部署。                                                                                                                       |
-| **🔍 全局即时搜索 (`Ctrl+K`)** | 官网 `app.js`；文档 `docs.js`                             | 按 `Ctrl/Cmd + K` 搜索文档正文和共享参考表；文档支持方向键选择与 Enter 打开结果                                                                                                                                                            |
-| **🖼️ 高清截图与灯箱放大**      | 官网 `styles.css` + `app.js`；文档 `docs.css` + `docs.js` | 嵌入全景工作台、模型设置向导、流式对话、内置终端、Git SCM、运行轨迹等真实工作台高清截图，支持点击即开灯箱（Lightbox）平滑缩放与 ESC 快速退出                                                                                               |
-| **🎨 多主题 & 中英双语**       | `styles.css` + `app.js`                                   | 官网保留原有视觉主题；文档默认浅色，支持独立深色主题和简体中文 / English 切换                                                                                                                                                              |
-| **🔄 主仓库数据自动同步**      | `scripts/sync-data.mjs`                                   | 一键从 `../pi-web-ui` 同步最新版本号、`plugins/catalog.json`（39 款插件）与 `themes/*.css`（35 套主题色板）                                                                                                                                |
+## 浏览文档
 
-## 文档架构与维护
+- [安装方式](https://xing-shuyin.github.io/pi-web-ui-site/docs.html#installation)：npm/npx、桌面、便携、Termux、源码与 Docker。
+- [安装并启动后台服务](https://xing-shuyin.github.io/pi-web-ui-site/docs.html#service-install-start)：平台差异、状态验证和日常启停。
+- [常用启动参数](https://xing-shuyin.github.io/pi-web-ui-site/docs.html#cli-options)：项目、端口、数据目录、引擎与环境变量。
+- [本机 /setup](https://xing-shuyin.github.io/pi-web-ui-site/docs.html#setup-page)：访问口令、监听地址、白名单、保存和重启。
+- [工作流](https://xing-shuyin.github.io/pi-web-ui-site/docs.html#modes-guide)、[插件](https://xing-shuyin.github.io/pi-web-ui-site/docs.html#plugins-marketplace)与[部署](https://xing-shuyin.github.io/pi-web-ui-site/docs.html#plugin-sdk-and-deployment)。
 
-- `docs.html`：语义化页面骨架、移动导航、搜索与图片预览弹窗。
-- `docs.css`：文档独立样式，默认浅色，可切换深色；手机端使用折叠导航。
-- `docs.js`：三栏导航、首页学习路径、全文搜索、正文目录、上下篇、命令复制与双语切换。
-- `scripts/docs-content/ch01.mjs` 至 `ch20.mjs`：双语正文事实源。修改后运行 `npm run build:docs` 生成 `docs-data.js`，不要直接编辑生成文件。
-- `scripts/build-docs-data.mjs`：五组导航的事实源。章节 ID 和正文标题 ID 保持稳定，兼容现有 `docs.html#章节` 与段落链接。
-- `site-data.js`：CLI、快捷键、工具、插件与主题表的共享数据源，正文渲染时按需填充，搜索也覆盖这些表格。
+文档包含 20 篇中英文指南，按「开始使用、使用指南、进阶工作流、扩展与定制、参考」组织。三栏阅读界面支持手机导航、全文搜索、正文目录、命令复制、截图放大及独立深浅主题。
 
-文档首页提供安装、首个任务、结果检查的入门路径。每篇指南只渲染对应正文，保留浏览器前进后退及深链接。设计探索稿位于 `proposals/docs-redesign/`，不作为正式文档内容源。
+## 本地开发
 
-内容核验依据、适用范围与自动检查说明见 [DOCS-REVIEW.md](./DOCS-REVIEW.md)。正文和参考数据的准确性以当前产品实现为准；结构检查不替代各平台和外部服务的实际验证。
-
-## 🚀 本地预览与文档构建
+需要可运行项目脚本的 Node.js 环境。本静态站不依赖前端框架，也不需要打包后才能部署。
 
 ```bash
-# 1. 启动本地预览服务 (默认 http://127.0.0.1:4173)
+git clone https://github.com/xing-shuyin/pi-web-ui-site.git
+cd pi-web-ui-site
 npm run dev
-
-# 2. 编译并生成 20 章文档数据
-npm run build:docs
-
-# 3. 当 ../pi-web-ui 更新了版本、插件或主题时，一键同步数据
-npm run sync
-
-# 4. 运行站点完整性、章节与依赖校验
-npm run check
 ```
 
-## 📦 使用 GitHub Pages 部署上线
+浏览 `http://127.0.0.1:4173`；文档入口为 `/docs.html`。预览服务仅监听本机。
 
-本项目已配置好 `.nojekyll` 与 `.github/workflows/deploy-pages.yml`，支持以下任意一种 GitHub Pages 部署方式：
+| 命令                 | 作用                                             |
+| -------------------- | ------------------------------------------------ |
+| `npm run dev`        | 启动本地静态预览                                 |
+| `npm run build:docs` | 从章节源文件生成 `docs-data.js`                  |
+| `npm run sync`       | 从同级 `../pi-web-ui` 同步产品元数据、目录与截图 |
+| `npm run check`      | 检查脚本语法、资源、导航、双语锚点和内部链接     |
 
-### 方式一：通过 GitHub Actions 自动部署（推荐）
+## 文件与事实源
 
-1. 在 GitHub 上创建一个公开仓库（如 `pi-web-ui-site` 或直接在自定义仓库下）；
-2. 将本目录推送至 GitHub：
-   ```bash
-   git init
-   git add -A
-   git commit -m "feat: initial pi-web-ui official website and documentation portal"
-   git branch -M main
-   git remote add origin git@github.com:<your-username>/pi-web-ui-site.git
-   git push -u origin main
-   ```
-3. 打开 GitHub 仓库的 **Settings → Pages**，在 **Build and deployment → Source** 中选择 **GitHub Actions**；
-4. 每次推送到 `main` 分支，GitHub Actions 都会自动运行 `npm run check` 校验并发布到 `https://<your-username>.github.io/pi-web-ui-site/`！
+| 文件                                       | 维护职责                       |
+| ------------------------------------------ | ------------------------------ |
+| `index.html`、`app.js`、`styles.css`       | 产品官网首页与交互             |
+| `docs.html`、`docs.js`、`docs.css`         | 文档页面骨架、路由、搜索和样式 |
+| `scripts/docs-content/ch01.mjs`—`ch20.mjs` | 中英文正文，修改内容时编辑这里 |
+| `scripts/build-docs-data.mjs`              | 五组导航与文档数据生成器       |
+| `scripts/sync-data.mjs`                    | 共享产品数据的生成与映射逻辑   |
+| `docs-data.js`、`site-data.js`             | 已提交的生成结果，不直接修改   |
+| `assets/`                                  | 截图、图标和演示视频           |
+| `proposals/docs-redesign/`                 | 设计探索与预览，不是正文事实源 |
 
-### 方式二：Branch 直出模式（免 Actions）
+正文中的 CLI、工具与快捷键表使用共享数据渲染。修改正文后运行 `npm run build:docs`；修改目录数据后运行 `npm run sync`。生成结果也要提交，托管平台不会代替你生成。
 
-由于本项目采用原生 ES Modules 构建，根目录直接包含 `index.html`、`docs.html` 与 `.nojekyll`，你也可以在 **Settings → Pages → Source** 中直接选择 **Deploy from a branch (`main` / `/(root)`)**，零等待即刻上线。
+## 内容修改与验证
+
+1. 对照主项目当前代码核实命令、默认路径、权限和能力，不能仅按功能名推测。
+2. 同步修改中文与英文，保留章节 ID 和已有段落锚点；需要篇幅的安装说明应完整给出前置条件、命令和验证步骤。
+3. 生成相关数据，用 Prettier 格式化修改文件，再运行 `npm run check`。
+4. 预览涉及的页面，检查手机布局、内部链接和可复制命令。
+
+检查脚本以当前 Git HEAD 为兼容性基线，验证旧章节和锚点未丢失。它不能自动判断产品行为是否正确；核验依据与边界见 [DOCS-REVIEW.md](./DOCS-REVIEW.md)。
+
+可选浏览器回归：本地预览设为 4198 端口，启动带 CDP 9333 端口的 Chrome，并安装 Python `websocket-client` 后执行：
+
+```bash
+python scripts/check-docs-browser.py
+```
+
+脚本使用自己的临时标签页，检查双语阅读、搜索、目录、主题、图片预览及桌面/手机布局。它依赖本机工具，不是部署前必需的运行时组件。
+
+## 部署到 GitHub Pages
+
+仓库的 [.github/workflows/deploy-pages.yml](./.github/workflows/deploy-pages.yml) 在推送到 `main` 时运行 `npm run check` 并部署静态文件。仓库 **Settings → Pages → Source** 应选择 **GitHub Actions**。
+
+也可以选择分支根目录直接托管，但该方式不会自动执行上述校验。`.nojekyll` 用于关闭 Jekyll 处理。页面资源采用相对路径，文档章节使用 `docs.html#章节或段落ID` 深链接。
+
+## 相关项目
+
+- [pi-web-ui](https://github.com/xing-shuyin/pi-web-ui)：产品源码与问题反馈。
+- [插件社区目录](https://github.com/xing-shuyin/pi-web-ui-plugins)。
+- [设置预设社区](https://github.com/xing-shuyin/pi-web-ui-presets)。
+
+站点包声明为 MIT；产品许可证见[主项目 LICENSE](https://github.com/xing-shuyin/pi-web-ui/blob/main/LICENSE)。
