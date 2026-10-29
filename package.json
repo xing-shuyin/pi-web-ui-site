@@ -1,27 +1,27 @@
 {
-	"name": "pi-web-ui-site",
-	"version": "1.0.0",
-	"private": true,
-	"type": "module",
-	"description": "Official promotional website & comprehensive documentation portal for pi-web-ui (GitHub Pages ready)",
-	"scripts": {
-		"dev": "node scripts/serve.mjs",
-		"start": "node scripts/serve.mjs",
-		"sync": "node scripts/sync-data.mjs",
-		"build:docs": "node scripts/build-docs-data.mjs",
-		"check": "node scripts/verify-site.mjs"
-	},
-	"repository": {
-		"type": "git",
-		"url": "git+https://github.com/xing-shuyin/pi-web-ui-site.git"
-	},
-	"keywords": [
-		"pi-web-ui",
-		"documentation",
-		"github-pages",
-		"ai-coding-agent",
-		"dsh"
-	],
-	"author": "xingshuyin",
-	"license": "MIT"
+  "name": "pi-web-ui-site",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Official promotional website & comprehensive documentation portal for pi-web-ui (GitHub Pages ready)",
+  "scripts": {
+    "dev": "node scripts/serve.mjs",
+    "start": "node scripts/serve.mjs",
+    "sync": "node scripts/sync-data.mjs",
+    "build:docs": "node scripts/build-docs-data.mjs",
+    "check": "node --check docs.js && node scripts/verify-site.mjs && node scripts/check-docs-content.mjs"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/xing-shuyin/pi-web-ui-site.git"
+  },
+  "keywords": [
+    "pi-web-ui",
+    "documentation",
+    "github-pages",
+    "ai-coding-agent",
+    "dsh"
+  ],
+  "author": "xingshuyin",
+  "license": "MIT"
 }

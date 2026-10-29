@@ -1,91 +1,42 @@
-/**
- * Chapter 09: Built-in Git SCM & AI Commit Message Generator (内置 Git 源代码管理与 AI 自动生成提交说明)
- */
+/** Git & Commits */
 export const ch09 = {
-	id: "git-scm-and-ai-commit",
-	group: "workspace",
-	badge: "Chapter 09",
-	icon: "🌿",
-	navTitle: "09. Git 管理与 AI 提交",
-	navTitleEn: "09. Git SCM & AI Commit",
-	title: "内置 Git 源代码管理与 AI 自动生成规范提交说明",
-	titleEn: "Built-in Git SCM & One-Click AI Commit Message Generation",
-	summary: "新手无需死记繁琐 Git 命令！可视化暂存与放弃改动、红绿对比高亮 Diff，以及点击一键让 AI 智能分析暂存区并生成标准提交说明。",
-	summaryEn: "Visual Git source control for everyone: stage/unstage/discard, inline diff inspection, and one-click AI commit messages following Conventional Commits.",
-	contentZh: `
-<h2 id="git-scm-overview">1. 为什么无需切出外部 Git 客户端？</h2>
-<p>版本控制不用再切外部客户端，底部抽屉内直接集成完整 Git 面板：</p>
+  id: "git-scm-and-ai-commit",
+  group: "workspace",
+  badge: "Chapter 09",
+  icon: "🌿",
+  navTitle: "Git 与提交",
+  navTitleEn: "Git & Commits",
+  title: "Git 与提交",
+  titleEn: "Git & Commits",
+  summary: "查看工作区差异、准备暂存内容，并核对 AI 生成的提交说明。",
+  summaryEn:
+    "Inspect workspace changes, prepare staged content, and review AI-generated commit messages.",
+  contentZh: `
+<h2 id="git-scm-overview">检查状态</h2>
+<p>打开源码管理，确认当前目录属于目标仓库，再查看工作区、暂存区和文件差异。按文件阅读具体修改，确定本次提交范围；多人或多代理共用仓库时，特别留意已有暂存内容。</p>
+<figure class="doc-figure"><img src="./assets/git.jpeg" alt="Git SCM 源代码管理面板" /></figure>
 
-<figure class="doc-figure">
-	<img src="./assets/git.jpeg" alt="Git SCM 源代码管理面板" />
-	<figcaption>
-		<strong>图 9.1 Git 源代码管理与差异对比：</strong>
-		暂存区管理、红绿高亮 Diff 检视、分支快速切换以及「一键 AI 生成提交说明」按钮。
-	</figcaption>
-</figure>
+<h2 id="visual-git-operations">暂存与提交</h2>
+<p>面板支持暂存、取消暂存和提交。提交全部会先执行 git add -A，应先排除无关文件。写操作通过终端命令执行；实例关闭终端标签时，对应入口也受限。完成后查看输出并刷新状态。</p>
 
-<h2 id="visual-git-operations">2. 新手零门槛图形化版本控制</h2>
-<p>即使你完全不懂 <code>git add</code>、<code>git checkout</code> 的底层参数，也能轻松上手：</p>
+<h2 id="ai-commit-generation">生成说明</h2>
+<p>AI 优先描述暂存差异，无暂存时参考工作区和未跟踪变化；未跟踪文件只提供名字。说明沿用近期提交的风格与语言，生成后填入输入框。核对内容与提交范围，再执行提交。</p>
 
-<div class="doc-step-box">
-	<div class="doc-step-num">➕</div>
-	<div class="doc-step-content">
-		<h4>暂存与取消暂存 (Stage / Unstage)</h4>
-		<p>面板清晰将改动归类为「未暂存的更改」与「已暂存的更改」。点击文件旁的 <code>+</code> 号即可暂存，点击 <code>-</code> 号即可取消暂存，亦可点击顶部的双加号一键全部暂存。</p>
-	</div>
-</div>
-
-<div class="doc-step-box">
-	<div class="doc-step-num">👀</div>
-	<div class="doc-step-content">
-		<h4>逐行对比差异 (Inline Diff)</h4>
-		<p>单击列表中的任何被改动文件，右侧即刻展开优雅的 Diff 视图：红色背景清晰标注删除的旧代码，绿色背景标注 AI 新增或修改的新代码，所有修改历历在目。</p>
-	</div>
-</div>
-
-<div class="doc-step-box">
-	<div class="doc-step-num">🗑️</div>
-	<div class="doc-step-content">
-		<h4>放弃单个文件的更改 (Discard)</h4>
-		<p>如果发现某一个文件的修改不需要，点击文件旁的撤回小图标（Discard），该文件瞬间还原为 HEAD 版本的纯净状态。</p>
-	</div>
-</div>
-
-<h2 id="ai-commit-generation">3. 亮点体验：一键 AI 自动生成提交说明</h2>
-<p>新手写提交说明常草草写个 <code>update</code>，不利维护：</p>
-
-<div class="doc-callout doc-callout-tip">
-	<strong>💡 点击一下，自动分析并生成专业 Commit 消息！</strong>
-	<p>暂存好你想提交的文件后，点击提交输入框右上方的 <strong>「✨ AI 生成提交说明」</strong> 按钮。模型会深入分析暂存区内的所有代码 Diff，在 1 秒内为你自动撰写出符合业界规范的 <strong>Conventional Commits</strong> 消息（如 <code>feat(auth): add OAuth2 token refresh logic</code> 或 <code>fix(table): prevent horizontal overflow on mobile</code>）。</p>
-</div>
-
-<p>确认文案无误后，点击「提交 (Commit)」或使用快捷键 <code>Ctrl + Enter</code>，即可瞬间完成版本提交，整个流程一气呵成！</p>
-
-<h2 id="branch-and-history-quote">4. 分支切换、Stash 贮藏与历史提交引用</h2>
-<ul>
-	<li><strong>分支快速切换</strong>：在面板顶部一键拉取分支列表、新建特性分支或切换主干，支持自动展示未提交警告；</li>
-	<li><strong>临时贮藏 (Git Stash)</strong>：临时需要切换分支时，一键保存当前工作进度至 Stash 并在切回时无损弹出恢复；</li>
-	<li><strong>历史提交一键引用回对话</strong>：在提交历史列表中点击「引用至对话」，可将某次 commit 的哈希与差异直接带入聊天窗口，让 AI 针对某次历史重构进行代码审查或写发布说明。</li>
-</ul>
+<h2 id="branch-and-history-quote">分支与历史</h2>
+<p>通过分支选择、push、pull 和历史入口继续操作。远程分支切换可能建立本地跟踪分支；查看历史用于理解已有改动。切换或同步前检查当前修改，避免把无关工作混入提交。</p>
 `,
-	contentEn: `
-<h2 id="git-scm-overview">1. Integrated Git SCM</h2>
-<p>No need to switch to external Git GUI apps or terminal commands. Manage your entire Git repository right from the bottom drawer.</p>
-<figure class="doc-figure">
-	<img src="./assets/git.jpeg" alt="Git SCM & AI Commit Generation" />
-	<figcaption>
-		<strong>Figure 9.1 Git SCM & Commit Generator:</strong>
-		Staged changes, color-coded inline diff, branch switcher, and AI commit message button.
-	</figcaption>
-</figure>
+  contentEn: `
+<h2 id="git-scm-overview">Inspect status</h2>
+<p>Open source control, confirm the repository, and inspect working-tree and staged diffs. Check existing staged content when sharing a repository.</p>
+<figure class="doc-figure"><img src="./assets/git.jpeg" alt="Git SCM & AI Commit Generation" /></figure>
 
-<h2 id="visual-git-operations">2. Intuitive Version Control</h2>
-<p>Stage, unstage, or discard file changes with a single click. Inspect colored line-by-line diffs effortlessly.</p>
+<h2 id="visual-git-operations">Stage and commit</h2>
+<p>Stage or unstage files, then commit. Commit-all runs git add -A first, so exclude unrelated changes. Writes run through terminal commands and depend on terminal-tab availability. Refresh status afterward.</p>
 
-<h2 id="ai-commit-generation">3. One-Click AI Commit Message Generation</h2>
-<p>Click the <strong>AI Generate</strong> button to inspect your staged diff and produce standard Conventional Commits messages in one second.</p>
+<h2 id="ai-commit-generation">Generate a message</h2>
+<p>AI describes staged changes first, otherwise working-tree and untracked changes. Untracked files supply names only. The generated input follows recent commit style and language; review its scope before committing.</p>
 
-<h2 id="branch-and-history-quote">4. Branches, Stashes & History Quotes</h2>
-<p>Switch branches, stash WIP edits, and quote past commit diffs directly into conversation for code reviews.</p>
+<h2 id="branch-and-history-quote">Branches and history</h2>
+<p>Use branch selection, push, pull, and history. Remote checkout may create a tracking branch. Check local changes before switching or synchronizing.</p>
 `,
 };

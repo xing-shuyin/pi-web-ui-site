@@ -1,58 +1,33 @@
-/**
- * Chapter 17: Dual Engines (pi & DSH), OAuth Login & Presets Sharing (双引擎与预设社区)
- */
 export const ch17 = {
-	id: "dual-engines-and-presets",
-	group: "extensibility",
-	badge: "Chapter 17",
-	icon: "🔄",
-	navTitle: "17. 双引擎与预设分享",
-	navTitleEn: "17. Engines & Presets",
-	title: "双引擎协同 (pi & DSH)、OAuth 登录与社区预设共享",
-	titleEn: "Dual Engines (pi & DSH), OAuth Login & Community Presets",
-	summary: "无缝切换 pi 原生引擎与 DeepSeek Harness (DSH)、主流提供商 OAuth 一键免密授权，以及四道安全闸门的设置预设导入、导出与社区共享。",
-	summaryEn: "Seamlessly toggle between the native pi engine and DeepSeek Harness (DSH), authenticate via OAuth, and share clean settings presets safely.",
-	contentZh: `
-<h2 id="dual-engines-comparison">1. 什么是“双引擎架构”？</h2>
-<p>不同于大多数绑定单一后端的 AI 工具，pi-web-ui 创新地实现了<strong>双引擎双轨驱动</strong>架构，满足不同场景下的极致需求：</p>
-
-<div class="doc-grid-2">
-	<div class="doc-card">
-		<h4>🚀 引擎一：pi 原生引擎 (默认推荐)</h4>
-		<p>基于 <code>@earendil-works/pi-coding-agent</code> SDK 打造。功能版图最完整：原生支持 30+ 扩展工具、子代理并发委派、真 PTY 终端接管、工作区快照回滚与软上限压缩（Soft Cap）。</p>
-	</div>
-	<div class="doc-card">
-		<h4>⚡ 引擎二：DeepSeek Harness (DSH) 引擎</h4>
-		<p>针对 DeepSeek 深度优化。采用创新的预设克隆隔离机制，专为高强度推理链与代码快速打字调优，底栏实时呈现 Token 吞吐与直播统计。</p>
-	</div>
-</div>
-
-<p>你可以在设置面板中随时一键平滑切换当前会话所使用的底层引擎，原有历史对话与工作区文件丝毫无损。</p>
-
-<h2 id="oauth-one-click-login">2. 提供商 OAuth 一键免密授权</h2>
-<p>新手往往觉得去各个模型平台注册账号、充值、寻找 API Key 页面很繁琐。工作台集成了主流 AI 提供商的 <strong>OAuth 一键登录</strong>功能：</p>
-
-<p>导出即得 <code>.json</code>；导入先 <code>dryRun</code> 预览，白名单外字段自动丢弃。</p>
-
-<h2 id="community-presets-hub">4. 社区预设中心：一键浏览与应用</h2>
-<p>工作台内置了官方维护的 <strong>社区预设浏览中心 (Community Presets)</strong>：</p>
-<ul>
-	<li>在此可一键浏览来自全球资深开发者分享的热门配置；</li>
-	<li>涵盖「全栈开发专家预设」、「Rust 严谨代码审查预设」、「轻量级前端极速预设」等；</li>
-	<li>找到心仪的配置，点击「一键应用」即可瞬间加载，小白也能瞬间拥有技术大佬的顶级调校！</li>
-</ul>
+  id: "dual-engines-and-presets",
+  group: "extensibility",
+  badge: "Guide",
+  icon: "🔄",
+  navTitle: "引擎、登录与预设",
+  navTitleEn: "Engines, Login & Presets",
+  title: "引擎、登录与预设",
+  titleEn: "Engines, Login & Presets",
+  summary: "按能力选择引擎，完成提供商登录，并导入或分享设置预设。",
+  summaryEn:
+    "Choose an engine by capability, sign in to providers, and import or share settings presets.",
+  contentZh: `
+<h2 id="dual-engines-comparison">选择引擎</h2>
+<p>按任务选择 pi 或 DSH。pi 提供宿主工具；DSH 使用独立进程，可用功能以引擎能力声明为准。切换前结束当前任务，再检查模型、工具和上下文；依赖特定引擎的流程可在新对话继续，切换不保证状态无损迁移。</p>
+<h2 id="oauth-one-click-login">登录提供商</h2>
+<p>在支持 OAuth 的提供商设置中启动登录，按提示打开授权链接，完成验证并填写所需信息。成功后核对模型是否可用；不同引擎使用的凭据和配置需分别确认。</p>
+<h2 id="presets-import-export">导入与导出</h2>
+<p>在设置的预设面板保存、应用或导出配置，也可从 JSON 文件或网址导入。先保存当前设置，检查来源，再应用并核对模型、工具和布局。本机路径、凭据及环境依赖需自行配置。</p>
+<h2 id="community-presets-hub">社区预设</h2>
+<p>社区面板可浏览、导入或准备发布预设。发布前检查名称、说明和内容，移除个人信息与密钥；试用他人配置后，验证版本、插件依赖和关键操作。</p>
 `,
-	contentEn: `
-<h2 id="dual-engines-comparison">1. Dual-Engine Architecture</h2>
-<p>Switch between the full-featured <strong>pi engine</strong> (supporting subagents, PTY bash takeover, and snapshots) and the <strong>DSH engine</strong> (fine-tuned for DeepSeek reasoning speed).</p>
-
-<h2 id="oauth-one-click-login">2. OAuth One-Click Login</h2>
-<p>Connect official model providers through secure browser OAuth authorization without manually pasting long API key strings.</p>
-
-<h2 id="presets-import-export">3. Settings Presets & Four-Gate Sanitization</h2>
-<p>Export prompts and layouts to JSON. Imports pass <code>server/preset-share.ts</code> whitelist sanitization (unknown fields dropped) with <code>dryRun</code> preview before applying.</p>
-
-<h2 id="community-presets-hub">4. Community Presets Hub</h2>
-<p>Browse community-curated presets (Full-Stack Pro, Rust Reviewer, Minimalist Frontend) and apply them with one click.</p>
+  contentEn: `
+<h2 id="dual-engines-comparison">Choose an engine</h2>
+<p>Choose pi for host tools or DSH for its separate runtime, following reported capabilities. Finish tasks before switching, then check model, tools and context. Use a new conversation for engine-specific workflows; state migration is not guaranteed.</p>
+<h2 id="oauth-one-click-login">Sign in</h2>
+<p>Start OAuth in a supported provider's settings. Follow the authorization link, verify and supply requested information. Check available models afterward and confirm credentials separately for each engine.</p>
+<h2 id="presets-import-export">Exchange presets</h2>
+<p>Save, apply or export in settings; import JSON files or URLs. Save current settings, inspect the source, then verify models, tools and layout. Configure local paths, credentials and dependencies separately.</p>
+<h2 id="community-presets-hub">Community presets</h2>
+<p>Browse, import or prepare publication in the community panel. Remove personal information and keys before sharing. Verify compatibility, plugins and essential operations after import.</p>
 `,
 };

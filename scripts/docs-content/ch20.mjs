@@ -1,154 +1,49 @@
-/**
- * Chapter 20: Plugin SDK v2 Development & Production Deployment (插件开发与生产部署完全指南)
- */
 export const ch20 = {
-	id: "plugin-sdk-and-deployment",
-	group: "extensibility",
-	badge: "Chapter 20",
-	icon: "🚀",
-	navTitle: "20. 插件开发与生产部署",
-	navTitleEn: "20. Plugin SDK & Deploy",
-	title: "插件开发完全手册与生产部署（守护服务 / Docker / Nginx 反代）",
-	titleEn: "Plugin SDK v2 Guide & Production Deployment (Docker / Nginx)",
-	summary: "从零编写你自己的工作台插件！详解 Plugin SDK v2 规范与 UI 插槽注册，以及生产环境开机自启、Docker 容器化与 Nginx 子路径反向代理配置。",
-	summaryEn: "Build custom plugins with Plugin SDK v2, plus comprehensive production deployment recipes: OS daemon services, Docker Compose, and subpath Nginx reverse proxy.",
-	contentZh: `
-<h2 id="plugin-sdk-quickstart">1. 5 分钟极速开发你的第一个插件</h2>
-<p>基于 <strong>Plugin SDK v2</strong>，编写一个属于你自己的工作台插件仅需两个轻量文件：</p>
-
-<div class="doc-step-box">
-	<div class="doc-step-num">1</div>
-	<div class="doc-step-content">
-		<h4>编写清单配置文件：<code>manifest.json</code></h4>
-		<p>声明插件的元数据、作者与需要挂载的 33 个 UI 插槽位置：</p>
-		<pre><code class="language-json">{
-  "id": "my-cool-tool",
-  "name": "极客工具箱",
-  "nameEn": "Geek Toolkit",
-  "version": "1.0.0",
-  "apiVersion": 2,
-  "icon": "⚡",
-  "description": "一键执行自定义清理与格式化脚本",
-  "ui": [
-    {
-      "slot": "topbar.right",
-      "type": "button",
-      "label": "一键清理",
-      "icon": "🧹",
-      "action": "run-clean"
-    }
-  ]
-}</code></pre>
-	</div>
-</div>
-
-<div class="doc-step-box">
-	<div class="doc-step-num">2</div>
-	<div class="doc-step-content">
-		<h4>编写执行逻辑入口：<code>index.mjs</code></h4>
-		<p>导出一个 <code>activate(host)</code> 函数，调用宿主提供的安全 Host API：</p>
-		<pre><code class="language-javascript">export async function activate(host) {
-  // 监听顶栏按钮点击事件
-  host.ui.onAction("run-clean", async () => {
-    // 弹出宿主提示消息
-    host.notify.info("正在执行代码格式化与临时文件清理...");
-    // 安全调用宿主终端执行脚本
-    const res = await host.exec("npm run format && rm -rf .tmp");
-    host.notify.success("清理完成！");
-  });
-
-  // 监听会话状态变化
-  host.events.on("conversation:message", (msg) => {
-    console.log("收到新消息:", msg);
-  });
-}
-
-export async function deactivate() {
-  // 插件被卸载或停用时的资源清理
-}</code></pre>
-	</div>
-</div>
-
-<h2 id="production-daemon">2. 方案 A：操作系统级后台守护服务 (推荐)</h2>
-<p>生产服务器或个人开发机上，推荐使用内置的 <code>pi-web-ui server</code> 命令一键托管：</p>
-
-<pre><code class="language-bash"># 一键将当前项目注册为开机自启后台服务
-pi-web-ui server install --port 8787 --cwd /var/www/my-repo
-
-# 查看状态与健康度
-pi-web-ui server status
-
-# 优雅重启或停止
-pi-web-ui server restart
-pi-web-ui server stop</code></pre>
-
-<h2 id="production-docker">3. 方案 B：Docker / Docker Compose 容器化</h2>
-<p>在私有云或云服务器上，可直接使用官方 Docker 镜像运行：</p>
-<pre><code class="language-yaml">version: "3.8"
-services:
-  pi-web-ui:
-    image: xingshuyin/pi-web-ui:latest
-    container_name: pi-web-ui
-    restart: always
-    ports:
-      - "8787:8787"
-    environment:
-      - PI_WEB_HOST=0.0.0.0
-      - PI_WEB_PORT=8787
-      - PI_WEB_TOKEN=your_secure_password
-    volumes:
-      - ./data:/root/.pi-web
-      - ./workspace:/app/workspace</code></pre>
-
-<h2 id="production-nginx">4. 方案 C：Nginx 反向代理配置（含 WebSocket 升级）</h2>
-<p>如果你需要通过域名访问，或者将 pi-web-ui 挂载在某个二级子路径（例如 <code>https://example.com/ai/</code>）下，由于系统所有资源路径均严格经 <code>appUrl()</code> 封装，配置极度简单：</p>
-
-<pre><code class="language-nginx">server {
-    listen 80;
-    server_name ai.example.com;
-
-    location / {
-        proxy_pass http://127.0.0.1:8787;
-        proxy_http_version 1.1;
-
-        # 核心：必须开启 WebSocket 双向升级通道
-        proxy_set_header Upgrade $http_upgrade;
-        proxy_set_header Connection "upgrade";
-
-        # 传递真实主机名与客户端 IP
-        proxy_set_header Host $host;
-        proxy_set_header X-Real-IP $remote_addr;
-        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
-        proxy_set_header X-Forwarded-Proto $scheme;
-
-        # 关闭大文件传输缓冲
-        proxy_buffering off;
-        proxy_read_timeout 86400s;
-        proxy_send_timeout 86400s;
-    }
-}</code></pre>
-
-<h2 id="security-best-practices">5. 生产环境安全合规清单</h2>
-<ul>
-	<li><strong>访问口令</strong>：只走环境变量 <code>PI_WEB_TOKEN</code>（无 <code>--token</code> flag），细则见第 16 章 <a href="#six-security-boundaries">§4</a>；</li>
-	<li><strong>HTTPS</strong>：在反向代理层（Nginx / Caddy）终止 SSL；</li>
-	<li><strong>备份</strong>：数据目录默认 <code>~/.pi-web</code>（可用 <code>--data-dir</code> 指定），定期打包即无缝迁移。</li>
-</ul>
+  id: "plugin-sdk-and-deployment",
+  group: "extensibility",
+  badge: "Guide",
+  icon: "🚀",
+  navTitle: "插件开发与部署",
+  navTitleEn: "Plugin Development & Deployment",
+  title: "插件开发与部署",
+  titleEn: "Plugin Development & Deployment",
+  summary: "使用宿主生命周期编写插件，并核对守护服务、Docker 与反向代理配置。",
+  summaryEn:
+    "Build plugins around the host lifecycle and configure daemon services, Docker and reverse proxies.",
+  contentZh: `
+<h2 id="plugin-sdk-quickstart">开发入口</h2>
+<p>运行 <code>pi-web-ui plugin create my-plugin</code>，在 manifest 声明入口和能力。服务端通过宿主激活，浏览器动作放在客户端处理。插件禁用或重载时，宿主执行登记的清理函数。监听器、连接和计时器都应释放，清理逻辑应支持重复调用。开发后验证启用与禁用流程。自建资源用 effect 登记清理：</p>
+<pre><code>export default {
+  activate(host) {
+    const timer = setInterval(() =&gt; host.log("info", "tick"), 60000);
+    host.effect("timer", () =&gt; clearInterval(timer));
+  }
+};</code></pre>
+<h2 id="production-daemon">安装服务</h2>
+<p>执行 <code>pi-web-ui server install</code>，用 <code>pi-web-ui server status</code> 查看状态。核对服务账户、目录、环境和日志，更新后重启验证。</p>
+<h2 id="production-docker">容器部署</h2>
+<p>源码根目录执行 <code>docker compose up -d --build</code>。数据卷挂到 <code>/app/.pi-web</code>；配置访问口令环境变量，另挂项目和凭据目录，备份数据卷。</p>
+<h2 id="production-nginx">反向代理</h2>
+<p>转发至<code>127.0.0.1:8787</code>，使用 HTTP/1.1，传递 Upgrade、Connection 头并延长超时。保留 <code>proxy_set_header Host $http_host;</code>，保留端口供来源校验。子路径参照 <code>deploy/nginx-subpath.conf</code>。</p>
+<h2 id="security-best-practices">上线验证</h2>
+<p>配置 HTTPS 和所需白名单，检查数据卷可写、重建后数据仍在、聊天及终端连接正常。记录备份恢复步骤后开放远程访问。</p>
 `,
-	contentEn: `
-<h2 id="plugin-sdk-quickstart">1. 5-Minute Plugin SDK v2 Quickstart</h2>
-<p>Build custom plugins with just two files: <code>manifest.json</code> to declare UI slots and <code>index.mjs</code> to implement logic with safe <code>host</code> APIs.</p>
-
-<h2 id="production-daemon">2. Option A: OS Background Daemon</h2>
-<p>Install system-level background auto-start services with <code>pi-web-ui server install --port 8787</code>.</p>
-
-<h2 id="production-docker">3. Option B: Docker Compose</h2>
-<p>Deploy using standard Docker compose containers mounting volumes for <code>/root/.pi-web</code> and <code>/app/workspace</code>.</p>
-
-<h2 id="production-nginx">4. Option C: Nginx Reverse Proxy with WebSockets</h2>
-<p>Configure Nginx to proxy <code>http://127.0.0.1:8787</code> with <code>Upgrade $http_upgrade</code> and <code>proxy_read_timeout 86400s</code> for full-duplex WebSocket streaming.</p>
-
-<h2 id="security-best-practices">5. Security Checklist</h2>
-<p>Always enforce <code>PI_WEB_TOKEN</code> (env only, see ch16 §4), terminate SSL at Nginx, and back up <code>~/.pi-web/</code> regularly.</p>
+  contentEn: `
+<h2 id="plugin-sdk-quickstart">Develop</h2>
+<p>Run <code>pi-web-ui plugin create my-plugin</code>. Declare manifest entries and capabilities. Handle browser actions client-side. Effects release listeners, connections and timers on disable/reload; make cleanup repeatable and verify enable/disable:</p>
+<pre><code>export default {
+  activate(host) {
+    const timer = setInterval(() =&gt; host.log("info", "tick"), 60000);
+    host.effect("timer", () =&gt; clearInterval(timer));
+  }
+};</code></pre>
+<h2 id="production-daemon">Install service</h2>
+<p>Run <code>pi-web-ui server install</code>, then <code>pi-web-ui server status</code>. Check account, directory, environment and logs; verify updates.</p>
+<h2 id="production-docker">Deploy containers</h2>
+<p>Run <code>docker compose up -d --build</code> from the source root. Mount data at <code>/app/.pi-web</code>. Configure the access-token environment variable, separate project/credential mounts and volume backups.</p>
+<h2 id="production-nginx">Proxy</h2>
+<p>Proxy to local port 8787 using HTTP/1.1, Upgrade/Connection headers and longer timeouts. Preserve <code>proxy_set_header Host $http_host;</code> for origin checks including ports. Follow <code>deploy/nginx-subpath.conf</code> for subpaths.</p>
+<h2 id="security-best-practices">Verify</h2>
+<p>Set HTTPS and allowlists. Verify volume writes, persistence, chat and terminals; document restoration before remote access.</p>
 `,
 };

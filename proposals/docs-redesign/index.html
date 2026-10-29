@@ -1,0 +1,557 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>文档网站重构 · 三个方向</title>
+    <link rel="icon" href="../../assets/favicon.svg" />
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        margin: 0;
+        background: #f4f5f3;
+        color: #1e2928;
+        font:
+          14px/1.8 -apple-system,
+          BlinkMacSystemFont,
+          "Segoe UI",
+          "Microsoft YaHei",
+          sans-serif;
+      }
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+      main {
+        max-width: 1240px;
+        padding: 55px 35px;
+        margin: auto;
+      }
+      .top {
+        display: flex;
+        justify-content: space-between;
+        font-size: 11px;
+        color: #68746d;
+        letter-spacing: 1px;
+      }
+      .tag {
+        color: #397761;
+        font: 11px monospace;
+        letter-spacing: 2px;
+        margin-top: 65px;
+      }
+      h1 {
+        font-size: 44px;
+        line-height: 1.35;
+        letter-spacing: -1.5px;
+        margin: 15px 0;
+      }
+      .intro {
+        font-size: 15px;
+        color: #69736f;
+        max-width: 720px;
+      }
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 22px;
+        margin: 38px 0;
+      }
+      .card {
+        border: 1px solid #dce2dc;
+        border-radius: 12px;
+        overflow: hidden;
+        background: #fff;
+        transition:
+          transform 0.2s,
+          box-shadow 0.2s;
+      }
+      .card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 15px 30px #23362910;
+      }
+      .preview {
+        height: 235px;
+        padding: 21px 18px 0;
+        background: #edf2f0;
+        overflow: hidden;
+      }
+      .mini {
+        background: #fff;
+        border: 1px solid #dfe5e2;
+        border-radius: 7px 7px 0 0;
+        box-shadow: 0 6px 20px #16251e0c;
+        height: 240px;
+        overflow: hidden;
+      }
+      .mini-head {
+        height: 30px;
+        border-bottom: 1px solid #e6ebe8;
+        padding: 7px 10px;
+        font-size: 8px;
+        font-weight: 700;
+        display: flex;
+        justify-content: space-between;
+      }
+      .mini-head span {
+        font-weight: 400;
+        color: #88918c;
+      }
+      .mini-body {
+        display: grid;
+        grid-template-columns: 64px 1fr;
+        height: 100%;
+      }
+      .mini-side {
+        padding: 15px 7px;
+        border-right: 1px solid #e6ebe8;
+        font-size: 6px;
+        line-height: 2.8;
+        color: #839087;
+      }
+      .mini-side b {
+        color: #267b63;
+        display: block;
+        background: #eaf4ef;
+        padding: 0 3px;
+      }
+      .mini-main {
+        padding: 18px 15px;
+      }
+      .mini-main small {
+        font: 5px monospace;
+        color: #37836b;
+        letter-spacing: 1px;
+      }
+      .mini-main h3 {
+        font-size: 15px;
+        letter-spacing: -0.5px;
+        margin: 5px 0 6px;
+        line-height: 1.5;
+      }
+      .mini-main p {
+        font-size: 5px;
+        color: #8a968e;
+        margin: 0 0 10px;
+      }
+      .mini-button {
+        font-size: 5px;
+        background: #18816b;
+        color: #fff;
+        padding: 4px 8px;
+        border-radius: 3px;
+        display: inline-block;
+      }
+      .mini-cards {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 6px;
+        margin-top: 15px;
+      }
+      .mini-cards i {
+        border: 1px solid #e2e9e4;
+        border-radius: 4px;
+        padding: 10px 7px;
+        font-style: normal;
+        font-size: 6px;
+      }
+      .info {
+        padding: 24px;
+      }
+      .number {
+        font-size: 10px;
+        color: #768079;
+        letter-spacing: 1px;
+      }
+      .info h2 {
+        font-size: 23px;
+        letter-spacing: -0.6px;
+        margin: 7px 0;
+      }
+      .info p {
+        font-size: 12px;
+        color: #6a756e;
+        min-height: 65px;
+      }
+      .tags {
+        display: flex;
+        gap: 6px;
+        margin: 16px 0 25px;
+        flex-wrap: wrap;
+      }
+      .tags span {
+        font-size: 10px;
+        background: #f1f4f1;
+        border-radius: 4px;
+        padding: 3px 7px;
+        color: #68746b;
+      }
+      .links {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 10px;
+      }
+      .links a {
+        font-size: 12px;
+        font-weight: 600;
+        color: #22745b;
+      }
+      .links a:first-child {
+        background: #eff6f2;
+        padding: 7px 12px;
+        border-radius: 5px;
+      }
+      .warm .preview {
+        background: #eee7dc;
+      }
+      .warm .mini {
+        background: #fdfbf7;
+        border-color: #e4ddd1;
+      }
+      .warm .mini-head,
+      .warm .mini-side {
+        border-color: #e8e0d6;
+      }
+      .warm .mini-main h3 {
+        font-family: Georgia, "SimSun", serif;
+        font-weight: 500;
+      }
+      .warm .mini-main small,
+      .warm .mini-side b {
+        color: #a34329;
+      }
+      .warm .mini-side b {
+        background: #f5e9df;
+      }
+      .warm .mini-button {
+        background: #a34329;
+      }
+      .warm .mini-cards {
+        grid-template-columns: 1fr;
+        gap: 4px;
+      }
+      .warm .mini-cards i {
+        padding: 5px;
+        border-color: #e8e0d6;
+      }
+      .warm .links a {
+        color: #a34329;
+      }
+      .warm .links a:first-child {
+        background: #f8eee6;
+      }
+      .dark .preview {
+        background: #252c3d;
+      }
+      .dark .mini {
+        background: #101319;
+        border-color: #343d50;
+        color: #e2e8f2;
+      }
+      .dark .mini-head,
+      .dark .mini-side {
+        border-color: #2b3343;
+      }
+      .dark .mini-main small,
+      .dark .mini-side b {
+        color: #a5b8ff;
+      }
+      .dark .mini-side b {
+        background: #222d45;
+      }
+      .dark .mini-button {
+        background: #a5b8ff;
+        color: #101319;
+      }
+      .dark .mini-cards i {
+        border-color: #30384b;
+      }
+      .dark .links a {
+        color: #536da8;
+      }
+      .dark .links a:first-child {
+        background: #edf0fa;
+      }
+      .recommend {
+        border: 1px solid #dce2dc;
+        border-radius: 10px;
+        display: grid;
+        grid-template-columns: 170px 1fr;
+        background: #fff;
+        padding: 24px 28px;
+        gap: 25px;
+      }
+      .recommend b {
+        font-size: 14px;
+      }
+      .recommend p {
+        margin: 0;
+        font-size: 13px;
+        color: #67736c;
+      }
+      .recommend strong {
+        color: #26765b;
+        font-weight: 600;
+      }
+      .details {
+        margin-top: 38px;
+        border-top: 1px solid #dce2dc;
+        padding-top: 28px;
+      }
+      .details h2 {
+        font-size: 18px;
+      }
+      .details p {
+        font-size: 13px;
+        color: #68736c;
+      }
+      .architecture {
+        display: flex;
+        gap: 8px;
+        flex-wrap: wrap;
+        margin: 18px 0;
+      }
+      .architecture span {
+        border: 1px solid #dce2dc;
+        padding: 7px 14px;
+        font-size: 12px;
+        border-radius: 5px;
+        background: #fff;
+      }
+      footer {
+        font-size: 11px;
+        color: #79847c;
+        margin-top: 35px;
+      }
+      .card a:focus-visible {
+        outline: 2px solid #26765b;
+        outline-offset: 3px;
+      }
+      @media (max-width: 900px) {
+        .grid {
+          grid-template-columns: 1fr;
+        }
+        .card {
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+        }
+        .preview {
+          height: 100%;
+          min-height: 290px;
+          padding-top: 40px;
+        }
+        .mini {
+          height: 280px;
+        }
+        .info p {
+          min-height: 0;
+        }
+        .recommend {
+          grid-template-columns: 1fr;
+          gap: 8px;
+        }
+      }
+      @media (max-width: 550px) {
+        main {
+          padding: 28px 20px;
+        }
+        .tag {
+          margin-top: 40px;
+        }
+        h1 {
+          font-size: 32px;
+        }
+        .intro {
+          font-size: 13px;
+        }
+        .card {
+          display: block;
+        }
+        .preview {
+          height: 225px;
+          min-height: 0;
+          padding-top: 20px;
+        }
+        .info {
+          padding: 22px;
+        }
+        .top {
+          font-size: 9px;
+        }
+        .recommend {
+          padding: 20px;
+        }
+        .mini-main h3 {
+          font-size: 18px;
+        }
+        .mini-main p {
+          font-size: 7px;
+        }
+        .mini-side {
+          font-size: 7px;
+        }
+        .mini-cards i {
+          font-size: 8px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <div class="top">
+        <span>π &nbsp; PI-WEB-UI / DESIGN EXPLORATION</span
+        ><a href="../../docs.html">查看当前文档 ↗</a>
+      </div>
+      <div class="tag">DOCUMENTATION, REIMAGINED</div>
+      <h1>让文档成为真正的使用入口。</h1>
+      <p class="intro">
+        三种设计方向，同一套真实使用路径。以「快速开始 → 日常使用 → 进阶工作流 →
+        配置参考」重新组织内容，让第一次使用和再次查阅都更容易。
+      </p>
+      <div class="grid">
+        <article class="card">
+          <div class="preview">
+            <div class="mini">
+              <div class="mini-head">
+                π pi-web-ui <span>文档 &nbsp; 搜索 ⌘K</span>
+              </div>
+              <div class="mini-body">
+                <div class="mini-side">
+                  开始使用<b>快速开始</b>连接模型<br />使用指南<br />对话与会话<br />进阶工作流<br />配置参考
+                </div>
+                <div class="mini-main">
+                  <small>DOCUMENTATION</small>
+                  <h3>从第一步，<br />到每一步。</h3>
+                  <p>安装、连接模型、开始构建。</p>
+                  <span class="mini-button">快速开始 →</span>
+                  <div class="mini-cards">
+                    <i>↗ 快速开始</i><i>◇ 连接模型</i><i>▤ 对话与会话</i
+                    ><i>⌘ 终端与 Git</i>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="info">
+            <span class="number">OPTION A / 推荐</span>
+            <h2>清晰手册</h2>
+            <p>
+              克制的浅色界面与稳定三栏布局。左侧找文档，中间读内容，右侧定位章节，适合长期维护的产品文档。
+            </p>
+            <div class="tags">
+              <span>阅读优先</span><span>三栏导航</span><span>清晰层级</span>
+            </div>
+            <div class="links">
+              <a href="./option-a.html">打开文档首页 ↗</a
+              ><a href="./option-a.html#quickstart">正文预览 →</a>
+            </div>
+          </div>
+        </article>
+        <article class="card warm">
+          <div class="preview">
+            <div class="mini">
+              <div class="mini-head">
+                π pi-web-ui <span>学习中心 &nbsp; 搜索</span>
+              </div>
+              <div class="mini-body">
+                <div class="mini-side">
+                  开始使用<b>快速开始</b>连接模型<br />使用指南<br />对话与会话<br />进阶工作流<br />配置参考
+                </div>
+                <div class="mini-main">
+                  <small>LEARN & BUILD</small>
+                  <h3>今天，你想<br />完成什么？</h3>
+                  <p>从一个具体任务开始。</p>
+                  <span class="mini-button">开始学习 →</span>
+                  <div class="mini-cards">
+                    <i>01 &nbsp; 从零完成第一个任务 →</i
+                    ><i>02 &nbsp; 连接你的模型 →</i
+                    ><i>03 &nbsp; 管理代码变更 →</i>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="info">
+            <span class="number">OPTION B</span>
+            <h2>学习中心</h2>
+            <p>
+              温暖的纸张底色、任务列表与学习路径。让新用户通过一个可完成的任务认识产品，适合教程与上手引导。
+            </p>
+            <div class="tags">
+              <span>任务导向</span><span>学习路径</span><span>新手友好</span>
+            </div>
+            <div class="links">
+              <a href="./option-b.html">打开学习首页 ↗</a
+              ><a href="./option-b.html#quickstart">正文预览 →</a>
+            </div>
+          </div>
+        </article>
+        <article class="card dark">
+          <div class="preview">
+            <div class="mini">
+              <div class="mini-head">
+                π pi-web-ui <span>开发者文档 &nbsp; Ctrl K</span>
+              </div>
+              <div class="mini-body">
+                <div class="mini-side">
+                  开始使用<b>快速开始</b>连接模型<br />使用指南<br />对话与会话<br />进阶工作流<br />配置参考
+                </div>
+                <div class="mini-main">
+                  <small>DEVELOPER DOCUMENTATION</small>
+                  <h3>你的工作台，<br />完整掌控。</h3>
+                  <p>指南与参考，触手可及。</p>
+                  <span class="mini-button">快速开始 →</span>
+                  <div class="mini-cards">
+                    <i>>_ npx pi-web-ui</i><i>◇ 模型接入</i><i>CLI 参考</i
+                    ><i>插件与 MCP</i>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="info">
+            <span class="number">OPTION C</span>
+            <h2>开发者工作台</h2>
+            <p>
+              深色石墨底与低饱和蓝紫色。首页直接提供启动命令，突出代码和配置查阅，适合高频使用的开发者。
+            </p>
+            <div class="tags">
+              <span>深色界面</span><span>命令优先</span><span>技术参考</span>
+            </div>
+            <div class="links">
+              <a href="./option-c.html">打开开发者首页 ↗</a
+              ><a href="./option-c.html#quickstart">正文预览 →</a>
+            </div>
+          </div>
+        </article>
+      </div>
+      <div class="recommend">
+        <b>建议采用 A 的主结构</b>
+        <p>
+          <strong>A 最适合当前产品的文档主站。</strong>可以吸收 B
+          的入门任务路径，并把 C
+          的深色风格作为后续主题选项。优先建立一致的目录、搜索与正文模板，让内容持续增长时仍然容易查找。
+        </p>
+      </div>
+      <section class="details">
+        <h2>三套方案共有的信息架构</h2>
+        <div class="architecture">
+          <span>开始使用</span><span>使用指南</span><span>进阶工作流</span
+          ><span>扩展与定制</span><span>参考</span>
+        </div>
+        <p>
+          将概念解释、操作教程与配置参考拆成独立页面；每篇说明适用场景、前置条件、操作步骤与下一步。宣传内容留给官网首页，文档入口专注于找答案。
+        </p>
+        <p>
+          原型可体验：8 篇示例文档、正文目录、全文搜索（Ctrl / ⌘
+          K）、安装方式切换、命令复制、上下篇导航及手机菜单。内容为重组示例，正式迁移时需逐篇核对当前
+          20 章内容。
+        </p>
+      </section>
+      <footer>设计原型 · 独立目录保存 · 尚未替换现有网站</footer>
+    </main>
+  </body>
+</html>

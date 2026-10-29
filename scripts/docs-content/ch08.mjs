@@ -1,92 +1,42 @@
-/**
- * Chapter 08: Built-in Multi-Tab Real PTY Terminal & AI Bash Takeover (内置多标签真PTY终端与AI接管)
- */
+/** Terminal & Commands */
 export const ch08 = {
-	id: "terminal-and-bash",
-	group: "workspace",
-	badge: "Chapter 08",
-	icon: "🖥️",
-	navTitle: "08. 真 PTY 终端与 AI 接管",
-	navTitleEn: "08. Terminal & Bash Takeover",
-	title: "内置多标签真 PTY 终端与 AI 命令透明接管执行",
-	titleEn: "Multi-Tab Real PTY Terminal & AI Bash Execution Takeover",
-	summary: "告别在独立终端软件与网页之间反复横跳！基于 node-pty 与 xterm.js 的真实终端体验，AI 命令透明可见打字执行，支持交互式程序与虚拟环境。",
-	summaryEn: "Full PTY terminal backed by node-pty and xterm.js. Transparent AI command execution in visible terminals, interactive CLI support, and persistent shells.",
-	contentZh: `
-<h2 id="real-pty-experience">1. 什么是“真 PTY 终端”？</h2>
-<p>市面上许多网页 AI 的“终端”只是 <code>child_process.exec</code> 抓取一次性输出：无彩色 ANSI、不支持光标跳动，遇到 <code>[y/N]</code> 确认或 <code>vim</code>、<code>htop</code> 这类交互式命令直接死锁。</p>
+  id: "terminal-and-bash",
+  group: "workspace",
+  badge: "Chapter 08",
+  icon: "🖥️",
+  navTitle: "终端与命令",
+  navTitleEn: "Terminal & Commands",
+  title: "终端与命令",
+  titleEn: "Terminal & Commands",
+  summary: "在终端中运行命令，理解持久会话、交互输入与权限边界。",
+  summaryEn:
+    "Run commands in terminals and understand persistent sessions, interactive input, and permissions.",
+  contentZh: `
+<h2 id="real-pty-experience">打开终端</h2>
+<p>内置终端通过真实 shell 运行命令。先核对目录，再用不同标签分开服务、测试和临时操作。手动创建的用户终端在工作区共享显示，AI 终端归属对应对话；切换对话后注意选择正确标签。输入前确认当前程序是否正在等待回应。</p>
+<figure class="doc-figure"><img src="./assets/terminal.jpeg" alt="内置多标签真 PTY 终端" /></figure>
 
-<div class="doc-callout doc-callout-tip">
-	<strong>💡 pi-web-ui 的真 PTY 架构</strong>
-	<p>无论本机还是 SSH 远程项目（见第 05 章），它都是一个真实完整的系统控制台：支持交互、颜色高亮、光标移动与全屏终端应用！</p>
-</div>
+<h2 id="ai-bash-takeover">启用接管</h2>
+<p>启用终端接管后，bash 在专用 AI 终端执行。终端标签配置、AI 工具开关和计划模式分别控制入口，遇到拒绝时按提示检查设置。</p>
 
-<figure class="doc-figure">
-	<img src="./assets/terminal.jpeg" alt="内置多标签真 PTY 终端" />
-	<figcaption>
-		<strong>图 8.1 内置多标签真 PTY 终端面板：</strong>
-		支持新建多个终端标签、全屏展开/折叠、主题自适应与 AI 命令透明接管执行。
-	</figcaption>
-</figure>
+<h2 id="persist-shell-state">保留会话</h2>
+<p>接管下，persist=true 复用 ai-bash，保留存活会话的目录和环境；false 使用一次性终端，省略则采用设置默认值。交互程序用持久终端，再用 terminal_input、terminal_key 输入。</p>
 
-<h2 id="ai-bash-takeover">2. AI 命令透明接管：拒绝暗箱黑盒操作</h2>
-<p>新手最担心的就是 AI 在背后偷偷敲命令搞乱环境：</p>
-
-<div class="doc-step-box">
-	<div class="doc-step-num">👀</div>
-	<div class="doc-step-content">
-		<h4>可见终端透明打字回显</h4>
-		<p>当 AI 调用 <code>bash</code> 工具运行测试（如 <code>npm test</code>）或安装依赖（如 <code>pip install</code>）时，你会看到它直接在当前活动的终端标签中<strong>像真人操作一样打出命令并实时回显执行日志</strong>！</p>
-	</div>
-</div>
-
-<div class="doc-step-box">
-	<div class="doc-step-num">🛑</div>
-	<div class="doc-step-content">
-		<h4>随时人工介入打断</h4>
-		<p>如果发现 AI 敲错了命令或进入了无限等待，你可以随时将鼠标点击进入终端按 <code>Ctrl + C</code> 发送中断信号，安全掌控权始终握在你自己手中。</p>
-	</div>
-</div>
-
-<h2 id="persist-shell-state">3. 一次性命令 vs 持久终端 (Persistent Shell)</h2>
-<p>默认一次性执行、阅后即焚；深度开发需要保持状态时：</p>
-
-<div class="doc-grid-2">
-	<div class="doc-card">
-		<h4>🔄 持久终端会话 (<code>persist=true</code>)</h4>
-		<p>AI 可以开启名为 <code>ai-bash</code> 的持久终端。你在终端中激活的 Python 虚拟环境（<code>source .venv/bin/activate</code>）或切换的目录（<code>cd backend</code>），在后续对话轮次中会被一直保留，无需重复初始化。</p>
-	</div>
-	<div class="doc-card">
-		<h4>⚡ 3 秒静默活力探测机制</h4>
-		<p>如果 AI 误触发了一个等待键盘输入的交互命令（如 <code>Are you sure? (yes/no)</code>），工作台内置的看门狗会在 3 秒无输出时自动感知并给模型返回提示，绝不让会话挂死。</p>
-	</div>
-</div>
-
-<h2 id="terminal-tips">4. 新手操作小技巧</h2>
-<ul>
-	<li><strong>快捷呼出与收起</strong>：随时按下快捷键 <code>Ctrl + &#96;</code>（反引号）或点击底栏终端图标，即可展开/收起底部终端面板；</li>
-	<li><strong>多标签管理</strong>：点击终端顶部的 <code>+</code> 号即可新建第 2、第 3 个独立的终端会话，一个跑服务，一个跑测试；</li>
-	<li><strong>跟随界面主题</strong>：终端的背景色、字体前景色与光标颜色完全跟随你所选的 26+ 主题，视觉浑然一体。</li>
-</ul>
+<h2 id="terminal-tips">查看结果</h2>
+<p>用 terminal_read 或 terminal_wait 查看后续输出。达到静默阈值时返回控制权，程序可能仍在运行；先读输出再输入。聚焦终端后用 Ctrl+C 中断，关闭前确认所需服务已停止。</p>
 `,
-	contentEn: `
-<h2 id="real-pty-experience">1. What is a Real PTY Terminal?</h2>
-<p>Unlike basic child process wrappers, pi-web-ui uses <code>node-pty</code> and <code>@xterm/xterm</code> to deliver a genuine terminal supporting full ANSI color sequences, cursor jumps, and interactive CLI programs like <code>vim</code> and <code>htop</code>.</p>
-<figure class="doc-figure">
-	<img src="./assets/terminal.jpeg" alt="Multi-Tab Real PTY Terminal" />
-	<figcaption>
-		<strong>Figure 8.1 Real PTY Terminal Panel:</strong>
-		Multi-tab shell management, responsive theme coloring, and live AI command execution.
-	</figcaption>
-</figure>
+  contentEn: `
+<h2 id="real-pty-experience">Open a terminal</h2>
+<p>Check the directory, then use separate shell tabs for services and tests. User terminals are shared across the workspace; AI terminals belong to their conversation. Check whether a program is awaiting input before typing.</p>
+<figure class="doc-figure"><img src="./assets/terminal.jpeg" alt="Multi-Tab Real PTY Terminal" /></figure>
 
-<h2 id="ai-bash-takeover">2. Transparent AI Bash Execution</h2>
-<p>When AI runs shell scripts, commands appear and execute right before your eyes inside the active terminal tab. Press <code>Ctrl + C</code> at any time to cancel.</p>
+<h2 id="ai-bash-takeover">Enable takeover</h2>
+<p>Terminal takeover runs bash in dedicated AI terminals. Tab configuration, tool switches, and plan mode control different entry points.</p>
 
-<h2 id="persist-shell-state">3. Persistent Shell Sessions</h2>
-<p>Using <code>persist=true</code> keeps working directories and active Python <code>venv</code> environments alive across turns.</p>
+<h2 id="persist-shell-state">Keep shell state</h2>
+<p>Use persist=true to reuse ai-bash and retain its live directory and environment; false creates a one-shot terminal. Omission follows settings. Drive interactive programs with terminal_input and terminal_key.</p>
 
-<h2 id="terminal-tips">4. Shortcuts</h2>
-<p>Toggle the drawer with <code>Ctrl + &#96;</code>, add tabs with <code>+</code>, and resize splits easily.</p>
+<h2 id="terminal-tips">Inspect results</h2>
+<p>Read subsequent output with terminal_read or terminal_wait. A silence return can leave the program running. Inspect output before typing; focus the terminal for Ctrl+C, and check services before closing.</p>
 `,
 };

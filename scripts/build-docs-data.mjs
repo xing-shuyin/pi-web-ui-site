@@ -28,56 +28,89 @@ import { ch19 } from "./docs-content/ch19.mjs";
 import { ch20 } from "./docs-content/ch20.mjs";
 
 const DOCS_GROUPS = [
-	{
-		id: "getting-started",
-		title: "入门与安装配置",
-		titleEn: "Getting Started",
-		items: ["overview", "installation", "cli-and-env"],
-	},
-	{
-		id: "workspace",
-		title: "核心工作台与远程项目",
-		titleEn: "Workspace & Remote SSH",
-		items: [
-			"chat-and-sessions",
-			"remote-ssh-projects",
-			"file-tree-and-transfer",
-			"attachments-and-vision",
-			"terminal-and-bash",
-			"git-scm-and-ai-commit",
-			"commands-and-shortcuts",
-		],
-	},
-	{
-		id: "agent-modes",
-		title: "子代理、高阶模式与工具链",
-		titleEn: "Subagents, Modes & Tools",
-		items: [
-			"subagents-and-delegation",
-			"modes-guide",
-			"tools-and-markers",
-			"mcp-and-browser",
-			"bg-tasks-and-scheduler",
-			"approval-and-security",
-		],
-	},
-	{
-		id: "extensibility",
-		title: "双引擎、界面定制、插件与部署",
-		titleEn: "Customization, Plugins & Deploy",
-		items: [
-			"dual-engines-and-presets",
-			"ui-customization-and-export",
-			"plugins-marketplace",
-			"plugin-sdk-and-deployment",
-		],
-	},
+  {
+    id: "getting-started",
+    title: "开始使用",
+    titleEn: "Getting Started",
+    items: ["overview", "installation"],
+  },
+  {
+    id: "workspace",
+    title: "使用指南",
+    titleEn: "User Guides",
+    items: [
+      "chat-and-sessions",
+      "remote-ssh-projects",
+      "file-tree-and-transfer",
+      "attachments-and-vision",
+      "terminal-and-bash",
+      "git-scm-and-ai-commit",
+    ],
+  },
+  {
+    id: "agent-modes",
+    title: "进阶工作流",
+    titleEn: "Advanced Workflows",
+    items: [
+      "subagents-and-delegation",
+      "modes-guide",
+      "bg-tasks-and-scheduler",
+    ],
+  },
+  {
+    id: "extensibility",
+    title: "扩展与定制",
+    titleEn: "Extensions & Customization",
+    items: [
+      "dual-engines-and-presets",
+      "ui-customization-and-export",
+      "plugins-marketplace",
+      "mcp-and-browser",
+    ],
+  },
+  {
+    id: "reference",
+    title: "参考",
+    titleEn: "Reference",
+    items: [
+      "cli-and-env",
+      "commands-and-shortcuts",
+      "tools-and-markers",
+      "approval-and-security",
+      "plugin-sdk-and-deployment",
+    ],
+  },
 ];
 
 const chapters = [
-	ch01, ch02, ch03, ch04, ch05, ch06, ch07, ch08, ch09, ch10,
-	ch11, ch12, ch13, ch14, ch15, ch16, ch17, ch18, ch19, ch20,
+  ch01,
+  ch02,
+  ch03,
+  ch04,
+  ch05,
+  ch06,
+  ch07,
+  ch08,
+  ch09,
+  ch10,
+  ch11,
+  ch12,
+  ch13,
+  ch14,
+  ch15,
+  ch16,
+  ch17,
+  ch18,
+  ch19,
+  ch20,
 ];
+
+// Group ownership follows the navigation, keeping generated data consistent.
+for (const chapter of chapters) {
+  chapter.group = DOCS_GROUPS.find((group) =>
+    group.items.includes(chapter.id),
+  ).id;
+}
 
 console.log(`Compiling ${chapters.length} documentation chapters...`);
 
@@ -95,4 +128,6 @@ export const DOCS_CHAPTERS = ${JSON.stringify(chapters, null, "\t")};
 `;
 
 fs.writeFileSync(TARGET, code, "utf8");
-console.log(`✓ Successfully generated ${TARGET} (${(code.length / 1024).toFixed(1)} KB)`);
+console.log(
+  `✓ Successfully generated ${TARGET} (${(code.length / 1024).toFixed(1)} KB)`,
+);

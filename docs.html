@@ -1,115 +1,119 @@
 <!doctype html>
-<html lang="zh-CN" data-site-theme="dark">
-<head>
-	<meta charset="UTF-8" />
-	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-	<title>详细说明与使用文档 — pi-web-ui 官方手册 (20 章全集)</title>
-	<meta name="description" content="pi-web-ui 官方完整使用手册与技术架构文档：涵盖快速开始、多平台安装、CLI 与环境变量、流式对话、多根文件树与视觉桥、真 PTY 终端与 Git、目标模式 2.0、计划模式、30 项内置工具、39 款插件开发与 Nginx 部署。" />
-	<link rel="icon" type="image/svg+xml" href="./assets/favicon.svg" />
-	<link rel="stylesheet" href="./styles.css?v=0.111.0" />
-</head>
-<body>
-	<!-- Top Sticky Glass Navigation -->
-	<header class="site-header">
-		<div class="header-inner">
-			<a href="./index.html" class="brand">
-				<img src="./assets/favicon.svg" alt="pi-web-ui logo" />
-				<span>pi-web-ui</span>
-				<span class="version-pill">Docs · v0.111.0</span>
-			</a>
-
-			<nav class="nav-links">
-				<a href="./index.html" class="nav-link" data-i18n-zh="🏠 宣传首页" data-i18n-en="🏠 Product Home">🏠 宣传首页</a>
-				<a href="./docs.html#installation" class="nav-link" data-i18n-zh="🖥️ 桌面端下载" data-i18n-en="🖥️ Desktop Download">🖥️ 桌面端下载</a>
-				<a href="https://github.com/xing-shuyin/pi-web-ui-presets" target="_blank" rel="noreferrer" class="nav-link" data-i18n-zh="🎁 社区预设" data-i18n-en="🎁 Community Presets">🎁 社区预设</a>
-				<a href="https://github.com/xing-shuyin/pi-web-ui/issues" target="_blank" rel="noreferrer" class="nav-link" data-i18n-zh="🐞 报告反馈" data-i18n-en="🐞 Feedback">🐞 报告反馈</a>
-			</nav>
-
-			<div class="header-actions">
-				<button type="button" class="search-trigger" data-open-search="1">
-					<span data-i18n-zh="🔍 检索 20 章手册..." data-i18n-en="🔍 Search 20 chapters...">🔍 检索 20 章手册...</span>
-					<kbd class="search-kbd">Ctrl K</kbd>
-				</button>
-
-				<select id="site-theme-select" class="select-pill" aria-label="Site Theme">
-					<option value="dark">🌙 暗夜深邃 (Dark)</option>
-					<option value="light">☀️ 纯净浅色 (Light)</option>
-					<option value="cyberpunk">⚡ 赛博霓虹 (Cyberpunk)</option>
-					<option value="zhupi">📜 朱批御览 (Vermilion)</option>
-				</select>
-
-				<button type="button" id="lang-toggle-btn" class="icon-btn">🌐 English</button>
-
-				<a href="https://github.com/xing-shuyin/pi-web-ui" target="_blank" rel="noreferrer" class="icon-btn btn-github">
-					⭐ GitHub
-				</a>
-			</div>
-		</div>
-	</header>
-
-	<!-- 3-Column Documentation Portal -->
-	<div class="docs-layout">
-		<aside class="docs-sidebar" id="docs-sidebar" aria-label="Documentation Chapters"></aside>
-
-		<main class="docs-main" id="docs-article"></main>
-
-		<aside class="docs-toc" aria-label="Table of Contents">
-			<div class="docs-toc-title" data-i18n-zh="本页目录 (On This Page)" data-i18n-en="On This Page">本页目录 (On This Page)</div>
-			<ul class="docs-toc-list" id="docs-toc-list"></ul>
-			<div style="margin-top:24px;padding-top:16px;border-top:1px solid var(--border);display:flex;flex-direction:column;gap:8px;font-size:0.8rem;">
-				<a href="https://github.com/xing-shuyin/pi-web-ui/issues" target="_blank" rel="noreferrer">🐞 反馈问题 (GitHub Issues) ↗</a>
-				<a href="https://github.com/xing-shuyin/pi-web-ui/discussions" target="_blank" rel="noreferrer">💬 社区讨论 (Discussions) ↗</a>
-				<a href="https://github.com/xing-shuyin/pi-web-ui-presets" target="_blank" rel="noreferrer">🎁 浏览社区设置预设 ↗</a>
-			</div>
-		</aside>
-	</div>
-
-	<!-- Footer -->
-	<footer class="site-footer">
-		<div class="container footer-grid">
-			<div>
-				<div style="font-weight:700;color:var(--text);font-size:1rem;margin-bottom:6px;">
-					💬 pi-web-ui Official Documentation Portal
-				</div>
-				<div>
-					MIT License · Created by <a href="https://github.com/xing-shuyin" target="_blank" rel="noreferrer">xingshuyin</a> · QQ 交流群：<code>1126050727</code>
-				</div>
-			</div>
-			<div style="display:flex;gap:18px;flex-wrap:wrap;">
-				<a href="./index.html">宣传首页 (Home)</a>
-				<a href="https://github.com/xing-shuyin/pi-web-ui" target="_blank" rel="noreferrer">GitHub</a>
-				<a href="https://www.npmjs.com/package/pi-web-ui" target="_blank" rel="noreferrer">npm</a>
-			</div>
-		</div>
-	</footer>
-
-	<!-- Global Search Modal (Ctrl + K) -->
-	<div class="modal-backdrop" id="search-modal-backdrop">
-		<div class="search-modal">
-			<div class="search-modal-input-wrap">
-				<span>🔍</span>
-				<input
-					type="search"
-					id="global-search-input"
-					class="search-modal-input"
-					placeholder="搜索 20 章文档、30 个工具、39 款插件、CLI 参数与环境变量..."
-					data-i18n-placeholder-zh="搜索 20 章文档、30 个工具、39 款插件、CLI 参数与环境变量..."
-					data-i18n-placeholder-en="Search 20 doc chapters, 30 tools, 39 plugins, CLI flags & env vars..."
-				/>
-				<kbd class="search-kbd">ESC</kbd>
-			</div>
-			<div class="search-results-list" id="global-search-results"></div>
-		</div>
-	</div>
-
-	<!-- Image Zoom Lightbox -->
-	<div class="modal-backdrop" id="image-lightbox" style="align-items:center;cursor:zoom-out;">
-		<div style="max-width:92vw;max-height:90vh;text-align:center;">
-			<img id="lightbox-img" src="" alt="Screenshot preview" style="max-width:100%;max-height:84vh;border-radius:12px;border:1px solid var(--border-bright);box-shadow:var(--shadow-lg);" />
-			<div id="lightbox-caption" style="color:#fff;margin-top:10px;font-weight:600;"></div>
-		</div>
-	</div>
-
-	<script type="module" src="./app.js?v=0.111.0"></script>
-</body>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta
+      name="description"
+      content="pi-web-ui 使用文档：快速开始、工作台指南、进阶工作流、插件扩展与部署参考。"
+    />
+    <meta name="color-scheme" content="light dark" />
+    <title>使用文档 · pi-web-ui</title>
+    <link rel="icon" href="./assets/favicon.svg" />
+    <link rel="stylesheet" href="./docs.css" />
+    <script type="module" src="./docs.js"></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">跳到正文 / Skip to content</a>
+    <header class="site-header">
+      <a class="brand" href="./index.html"
+        ><span class="logo" aria-hidden="true">π</span>pi-web-ui<span
+          class="brand-divider"
+        ></span
+        ><span data-label="docs">使用文档</span></a
+      >
+      <nav class="top-nav" aria-label="Primary">
+        <a href="./docs.html" class="active" data-label="docs">使用文档</a
+        ><a href="#modes-guide" data-label="workflows">工作流</a
+        ><a href="#cli-and-env" data-label="reference">参考</a>
+      </nav>
+      <div class="header-tools">
+        <button
+          class="search-trigger"
+          type="button"
+          aria-label="搜索文档 / Search docs"
+        >
+          <span aria-hidden="true">⌕</span
+          ><span data-label="search">搜索文档</span><kbd>Ctrl K</kbd></button
+        ><button
+          id="language-toggle"
+          type="button"
+          aria-label="Switch language"
+        >
+          EN</button
+        ><button
+          id="theme-toggle"
+          type="button"
+          aria-label="切换主题 / Toggle theme"
+        >
+          ◐</button
+        ><a
+          class="github-link"
+          href="https://github.com/xing-shuyin/pi-web-ui"
+          target="_blank"
+          rel="noreferrer"
+          >GitHub ↗</a
+        ><button
+          id="menu-toggle"
+          type="button"
+          aria-controls="sidebar"
+          aria-expanded="false"
+          aria-label="展开导航 / Open navigation"
+        >
+          ☰
+        </button>
+      </div>
+    </header>
+    <button
+      class="nav-backdrop"
+      aria-label="关闭导航 / Close navigation"
+      hidden
+    ></button>
+    <div class="layout">
+      <nav id="sidebar" class="sidebar" aria-label="Documentation"></nav>
+      <main id="main" tabindex="-1"></main>
+      <aside class="toc" aria-label="On this page"></aside>
+    </div>
+    <dialog id="search-dialog" aria-label="搜索文档 / Search documentation">
+      <div class="search-input-wrap">
+        <span aria-hidden="true">⌕</span
+        ><input
+          id="search-input"
+          type="search"
+          autocomplete="off"
+          aria-label="搜索文档 / Search docs"
+        /><button
+          data-close="search-dialog"
+          type="button"
+          aria-label="关闭搜索 / Close search"
+        >
+          Esc
+        </button>
+      </div>
+      <div id="search-results" class="search-results"></div>
+      <div class="search-footer">
+        <span data-label="searchHint">搜索全部文档、配置参数和工具</span
+        ><span>↑ ↓ · Enter · Esc</span>
+      </div>
+    </dialog>
+    <dialog id="image-dialog" aria-label="图片预览 / Image preview">
+      <button
+        data-close="image-dialog"
+        type="button"
+        aria-label="关闭图片 / Close image"
+      >
+        ×</button
+      ><img alt="" />
+      <p></p>
+    </dialog>
+    <div class="toast" role="status" aria-live="polite"></div>
+    <noscript
+      ><p class="noscript">
+        文档需要启用 JavaScript。You need JavaScript to read the documentation.
+        <a href="https://github.com/xing-shuyin/pi-web-ui#readme"
+          >查看 GitHub README / Read on GitHub ↗</a
+        >
+      </p></noscript
+    >
+  </body>
 </html>

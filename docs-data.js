@@ -6,335 +6,399 @@
  */
 
 export const DOCS_GROUPS = [
-	{
-		"id": "getting-started",
-		"title": "入门与安装配置",
-		"titleEn": "Getting Started",
-		"items": [
-			"overview",
-			"installation",
-			"cli-and-env"
-		]
-	},
-	{
-		"id": "workspace",
-		"title": "核心工作台与远程项目",
-		"titleEn": "Workspace & Remote SSH",
-		"items": [
-			"chat-and-sessions",
-			"remote-ssh-projects",
-			"file-tree-and-transfer",
-			"attachments-and-vision",
-			"terminal-and-bash",
-			"git-scm-and-ai-commit",
-			"commands-and-shortcuts"
-		]
-	},
-	{
-		"id": "agent-modes",
-		"title": "子代理、高阶模式与工具链",
-		"titleEn": "Subagents, Modes & Tools",
-		"items": [
-			"subagents-and-delegation",
-			"modes-guide",
-			"tools-and-markers",
-			"mcp-and-browser",
-			"bg-tasks-and-scheduler",
-			"approval-and-security"
-		]
-	},
-	{
-		"id": "extensibility",
-		"title": "双引擎、界面定制、插件与部署",
-		"titleEn": "Customization, Plugins & Deploy",
-		"items": [
-			"dual-engines-and-presets",
-			"ui-customization-and-export",
-			"plugins-marketplace",
-			"plugin-sdk-and-deployment"
-		]
-	}
+  {
+    id: "getting-started",
+    title: "开始使用",
+    titleEn: "Getting Started",
+    items: ["overview", "installation"],
+  },
+  {
+    id: "workspace",
+    title: "使用指南",
+    titleEn: "User Guides",
+    items: [
+      "chat-and-sessions",
+      "remote-ssh-projects",
+      "file-tree-and-transfer",
+      "attachments-and-vision",
+      "terminal-and-bash",
+      "git-scm-and-ai-commit",
+    ],
+  },
+  {
+    id: "agent-modes",
+    title: "进阶工作流",
+    titleEn: "Advanced Workflows",
+    items: [
+      "subagents-and-delegation",
+      "modes-guide",
+      "bg-tasks-and-scheduler",
+    ],
+  },
+  {
+    id: "extensibility",
+    title: "扩展与定制",
+    titleEn: "Extensions & Customization",
+    items: [
+      "dual-engines-and-presets",
+      "ui-customization-and-export",
+      "plugins-marketplace",
+      "mcp-and-browser",
+    ],
+  },
+  {
+    id: "reference",
+    title: "参考",
+    titleEn: "Reference",
+    items: [
+      "cli-and-env",
+      "commands-and-shortcuts",
+      "tools-and-markers",
+      "approval-and-security",
+      "plugin-sdk-and-deployment",
+    ],
+  },
 ];
 
 export const DOCS_CHAPTERS = [
-	{
-		"id": "overview",
-		"group": "getting-started",
-		"badge": "Chapter 01",
-		"icon": "🚀",
-		"navTitle": "01. 概览与极速起步",
-		"navTitleEn": "01. Overview & Quickstart",
-		"title": "项目概览与新手极速起步指南",
-		"titleEn": "Project Overview & Beginner Quickstart Guide",
-		"summary": "零基础了解 pi-web-ui：工作台界面全景、两条启动路径、首个 AI 实战任务。",
-		"summaryEn": "Get started with pi-web-ui from scratch: workspace layout, two launch paths, and your first AI task.",
-		"contentZh": "\n<h2 id=\"what-is-pi-web-ui\">1. 什么是 pi-web-ui？</h2>\n<p><strong>pi-web-ui</strong> 是运行在本地的<strong>全栈 AI 编程工作台</strong>：浏览器 Web 版与 Electron 桌面版共用同一套界面。对话、文件树、真 PTY 终端、Git 面板收拢在一个工作台内，无需在多个窗口间复制粘贴。</p>\n\n<div class=\"doc-grid-2\">\n\t<div class=\"doc-card\">\n\t\t<h4>💬 懂代码的深度对话</h4>\n\t\t<p>流式输出、划词追问、按轮次回滚改错代码（详见第 04 章）。</p>\n\t</div>\n\t<div class=\"doc-card\">\n\t\t<h4>🌐 SSH 远程项目直连</h4>\n\t\t<p>远端零安装，<code>ssh://</code> 直连后文件树、终端、Git 全量透传（详见第 05 章）。</p>\n\t</div>\n\t<div class=\"doc-card\">\n\t\t<h4>📁 类 VSCode 文件树</h4>\n\t\t<p>拖拽上传、ZIP 打包下载、在线解压、在线预览编辑（详见第 06、07 章）。</p>\n\t</div>\n\t<div class=\"doc-card\">\n\t\t<h4>🖥️ 真 PTY 终端与 Git</h4>\n\t\t<p>交互式命令、AI 透明接管、可视化暂存与 AI 提交说明（详见第 08、09 章）。</p>\n\t</div>\n</div>\n\n<h2 id=\"workspace-layout\">2. 工作台界面全景导览</h2>\n<figure class=\"doc-figure\">\n\t<img src=\"./assets/site-home-preview.png\" alt=\"pi-web-ui 全景工作台界面导览\" />\n\t<figcaption>\n\t\t<strong>图 1.1 全景工作台导览：</strong>\n\t\t① 顶栏（工作区路径/会话切换/设置） ｜ ② 主对话区（思维链/工具卡/Diff） ｜ ③ 输入区（快捷短语/模式切换） ｜ ④ 右侧文件树 ｜ ⑤ 底部终端与 Git 面板\n\t</figcaption>\n</figure>\n\n<h3 id=\"demo-video\">🎬 官方 2 分钟实机演示</h3>\n<div class=\"doc-video-card\" style=\"margin:20px 0 28px;background:var(--bg-elev);border:1px solid var(--border);border-radius:14px;overflow:hidden;box-shadow:var(--shadow-lg);\">\n\t<div style=\"position:relative;background:#000;aspect-ratio:16/9;width:100%;overflow:hidden;\">\n\t\t<video controls preload=\"metadata\" poster=\"./assets/demo-video-poster.png\" playsinline style=\"width:100%;height:100%;object-fit:contain;display:block;\">\n\t\t\t<source src=\"./assets/demo-video.mp4\" type=\"video/mp4\" />\n\t\t\t<source src=\"https://raw.githubusercontent.com/xing-shuyin/pi-web-ui/main/assets/demo-video.mp4\" type=\"video/mp4\" />\n\t\t\t您的浏览器不支持 HTML5 视频，请直接访问：<a href=\"https://raw.githubusercontent.com/xing-shuyin/pi-web-ui/main/assets/demo-video.mp4\">下载演示视频</a>\n\t\t</video>\n\t</div>\n\t<div style=\"padding:10px 16px;background:var(--bg-elev2);font-size:0.84rem;color:var(--text-dim);\">\n\t\t<span>✨ 实录涵盖：双引擎流式生成、子代理委派、真 PTY 终端 AI 接管、Git 变更审查一键提交。</span>\n\t</div>\n</div>\n\n<h2 id=\"thirty-second-quickstart\">3. 启动方式：二选一</h2>\n\n<div class=\"doc-grid-2\">\n\t<div class=\"doc-card\" style=\"border-color:var(--accent);\">\n\t\t<h4>🖥️ 方式 A：桌面客户端（免配环境）</h4>\n\t\t<p>前往 GitHub Releases 下载 <code>.exe</code> / <code>.zip</code> 便携版 / <code>.dmg</code>，双击即用（详见第 02 章）。</p>\n\t\t<p style=\"margin-top:10px;\"><a href=\"https://github.com/xing-shuyin/pi-web-ui/releases/latest\" target=\"_blank\" rel=\"noreferrer\" style=\"color:var(--accent);font-weight:600;\">👉 前往 GitHub Releases 获取最新客户端 ↗</a></p>\n\t</div>\n\t<div class=\"doc-card\">\n\t\t<h4>💻 方式 B：npm 全局安装</h4>\n\t\t<p>需 <strong>Node.js ≥ 22.19.0</strong>，任意项目目录下启动 Web 版：</p>\n\t\t<pre style=\"margin-top:8px;\"><code class=\"language-bash\">npm i -g pi-web-ui@latest\npi-web-ui</code></pre>\n\t\t<p>仅想试用：<code>npx pi-web-ui@latest</code></p>\n\t</div>\n</div>\n\n<h2 id=\"first-ai-task\">4. 首个任务：让 AI 写一个秒表网页</h2>\n<p>浏览器打开 <code>http://localhost:8787</code> 后，发送：</p>\n<div class=\"doc-callout\">\n\t<strong>🎯 复制发送给 AI：</strong>\n\t<p><code>请在当前目录编写一个带深色模式切换与计时重置功能的秒表网页 index.html，并告诉我如何预览。</code></p>\n</div>\n<ul>\n\t<li>AI 调用 <code>write</code> 创建文件，右侧文件树即时刷新高亮；</li>\n\t<li>不满意就追一句（如 <code>背景换成深蓝渐变，计时字体增大</code>），AI 用 <code>edit</code> 局部修改；</li>\n\t<li>改错了可按轮次一键回滚（见第 04 章 §4）。</li>\n</ul>\n\n<h2 id=\"chapter-01-faq\">5. 新手常见疑问</h2>\n<div class=\"doc-faq-card\">\n\t<div class=\"doc-faq-q\">❓ 需要自己准备大模型 API Key 吗？</div>\n\t<div class=\"doc-faq-a\">是的。pi-web-ui 不收订阅费，模型可接 DeepSeek、Claude、OpenAI、Kimi、GLM、硅基流动或本地 Ollama / vLLM。首次启动有配置向导（详见第 02 章 §3）。</div>\n</div>\n<div class=\"doc-faq-card\">\n\t<div class=\"doc-faq-q\">❓ AI 会未经同意改我电脑上的文件吗？</div>\n\t<div class=\"doc-faq-a\">不会。文件写入与命令执行受三级审批门禁约束（见第 16 章），且每轮对话前自动记录工作区快照，一键还原（见第 04 章 §4）。</div>\n</div>\n",
-		"contentEn": "\n<h2 id=\"what-is-pi-web-ui\">1. What is pi-web-ui?</h2>\n<p><strong>pi-web-ui</strong> is a locally-run <strong>full-stack AI coding workbench</strong>: the browser web app and the Electron desktop app share one UI. Chat, file tree, real PTY terminal, and Git panel live in a single cockpit.</p>\n<ul>\n\t<li>💬 Deep chat: streaming output, selection quotes, per-turn rollback (Ch.04);</li>\n\t<li>🌐 SSH remote projects with zero remote install (Ch.05);</li>\n\t<li>📁 VSCode-like file tree with upload/zip/preview (Ch.06–07);</li>\n\t<li>🖥️ Real PTY terminal & visual Git with AI commits (Ch.08–09).</li>\n</ul>\n\n<h2 id=\"workspace-layout\">2. Workspace Tour</h2>\n<figure class=\"doc-figure\">\n\t<img src=\"./assets/site-home-preview.png\" alt=\"pi-web-ui workspace tour\" />\n\t<figcaption>\n\t\t<strong>Figure 1.1: Full Workspace Layout:</strong>\n\t\t① Top bar ｜ ② Main streaming chat ｜ ③ Composer strip ｜ ④ Right file tree ｜ ⑤ Bottom terminal & Git.\n\t</figcaption>\n</figure>\n\n<h3 id=\"demo-video-en\">🎬 Official 2-Minute Live Demo</h3>\n<div class=\"doc-video-card\" style=\"margin:20px 0 28px;background:var(--bg-elev);border:1px solid var(--border);border-radius:14px;overflow:hidden;\">\n\t<div style=\"position:relative;background:#000;aspect-ratio:16/9;width:100%;overflow:hidden;\">\n\t\t<video controls preload=\"metadata\" poster=\"./assets/demo-video-poster.png\" playsinline style=\"width:100%;height:100%;object-fit:contain;display:block;\">\n\t\t\t<source src=\"./assets/demo-video.mp4\" type=\"video/mp4\" />\n\t\t\t<source src=\"https://raw.githubusercontent.com/xing-shuyin/pi-web-ui/main/assets/demo-video.mp4\" type=\"video/mp4\" />\n\t\t\tYour browser does not support HTML5 video. <a href=\"https://raw.githubusercontent.com/xing-shuyin/pi-web-ui/main/assets/demo-video.mp4\">Download Demo Video</a>\n\t\t</video>\n\t</div>\n</div>\n\n<h2 id=\"thirty-second-quickstart\">3. Launch: Pick One</h2>\n<pre><code class=\"language-bash\"># Option A: desktop client from GitHub Releases (no Node.js needed)\n# Option B: npm global install (Node.js >= 22.19.0 required)\nnpm i -g pi-web-ui@latest\ncd /path/to/project && pi-web-ui\n# → http://localhost:8787</code></pre>\n\n<h2 id=\"first-ai-task\">4. Your First AI Task</h2>\n<p>Prompt AI: <code>Create a stopwatch page (index.html) with dark mode toggle.</code> Files appear live in the right file tree; iterate with follow-ups, rollback any bad turn (Ch.04 §4).</p>\n\n<h2 id=\"chapter-01-faq\">5. Beginner FAQs</h2>\n<div class=\"doc-faq-card\">\n\t<div class=\"doc-faq-q\">❓ Do I need my own API Key?</div>\n\t<div class=\"doc-faq-a\">Yes. pi-web-ui charges no subscription. Bring DeepSeek, Claude, OpenAI, or local Ollama keys via the first-run wizard (Ch.02 §3).</div>\n</div>\n<div class=\"doc-faq-card\">\n\t<div class=\"doc-faq-q\">❓ Can AI modify my files without consent?</div>\n\t<div class=\"doc-faq-a\">No. Writes and commands go through a 3-tier approval gate (Ch.16), and every turn snapshots the workspace for one-click rollback (Ch.04 §4).</div>\n</div>\n"
-	},
-	{
-		"id": "installation",
-		"group": "getting-started",
-		"badge": "Chapter 02 · 核心指引",
-		"icon": "📦",
-		"navTitle": "02. 全平台安装与下载",
-		"navTitleEn": "02. Install & Releases",
-		"title": "全平台安装、桌面客户端下载与首次配置向导",
-		"titleEn": "Installation Guide, Desktop Releases & First-Time Setup",
-		"summary": "桌面安装包免配环境即开即用，亦支持 npm 全局安装、Termux 移动端与首次模型接入向导。",
-		"summaryEn": "Pre-built desktop installers with zero setup, plus npm global install, Android Termux, and model wizard.",
-		"contentZh": "\n<h2 id=\"desktop-releases-download\">1. 桌面客户端 Release 下载（免配环境）</h2>\n<p>不想碰命令行、或电脑没装 Node.js，直接下载预编译桌面客户端，双击即用：</p>\n\n<div class=\"doc-callout doc-callout-tip\">\n\t<strong>🎁 官方发布通道：</strong>\n\t<p>👉 <strong><a href=\"https://github.com/xing-shuyin/pi-web-ui/releases/latest\" target=\"_blank\" rel=\"noreferrer\" style=\"font-weight:700;color:var(--accent);\">前往 GitHub Releases 获取最新客户端安装包 ↗</a></strong></p>\n</div>\n\n<div class=\"doc-table-wrap\">\n\t<table class=\"doc-table\">\n\t\t<thead>\n\t\t\t<tr>\n\t\t\t\t<th>平台</th>\n\t\t\t\t<th>类型</th>\n\t\t\t\t<th>文件名</th>\n\t\t\t\t<th>说明</th>\n\t\t\t</tr>\n\t\t</thead>\n\t\t<tbody>\n\t\t\t<tr>\n\t\t\t\t<td><strong>Windows 10 / 11 (64 位)</strong></td>\n\t\t\t\t<td>安装包</td>\n\t\t\t\t<td><code>pi-web-ui-Setup-*.exe</code></td>\n\t\t\t\t<td>双击安装，创建桌面快捷方式，支持后台静默升级</td>\n\t\t\t</tr>\n\t\t\t<tr>\n\t\t\t\t<td><strong>Windows 便携版</strong></td>\n\t\t\t\t<td>免安装 ZIP</td>\n\t\t\t\t<td><code>pi-web-ui-*-win-x64-portable.zip</code></td>\n\t\t\t\t<td>内置 Node.js 与 Git，解压即用，适合企业内网/办公机</td>\n\t\t\t</tr>\n\t\t\t<tr>\n\t\t\t\t<td><strong>macOS (Apple Silicon / Intel)</strong></td>\n\t\t\t\t<td>DMG</td>\n\t\t\t\t<td><code>pi-web-ui-*.dmg</code></td>\n\t\t\t\t<td>拖拽进 Applications 即可</td>\n\t\t\t</tr>\n\t\t\t<tr>\n\t\t\t\t<td><strong>Linux</strong></td>\n\t\t\t\t<td>AppImage</td>\n\t\t\t\t<td><code>pi-web-ui-*.AppImage</code></td>\n\t\t\t\t<td><code>chmod +x</code> 后双击启动</td>\n\t\t\t</tr>\n\t\t</tbody>\n\t</table>\n</div>\n\n<h3 id=\"desktop-troubleshooting\">首次运行避坑</h3>\n<ul>\n\t<li><strong>Windows SmartScreen拦截</strong>：点击「更多信息」→「仍要运行」；</li>\n\t<li><strong>macOS 未验证开发者</strong>：按住 <code>Control</code> 右键点击图标 →「打开」加入白名单；</li>\n\t<li><strong>Linux 无权限</strong>：<code>chmod +x pi-web-ui-*.AppImage && ./pi-web-ui-*.AppImage</code>。</li>\n</ul>\n\n<h2 id=\"npm-install\">2. npm / npx 命令行运行（开发者推荐）</h2>\n<p>前置要求 <strong>Node.js ≥ 22.19.0</strong>：</p>\n<pre><code class=\"language-bash\"># 主力：全局安装后在任意工程目录启动\nnpm i -g pi-web-ui@latest\ncd my-project && pi-web-ui\n\n# 试用：免安装单次运行\nnpx pi-web-ui@latest</code></pre>\n\n<h2 id=\"first-setup-wizard\">3. 首次启动配置向导（填入 API Key）</h2>\n<p>浏览器打开 <code>http://localhost:8787</code>（桌面端自动加载），未配置模型时会弹出向导：</p>\n\n<figure class=\"doc-figure\">\n\t<img src=\"./assets/settings.jpeg\" alt=\"pi-web-ui 设置面板与首次配置向导\" />\n\t<figcaption><strong>图 2.1 设置中心与模型配置向导。</strong></figcaption>\n</figure>\n\n<div class=\"doc-grid-2\">\n\t<div class=\"doc-card\">\n\t\t<h4>🤖 DeepSeek</h4>\n\t\t<p><a href=\"https://platform.deepseek.com\" target=\"_blank\" rel=\"noreferrer\">开放平台</a>获取 Key，模型选 <code>deepseek-chat</code>。</p>\n\t</div>\n\t<div class=\"doc-card\">\n\t\t<h4>⚡ Claude / OpenAI</h4>\n\t\t<p>填入官方 Key，或用界面 <strong>OAuth 一键登录</strong>免密授权。</p>\n\t</div>\n\t<div class=\"doc-card\">\n\t\t<h4>🦙 本地模型 (Ollama / vLLM)</h4>\n\t\t<p><code>ollama run qwen2.5-coder:7b</code> 后端点填 <code>http://127.0.0.1:11434/v1</code>，任意 Key 连通。</p>\n\t</div>\n\t<div class=\"doc-card\">\n\t\t<h4>🇨🇳 聚合服务（硅基流动/智谱/Kimi）</h4>\n\t\t<p>输入兼容 OpenAI 接口的 Base URL（如 <code>https://api.siliconflow.cn/v1</code>）+ 密钥。</p>\n\t</div>\n</div>\n\n<h2 id=\"npm-12-native-scripts\">4. 避坑：npm ≥ 12 脚本放行</h2>\n<p>npm 12+ 默认拦截依赖编译脚本，而真 PTY 终端依赖原生模块 <code>node-pty</code>，全局安装时显式放行：</p>\n<pre><code class=\"language-bash\">npm i -g --allow-scripts=node-pty,@google/genai,protobufjs pi-web-ui@latest</code></pre>\n\n<h2 id=\"platform-specifics\">5. 各系统补充</h2>\n<ul>\n\t<li><strong>Windows</strong>：配合 Git Bash 运行；便携包已自带 Git；</li>\n\t<li><strong>Linux</strong>：npm 安装需编译链 <code>sudo apt-get install -y build-essential python3</code>；</li>\n\t<li><strong>Android / Termux</strong>：<code>pkg install nodejs python make clang git</code>，<code>CXXFLAGS=\"-std=c++20\"</code> 下安装运行。</li>\n</ul>\n\n<h2 id=\"install-faqs\">6. 常见问答</h2>\n<div class=\"doc-faq-card\">\n\t<div class=\"doc-faq-q\">❓ 端口 8787 被占用？</div>\n\t<div class=\"doc-faq-a\">桌面版自动探测空闲随机端口；命令行启动加 <code>--port 9000</code> 更换（全部启动参数见第 03 章）。</div>\n</div>\n",
-		"contentEn": "\n<h2 id=\"desktop-releases-download\">1. Desktop Releases (Zero-Setup)</h2>\n<p>Skip the CLI: download pre-built binaries from <a href=\"https://github.com/xing-shuyin/pi-web-ui/releases/latest\" target=\"_blank\" rel=\"noreferrer\"><strong>GitHub Releases (.exe / .dmg / .AppImage) ↗</strong></a>.</p>\n<div class=\"doc-table-wrap\">\n\t<table class=\"doc-table\">\n\t\t<thead>\n\t\t\t<tr><th>Platform</th><th>Format</th><th>Filename</th></tr>\n\t\t</thead>\n\t\t<tbody>\n\t\t\t<tr><td>Windows (x64)</td><td>Installer</td><td><code>pi-web-ui-Setup-*.exe</code></td></tr>\n\t\t\t<tr><td>Windows Portable</td><td>Zip</td><td><code>pi-web-ui-*-win-x64-portable.zip</code></td></tr>\n\t\t\t<tr><td>macOS</td><td>DMG</td><td><code>pi-web-ui-*.dmg</code></td></tr>\n\t\t\t<tr><td>Linux</td><td>AppImage</td><td><code>pi-web-ui-*.AppImage</code></td></tr>\n\t\t</tbody>\n\t</table>\n</div>\n<p>Windows SmartScreen → More info → Run anyway. macOS → Ctrl-click → Open. Linux → <code>chmod +x</code> first.</p>\n\n<h2 id=\"npm-install\">2. npm / npx CLI Methods</h2>\n<pre><code class=\"language-bash\"># Global install (Node.js >= 22.19.0 required)\nnpm i -g pi-web-ui@latest\npi-web-ui\n# npm 12+: npm i -g --allow-scripts=node-pty,@google/genai,protobufjs pi-web-ui@latest</code></pre>\n\n<h2 id=\"first-setup-wizard\">3. First-Time Setup Wizard</h2>\n<p>Open <code>http://localhost:8787</code> and fill in your model key: DeepSeek, Claude/OpenAI (or OAuth), local Ollama (<code>http://127.0.0.1:11434/v1</code>), or any OpenAI-compatible relay.</p>\n"
-	},
-	{
-		"id": "cli-and-env",
-		"group": "getting-started",
-		"badge": "Chapter 03",
-		"icon": "⚙️",
-		"navTitle": "03. CLI 与环境变量全表",
-		"navTitleEn": "03. CLI & Env Flags",
-		"title": "CLI 启动参数与环境变量新手速查表",
-		"titleEn": "CLI Flags & Environment Variables Reference",
-		"summary": "常用命令行启动参数与环境变量全览：自定义端口、指定工作目录、局域网共享与密码鉴权、注册开机自启后台守护服务。",
-		"summaryEn": "Comprehensive reference for CLI startup flags, environment variables, token authentication, and background daemon service management.",
-		"contentZh": "\n<h2 id=\"cli-options\">1. 常用 CLI 命令行参数</h2>\n<p>在终端启动 <code>pi-web-ui</code> 时，可以通过传递参数快速定制运行行为：</p>\n\n<div class=\"doc-table-wrap\">\n\t<table class=\"doc-table\">\n\t\t<thead>\n\t\t\t<tr>\n\t\t\t\t<th>参数</th>\n\t\t\t\t<th>说明</th>\n\t\t\t\t<th>默认值</th>\n\t\t\t\t<th>示例</th>\n\t\t\t</tr>\n\t\t</thead>\n\t\t<tbody>\n\t\t\t<tr>\n\t\t\t\t<td><code>--port &lt;number&gt;</code></td>\n\t\t\t\t<td>设置 Web 服务监听的 HTTP 端口</td>\n\t\t\t\t<td><code>8787</code></td>\n\t\t\t\t<td><code>pi-web-ui --port 9000</code></td>\n\t\t\t</tr>\n\t\t\t<tr>\n\t\t\t\t<td><code>--host &lt;string&gt;</code></td>\n\t\t\t\t<td>绑定监听的网络 IP 地址（<code>0.0.0.0</code> 允许局域网访问）</td>\n\t\t\t\t<td><code>127.0.0.1</code></td>\n\t\t\t\t<td><code>pi-web-ui --host 0.0.0.0</code></td>\n\t\t\t</tr>\n\t\t\t<tr>\n\t\t\t\t<td><code>--cwd &lt;path&gt;</code></td>\n\t\t\t\t<td>指定 AI 工作区根目录（绝对或相对路径）</td>\n\t\t\t\t<td>当前终端目录</td>\n\t\t\t\t<td><code>pi-web-ui --cwd /home/dev/app</code></td>\n\t\t\t</tr>\n\t\t\t<tr>\n\t\t\t\t<td><code>PI_WEB_TOKEN</code>（仅环境变量）</td>\n\t\t\t\t<td>启用共享口令鉴权，防止他人未经授权访问；无 <code>--token</code> 参数，必须用环境变量传入</td>\n\t\t\t\t<td>空（免密码）</td>\n\t\t\t\t<td><code>PI_WEB_TOKEN=mysecret888 pi-web-ui</code></td>\n\t\t\t</tr>\n\t\t\t<tr>\n\t\t\t\t<td><code>--data-dir &lt;path&gt;</code></td>\n\t\t\t\t<td>持久化配置文件与插件的存放目录</td>\n\t\t\t\t<td><code>&lt;cwd&gt;/.pi-web</code></td>\n\t\t\t\t<td><code>pi-web-ui --data-dir ~/.custom-pi</code></td>\n\t\t\t</tr>\n\t\t\t<tr>\n\t\t\t\t<td><code>--sdk &lt;mode&gt;</code></td>\n\t\t\t\t<td>引擎 SDK 选择：<code>global</code>（优先机器更新版本）或 <code>bundled</code>（自带版本）</td>\n\t\t\t\t<td><code>global</code></td>\n\t\t\t\t<td><code>pi-web-ui --sdk bundled</code></td>\n\t\t\t</tr>\n\t\t</tbody>\n\t</table>\n</div>\n\n<h2 id=\"env-vars\">2. 常用环境变量 (Environment Variables)</h2>\n<p>你也可以在 shell profile（<code>~/.bashrc</code> / <code>~/.zshrc</code>）或 <code>.env</code> 文件中声明环境变量，行为与 CLI 参数完全对应：</p>\n\n<pre><code class=\"language-bash\"># 设置持久环境变量示例\nexport PI_WEB_PORT=9000\nexport PI_WEB_HOST=0.0.0.0\nexport PI_WEB_TOKEN=\"your_secure_password\"\nexport PI_WEB_SDK=\"global\"\npi-web-ui</code></pre>\n\n<div class=\"doc-grid-2\">\n\t<div class=\"doc-card\">\n\t\t<h4><code>PI_WEB_TOOL_LAZY_LOADING</code></h4>\n\t\t<p>工具延迟加载开关。默认为 <code>0</code>（关闭，全量挂载，与 pi 命令行一致）；设为 <code>1</code> 则仅核心工具常驻、其余按需加载，保护前缀缓存（Prompt Cache）并节约 Token 开销。</p>\n\t</div>\n\t<div class=\"doc-card\">\n\t\t<h4><code>PI_WEB_TOOL_TIMEOUT_MS</code></h4>\n\t\t<p>工具看门狗执行超时时间（毫秒）。默认 20 分钟（1,200,000 ms），遇到死循环脚本时自动熔断中止并保护会话安全。</p>\n\t</div>\n\t<div class=\"doc-card\">\n\t\t<h4><code>PI_WEB_PRESET_REPO</code></h4>\n\t\t<p>预设社区共享仓库（默认 <code>xing-shuyin/pi-web-ui-presets</code>）。设为 <code>off</code> 关闭一键分享，亦可在设置页一键导出为纯净 JSON。</p>\n\t</div>\n\t<div class=\"doc-card\">\n\t\t<h4><code>PI_WEB_ALLOW_ORIGINS</code></h4>\n\t\t<p>额外允许跨域访问的 Origin 白名单（逗号分隔）。用于特殊反向代理、子路径挂载或不同端口的 WebSocket 握手。</p>\n\t</div>\n</div>\n\n<h2 id=\"daemon-service\">3. 一键注册开机自启动守护服务 (Daemon)</h2>\n<p>想让 pi-web-ui 像本地服务器一样在后台默默运行、开机自启，而不用每次都保持终端窗口打开？内置了跨平台服务管理命令：</p>\n\n<div class=\"doc-step-box\">\n\t<div class=\"doc-step-num\">⚡</div>\n\t<div class=\"doc-step-content\">\n\t\t<h4>跨平台安装后台服务</h4>\n\t\t<pre><code class=\"language-bash\"># 注册为当前用户的系统后台自启服务\npi-web-ui server install --port 8787 --cwd /path/to/workspace\n\n# 查看后台服务运行状态\npi-web-ui server status\n\n# 停止或重启服务\npi-web-ui server restart\npi-web-ui server stop\n\n# 卸载开机自启服务\npi-web-ui server uninstall</code></pre>\n\t\t<p>系统自动适配：Windows（登录 Run 项，免管理员提权）、macOS（Launchd 代理）、Linux（Systemd 用户级服务）。</p>\n\t</div>\n</div>\n\n<h2 id=\"docker-compose\">4. 使用 Docker Compose 一键起跑</h2>\n<p>在 NAS 或远程容器宿主机上，可以使用官方 Docker 方案：</p>\n<pre><code class=\"language-yaml\"># docker-compose.yml\nservices:\n  pi-web-ui:\n    image: xingshuyin/pi-web-ui:latest\n    container_name: pi-web-ui\n    restart: unless-stopped\n    ports:\n      - \"8787:8787\"\n    volumes:\n      - ./workspace:/app/workspace\n      - ~/.pi-web:/root/.pi-web\n    environment:\n      - PI_WEB_HOST=0.0.0.0\n      - PI_WEB_TOKEN=your_secure_password</code></pre>\n",
-		"contentEn": "\n<h2 id=\"cli-options\">1. Common CLI Flags</h2>\n<p>Launch <code>pi-web-ui</code> with command-line flags to customize port, host, workspace, and security tokens:</p>\n<pre><code class=\"language-bash\"># Examples:\npi-web-ui --port 9000\npi-web-ui --host 0.0.0.0\nPI_WEB_TOKEN=mysecret pi-web-ui --host 0.0.0.0\npi-web-ui --cwd /path/to/my-repo</code></pre>\n\n<h2 id=\"env-vars\">2. Environment Variables</h2>\n<p>All CLI arguments map directly to environment variables such as <code>PI_WEB_PORT</code>, <code>PI_WEB_HOST</code>, and <code>PI_WEB_TOKEN</code>.</p>\n\n<h2 id=\"daemon-service\">3. Background Daemon Service</h2>\n<p>Register pi-web-ui as an OS auto-starting background service with zero configuration:</p>\n<pre><code class=\"language-bash\">pi-web-ui server install --port 8787 --cwd /path/to/project\npi-web-ui server status\npi-web-ui server stop</code></pre>\n"
-	},
-	{
-		"id": "chat-and-sessions",
-		"group": "workspace",
-		"badge": "Chapter 04",
-		"icon": "💬",
-		"navTitle": "04. 流式对话与代码回滚",
-		"navTitleEn": "04. Chat, Quotes & Rollback",
-		"title": "流式对话实战、划词引用、代码快照回滚与多会话",
-		"titleEn": "Streaming Chat, Selection Quotes, Turn Rollback & Sessions",
-		"summary": "手把手掌握高效对话技巧：实时插队与撤回、划词一键精准提问、改错代码一键回滚历史轮次，以及多会话并发与跨设备过户。",
-		"summaryEn": "Master streaming conversation: steer mid-turn, quote highlighted text with one click, rollback file edits by turn, and multi-session concurrency.",
-		"contentZh": "\n<h2 id=\"streaming-chat-overview\">1. 沉浸式流式对话体验</h2>\n<p>在 pi-web-ui 中，AI 以打字机般流畅的速度逐字输出，思考过程、工具调用卡片和代码 Diff 高亮实时渲染在对话流中：</p>\n\n<figure class=\"doc-figure\">\n\t<img src=\"./assets/chat-prompts.jpeg\" alt=\"流式对话、提示词与右侧文件树\" />\n\t<figcaption>\n\t\t<strong>图 4.1 流式交互与提示词体验：</strong>\n\t\t思考过程折叠展现、工具调用卡片实时展开、划词浮动引用与底部快捷短语芯片栏。\n\t</figcaption>\n</figure>\n\n<h2 id=\"steer-and-interrupt\">2. 插队指导 (Steer) 与随时打断</h2>\n<p>AI 回复到一半时想补充限制条件，无需苦等它讲完：</p>\n\n<div class=\"doc-step-box\">\n\t<div class=\"doc-step-num\">🎯</div>\n\t<div class=\"doc-step-content\">\n\t\t<h4>实时插队 (Steer)</h4>\n\t\t<p>无需等待模型输出完毕！在 AI 正在打字输出时，你可以直接在输入框敲入补充要求并回车。系统会立即以 <strong>Steer（实时航向校正）</strong> 机制将新指令注入当前推理链路，模型会无缝吸纳新条件并调整下文行为，大幅节省宝贵时间。</p>\n\t</div>\n</div>\n\n<div class=\"doc-step-box\">\n\t<div class=\"doc-step-num\">⏹️</div>\n\t<div class=\"doc-step-content\">\n\t\t<h4>一键打断与撤回</h4>\n\t\t<p>随时点击输入框右侧的红色停止按钮或按 <code>Esc</code> 键中断当前任务；若上一次提问想调整，可点击该轮气泡下方的「撤回并重新编辑」，原提示词自动恢复至输入框中。</p>\n\t</div>\n</div>\n\n<h2 id=\"selection-quote\">3. 划词精准引用 (Selection Quote)</h2>\n<p>只想针对长回答中的某一行深入提问时，无需手动复制粘贴：</p>\n\n<div class=\"doc-callout doc-callout-tip\">\n\t<strong>💡 划词即引用：极速追问体验</strong>\n\t<p>用鼠标在任何消息气泡中<strong>高亮选中文本或某行代码</strong>，鼠标旁会瞬间浮出 <span class=\"doc-badge-pill\">💬 引用提问</span> 浮标。点击后，该段文字将自动以精准的代码块或引用格式注入到底部输入框，你只需接着敲入 <code>“这段代码是什么意思？”</code> 或 <code>“这里有内存泄漏隐患吗？”</code> 即可！</p>\n</div>\n\n<h2 id=\"turn-rollback\">4. 代码版本保险箱：按轮次一键回滚 (Turn Rollback)</h2>\n<p>这是让新手彻底告别「担心 AI 把已有代码改崩」的杀手级功能：</p>\n\n<div class=\"doc-step-box\">\n\t<div class=\"doc-step-num\">⏪</div>\n\t<div class=\"doc-step-content\">\n\t\t<h4>工作区快照自动存档</h4>\n\t\t<p><strong>每次</strong> AI 准备调用 <code>write</code>、<code>edit</code> 等工具修改你的磁盘文件之前，工作台都会在底层自动为你记录一份精确的工作区文件改动快照（Zero-overhead Snapshot）。</p>\n\t</div>\n</div>\n\n<div class=\"doc-step-box\">\n\t<div class=\"doc-step-num\">🛡️</div>\n\t<div class=\"doc-step-content\">\n\t\t<h4>一键撤回所有修改</h4>\n\t\t<p>如果 AI 在第 5 轮对话中改错了文件、引入了语法错误，你只需找到该轮对话卡片右上方的 <strong>「⏪ 回滚本轮文件改动」</strong> 按钮并轻点一下：<strong>该轮对话中被修改的所有文件瞬间精确还原到改动前的状态！</strong> 彻底摆脱手动使用 git stash / git reset 的繁琐操作。</p>\n\t</div>\n</div>\n\n<h2 id=\"multi-sessions\">5. 多会话并发与跨设备过户 (Takeover)</h2>\n<ul>\n\t<li><strong>多会话并发（上限 8 / 项目，子代理不计）</strong>：前端优化与后端重构并行不悖，互不阻塞；</li>\n\t<li><strong>文件夹归类整理</strong>：会话列表中支持新建文件夹，将相关的对话拖拽或归类整理，项目脉络清爽分明；</li>\n\t<li><strong>临时会话 (Ephemeral Chat)</strong>：支持新建临时会话，随用随关不留残余记录，也可随时点击「转为正式」落盘；</li>\n\t<li><strong>跨设备无缝过户 (Takeover)</strong>：你在办公室电脑上启动的长任务，下班路上用手机浏览器打开该网页，只需点击顶部「接管运行 (Takeover)」，即可将运行中的任务本体与控制流完整迁移至手机继续跟进！</li>\n</ul>\n",
-		"contentEn": "\n<h2 id=\"streaming-chat-overview\">1. Streaming Conversation Experience</h2>\n<p>pi-web-ui renders reasoning chains, tool cards, file diffs, and AI output in real time without lag.</p>\n<figure class=\"doc-figure\">\n\t<img src=\"./assets/chat-prompts.jpeg\" alt=\"Streaming Chat & Prompt Chips\" />\n\t<figcaption>\n\t\t<strong>Figure 4.1 Streaming Chat & Quick Prompts:</strong>\n\t\tLive reasoning folding, tool call cards, selection quote pill, and prompt chips.\n\t</figcaption>\n</figure>\n\n<h2 id=\"steer-and-interrupt\">2. Steer & Interrupt</h2>\n<p>Type extra guidance mid-turn while the model is still streaming. The system steers the active generation on the fly without waiting.</p>\n\n<h2 id=\"selection-quote\">3. Selection Quote</h2>\n<p>Highlight any text or code snippet in the chat with your mouse. Click the floating <strong>Quote</strong> button to instantly paste formatted context into the composer.</p>\n\n<h2 id=\"turn-rollback\">4. Workspace Snapshots & Turn Rollback</h2>\n<p>Automatic workspace snapshots safeguard your code before every write/edit. If AI makes a mistake, click <strong>Rollback Turn</strong> to revert all affected files in milliseconds!</p>\n"
-	},
-	{
-		"id": "remote-ssh-projects",
-		"group": "workspace",
-		"badge": "Chapter 05 · 核心亮点",
-		"icon": "🌐",
-		"navTitle": "05. SSH 远程项目直连",
-		"navTitleEn": "05. Remote SSH Projects",
-		"title": "打开 SSH 远程项目与全栈远程工作区完全指南",
-		"titleEn": "Opening Remote SSH Projects & Cloud Development",
-		"summary": "告别在远程服务器部署繁琐服务的痛苦！通过 ssh:// 协议直连远端主机，远程文件树、AI 读写、内置终端与 Git 全部原生透明下沉。",
-		"summaryEn": "Zero remote setup! Connect directly via ssh:// protocol with full remote file trees, AI read/write tools, PTY terminal, and Git SCM.",
-		"contentZh": "\n<h2 id=\"why-remote-ssh\">1. 为什么你需要 SSH 远程项目？</h2>\n<p>日常开发中，模型训练、繁重编译或微服务集群都在云端高性能服务器上。传统方案要在远端装 VSCode Server（耗内存、网络波动易掉线），或用 <code>scp</code> 来回倒腾文件。</p>\n\n<div class=\"doc-callout doc-callout-tip\">\n\t<strong>💡 pi-web-ui 的破局设计：服务端零安装！</strong>\n\t<p><strong>你不需要在远程 Linux 服务器上安装任何 pi-web-ui 服务或特殊代理！</strong> 只要远程服务器开启了标配的 SSH 服务（哪怕是一台干净的纯 Alpine / Ubuntu / CentOS 主机），pi-web-ui 即可通过标准 SSH 协议直连并下沉所有能力。</p>\n</div>\n\n<h2 id=\"connect-ssh-workspace\">2. 新手连接实操：一键开启远程开发</h2>\n\n<div class=\"doc-step-box\">\n\t<div class=\"doc-step-num\">1</div>\n\t<div class=\"doc-step-content\">\n\t\t<h4>点击顶栏工作区切换器</h4>\n\t\t<p>在 pi-web-ui 界面顶栏中间点击当前路径按钮，弹出「打开项目」窗口，切换至 <strong>「SSH 远程项目」</strong> 标签页。</p>\n\t</div>\n</div>\n\n<div class=\"doc-step-box\">\n\t<div class=\"doc-step-num\">2</div>\n\t<div class=\"doc-step-content\">\n\t\t<h4>填入 SSH 连接 URI</h4>\n\t\t<p>URI 格式非常直观，支持自定义端口与目标目录：</p>\n\t\t<pre><code class=\"language-bash\"># 标准格式：\nssh://用户名@远程服务器IP:端口号/服务器目标路径\n\n# 真实示例 1：连接 Ubuntu 服务器的某个 Web 项目\nssh://root@192.168.1.100:22/var/www/my-website\n\n# 真实示例 2：连接云服务器开发目录\nssh://ubuntu@cloud.example.com/home/ubuntu/api-backend</code></pre>\n\t</div>\n</div>\n\n<div class=\"doc-step-box\">\n\t<div class=\"doc-step-num\">3</div>\n\t<div class=\"doc-step-content\">\n\t\t<h4>选择认证凭据（三选一）</h4>\n\t\t<ul>\n\t\t\t<li><strong>密码认证</strong>：直接输入服务器登录密码；</li>\n\t\t\t<li><strong>SSH 私钥认证</strong>：选择或粘贴本地私钥（例如 <code>~/.ssh/id_rsa</code> 或 <code>id_ed25519</code>）；</li>\n\t\t\t<li><strong>SSH Agent 代理</strong>：免输入密码，复用本地系统中已运行的 SSH 密钥代理。</li>\n\t\t</ul>\n\t</div>\n</div>\n\n<h2 id=\"remote-capabilities\">3. 远端能力一览（详见专章）</h2>\n<p>连接成功后整个工作台切换到远端上下文：右侧文件树展示远端真实目录（见第 06 章），内置终端直连远端 shell（见第 08 章），Git 面板读取远端仓库状态（见第 09 章）。AI 的 <code>read</code>、<code>write</code>、<code>edit</code> 等工具由服务端进程内在远端直接执行，绝不下载大文件到本地。</p>\n\n<h2 id=\"security-encryption\">4. 安全性保障：AES-256-GCM 本地加密</h2>\n<p>为了保障新手开发者的服务器安全：</p>\n<ul>\n\t<li>你所输入的 SSH 密码或密钥在保存时，均使用强加密算法 <strong>AES-256-GCM</strong> 保存在你本地电脑的 <code>~/.pi-web/</code> 数据目录中；</li>\n\t<li>敏感凭据绝不离开你的本地设备，更不会上传至任何第三方云端。</li>\n</ul>\n",
-		"contentEn": "\n<h2 id=\"why-remote-ssh\">1. Why Remote SSH?</h2>\n<p>Directly code on powerful remote cloud instances or GPU clusters without installing any client/server agents on the remote host!</p>\n\n<h2 id=\"connect-ssh-workspace\">2. Connecting to Remote Host</h2>\n<p>Click the workspace title at the top and select Remote SSH:</p>\n<pre><code class=\"language-bash\">ssh://username@hostname:22/path/to/project</code></pre>\n<p>Supports password, private key (<code>~/.ssh/id_rsa</code>), and SSH Agent authentication.</p>\n\n<h2 id=\"remote-capabilities\">3. Full Remote Immersion</h2>\n<p>The right file tree, terminal shell, Git panel, and AI read/write tools all execute directly on the remote server seamlessly.</p>\n"
-	},
-	{
-		"id": "file-tree-and-transfer",
-		"group": "workspace",
-		"badge": "Chapter 06 · 核心亮点",
-		"icon": "📁",
-		"navTitle": "06. 文件树与传输解压",
-		"navTitleEn": "06. File Tree & Transfer",
-		"title": "右栏文件列表全攻略：拖拽上传、打包下载与压缩解压",
-		"titleEn": "File Tree Mastery: Drag-Drop Upload, Zip & Multi-Roots",
-		"summary": "类 VSCode 极致流畅的文件操作体验：桌面拖拽上传文件与整个文件夹、在线打包 ZIP 下载、右键一键在线解压、跨盘符 @root 浏览与多根工作区。",
-		"summaryEn": "VSCode-like file tree: drag & drop files and entire folders, streaming TAR uploads, zip export, in-place uncompress, @root navigation, and multi-root workspaces.",
-		"contentZh": "\n<h2 id=\"file-tree-overview\">1. 右栏文件树基础操作</h2>\n<p>在 pi-web-ui 界面右侧常驻全功能文件工作台，点击顶部图标随时展开/收起：</p>\n\n<div class=\"doc-step-box\">\n\t<div class=\"doc-step-num\">🔍</div>\n\t<div class=\"doc-step-content\">\n\t\t<h4>即时模糊检索</h4>\n\t\t<p>文件树顶部提供实时过滤输入框，只需敲入几个字母（如 <code>app</code> 或 <code>.env</code>），整个目录树立即瞬间收窄至匹配条目，找文件极其迅捷。</p>\n\t</div>\n</div>\n\n<div class=\"doc-step-box\">\n\t<div class=\"doc-step-num\">🖱️</div>\n\t<div class=\"doc-step-content\">\n\t\t<h4>丰富的鼠标右键快捷菜单</h4>\n\t\t<p>右键单击任何文件或文件夹，即可唤出完整操作菜单：<strong>新建文件、新建文件夹、重命名、复制相对路径、删除、打包下载 ZIP、在线解压</strong>等。</p>\n\t</div>\n</div>\n\n<h2 id=\"drag-drop-upload\">2. 杀手级体验：拖拽上传文件与整个文件夹</h2>\n<p>传统 Web 工具传整个脚手架目录时要一层层手动建目录，在这里：</p>\n\n<div class=\"doc-callout doc-callout-tip\">\n\t<strong>💡 就像在本地 VSCode 一样随意拖拽！</strong>\n\t<p>直接从你的电脑桌面、文件资源管理器（Finder / Explorer）选中一个或多个文件，<strong>甚至是包含了成百上千个文件的完整大文件夹</strong>，直接拖动并松手释放在右侧文件树的目标目录中！</p>\n</div>\n\n<ul>\n\t<li><strong>单文件 / 多文件秒级传输</strong>：直接拖拽即可写入对应目录；</li>\n\t<li><strong>整个文件夹流式打包上传</strong>：底层采用高性能流式 TAR 协议打包并解包，保持完整的子目录层级结构，上传速度快且零丢包；无论本地还是 SSH 远程项目均完美支持。</li>\n</ul>\n\n<h2 id=\"archive-and-unarchive\">3. 在线打包 ZIP 下载与一键在线解压</h2>\n\n<div class=\"doc-grid-2\">\n\t<div class=\"doc-card\">\n\t\t<h4>📦 打包下载整个目录</h4>\n\t\t<p>想把某个构建产物文件夹（如 <code>dist/</code> 或 <code>build/</code>）备份到本地电脑？右键点击该目录，选择 <strong>「打包为 ZIP 并下载」</strong>，服务端自动实时流式压缩为单个 zip 文件推送到浏览器下载，省时省力。</p>\n\t</div>\n\t<div class=\"doc-card\">\n\t\t<h4>🗜️ 在线一键解压缩</h4>\n\t\t<p>上传了一个外部组件包 <code>assets.zip</code> 或服务器归档 <code>bundle.tar.gz</code>？右键点击该压缩文件，选择 <strong>「在此解压」</strong>，系统瞬间在原地解压开来，无需切到终端敲解压命令。</p>\n\t</div>\n</div>\n\n<h2 id=\"root-and-multiroot\">4. 跨盘符 <code>@root</code> 浏览与多根工作区 (Multi-root)</h2>\n\n<div class=\"doc-step-box\">\n\t<div class=\"doc-step-num\">🌐</div>\n\t<div class=\"doc-step-content\">\n\t\t<h4>跨盘符 <code>@root</code> 快速穿梭</h4>\n\t\t<p>当你想引用项目目录之外的文件（例如公共的 <code>~/.npmrc</code>、另一个盘符中的数据集 <code>D:/datasets/</code> 或 Linux 下的 <code>/etc/hosts</code>）时，可以在路径输入框使用 <code>@root</code> 前缀跨盘符浏览，无需重新启动工作台。</p>\n\t</div>\n</div>\n\n<div class=\"doc-step-box\">\n\t<div class=\"doc-step-num\">🌿</div>\n\t<div class=\"doc-step-content\">\n\t\t<h4>多根工作区协同 (Multi-root Workspaces)</h4>\n\t\t<p>全栈项目通常由前端子仓库（如 <code>client/</code>）和后端子仓库（如 <code>server/</code>）构成。点击工作区菜单的「添加额外工作区根目录」，即可将多个独立的项目文件夹同时挂载在右侧文件树中，AI 能够跨仓库理解代码逻辑与数据模型。</p>\n\t</div>\n</div>\n",
-		"contentEn": "\n<h2 id=\"file-tree-overview\">1. File Tree Basics</h2>\n<p>The right sidebar contains a fully-featured file tree with instant fuzzy filtering, new file/folder creation, rename, and context menus.</p>\n\n<h2 id=\"drag-drop-upload\">2. Drag & Drop File and Folder Upload</h2>\n<p>Drag any file or entire directory from your desktop directly into the file tree. Streaming TAR protocol transfers deep folder hierarchies reliably on both local and SSH remote projects.</p>\n\n<h2 id=\"archive-and-unarchive\">3. Zip Download & In-Place Uncompress</h2>\n<p>Right-click any folder to download it as a ZIP archive. Right-click any <code>.zip</code> or <code>.tar.gz</code> archive to uncompress it directly into the current directory.</p>\n\n<h2 id=\"root-and-multiroot\">4. @root Navigation & Multi-Root Workspaces</h2>\n<p>Use <code>@root</code> to inspect paths outside the active repository. Mount multiple project roots simultaneously for full-stack monorepos.</p>\n"
-	},
-	{
-		"id": "attachments-and-vision",
-		"group": "workspace",
-		"badge": "Chapter 07",
-		"icon": "📎",
-		"navTitle": "07. 附件预览与视觉桥",
-		"navTitleEn": "07. Attachments & Vision",
-		"title": "零污染附件引用、Office/PDF 在线预览编辑与视觉桥",
-		"titleEn": "Zero-Pollution Attachments, Document Previews & Vision Bridge",
-		"summary": "为什么上传大文件不撑爆模型上下文？路径引用与指定行号精准提问、.docx/.xlsx/.pptx/.pdf 在线原生预览编辑，以及为纯文本模型赋能的视觉桥。",
-		"summaryEn": "Reference files and exact line numbers without context bloat, preview Office/PDF documents in-browser, and empower text-only LLMs via Vision Bridge.",
-		"contentZh": "\n<h2 id=\"zero-pollution-reference\">1. 什么是“零污染附件引用”？</h2>\n<p>在普通聊天工具中，当你把一份几百 KB 的配置文件或长代码拖进对话时，工具通常会将整篇文字一股脑硬塞进提示词中。这会导致两大严重弊端：</p>\n<ul>\n\t<li><strong>破坏前缀缓存并白白浪费几万 Token</strong>，推理成本暴涨，响应变得极慢；</li>\n\t<li><strong>严重干扰模型注意力</strong>，导致模型产生幻觉或抓不住核心问题。</li>\n</ul>\n\n<div class=\"doc-callout doc-callout-tip\">\n\t<strong>💡 pi-web-ui 的零污染路径引用体系</strong>\n\t<p>当你把文件拖入输入框或点击添加附件时，pi-web-ui 仅在输入框生成轻量级的 <strong>路径引用标签 (Reference Chip)</strong>。模型需要查阅文件时，会根据你的问题通过 <code>read</code> 工具精准按需提取相关段落，既保护了 Prompt Cache 前缀缓存，又将 Token 消耗降低了 80% 以上！</p>\n</div>\n\n<h2 id=\"line-range-quote\">2. 精确行号引用：只问你想问的那几行</h2>\n<p>在代码调试时，你往往只想让 AI 分析某一个函数的十来行代码。点击附件芯片旁的小齿轮或直接在文件名后标注行号范围（例如 <code>src/auth.ts:45-62</code>）：</p>\n<pre><code class=\"language-bash\"># 告诉 AI：请帮我检查 src/api.ts 的第 80 到 115 行是否存在并发死锁\nsrc/api.ts:80-115</code></pre>\n<p>系统会在注入时精确截取该行号区间并自动带上行号索引，AI 的分析针对性极高、答复干脆利落。</p>\n\n<h2 id=\"office-pdf-preview\">3. 强大的在线原生预览与轻量编辑</h2>\n<p>在右侧文件树单击任意文档即可原地渲染，无需切出网页：</p>\n\n<div class=\"doc-grid-2\">\n\t<div class=\"doc-card\">\n\t\t<h4>📊 Word / Excel / PPT 在线预览</h4>\n\t\t<p>原生支持 <code>.docx</code>、<code>.xlsx</code>、<code>.pptx</code> 文件的可视化渲染，表格数据、幻灯片排版与文字一览无余，查阅产品需求文档极度方便。</p>\n\t</div>\n\t<div class=\"doc-card\">\n\t\t<h4>📄 PDF 与高清矢量图 (SVG)</h4>\n\t\t<p>内置完整的 PDF 阅读器，支持缩放、翻页与文本高亮选择；同时支持 SVG、PNG、JPEG、WebP 与动图实时查看。</p>\n\t</div>\n\t<div class=\"doc-card\">\n\t\t<h4>🎵 音视频媒体流式播放</h4>\n\t\t<p>支持 <code>.mp4</code>、<code>.webm</code> 视频与 <code>.mp3</code>、<code>.wav</code> 音频的 HTML5 原生 Range 范围流式播放，开发多媒体应用随调随看。</p>\n\t</div>\n\t<div class=\"doc-card\">\n\t\t<h4>✏️ 文本在线双击编辑</h4>\n\t\t<p>对于 <code>.env</code>、<code>.json</code>、<code>.md</code> 等日常配置文件，单击即可进入高亮编辑器直接手改并 <code>Ctrl+S</code> 原地保存。</p>\n\t</div>\n</div>\n\n<h2 id=\"vision-bridge\">4. 视觉桥 (Vision Bridge)：纯文本模型也能看懂设计稿</h2>\n<p>主力模型是纯文本代码模型时，拖入 UI 设计稿或报错截图会自动启动 <strong>Vision Bridge（视觉桥）</strong>：</p>\n\n<div class=\"doc-step-box\">\n\t<div class=\"doc-step-num\">👁️</div>\n\t<div class=\"doc-step-content\">\n\t\t<h4>智能转写与无感赋能</h4>\n\t\t<p>视觉桥会在后台自动调用具备多模态能力的辅助转写引擎，将用户上传的截图、设计稿布局、配色和文字要素转化为详尽的结构化特征描述，然后再传递给你的主力写代码模型。无需特地切换昂贵的多模态主力模型，也能让 AI 看着设计图完美还原网页！</p>\n\t</div>\n</div>\n",
-		"contentEn": "\n<h2 id=\"zero-pollution-reference\">1. Zero-Pollution Attachments</h2>\n<p>Instead of dumping entire megabytes of files into the prompt, pi-web-ui passes lightweight path references. The model reads exact offsets on demand, preserving prompt caches and saving up to 80% tokens.</p>\n\n<h2 id=\"line-range-quote\">2. Exact Line Range Quotes</h2>\n<p>Reference lines like <code>src/app.ts:40-65</code> to focus the model exclusively on the function you want to review.</p>\n\n<h2 id=\"office-pdf-preview\">3. Office, PDF & Media Previews</h2>\n<p>Click any <code>.docx</code>, <code>.xlsx</code>, <code>.pptx</code>, <code>.pdf</code>, image, audio, or video in the file tree to preview in-place without third-party software.</p>\n\n<h2 id=\"vision-bridge\">4. Vision Bridge</h2>\n<p>When working with text-only coding models, Vision Bridge automatically converts UI screenshots into rich structural descriptions so the model can code matching interfaces accurately.</p>\n"
-	},
-	{
-		"id": "terminal-and-bash",
-		"group": "workspace",
-		"badge": "Chapter 08",
-		"icon": "🖥️",
-		"navTitle": "08. 真 PTY 终端与 AI 接管",
-		"navTitleEn": "08. Terminal & Bash Takeover",
-		"title": "内置多标签真 PTY 终端与 AI 命令透明接管执行",
-		"titleEn": "Multi-Tab Real PTY Terminal & AI Bash Execution Takeover",
-		"summary": "告别在独立终端软件与网页之间反复横跳！基于 node-pty 与 xterm.js 的真实终端体验，AI 命令透明可见打字执行，支持交互式程序与虚拟环境。",
-		"summaryEn": "Full PTY terminal backed by node-pty and xterm.js. Transparent AI command execution in visible terminals, interactive CLI support, and persistent shells.",
-		"contentZh": "\n<h2 id=\"real-pty-experience\">1. 什么是“真 PTY 终端”？</h2>\n<p>市面上许多网页 AI 的“终端”只是 <code>child_process.exec</code> 抓取一次性输出：无彩色 ANSI、不支持光标跳动，遇到 <code>[y/N]</code> 确认或 <code>vim</code>、<code>htop</code> 这类交互式命令直接死锁。</p>\n\n<div class=\"doc-callout doc-callout-tip\">\n\t<strong>💡 pi-web-ui 的真 PTY 架构</strong>\n\t<p>无论本机还是 SSH 远程项目（见第 05 章），它都是一个真实完整的系统控制台：支持交互、颜色高亮、光标移动与全屏终端应用！</p>\n</div>\n\n<figure class=\"doc-figure\">\n\t<img src=\"./assets/terminal.jpeg\" alt=\"内置多标签真 PTY 终端\" />\n\t<figcaption>\n\t\t<strong>图 8.1 内置多标签真 PTY 终端面板：</strong>\n\t\t支持新建多个终端标签、全屏展开/折叠、主题自适应与 AI 命令透明接管执行。\n\t</figcaption>\n</figure>\n\n<h2 id=\"ai-bash-takeover\">2. AI 命令透明接管：拒绝暗箱黑盒操作</h2>\n<p>新手最担心的就是 AI 在背后偷偷敲命令搞乱环境：</p>\n\n<div class=\"doc-step-box\">\n\t<div class=\"doc-step-num\">👀</div>\n\t<div class=\"doc-step-content\">\n\t\t<h4>可见终端透明打字回显</h4>\n\t\t<p>当 AI 调用 <code>bash</code> 工具运行测试（如 <code>npm test</code>）或安装依赖（如 <code>pip install</code>）时，你会看到它直接在当前活动的终端标签中<strong>像真人操作一样打出命令并实时回显执行日志</strong>！</p>\n\t</div>\n</div>\n\n<div class=\"doc-step-box\">\n\t<div class=\"doc-step-num\">🛑</div>\n\t<div class=\"doc-step-content\">\n\t\t<h4>随时人工介入打断</h4>\n\t\t<p>如果发现 AI 敲错了命令或进入了无限等待，你可以随时将鼠标点击进入终端按 <code>Ctrl + C</code> 发送中断信号，安全掌控权始终握在你自己手中。</p>\n\t</div>\n</div>\n\n<h2 id=\"persist-shell-state\">3. 一次性命令 vs 持久终端 (Persistent Shell)</h2>\n<p>默认一次性执行、阅后即焚；深度开发需要保持状态时：</p>\n\n<div class=\"doc-grid-2\">\n\t<div class=\"doc-card\">\n\t\t<h4>🔄 持久终端会话 (<code>persist=true</code>)</h4>\n\t\t<p>AI 可以开启名为 <code>ai-bash</code> 的持久终端。你在终端中激活的 Python 虚拟环境（<code>source .venv/bin/activate</code>）或切换的目录（<code>cd backend</code>），在后续对话轮次中会被一直保留，无需重复初始化。</p>\n\t</div>\n\t<div class=\"doc-card\">\n\t\t<h4>⚡ 3 秒静默活力探测机制</h4>\n\t\t<p>如果 AI 误触发了一个等待键盘输入的交互命令（如 <code>Are you sure? (yes/no)</code>），工作台内置的看门狗会在 3 秒无输出时自动感知并给模型返回提示，绝不让会话挂死。</p>\n\t</div>\n</div>\n\n<h2 id=\"terminal-tips\">4. 新手操作小技巧</h2>\n<ul>\n\t<li><strong>快捷呼出与收起</strong>：随时按下快捷键 <code>Ctrl + &#96;</code>（反引号）或点击底栏终端图标，即可展开/收起底部终端面板；</li>\n\t<li><strong>多标签管理</strong>：点击终端顶部的 <code>+</code> 号即可新建第 2、第 3 个独立的终端会话，一个跑服务，一个跑测试；</li>\n\t<li><strong>跟随界面主题</strong>：终端的背景色、字体前景色与光标颜色完全跟随你所选的 26+ 主题，视觉浑然一体。</li>\n</ul>\n",
-		"contentEn": "\n<h2 id=\"real-pty-experience\">1. What is a Real PTY Terminal?</h2>\n<p>Unlike basic child process wrappers, pi-web-ui uses <code>node-pty</code> and <code>@xterm/xterm</code> to deliver a genuine terminal supporting full ANSI color sequences, cursor jumps, and interactive CLI programs like <code>vim</code> and <code>htop</code>.</p>\n<figure class=\"doc-figure\">\n\t<img src=\"./assets/terminal.jpeg\" alt=\"Multi-Tab Real PTY Terminal\" />\n\t<figcaption>\n\t\t<strong>Figure 8.1 Real PTY Terminal Panel:</strong>\n\t\tMulti-tab shell management, responsive theme coloring, and live AI command execution.\n\t</figcaption>\n</figure>\n\n<h2 id=\"ai-bash-takeover\">2. Transparent AI Bash Execution</h2>\n<p>When AI runs shell scripts, commands appear and execute right before your eyes inside the active terminal tab. Press <code>Ctrl + C</code> at any time to cancel.</p>\n\n<h2 id=\"persist-shell-state\">3. Persistent Shell Sessions</h2>\n<p>Using <code>persist=true</code> keeps working directories and active Python <code>venv</code> environments alive across turns.</p>\n\n<h2 id=\"terminal-tips\">4. Shortcuts</h2>\n<p>Toggle the drawer with <code>Ctrl + &#96;</code>, add tabs with <code>+</code>, and resize splits easily.</p>\n"
-	},
-	{
-		"id": "git-scm-and-ai-commit",
-		"group": "workspace",
-		"badge": "Chapter 09",
-		"icon": "🌿",
-		"navTitle": "09. Git 管理与 AI 提交",
-		"navTitleEn": "09. Git SCM & AI Commit",
-		"title": "内置 Git 源代码管理与 AI 自动生成规范提交说明",
-		"titleEn": "Built-in Git SCM & One-Click AI Commit Message Generation",
-		"summary": "新手无需死记繁琐 Git 命令！可视化暂存与放弃改动、红绿对比高亮 Diff，以及点击一键让 AI 智能分析暂存区并生成标准提交说明。",
-		"summaryEn": "Visual Git source control for everyone: stage/unstage/discard, inline diff inspection, and one-click AI commit messages following Conventional Commits.",
-		"contentZh": "\n<h2 id=\"git-scm-overview\">1. 为什么无需切出外部 Git 客户端？</h2>\n<p>版本控制不用再切外部客户端，底部抽屉内直接集成完整 Git 面板：</p>\n\n<figure class=\"doc-figure\">\n\t<img src=\"./assets/git.jpeg\" alt=\"Git SCM 源代码管理面板\" />\n\t<figcaption>\n\t\t<strong>图 9.1 Git 源代码管理与差异对比：</strong>\n\t\t暂存区管理、红绿高亮 Diff 检视、分支快速切换以及「一键 AI 生成提交说明」按钮。\n\t</figcaption>\n</figure>\n\n<h2 id=\"visual-git-operations\">2. 新手零门槛图形化版本控制</h2>\n<p>即使你完全不懂 <code>git add</code>、<code>git checkout</code> 的底层参数，也能轻松上手：</p>\n\n<div class=\"doc-step-box\">\n\t<div class=\"doc-step-num\">➕</div>\n\t<div class=\"doc-step-content\">\n\t\t<h4>暂存与取消暂存 (Stage / Unstage)</h4>\n\t\t<p>面板清晰将改动归类为「未暂存的更改」与「已暂存的更改」。点击文件旁的 <code>+</code> 号即可暂存，点击 <code>-</code> 号即可取消暂存，亦可点击顶部的双加号一键全部暂存。</p>\n\t</div>\n</div>\n\n<div class=\"doc-step-box\">\n\t<div class=\"doc-step-num\">👀</div>\n\t<div class=\"doc-step-content\">\n\t\t<h4>逐行对比差异 (Inline Diff)</h4>\n\t\t<p>单击列表中的任何被改动文件，右侧即刻展开优雅的 Diff 视图：红色背景清晰标注删除的旧代码，绿色背景标注 AI 新增或修改的新代码，所有修改历历在目。</p>\n\t</div>\n</div>\n\n<div class=\"doc-step-box\">\n\t<div class=\"doc-step-num\">🗑️</div>\n\t<div class=\"doc-step-content\">\n\t\t<h4>放弃单个文件的更改 (Discard)</h4>\n\t\t<p>如果发现某一个文件的修改不需要，点击文件旁的撤回小图标（Discard），该文件瞬间还原为 HEAD 版本的纯净状态。</p>\n\t</div>\n</div>\n\n<h2 id=\"ai-commit-generation\">3. 亮点体验：一键 AI 自动生成提交说明</h2>\n<p>新手写提交说明常草草写个 <code>update</code>，不利维护：</p>\n\n<div class=\"doc-callout doc-callout-tip\">\n\t<strong>💡 点击一下，自动分析并生成专业 Commit 消息！</strong>\n\t<p>暂存好你想提交的文件后，点击提交输入框右上方的 <strong>「✨ AI 生成提交说明」</strong> 按钮。模型会深入分析暂存区内的所有代码 Diff，在 1 秒内为你自动撰写出符合业界规范的 <strong>Conventional Commits</strong> 消息（如 <code>feat(auth): add OAuth2 token refresh logic</code> 或 <code>fix(table): prevent horizontal overflow on mobile</code>）。</p>\n</div>\n\n<p>确认文案无误后，点击「提交 (Commit)」或使用快捷键 <code>Ctrl + Enter</code>，即可瞬间完成版本提交，整个流程一气呵成！</p>\n\n<h2 id=\"branch-and-history-quote\">4. 分支切换、Stash 贮藏与历史提交引用</h2>\n<ul>\n\t<li><strong>分支快速切换</strong>：在面板顶部一键拉取分支列表、新建特性分支或切换主干，支持自动展示未提交警告；</li>\n\t<li><strong>临时贮藏 (Git Stash)</strong>：临时需要切换分支时，一键保存当前工作进度至 Stash 并在切回时无损弹出恢复；</li>\n\t<li><strong>历史提交一键引用回对话</strong>：在提交历史列表中点击「引用至对话」，可将某次 commit 的哈希与差异直接带入聊天窗口，让 AI 针对某次历史重构进行代码审查或写发布说明。</li>\n</ul>\n",
-		"contentEn": "\n<h2 id=\"git-scm-overview\">1. Integrated Git SCM</h2>\n<p>No need to switch to external Git GUI apps or terminal commands. Manage your entire Git repository right from the bottom drawer.</p>\n<figure class=\"doc-figure\">\n\t<img src=\"./assets/git.jpeg\" alt=\"Git SCM & AI Commit Generation\" />\n\t<figcaption>\n\t\t<strong>Figure 9.1 Git SCM & Commit Generator:</strong>\n\t\tStaged changes, color-coded inline diff, branch switcher, and AI commit message button.\n\t</figcaption>\n</figure>\n\n<h2 id=\"visual-git-operations\">2. Intuitive Version Control</h2>\n<p>Stage, unstage, or discard file changes with a single click. Inspect colored line-by-line diffs effortlessly.</p>\n\n<h2 id=\"ai-commit-generation\">3. One-Click AI Commit Message Generation</h2>\n<p>Click the <strong>AI Generate</strong> button to inspect your staged diff and produce standard Conventional Commits messages in one second.</p>\n\n<h2 id=\"branch-and-history-quote\">4. Branches, Stashes & History Quotes</h2>\n<p>Switch branches, stash WIP edits, and quote past commit diffs directly into conversation for code reviews.</p>\n"
-	},
-	{
-		"id": "commands-and-shortcuts",
-		"group": "workspace",
-		"badge": "Chapter 10",
-		"icon": "⌨️",
-		"navTitle": "10. 斜杠命令与快捷键",
-		"navTitleEn": "10. Commands & Shortcuts",
-		"title": "斜杠命令、键盘快捷键与 @ 多源引用新手速查表",
-		"titleEn": "Slash Commands, Keyboard Shortcuts & @ Mentions",
-		"summary": "让你的双手离不开键盘！全局高频快捷键速查表、系统斜杠命令、强大的 @ 四合一多源上下文引用，以及点击即发的快捷短语芯片栏。",
-		"summaryEn": "Master fast keyboard workflows: global shortcuts table, built-in slash commands, four-in-one @ mentions, and one-click quick prompt chips.",
-		"contentZh": "\n<h2 id=\"shortcuts-table\">1. 新手高频键盘快捷键对照表</h2>\n<p>熟练运用快捷键可以让你的研发效率翻倍。以下是工作台中最常用的按键组合：</p>\n\n<div class=\"doc-table-wrap\">\n\t<table class=\"doc-table\">\n\t\t<thead>\n\t\t\t<tr>\n\t\t\t\t<th>快捷键 (Windows / Linux)</th>\n\t\t\t\t<th>快捷键 (macOS)</th>\n\t\t\t\t<th>功能说明</th>\n\t\t\t</tr>\n\t\t</thead>\n\t\t<tbody>\n\t\t\t<tr>\n\t\t\t\t<td><code>Ctrl + K</code></td>\n\t\t\t\t<td><code>Cmd + K</code></td>\n\t\t\t\t<td>唤起全局模糊搜索与命令面板</td>\n\t\t\t</tr>\n\t\t\t<tr>\n\t\t\t\t<td><code>Ctrl + Enter</code></td>\n\t\t\t\t<td><code>Cmd + Enter</code></td>\n\t\t\t\t<td>立即发送当前提示词消息</td>\n\t\t\t</tr>\n\t\t\t<tr>\n\t\t\t\t<td><code>Ctrl + &#96;</code> (反引号)</td>\n\t\t\t\t<td><code>Cmd + &#96;</code></td>\n\t\t\t\t<td>展开 / 收起底部真 PTY 终端面板</td>\n\t\t\t</tr>\n\t\t\t<tr>\n\t\t\t\t<td><code>Ctrl + B</code></td>\n\t\t\t\t<td><code>Cmd + B</code></td>\n\t\t\t\t<td>展开 / 收起右侧文件工作台树</td>\n\t\t\t</tr>\n\t\t\t<tr>\n\t\t\t\t<td><code>Esc</code></td>\n\t\t\t\t<td><code>Esc</code></td>\n\t\t\t\t<td>关闭所有打开的弹窗浮层，或打断正在生成的 AI 回复</td>\n\t\t\t</tr>\n\t\t\t<tr>\n\t\t\t\t<td><code>Shift + Enter</code></td>\n\t\t\t\t<td><code>Shift + Enter</code></td>\n\t\t\t\t<td>在输入框中另起新行输入（不触发发送）</td>\n\t\t\t</tr>\n\t\t</tbody>\n\t</table>\n</div>\n\n<h2 id=\"slash-commands\">2. 常用斜杠命令全表</h2>\n<p>在输入框以 <code>/</code> 开头，工作台会自动弹出命令补全菜单，输入常用命令即可执行系统级快捷操作：</p>\n\n<div class=\"doc-grid-2\">\n\t<div class=\"doc-card\">\n\t\t<h4><code>/model [名称]</code></h4>\n\t\t<p>快速切换当前会话所使用的大模型（如 <code>/model claude-3-5-sonnet</code> 或 <code>/model deepseek-chat</code>）。</p>\n\t</div>\n\t<div class=\"doc-card\">\n\t\t<h4><code>/clear</code></h4>\n\t\t<p>清空当前对话视窗的历史滚动内容，释放浏览器渲染内存（不破坏已落盘记录）。</p>\n\t</div>\n\t<div class=\"doc-card\">\n\t\t<h4><code>/reload</code></h4>\n\t\t<p>热重载服务配置与系统提示词规则，无需重启后端服务即可生效。</p>\n\t</div>\n\t<div class=\"doc-card\">\n\t\t<h4><code>/export</code></h4>\n\t\t<p>调出对话长图海报导出浮层，生成高清长截图或下载 Markdown 对话记录。</p>\n\t</div>\n</div>\n\n<h2 id=\"at-mentions\">3. 强大的 <code>@</code> 四合一多源上下文引用</h2>\n<p>在输入框中敲入 <code>@</code> 符号，即可呼出智能上下文提示菜单。支持无缝引用以下四类信息源：</p>\n\n<div class=\"doc-step-box\">\n\t<div class=\"doc-step-num\">📄</div>\n\t<div class=\"doc-step-content\">\n\t\t<h4><code>@文件名</code>：引用项目中的具体代码文件</h4>\n\t\t<p>例如输入 <code>@src/index.ts</code>，系统自动将其转化为轻量引用芯片。模型在需要时能精准读取，比手动复制粘贴优雅太多。</p>\n\t</div>\n</div>\n\n<div class=\"doc-step-box\">\n\t<div class=\"doc-step-num\">🌐</div>\n\t<div class=\"doc-step-content\">\n\t\t<h4><code>@浏览器标签页</code>：引用正在浏览的真实网页</h4>\n\t\t<p>配合内置的 Page Picker 扩展，敲入 <code>@浏览器</code> 即可将当前在浏览器中查看的 API 文档、报错排查帖作为实时上下文送给 AI！</p>\n\t</div>\n</div>\n\n<div class=\"doc-step-box\">\n\t<div class=\"doc-step-num\">💬</div>\n\t<div class=\"doc-step-content\">\n\t\t<h4><code>@跨会话引用</code>：引用其他历史对话的成果</h4>\n\t\t<p>敲入 <code>@会话标题</code>，AI 可以调阅另一个专门负责架构设计的会话中的结论，实现多任务之间的知识贯通。</p>\n\t</div>\n</div>\n\n<div class=\"doc-step-box\">\n\t<div class=\"doc-step-num\">📚</div>\n\t<div class=\"doc-step-content\">\n\t\t<h4><code>@文档</code>：项目内置知识库与规范</h4>\n\t\t<p>直接引用项目中的 <code>README.md</code> 或 <code>docs/api.md</code>，让 AI 严格按照团队既定的开发规范进行编码。</p>\n\t</div>\n</div>\n\n<h2 id=\"quick-prompt-chips\">4. 快捷短语芯片栏 (Quick Prompt Chips)</h2>\n<p>在底部输入框上方，常驻着一行实底的小芯片标签：</p>\n<ul>\n\t<li><strong>排查报错</strong>：一键填入 <code>“请分析上述终端执行报错的根本原因，并给出最小修改方案”</code>；</li>\n\t<li><strong>补全单测</strong>：一键要求 AI 为刚才编写的函数自动补齐 Vitest / Jest 单元测试用例；</li>\n\t<li><strong>代码审查与优化</strong>：一键要求 AI 审查是否存在潜在内存泄漏或未处理的异常；</li>\n\t<li>你还可以在设置面板中自由增减、自定义你最常用的专属快捷短语！</li>\n</ul>\n",
-		"contentEn": "\n<h2 id=\"shortcuts-table\">1. Essential Keyboard Shortcuts</h2>\n<p>Boost your productivity with key combinations: <code>Ctrl + K</code> for fuzzy search, <code>Ctrl + Enter</code> to send, <code>Ctrl + &#96;</code> for the terminal drawer, and <code>Ctrl + B</code> for the file tree.</p>\n\n<h2 id=\"slash-commands\">2. Slash Commands</h2>\n<p>Type <code>/</code> in composer to switch models (<code>/model</code>), clear messages (<code>/clear</code>), reload settings (<code>/reload</code>), or export chats (<code>/export</code>).</p>\n\n<h2 id=\"at-mentions\">3. Powerful @ Mentions</h2>\n<p>Type <code>@</code> to quote project files (<code>@src/app.ts</code>), live browser tabs (<code>@browser</code>), past conversations (<code>@conv</code>), or markdown documents.</p>\n\n<h2 id=\"quick-prompt-chips\">4. Quick Prompt Chips</h2>\n<p>Click prompt chips above the composer to trigger one-click bug diagnosis, test writing, or code reviews.</p>\n"
-	},
-	{
-		"id": "subagents-and-delegation",
-		"group": "agent-modes",
-		"badge": "Chapter 11 · 核心亮点",
-		"icon": "🤖",
-		"navTitle": "11. 并发子代理与任务委派",
-		"navTitleEn": "11. Subagents & Delegation",
-		"title": "子代理系统 (Subagents)、六段式任务委派与防冲突排他锁",
-		"titleEn": "Subagents System, 6-Section Delegation & File Locking",
-		"summary": "告别单兵作战！让主代理运筹帷幄，派生多个专业子代理并行写前端、写后端与跑测试，配合六段式任务书与 claim_files 防并发冲突排他锁。",
-		"summaryEn": "Parallel multi-agent collaboration: spawn specialized subagents for frontend, backend and QA, guided by 6-section task briefs and claim_files mutual exclusion locks.",
-		"contentZh": "\n<h2 id=\"what-are-subagents\">1. 什么是子代理系统 (Subagents)？</h2>\n<p>在传统的 AI 编码工具中，AI 只能“单线程”地干活：写完前端，才能开始写后端；写完后端，才能去写测试。一旦遇到规模较大的重构，单次对话的上下文会迅速被海量日志占满，导致模型遗忘前文要求或发生幻觉。</p>\n\n<div class=\"doc-callout doc-callout-tip\">\n\t<strong>💡 多智能体军团协同作战</strong>\n\t<p>pi-web-ui 引入了完整的<strong>子代理系统 (Subagents)</strong>：主对话作为“架构总监”，可以根据项目需求并行派生（spawn）多个独立的专业后台子代理。每个子代理拥有<strong>独立的上下文窗口与工具执行环境</strong>，前端子代理、后端子代理与测试子代理同时全速推进！</p>\n</div>\n\n<figure class=\"doc-figure\">\n\t<img src=\"./assets/trajectory.jpeg\" alt=\"运行轨迹时间线与子代理执行\" />\n\t<figcaption>\n\t\t<strong>图 11.1 运行轨迹与子代理执行时间线：</strong>\n\t\t全景审查子代理思维链演进、工具调用轨迹、耗时统计与最终交付成果。\n\t</figcaption>\n</figure>\n\n<h2 id=\"six-section-delegation\">2. 六段式任务委派规范 (<code>delegate_task</code>)</h2>\n<p>为什么普通 AI 派生任务容易“跑偏”？因为口头指令缺乏严格边界。pi-web-ui 制定了标准化的<strong>六段式任务书</strong>，确保子代理领到任务后执行百分之百精准：</p>\n\n<div class=\"doc-step-box\">\n\t<div class=\"doc-step-num\">1</div>\n\t<div class=\"doc-step-content\">\n\t\t<h4>目标 (Goal)</h4>\n\t\t<p>极其明确的一句话核心业务诉求（例如：<code>“为购物车结算模块增加微信支付回调签名校验”</code>）。</p>\n\t</div>\n</div>\n\n<div class=\"doc-step-box\">\n\t<div class=\"doc-step-num\">2</div>\n\t<div class=\"doc-step-content\">\n\t\t<h4>约束条件 (Constraints)</h4>\n\t\t<p>严禁跨越的红线（例如：<code>“严禁修改现有数据库 Schema，严禁引入未在 package.json 声明的第三方依赖”</code>）。</p>\n\t</div>\n</div>\n\n<div class=\"doc-step-box\">\n\t<div class=\"doc-step-num\">3</div>\n\t<div class=\"doc-step-content\">\n\t\t<h4>输入上下文 (Context)</h4>\n\t\t<p>子代理开展工作所需的关键文件路径与前置设计文档列表。</p>\n\t</div>\n</div>\n\n<div class=\"doc-step-box\">\n\t<div class=\"doc-step-num\">4</div>\n\t<div class=\"doc-step-content\">\n\t\t<h4>实施策略 (Strategy)</h4>\n\t\t<p>推荐遵循的设计模式、函数拆分原则与异常处理规约。</p>\n\t</div>\n</div>\n\n<div class=\"doc-step-box\">\n\t<div class=\"doc-step-num\">5</div>\n\t<div class=\"doc-step-content\">\n\t\t<h4>交付物标准 (Deliverables)</h4>\n\t\t<p>明确列出需要创建或修改的具体文件路径（例如 <code>src/pay/wechat.ts</code> 与 <code>tests/wechat.spec.ts</code>）。</p>\n\t</div>\n</div>\n\n<div class=\"doc-step-box\">\n\t<div class=\"doc-step-num\">6</div>\n\t<div class=\"doc-step-content\">\n\t\t<h4>验证方案 (Verification)</h4>\n\t\t<p>子代理完工判定依据（例如：<code>“必须在终端运行 npm test wechat 并确保所有测试用例 100% 通过”</code>）。</p>\n\t</div>\n</div>\n\n<h2 id=\"claim-files-lock\">3. <code>claim_files</code> 文件排他锁：杜绝并发写入冲突</h2>\n<p>当多个子代理并行开发时，最危险的情况就是「子代理 A」和「子代理 B」同时修改同一个配置文件，导致代码互相踩踏覆盖：</p>\n\n<div class=\"doc-step-box\">\n\t<div class=\"doc-step-num\">🔒</div>\n\t<div class=\"doc-step-content\">\n\t\t<h4>声明式文件认领机制</h4>\n\t\t<p>子代理在动手修改代码前，必须先调用 <code>claim_files</code> 工具声明认领目标文件（如 <code>paths: [\"src/config.ts\"]</code>）。其他正在运行的子代理若尝试修改已被认领的文件，将被自动阻塞或收到协同警示，彻底保证并发安全性！</p>\n\t</div>\n</div>\n\n<h2 id=\"delegate-mode\">4. 审查者委派模式 (Delegate Mode)：主审从干</h2>\n<p>开启后本会话只审不干：用户输入自动派发给常驻执行会话。服务端硬闸门拦截一切写类工具（<code>write</code>/<code>edit</code>/<code>bash</code> 写命令）与派发工具（<code>delegate_task</code>/<code>schedule</code>/<code>subagent</code>），防模型绕开单执行会话；计划模式优先级高于委派。详见第 12 章 <a href=\"#delegate-mode\">§4</a> 顶层视角。</p>\n\n<h2 id=\"handoff-and-templates\">5. 模板库与点对点移交 (Handoff)</h2>\n<ul>\n\t<li><strong>预设专家模板库</strong>：工作台自带「代码审查专家」、「单元测试生成专家」、「重构优化专家」等成熟模板，开箱即用；</li>\n\t<li><strong>点对点接力移交 (Handoff)</strong>：前端子代理完成 UI 骨架后，可以直接将上下文与交付物 <code>handoff</code> 移交给接口联调子代理，形成流水线式的全自动流水作业。</li>\n</ul>\n",
-		"contentEn": "\n<h2 id=\"what-are-subagents\">1. What are Subagents?</h2>\n<p>Break free from single-thread prompts! The main agent orchestrates multiple concurrent subagents with isolated context windows, working on frontend, backend, and tests simultaneously.</p>\n<figure class=\"doc-figure\">\n\t<img src=\"./assets/trajectory.jpeg\" alt=\"Execution Trajectory & Subagents\" />\n\t<figcaption>\n\t\t<strong>Figure 11.1 Run Trajectory Timeline:</strong>\n\t\tFull inspection of subagent thought processes, tool call traces, and final deliverables.\n\t</figcaption>\n</figure>\n\n<h2 id=\"six-section-delegation\">2. Six-Section Task Brief</h2>\n<p>Tasks are rigorously structured: ① Goal ｜ ② Constraints ｜ ③ Context ｜ ④ Strategy ｜ ⑤ Deliverables ｜ ⑥ Verification.</p>\n\n<h2 id=\"claim-files-lock\">3. claim_files File Locks</h2>\n<p>Subagents claim target file paths before editing, preventing race conditions and file overwrite collisions across concurrent tasks.</p>\n\n<h2 id=\"handoff-and-templates\">4. Subagent Templates & Handoff</h2>\n<p>Utilize expert templates (Code Reviewer, Test Writer, Refactor Lead) and pass context from one subagent to another with <code>handoff</code>.</p>\n"
-	},
-	{
-		"id": "modes-guide",
-		"group": "agent-modes",
-		"badge": "Chapter 12",
-		"icon": "🎯",
-		"navTitle": "12. 目标模式与计划模式",
-		"navTitleEn": "12. Goal & Plan Modes",
-		"title": "三大高阶工程模式：目标模式 2.0、计划模式与审查模式",
-		"titleEn": "Advanced Modes: Goal Mode 2.0, Plan Mode & Delegate Mode",
-		"summary": "拒绝“改完就跑”的半拉子工程！详解双会话自治证据链审查（目标模式 2.0）、底层硬闸门只读规划（计划模式）与主审从干（审查模式）。",
-		"summaryEn": "Explore industrial engineering modes: Dual-session evidence-driven review (Goal Mode 2.0), hard-gated read-only planning (Plan Mode), and reviewer delegation.",
-		"contentZh": "\n<h2 id=\"why-engineering-modes\">1. 为什么需要高阶工程模式？</h2>\n<p>新手在日常使用 AI 写代码时，经常遇到两个让人抓狂的困境：</p>\n<ul>\n\t<li><strong>困境一：言过其实、改完就跑</strong>。AI 回复了一句“我已经为您修复了全部 Bug 并优化了逻辑”，结果你一运行，连页面都打不开，代码里满是类型报错；</li>\n\t<li><strong>困境二：鲁莽动手、破坏结构</strong>。你本想让 AI 帮你评估一下架构选型或做一次方案规划，AI 却一上来就调用写工具，把你原本写得好好的几十个文件改得面目全非。</li>\n</ul>\n<p>为了从工程机制上彻底杜绝这些问题，pi-web-ui 打造了三大专属工程模式：</p>\n\n<h2 id=\"goal-mode-2\">2. 目标模式 2.0 (Goal Mode 2.0)：双会话闭环证据链审查</h2>\n<p>点击底栏模式切换器的 <strong>「🎯 目标模式 2.0」</strong>，整个交互会进入严格的自治审查闭环：</p>\n\n<div class=\"doc-step-box\">\n\t<div class=\"doc-step-num\">👨‍⚖️</div>\n\t<div class=\"doc-step-content\">\n\t\t<h4>主会话化身“严苛审查官 (Reviewer)”</h4>\n\t\t<p>你所在的主对话不会直接动手写文件，而是扮演高标准的架构审查者，负责理解你的最终目标，并将任务拆解派发给后台常驻的落盘执行者。</p>\n\t</div>\n</div>\n\n<div class=\"doc-step-box\">\n\t<div class=\"doc-step-num\">🔨</div>\n\t<div class=\"doc-step-content\">\n\t\t<h4>后台独立“落盘执行者 (Executor)”</h4>\n\t\t<p>执行者在后台负责阅读代码、修改文件、调用终端运行单元测试与构建命令。</p>\n\t</div>\n</div>\n\n<div class=\"doc-step-box\">\n\t<div class=\"doc-step-num\">📜</div>\n\t<div class=\"doc-step-content\">\n\t\t<h4>不见运行证据，审查官绝不放行！</h4>\n\t\t<p>执行者改完代码后必须向主审查者提交包含<strong>终端真实运行日志、测试用例通过报告、打包无报错输出的完整证据链（Evidence）</strong>。审查官会逐行核对证据：若测试失败，立即无情打回要求其继续修复；唯有所有验收条件全部通过，才会向你宣告任务圆满完成！</p>\n\t</div>\n</div>\n\n<h2 id=\"plan-mode\">3. 计划模式 (Plan Mode)：先出详尽方案，确认后再动手</h2>\n<p>点击底栏模式切换器的 <strong>「📋 计划模式」</strong>，工作台底层会立即激活写操作硬闸门（事实源 <code>server/plan-mode.ts</code>，纯函数判定）：拦截 <code>write</code>/<code>edit</code> 等写工具、含写命令的 <code>bash</code>，以及 <code>spawn</code>/<code>delegate_task</code>/<code>schedule</code> 等旁路派发工具（防另起会话绕开只读约束）。AI 只能调用 <code>read</code>、<code>find</code>、<code>grep</code> 与只读 <code>bash</code>（如 <code>git status/diff/log</code>）做调研，产出走 <code>plan_update</code> 步骤看板 + 计划正文。</p>\n<p>审阅方案后点击计划看板 <strong>「🚀 开始实施」</strong> 解除只读保护进入实施；小需求可走短计划，不必先跑一轮看板。</p>\n\n<div class=\"doc-callout doc-callout-tip\">\n\t<strong>💡 绝对安全的只读沙盒探索</strong>\n\t<p>在计划模式下，系统在底层物理级剥离并拦截了 <code>write</code>、<code>edit</code> 等一切具备文件改动能力的写工具。AI 只能调用 <code>read</code>、<code>find</code>、<code>grep</code> 深入阅读你的整个代码库，并输出详尽的<strong>技术实施计划书、风险评估与模块改动清单</strong>。</p>\n</div>\n\n<p>你可以悠闲地审阅 AI 给出的方案，提出你的修改建议；当你对整套规划满意后，只需点击计划看板上的 <strong>「🚀 开始实施」</strong> 按钮，系统才会正式解除只读保护、进入编码实施阶段。</p>\n\n<h2 id=\"delegate-mode\">4. 审查者委派模式 (Delegate Mode)</h2>\n<p>主审从干：开启后本会话只审不干，用户输入自动派发给常驻执行会话；硬闸门拦截写操作与子代理派发，计划模式优先级高于委派。实现细节见第 11 章 <a href=\"#delegate-mode\">§4</a>。</p>\n",
-		"contentEn": "\n<h2 id=\"why-engineering-modes\">1. Why Engineering Modes?</h2>\n<p>Standard AI coding tools often suffer from \"hallucinated completion\" (claiming code is fixed without testing) or \"reckless overwrites\" (modifying files when only research was asked).</p>\n\n<h2 id=\"goal-mode-2\">2. Goal Mode 2.0 (Dual-Session Review)</h2>\n<p>Splits responsibility between a Reviewer (active chat) and an Executor (background). The Reviewer rejects any pull request until the Executor provides ironclad runtime evidence (e.g., passing tests, green linter).</p>\n\n<h2 id=\"plan-mode\">3. Plan Mode (Hard-Gated Read-Only)</h2>\n<p>Physically disables write/edit tools. The AI reads your repository and crafts a comprehensive blueprint. Click <strong>Start Implementation</strong> only when you approve.</p>\n\n<h2 id=\"delegate-mode\">4. Reviewer Delegate Mode</h2>\n<p>Main session reviews only; inputs dispatch to a resident executor. Hard gate blocks writes and subagent dispatch; plan mode takes precedence. See ch11 §4 for details.</p>\n"
-	},
-	{
-		"id": "tools-and-markers",
-		"group": "agent-modes",
-		"badge": "Chapter 13",
-		"icon": "🧰",
-		"navTitle": "13. 30+ 工具与内联标记",
-		"navTitleEn": "13. Tools & Markers",
-		"title": "30+ 内置与扩展工具全表、延迟加载与内联标记",
-		"titleEn": "30+ Built-in Tools, Lazy Loading & Inline Markers",
-		"summary": "揭秘 AI 的“双手”：核心读写编辑工具、缩进容错 edit_soft、LSP 语义分析、极速批处理 codemode、零破坏前缀缓存的延迟加载与内联标记。",
-		"summaryEn": "Explore the AI toolchain: robust file editors, indentation-tolerant edit_soft, LSP symbol inspection, codemode sandbox batching, lazy tool loading, and inline markers.",
-		"contentZh": "\n<h2 id=\"how-ai-uses-tools\">1. AI 是如何操作你的电脑的？</h2>\n<p>新手常常好奇：AI 究竟是如何帮你创建文件、修改代码、执行测试的？答案是：<strong>工具调用 (Tool Calling)</strong>。AI 并不直接改动文件，而是生成一段结构化参数，交由本地工作台执行并返回结果。</p>\n\n<h2 id=\"core-tools-overview\">2. 核心日常工具全览速查</h2>\n\n<div class=\"doc-table-wrap\">\n\t<table class=\"doc-table\">\n\t\t<thead>\n\t\t\t<tr>\n\t\t\t\t<th>工具名称</th>\n\t\t\t\t<th>主要用途</th>\n\t\t\t\t<th>新手使用建议</th>\n\t\t\t</tr>\n\t\t</thead>\n\t\t<tbody>\n\t\t\t<tr>\n\t\t\t\t<td><code>read</code></td>\n\t\t\t\t<td>读取指定文件内容或列出目录清单</td>\n\t\t\t\t<td>支持行号区间（offset/limit），读取大文件时自动分页保护</td>\n\t\t\t</tr>\n\t\t\t<tr>\n\t\t\t\t<td><code>write</code></td>\n\t\t\t\t<td>创建全新文件或整篇覆写现有文件</td>\n\t\t\t\t<td>适用于从零生成新组件、新配置文件或重写模板</td>\n\t\t\t</tr>\n\t\t\t<tr>\n\t\t\t\t<td><code>edit</code></td>\n\t\t\t\t<td>基于精确文本匹配替换指定代码块</td>\n\t\t\t\t<td>支持一次性提交多个互不重叠的代码修改段，保持原有风格</td>\n\t\t\t</tr>\n\t\t\t<tr>\n\t\t\t\t<td><code>edit_soft</code></td>\n\t\t\t\t<td>缩进与空格容错的高宽容度代码替换</td>\n\t\t\t\t<td>当跨操作系统（CRLF / LF）或缩进（Tab / 空格）混杂时自动抹平差异</td>\n\t\t\t</tr>\n\t\t\t<tr>\n\t\t\t\t<td><code>bash</code></td>\n\t\t\t\t<td>在当前环境或 SSH 远端执行 Shell 脚本</td>\n\t\t\t\t<td>透明打字回显到可见真终端中，可随时按 Ctrl+C 打断</td>\n\t\t\t</tr>\n\t\t\t<tr>\n\t\t\t\t<td><code>grep</code> / <code>find</code></td>\n\t\t\t\t<td>全仓库毫秒级正则搜索与文件名匹配</td>\n\t\t\t\t<td>自动遵循 <code>.gitignore</code> 过滤无用的 node_modules 与产物</td>\n\t\t\t</tr>\n\t\t\t<tr>\n\t\t\t\t<td><code>lsp</code></td>\n\t\t\t\t<td>调取语言服务器协议进行符号跳转与定义查找</td>\n\t\t\t\t<td>像 VSCode 一样精准定位函数实现位置与类型报错</td>\n\t\t\t</tr>\n\t\t\t<tr>\n\t\t\t\t<td><code>codemode</code></td>\n\t\t\t\t<td>在安全的 QuickJS 沙盒中并发批处理多项工具</td>\n\t\t\t\t<td>一次性批量改动数十个文件，耗时比逐个轮询缩短 70% 以上</td>\n\t\t\t</tr>\n\t\t</tbody>\n\t</table>\n</div>\n\n<h2 id=\"lazy-loading-architecture\">3. 延迟加载 (Lazy Loading)：硬核前缀缓存保护</h2>\n<p>绝大多数工具把数十个工具说明全塞进首句系统提示词，白白吃掉 4000+ Token 并破坏厂商 Prompt Cache。<code>{{tools}}</code> 目录保持完整恒定、新工具要点随 <code>load_tools</code> 回执进入对话、注册表只追加不修改（事实源 <code>server/tool-manager.ts</code>，<code>PI_WEB_TOOL_LAZY_LOADING</code> 默认 <code>0</code> 关闭、设 <code>1</code> 开启）。</p>\n\n<div class=\"doc-callout doc-callout-tip\">\n\t<strong>💡 pi-web-ui 的延迟加载机制</strong>\n\t<p>系统默认关闭延迟加载（<code>PI_WEB_TOOL_LAZY_LOADING</code> 默认 <code>0</code>，与 pi 命令行一致全量挂载；设为 <code>1</code> 则开启）：</p>\n\t<ul>\n\t\t<li>基础读写命令始终保持在精简目录中，前缀完全恒定不变，<strong>享受各大厂商高达 50%~90% 的 Prompt Cache 命中折扣</strong>；</li>\n\t\t<li>当 AI 遇到需要高级功能（如 <code>browser_page</code> 浏览器操控、<code>lsp</code> 诊断）时，才通过 <code>load_tools</code> 动态挂载该工具，兼具超高扩展性与极低成本。</li>\n\t</ul>\n</div>\n\n<h2 id=\"inline-markers\">4. 内联标记 (Inline Markers)：交互式按钮一键生成</h2>\n<p>在日常对话中，你会发现 AI 回复的末尾经常会出现几个漂亮的<strong>圆角动作按钮（建议芯片）</strong>，或者会话标题被自动提炼为一个简练名字。这是由内置的内联标记驱动的：</p>\n\n<div class=\"doc-grid-2\">\n\t<div class=\"doc-card\">\n\t\t<h4><code>[[action:suggest:...]]</code></h4>\n\t\t<p>AI 在给出结论后，可自动生成后续行动建议按钮（如 <code>[运行测试]</code>、<code>[提交到 Git]</code>），用户只需用鼠标点一下按钮即可瞬间将对应指令发送出去，省去打字功夫！</p>\n\t</div>\n\t<div class=\"doc-card\">\n\t\t<h4><code>[[conv:rename:...]]</code></h4>\n\t\t<p>在理解了你提出的需求后，AI 可在第一轮自动将默认的“新会话”优雅重命名为语义清晰的标题（例如“重构微信支付模块”），方便日后查阅。</p>\n\t</div>\n</div>\n",
-		"contentEn": "\n<h2 id=\"how-ai-uses-tools\">1. How AI Uses Tools</h2>\n<p>AI interacts with your system through structured tool calls executed locally or on remote SSH servers.</p>\n\n<h2 id=\"core-tools-overview\">2. Core Tools Summary</h2>\n<p>Includes file I/O (<code>read</code>, <code>write</code>), precise editing (<code>edit</code>), indentation-tolerant editing (<code>edit_soft</code>), grep/find, shell execution (<code>bash</code>), language server symbols (<code>lsp</code>), and batch sandboxing (<code>codemode</code>).</p>\n\n<h2 id=\"lazy-loading-architecture\">3. Lazy Loading & Cache Protection</h2>\n<p>By keeping initial schemas lean, <code>PI_WEB_TOOL_LAZY_LOADING</code> protects provider prompt cache prefixes and cuts token waste by thousands per turn.</p>\n\n<h2 id=\"inline-markers\">4. Inline Markers</h2>\n<p>AI renders interactive next-action buttons (<code>[[action:suggest:...]]</code>) and auto-renames conversations (<code>[[conv:rename:...]]</code>) seamlessly.</p>\n"
-	},
-	{
-		"id": "mcp-and-browser",
-		"group": "agent-modes",
-		"badge": "Chapter 14",
-		"icon": "🔌",
-		"navTitle": "14. MCP 工具与浏览器控制",
-		"navTitleEn": "14. MCP & Browser",
-		"title": "MCP 服务器管理、公开市场检索与真实浏览器控制",
-		"titleEn": "Model Context Protocol (MCP) & Browser Automation",
-		"summary": "让 AI 像插拔 USB 设备一样接入全世界的工具与数据源：支持 Stdio / SSE / HTTP MCP 一键接入、市场搜索，以及直接控制浏览器抓取与测试。",
-		"summaryEn": "Connect AI to universal tools via Model Context Protocol (Stdio, SSE, HTTP), search the public MCP registry, and automate real browser page interactions.",
-		"contentZh": "\n<h2 id=\"what-is-mcp\">1. 什么是 MCP (Model Context Protocol)？</h2>\n<p><strong>Model Context Protocol (MCP)</strong> 是由开源生态与各大模型厂商共同推崇的通用工具接入协议。以往你想让 AI 连接公司内部的数据库、拉取 GitHub Issue 或调用天气查询接口，需要给每个工具单独写适配代码；而现在，只要该工具提供了 MCP 服务，AI 就可以<strong>像插入一个标准 USB 拓展坞一样直接使用它</strong>！</p>\n\n<h2 id=\"managing-mcp-servers\">2. 可视化接入与管理 MCP 服务器</h2>\n<p>在设置面板中切换至 <strong>「MCP 服务器」</strong> 标签页，支持直接配置两类标准服务：</p>\n\n<div class=\"doc-grid-2\">\n\t<div class=\"doc-card\">\n\t\t<h4>💻 本地子进程 (Stdio Transport)</h4>\n\t\t<p>适用于本地安装的 CLI 工具包。例如连接 SQLite 数据库或本地文件系统服务：</p>\n\t\t<pre><code class=\"language-json\">{\n  \"sqlite-db\": {\n    \"command\": \"npx\",\n    \"args\": [\"-y\", \"@modelcontextprotocol/server-sqlite\", \"--db-path\", \"./data.db\"]\n  }\n}</code></pre>\n\t</div>\n\t<div class=\"doc-card\">\n\t\t<h4>🌐 远程云端服务 (SSE / Streamable HTTP)</h4>\n\t\t<p>适用于局域网或远程云服务器部署的 MCP 服务。只需填入服务 URL（如 <code>http://192.168.1.50:8000/sse</code>），支持自定义鉴权 Headers，一键连通远程企业知识库。</p>\n\t</div>\n</div>\n\n<div class=\"doc-callout doc-callout-tip\">\n\t<strong>💡 热重载支持，无需重启主服务！</strong>\n\t<p>修改或新增 MCP 配置后，点击界面上的「立即重载」按钮，工作台会在后台毫秒级与各 MCP 节点重新握手并注册工具，绝不打断正在进行的对话。</p>\n</div>\n\n<h2 id=\"public-mcp-registry\">3. 在线检索与一键安装公开 MCP 工具</h2>\n<p>内置了与官方 MCP 清单同步的搜索界面。敲入关键词（例如 <code>github</code>、<code>postgres</code>、<code>slack</code>、<code>puppeteer</code>），即可查看工具介绍、星标数与作者，点击即可自动填入配置模板，新手免去手动写 JSON 的烦恼。</p>\n\n<h2 id=\"browser-page-control\">4. 真实浏览器页面控制 (Browser Page & Page Picker)</h2>\n<p>前端开发常常需要验证网页在浏览器中的实际呈现效果、抓取外部 API 文档或复现前端报错。pi-web-ui 提供了强大的浏览器联动能力：</p>\n\n<div class=\"doc-step-box\">\n\t<div class=\"doc-step-num\">🌐</div>\n\t<div class=\"doc-step-content\">\n\t\t<h4>标签页拾取与实时对话引用 (Page Picker)</h4>\n\t\t<p>通过工作台扩展，你可以直接在输入框敲入 <code>@浏览器</code> 拾取你正在查看的任何网页标签页。AI 可以直接读取该标签页渲染后的真实 DOM 树与控制台日志，精准定位样式层叠冲突或脚本报错。</p>\n\t</div>\n</div>\n\n<div class=\"doc-step-box\">\n\t<div class=\"doc-step-num\">🤖</div>\n\t<div class=\"doc-step-content\">\n\t\t<h4>无头浏览器自动化操作 (<code>browser_page</code>)</h4>\n\t\t<p>AI 可以自主调用内置的无头浏览器引擎，执行以下动作：</p>\n\t\t<ul>\n\t\t\t<li><strong>打开指定网址</strong>并抓取动态渲染后的页面结构；</li>\n\t\t\t<li><strong>自动截屏</strong>并回传给视觉分析工具检查排版瑕疵；</li>\n\t\t\t<li><strong>模拟点击、输入表单与滚动</strong>，自动化完成端到端 (E2E) 流程回归测试。</li>\n\t\t</ul>\n\t</div>\n</div>\n",
-		"contentEn": "\n<h2 id=\"what-is-mcp\">1. What is Model Context Protocol (MCP)?</h2>\n<p>MCP standardizes how LLMs interact with external databases, APIs, and microservices like plugging USB devices into your workbench.</p>\n\n<h2 id=\"managing-mcp-servers\">2. Managing MCP Servers</h2>\n<p>Configure local stdio commands (e.g. SQLite, GitHub, Filesystem) or remote SSE endpoints directly in settings with instant hot-reloading.</p>\n\n<h2 id=\"public-mcp-registry\">3. Public MCP Registry Search</h2>\n<p>Search and install community MCP servers in seconds right from the settings modal.</p>\n\n<h2 id=\"browser-page-control\">4. Browser Automation & Page Picker</h2>\n<p>Pick active browser tabs into context with <code>@browser</code>, or let AI launch headless browsers to inspect DOMs, capture full-page screenshots, and run automated E2E tests.</p>\n"
-	},
-	{
-		"id": "bg-tasks-and-scheduler",
-		"group": "agent-modes",
-		"badge": "Chapter 15",
-		"icon": "⏳",
-		"navTitle": "15. 后台长任务与调度器",
-		"navTitleEn": "15. Bg Tasks & Scheduler",
-		"title": "后台长任务管家与定时/延时自动唤醒调度器",
-		"titleEn": "Background Long-Running Tasks & Scheduled Wake-Up",
-		"summary": "常驻开发服务器不再阻塞对话！后台长任务日志实时查看、一键重启与销毁，配合 schedule_task 让 AI 定时或延时自动唤醒干活。",
-		"summaryEn": "Manage persistent servers (npm run dev, python server) without blocking chat. Real-time log inspection, process management, and schedule_task automation.",
-		"contentZh": "\n<h2 id=\"why-background-tasks\">1. 为什么你需要“后台长任务管家”？</h2>\n<p>在编写全栈应用时，我们经常需要启动持续常驻的服务，例如 <code>npm run dev</code>、<code>python manage.py runserver</code>、<code>docker compose up</code> 或是持续监听文件的构建工具。而在普通 AI 工具中，一旦执行这类前台常驻命令：</p>\n<ul>\n\t<li>命令永远不会自动退出，导致整个 AI 对话和终端彻底卡死挂起；</li>\n\t<li>或者工具超时报错中止，把正在跑的开发服务器给强行杀掉了。</li>\n</ul>\n\n<div class=\"doc-callout doc-callout-tip\">\n\t<strong>💡 pi-web-ui 后台长任务管家 (BgTasks)</strong>\n\t<p>系统自动将常驻监听命令转入<strong>后台受控守护进程池</strong>中运行。会话绝不阻塞，你可以一边与 AI 畅聊修改代码，一边让前端开发服务器在后台持续热重载！</p>\n</div>\n\n<h2 id=\"manage-background-tasks\">2. 后台任务控制台实操 (BgTasksModal)</h2>\n<p>点击底栏的齿轮或快捷图标，可随时唤起 <strong>「后台长任务管理器」</strong>：</p>\n\n<div class=\"doc-grid-2\">\n\t<div class=\"doc-card\">\n\t\t<h4>📋 运行中进程全景清单</h4>\n\t\t<p>清晰显示所有由你或 AI 启动的后台服务：进程 PID、启动命令、工作目录、运行持续时间与内存消耗一清二楚。</p>\n\t</div>\n\t<div class=\"doc-card\">\n\t\t<h4>📜 独立实时日志视窗</h4>\n\t\t<p>单击任意任务，即可弹窗查看该服务的标准输出（stdout）与错误输出（stderr）日志流，支持自动滚屏与日志检索。</p>\n\t</div>\n\t<div class=\"doc-card\">\n\t\t<h4>🔄 一键优雅重启 / 彻底销毁</h4>\n\t\t<p>服务改动后需要重启？点击「重启」按钮无缝重载；不再需要时点击红色「终止」按钮，系统会递归清理进程树，绝不残留孤儿进程。</p>\n\t</div>\n\t<div class=\"doc-card\">\n\t\t<h4>🛡️ 自动活力看门狗</h4>\n\t\t<p>如果后台任务由于端口冲突或语法错误意外崩溃，系统会立即在聊天界面右下角弹出轻量通知提醒你排查。</p>\n\t</div>\n</div>\n\n<h2 id=\"schedule-tasks-automation\">3. 定时与延时自动唤醒 (<code>schedule_task</code>)</h2>\n<p>除了手动触发对话，pi-web-ui 还支持让 AI 具备<strong>时间感知与自我定时唤醒能力</strong>：</p>\n\n<div class=\"doc-step-box\">\n\t<div class=\"doc-step-num\">⏰</div>\n\t<div class=\"doc-step-content\">\n\t\t<h4>延时执行任务</h4>\n\t\t<p>例如对 AI 说：<code>“我刚启动了一个需要跑 20 分钟的数据训练脚本，请在 20 分钟后自动唤醒检查日志，确认训练是否收敛。”</code> AI 会自动调用 <code>schedule_task</code> 注册一个延时任务，倒计时结束系统会自动唤醒会话并替你核验结果！</p>\n\t</div>\n</div>\n\n<div class=\"doc-step-box\">\n\t<div class=\"doc-step-num\">📅</div>\n\t<div class=\"doc-step-content\">\n\t\t<h4>Cron 周期性定时巡检</h4>\n\t\t<p>支持配置标准的 Cron 表达式（例如每天凌晨 2 点、或每隔 4 小时），让 AI 周期性自动巡检代码库是否有依赖安全漏洞、更新文档或备份数据库。</p>\n\t</div>\n</div>\n\n<div class=\"doc-callout doc-callout-warn\">\n\t<strong>🔒 远期定时器溢出防死循环保护：</strong>\n\t<p>Node.js 原生 <code>setTimeout</code> 超过 24.8 天（2^31-1 ms）会发生整型溢出导致瞬间触发。pi-web-ui 底层采用了分片时间轮算法（armDelay），即便设置几个月后的调度任务也能稳健分片休眠，绝无资源泄漏隐患。</p>\n</div>\n",
-		"contentEn": "\n<h2 id=\"why-background-tasks\">1. Why Background Tasks?</h2>\n<p>Development servers like <code>npm run dev</code> or <code>vite</code> must run continuously without hanging your active chat session.</p>\n\n<h2 id=\"manage-background-tasks\">2. Background Task Manager</h2>\n<p>Inspect active background processes, view live streaming stdout/stderr logs, restart servers with one click, and terminate process trees cleanly without orphaned processes.</p>\n\n<h2 id=\"schedule-tasks-automation\">3. Scheduled Tasks (<code>schedule_task</code>)</h2>\n<p>Let AI set delayed alarms (e.g. \"Check test status after 15 minutes\") or recurring Cron triggers for repo health checks and build monitoring.</p>\n"
-	},
-	{
-		"id": "approval-and-security",
-		"group": "agent-modes",
-		"badge": "Chapter 16",
-		"icon": "🛡️",
-		"navTitle": "16. 工具审批与安全防线",
-		"navTitleEn": "16. Approval & Security",
-		"title": "三级工具审批门禁与六大安全边界设计",
-		"titleEn": "Three-Tier Tool Approval Gates & Core Security Boundaries",
-		"summary": "保障你的代码库与电脑环境绝对安全：详解 approval-rules 规则库、三级放行记忆、高危 Shell 红色告警，以及默认 Loopback 等六大底层安全边界。",
-		"summaryEn": "Keep your machine and codebase safe: 3-tier approval rules, high-risk bash alerts, local loopback defaults, and token security boundaries.",
-		"contentZh": "\n<h2 id=\"why-security-matters\">1. 新手的安全顾虑：AI 会毁坏我的电脑吗？</h2>\n<p>很多新手不敢给 AI 开放终端或写入权限。在 pi-web-ui 中，每次副作用调用（终端、覆写文件、网络请求）都过审批门禁（事实源 <code>server/tool-approval.ts</code>，规则库 <code>&lt;dataDir&gt;/approval-rules.json</code>，记忆只在内存、随会话过户搬迁）：</p>\n\n<h2 id=\"three-tier-approval\">2. 三级工具审批门禁 (Tool Approval Gates)</h2>\n<p>系统为每一个可能产生副作用的工具调用（如执行终端命令、覆写文件、发起网络请求）设立了清晰的三级门禁机制：</p>\n\n<div class=\"doc-step-box\">\n\t<div class=\"doc-step-num\">1</div>\n\t<div class=\"doc-step-content\">\n\t\t<h4>逐次询问确认 (Ask) · 默认推荐档位</h4>\n\t\t<p>当 AI 试图执行 Shell 命令或改写重要文件时，界面会自动弹出<strong>悬浮审批卡片</strong>，清晰罗列出将要执行的命令文本或文件改动 Diff。只有你手动点击「允许」后，工具才会真正执行；点击「拒绝」则立即向 AI 返回用户取消提示。</p>\n\t</div>\n</div>\n\n<div class=\"doc-step-box\">\n\t<div class=\"doc-step-num\">2</div>\n\t<div class=\"doc-step-content\">\n\t\t<h4>同类工具记忆放行 (Remember Allow)</h4>\n\t\t<p>在审批弹窗中勾选「在本会话中记住此选择」后，当前会话后续调用同一类安全工具（例如普通的读取或测试命令）将自动放行，无需频繁点击确认，兼顾效率与安全。</p>\n\t</div>\n</div>\n\n<div class=\"doc-step-box\">\n\t<div class=\"doc-step-num\">3</div>\n\t<div class=\"doc-step-content\">\n\t\t<h4>全局严苛拒绝 (Deny)</h4>\n\t\t<p>可在规则库中将某些敏感工具（例如 <code>bash</code> 或外部网络访问）一键设置为永久拒绝，杜绝任何外部命令执行的可能性。</p>\n\t</div>\n</div>\n\n<h2 id=\"high-risk-bash-alerts\">3. 高危 Shell 脚本红色醒目预警</h2>\n<p>内置的命令安全审计引擎会在后台毫秒级分析即将执行的 Shell 语句：</p>\n<ul>\n\t<li>如果发现包含 <code>rm -rf</code>、格式化磁盘、删除数据库、强行推送 <code>git push -f</code> 或覆写系统系统级配置的命令，<strong>审批卡片会自动变为高饱和红色高亮，并附带醒目的风险警告提示</strong>；</li>\n\t<li>新手可以一眼看出潜在危害，避免手滑误点。</li>\n</ul>\n\n<h2 id=\"six-security-boundaries\">4. 六大底层安全架构设计</h2>\n\n<div class=\"doc-grid-2\">\n\t<div class=\"doc-card\">\n\t\t<h4>🔒 1. 默认仅监听本地回环 (127.0.0.1)</h4>\n\t\t<p>未经显式配置 <code>--host 0.0.0.0</code>，外部局域网任何设备均无法扫描或连接到你的开发端口，默认完全封闭在你的本机内部。</p>\n\t</div>\n\t<div class=\"doc-card\">\n\t\t<h4>🔑 2. API Key 与凭据永不下发浏览器</h4>\n\t\t<p>你配置的所有大模型 API Key 与 SSH 密钥仅由服务端进程安全持有，下发给前端界面的快照流中绝不包含任何敏感密钥文本，杜绝 XSS 泄密。</p>\n\t</div>\n\t<div class=\"doc-card\">\n\t\t<h4>🛡️ 3. WebSocket 来源严格校验</h4>\n\t\t<p>全双工 WS 连接在握手阶段自动核验 Origin 与 Host 头，有效防御跨站 WebSocket 劫持 (CSWSH) 攻击。</p>\n\t</div>\n\t<div class=\"doc-card\">\n\t\t<h4>📁 4. 严禁工作区根绑定家目录</h4>\n\t\t<p>安全策略严格拦截将操作系统的 <code>$HOME</code> 或根目录 <code>/</code> 作为工作区，防止遍历扫描导致系统挂死或隐私泄露。</p>\n\t</div>\n\t<div class=\"doc-card\">\n\t\t<h4>🍪 5. 安全 Token Cookie 防重放</h4>\n\t\t<p>启用密码访问时，口令经过严格的 URL 解码与比对，存储在带 HttpOnly 标志的 Cookie 中，会话安全可控。</p>\n\t</div>\n\t<div class=\"doc-card\">\n\t\t<h4>⏪ 6. 工作区自动快照秒级容灾</h4>\n\t\t<p>配合第 04 章详解的快照回滚机制，即便 AI 执行了错误的代码变动，你随时都可以一键精确还原工作区文件。</p>\n\t</div>\n</div>\n",
-		"contentEn": "\n<h2 id=\"why-security-matters\">1. Why Security Matters</h2>\n<p>Never worry about AI running dangerous commands like <code>rm -rf /</code> or overwriting uncommitted code.</p>\n\n<h2 id=\"three-tier-approval\">2. Three-Tier Approval Gates</h2>\n<p>Choose between Ask (prompt every dangerous tool), Remember (whitelist within active session), or Deny (block permanently).</p>\n\n<h2 id=\"high-risk-bash-alerts\">3. High-Risk Bash Red Alerts</h2>\n<p>Dangerous scripts containing forced pushes, file deletions, or system directory writes trigger high-contrast red warning banners.</p>\n\n<h2 id=\"six-security-boundaries\">4. Six Core Security Boundaries</h2>\n<p>Default 127.0.0.1 loopback binding, zero client-side API key exposure, WebSocket origin validation, and root workspace guards.</p>\n"
-	},
-	{
-		"id": "dual-engines-and-presets",
-		"group": "extensibility",
-		"badge": "Chapter 17",
-		"icon": "🔄",
-		"navTitle": "17. 双引擎与预设分享",
-		"navTitleEn": "17. Engines & Presets",
-		"title": "双引擎协同 (pi & DSH)、OAuth 登录与社区预设共享",
-		"titleEn": "Dual Engines (pi & DSH), OAuth Login & Community Presets",
-		"summary": "无缝切换 pi 原生引擎与 DeepSeek Harness (DSH)、主流提供商 OAuth 一键免密授权，以及四道安全闸门的设置预设导入、导出与社区共享。",
-		"summaryEn": "Seamlessly toggle between the native pi engine and DeepSeek Harness (DSH), authenticate via OAuth, and share clean settings presets safely.",
-		"contentZh": "\n<h2 id=\"dual-engines-comparison\">1. 什么是“双引擎架构”？</h2>\n<p>不同于大多数绑定单一后端的 AI 工具，pi-web-ui 创新地实现了<strong>双引擎双轨驱动</strong>架构，满足不同场景下的极致需求：</p>\n\n<div class=\"doc-grid-2\">\n\t<div class=\"doc-card\">\n\t\t<h4>🚀 引擎一：pi 原生引擎 (默认推荐)</h4>\n\t\t<p>基于 <code>@earendil-works/pi-coding-agent</code> SDK 打造。功能版图最完整：原生支持 30+ 扩展工具、子代理并发委派、真 PTY 终端接管、工作区快照回滚与软上限压缩（Soft Cap）。</p>\n\t</div>\n\t<div class=\"doc-card\">\n\t\t<h4>⚡ 引擎二：DeepSeek Harness (DSH) 引擎</h4>\n\t\t<p>针对 DeepSeek 深度优化。采用创新的预设克隆隔离机制，专为高强度推理链与代码快速打字调优，底栏实时呈现 Token 吞吐与直播统计。</p>\n\t</div>\n</div>\n\n<p>你可以在设置面板中随时一键平滑切换当前会话所使用的底层引擎，原有历史对话与工作区文件丝毫无损。</p>\n\n<h2 id=\"oauth-one-click-login\">2. 提供商 OAuth 一键免密授权</h2>\n<p>新手往往觉得去各个模型平台注册账号、充值、寻找 API Key 页面很繁琐。工作台集成了主流 AI 提供商的 <strong>OAuth 一键登录</strong>功能：</p>\n\n<p>导出即得 <code>.json</code>；导入先 <code>dryRun</code> 预览，白名单外字段自动丢弃。</p>\n\n<h2 id=\"community-presets-hub\">4. 社区预设中心：一键浏览与应用</h2>\n<p>工作台内置了官方维护的 <strong>社区预设浏览中心 (Community Presets)</strong>：</p>\n<ul>\n\t<li>在此可一键浏览来自全球资深开发者分享的热门配置；</li>\n\t<li>涵盖「全栈开发专家预设」、「Rust 严谨代码审查预设」、「轻量级前端极速预设」等；</li>\n\t<li>找到心仪的配置，点击「一键应用」即可瞬间加载，小白也能瞬间拥有技术大佬的顶级调校！</li>\n</ul>\n",
-		"contentEn": "\n<h2 id=\"dual-engines-comparison\">1. Dual-Engine Architecture</h2>\n<p>Switch between the full-featured <strong>pi engine</strong> (supporting subagents, PTY bash takeover, and snapshots) and the <strong>DSH engine</strong> (fine-tuned for DeepSeek reasoning speed).</p>\n\n<h2 id=\"oauth-one-click-login\">2. OAuth One-Click Login</h2>\n<p>Connect official model providers through secure browser OAuth authorization without manually pasting long API key strings.</p>\n\n<h2 id=\"presets-import-export\">3. Settings Presets & Four-Gate Sanitization</h2>\n<p>Export prompts and layouts to JSON. Imports pass <code>server/preset-share.ts</code> whitelist sanitization (unknown fields dropped) with <code>dryRun</code> preview before applying.</p>\n\n<h2 id=\"community-presets-hub\">4. Community Presets Hub</h2>\n<p>Browse community-curated presets (Full-Stack Pro, Rust Reviewer, Minimalist Frontend) and apply them with one click.</p>\n"
-	},
-	{
-		"id": "ui-customization-and-export",
-		"group": "extensibility",
-		"badge": "Chapter 18",
-		"icon": "🎨",
-		"navTitle": "18. 界面定制与长图导出",
-		"navTitleEn": "18. UI Customization",
-		"title": "界面深度定制：33 插槽布局、个性壁纸、长图导出与声音",
-		"titleEn": "UI Customization: 33-Slot Layout, Wallpapers, Image Export & I18n",
-		"summary": "打造属于你的专属极客工作台：33 个 UI 扩展插槽自由拖拽、自定义毛玻璃壁纸、对话一键生成高清长图卡片、中英双语核心 + 12 个语言包与任务完成声音提示。",
-		"summaryEn": "Customize your cockpit: drag-and-drop 33 UI slots, frosted glass wallpapers, high-res chat poster export, 10 languages, and completion chime sounds.",
-		"contentZh": "\n<h2 id=\"ui-slots-layout\">1. 33 个 UI 插槽：按你的习惯重新编排界面</h2>\n<p>每个开发者的操作习惯都不一样：有人喜欢顶栏干干净净，有人喜欢把终端和 Git 按钮放在最显眼的位置。pi-web-ui 将整个界面的各个交互区域抽象为 <strong>33 个原子级 UI 插槽</strong>：</p>\n\n<div class=\"doc-step-box\">\n\t<div class=\"doc-step-num\">🧩</div>\n\t<div class=\"doc-step-content\">\n\t\t<h4>可视化拖拽与显隐开关</h4>\n\t\t<p>进入「设置 → 界面排布」面板，你可以像搭积木一样自由拖拽调整顶栏图标、底栏芯片与侧边按钮的相对顺序；暂时用不到的模块点击眼睛图标即可一键隐藏，享受极致纯粹的沉浸编码体验。</p>\n\t</div>\n</div>\n\n<h2 id=\"custom-wallpapers\">2. 自定义个性壁纸与毛玻璃磨砂效果</h2>\n<p>告别千篇一律的单调黑白配色！工作台支持强大的视觉自定义系统：</p>\n\n<div class=\"doc-grid-2\">\n\t<div class=\"doc-card\">\n\t\t<h4>🖼️ 上传你最爱的专属壁纸</h4>\n\t\t<p>支持将任何本地图片或网络图片 URL 设为背景壁纸（支持二次元插画、极简自然风光或科幻宇宙）。</p>\n\t</div>\n\t<div class=\"doc-card\">\n\t\t<h4>✨ 半透明毛玻璃与磨砂度微调</h4>\n\t\t<p>精准调节窗口面板的透明度（Opacity）与背景模糊度（Backdrop Blur），让代码高亮和文字优雅漂浮在壁纸之上，赏心悦目。</p>\n\t</div>\n</div>\n\n<h2 id=\"long-image-export\">3. 一键生成高清长图卡片 (Share Poster)</h2>\n<p>当你和 AI 共同攻克了一道架构难题、或者推导出了一段优美的核心算法，想要分享给同事或发到社交平台时：</p>\n\n<div class=\"doc-callout doc-callout-tip\">\n\t<strong>💡 告别多段拼图！一键渲染高清美化长图</strong>\n\t<p>点击消息操作栏的「导出长图」按钮，或直接在输入框键入 <code>/export</code>：系统会自动抓取所选轮次的对话内容与代码高亮，生成一张带有<strong>精致圆角、渐变阴影与元数据徽章的高清长图海报</strong>，支持一键复制到剪贴板或下载 PNG 格式图片！</p>\n</div>\n\n<h2 id=\"i18n-and-sound-synth\">4. 中英双语核心 + 12 个语言包与环境音效提醒</h2>\n\n<div class=\"doc-step-box\">\n\t<div class=\"doc-step-num\">🌐</div>\n\t<div class=\"doc-step-content\">\n\t\t<h4>全界面中英双语核心 + 12 个语言包无缝切换</h4>\n\t\t<p>系统内置完整的国际化翻译词典，中英双语核心开箱即用，另有日本語、한국어、Deutsch、Français、Español 等 12 个语言包（locales/*.json，缺 key 回落英文），点击顶栏地球图标瞬间切换，无任何刷新卡顿。</p>\n\t</div>\n</div>\n\n<div class=\"doc-step-box\">\n\t<div class=\"doc-step-num\">🔔</div>\n\t<div class=\"doc-step-content\">\n\t\t<h4>Web Audio 智能声效提醒</h4>\n\t\t<p>当子代理完成复杂的大型重构任务、或自动化测试全部跑通时，内置的 Web Audio 声音合成器会自动播放清脆悦耳的提示音，让你在后台挂机干别的事时也能第一时间知晓结果！</p>\n\t</div>\n</div>\n",
-		"contentEn": "\n<h2 id=\"ui-slots-layout\">1. 33-Slot Layout Customization</h2>\n<p>Reorder top bar icons, bottom metrics, and dock buttons with visual drag-and-drop. Hide unused buttons for a distraction-free experience.</p>\n\n<h2 id=\"custom-wallpapers\">2. Custom Wallpapers & Frosted Glass</h2>\n<p>Upload your favorite wallpaper and dial in blur/opacity controls so code flows gracefully over customized backgrounds.</p>\n\n<h2 id=\"long-image-export\">3. One-Click High-Res Long Image Export</h2>\n<p>Type <code>/export</code> to capture your conversation into a beautiful long poster with syntax highlighting and drop shadows.</p>\n\n<h2 id=\"i18n-and-sound-synth\">4. 10 Locales & Sound Notifications</h2>\n<p>Switch between 12 language packs seamlessly. Web Audio chimes notify you when long tasks finish in background tabs.</p>\n"
-	},
-	{
-		"id": "plugins-marketplace",
-		"group": "extensibility",
-		"badge": "Chapter 19",
-		"icon": "🧩",
-		"navTitle": "19. 插件市场与实用精选",
-		"navTitleEn": "19. Plugins Marketplace",
-		"title": "插件生态全景与 39 款实用官方/社区插件盘点",
-		"titleEn": "Plugins Ecosystem & Top 39 Official/Community Plugins",
-		"summary": "让工作台能力无限延伸：涵盖 VSCode 编辑器、可视化数据库客户端、手机微信通道、Live Server 实时预览、Mermaid 流程图、桌面自动化等 39 款高频插件。",
-		"summaryEn": "Extend your workbench: 39 pre-packaged plugins including VSCode editor, Database client, WeChat bridge, Live Server preview, Mermaid diagram renderer, and desktop automation.",
-		"contentZh": "\n<h2 id=\"why-plugins-matter\">1. 为什么需要插件生态？</h2>\n<p>每个开发者的业务场景截然不同：前端工程师需要实时网页预览，后端工程师离不开数据库查询，运维人员需要监控服务器进程。pi-web-ui 拥有基于 <strong>Plugin SDK v2</strong> 打造的开放插件体系，让工作台成为你定制化的研发中枢。</p>\n\n<h2 id=\"top-featured-plugins\">2. 官方精选高频实用插件一览 (现已拓展至 39 款)</h2>\n\n<div class=\"doc-grid-2\">\n\t<div class=\"doc-card\">\n\t\t<h4>💻 VSCode 编辑器 (<code>vscode-editor</code>)</h4>\n\t\t<p>在右侧文件工作台内直接嵌入轻量级 VSCode 编辑器，支持多标签页、语法高亮、智能缩进与就地保存，无需频繁切换外部编辑器。</p>\n\t</div>\n\t<div class=\"doc-card\">\n\t\t<h4>🗄️ 数据库客户端 (<code>db-client</code>)</h4>\n\t\t<p>无需安装 Navicat 或 DBeaver！可视化连接 MySQL、PostgreSQL 与 SQLite 数据库，一键浏览表结构、执行 SQL 查询并导出数据。</p>\n\t</div>\n\t<div class=\"doc-card\">\n\t\t<h4>📱 微信通道接入 (<code>wechat-ilink</code>)</h4>\n\t\t<p>不在电脑旁也能让 AI 帮你干活！通过扫码绑定微信公众号或企业微信，直接在手机微信中给工作台发送任务，随时随地查进度。</p>\n\t</div>\n\t<div class=\"doc-card\">\n\t\t<h4>🌐 Live Server 实时预览 (<code>live-preview</code>)</h4>\n\t\t<p>编写 HTML / CSS / JS 静态网页或组件时，在右侧实时启动热重载开发服务器，AI 修改完代码后页面自动秒级刷新预览。</p>\n\t</div>\n\t<div class=\"doc-card\">\n\t\t<h4>🌿 多仓库 Git 总览 (<code>pi-web-multigit</code>)</h4>\n\t\t<p>面向大型微服务项目：在一个面板中统一聚合展示当前工作区内所有子 Git 仓库的未提交修改、分支状态与超前落后提交数。</p>\n\t</div>\n\t<div class=\"doc-card\">\n\t\t<h4>📊 Mermaid 图表渲染 (<code>mermaid</code>)</h4>\n\t\t<p>在聊天回复与右栏直接将 AI 生成的 Mermaid 代码实时渲染为高清架构图、时序图、类图与状态流转图，支持一键下载 SVG。</p>\n\t</div>\n\t<div class=\"doc-card\">\n\t\t<h4>⏱️ 运行轨迹时间线 (<code>run-trace</code>)</h4>\n\t\t<p>以精美的垂直时间轴展现子代理与工具调用的完整耗时分布、入参出参以及决策链路，便于性能优化与排查卡点。</p>\n\t</div>\n\t<div class=\"doc-card\">\n\t\t<h4>📝 极客随手记与备忘 (<code>notes</code>)</h4>\n\t\t<p>在侧边栏常驻 Markdown 笔记草稿本，随时随地记录架构灵感、待办事项或临时代码片段，自动本地持久化同步。</p>\n\t</div>\n\t<div class=\"doc-card\">\n\t\t<h4>🎙️ 语音输入交互 (<code>voice-input</code>)</h4>\n\t\t<p>调用麦克风将语音实时转换为提示词文字，解放双手，用说话驱动 AI 编程与方案研讨。</p>\n\t</div>\n\t<div class=\"doc-card\">\n\t\t<h4>🖥️ 桌面窗口自动化 (<code>desktop-use</code>)</h4>\n\t\t<p>让 AI 识别屏幕、模拟键鼠操作或打开目标应用，实现本地端到端测试与自动化跨应用工作流。</p>\n\t</div>\n\t<div class=\"doc-card\">\n\t\t<h4>🛡️ 审批门禁 (<code>approval-gate</code>)</h4>\n\t\t<p>为高危工具调用加一道人工确认闸门，敏感操作先审后放，自动化与安全兼得。</p>\n\t</div>\n\t<div class=\"doc-card\">\n\t\t<h4>🗣️ 语音合成播报 (<code>tts</code>)</h4>\n\t\t<p>把 AI 回复转为语音播报，长任务完成、构建报错都不错过，适合挂机跑任务。</p>\n\t</div>\n\t<div class=\"doc-card\">\n\t\t<h4>🚇 内网穿透 (<code>tunnel</code>)</h4>\n\t\t<p>一键把本地工作台安全暴露到公网，配合 FRP 随时随地用手机接管家中电脑。</p>\n\t</div>\n\t<div class=\"doc-card\">\n\t\t<h4>🧸 桌面陪伴挂件 (<code>live2d</code>)</h4>\n\t\t<p>在工作台养一个 Live2D 看板娘，任务状态、构建结果都由她卖萌播报。</p>\n\t</div>\n\t<div class=\"doc-card\">\n\t\t<h4>📄 Office 文档处理 (<code>office</code>)</h4>\n\t\t<p>在线预览与解析 Word / Excel / PDF，让 AI 直接读懂你的需求文档和数据表。</p>\n\t</div>\n</div>\n\n<h2 id=\"install-and-manage-plugins\">3. 插件安装与热插拔管理</h2>\n\n<div class=\"doc-step-box\">\n\t<div class=\"doc-step-num\">🛍️</div>\n\t<div class=\"doc-step-content\">\n\t\t<h4>图形化插件市场一键安装</h4>\n\t\t<p>在设置面板打开「插件市场」，浏览数十款官方与社区插件，点击「安装」按钮，系统自动拉取资源并在 2 秒内完成热加载，无需重启服务。</p>\n\t</div>\n</div>\n\n<div class=\"doc-step-box\">\n\t<div class=\"doc-step-num\">💻</div>\n\t<div class=\"doc-step-content\">\n\t\t<h4>CLI 命令行管理</h4>\n\t\t<p>你也可以在终端中通过极简命令行管理插件：</p>\n\t\t<pre><code class=\"language-bash\"># 安装插件\npi-web-ui install xing-shuyin/pi-web-ui/plugins/vscode-editor\n\n# 查看已安装列表\npi-web-ui plugins\n\n# 卸载插件\npi-web-ui uninstall vscode-editor</code></pre>\n\t</div>\n</div>\n",
-		"contentEn": "\n<h2 id=\"why-plugins-matter\">1. Extensible Plugin Ecosystem</h2>\n<p>Transform your workbench into a full development hub tailored for frontend, backend, or ops needs.</p>\n\n<h2 id=\"top-featured-plugins\">2. Top Featured Plugins</h2>\n<p>Highlights from the 39-strong catalog: embedded <strong>VSCode Editor</strong>, <strong>DB Client</strong> for SQL queries, <strong>WeChat Bridge</strong> for mobile coding, <strong>Live Server</strong> for preview, and <strong>Mermaid</strong> diagram rendering.</p>\n\n<h2 id=\"install-and-manage-plugins\">3. Installation & Management</h2>\n<p>Install plugins in 2 seconds right from the graphical marketplace or via CLI (<code>pi-web-ui install ...</code>).</p>\n"
-	},
-	{
-		"id": "plugin-sdk-and-deployment",
-		"group": "extensibility",
-		"badge": "Chapter 20",
-		"icon": "🚀",
-		"navTitle": "20. 插件开发与生产部署",
-		"navTitleEn": "20. Plugin SDK & Deploy",
-		"title": "插件开发完全手册与生产部署（守护服务 / Docker / Nginx 反代）",
-		"titleEn": "Plugin SDK v2 Guide & Production Deployment (Docker / Nginx)",
-		"summary": "从零编写你自己的工作台插件！详解 Plugin SDK v2 规范与 UI 插槽注册，以及生产环境开机自启、Docker 容器化与 Nginx 子路径反向代理配置。",
-		"summaryEn": "Build custom plugins with Plugin SDK v2, plus comprehensive production deployment recipes: OS daemon services, Docker Compose, and subpath Nginx reverse proxy.",
-		"contentZh": "\n<h2 id=\"plugin-sdk-quickstart\">1. 5 分钟极速开发你的第一个插件</h2>\n<p>基于 <strong>Plugin SDK v2</strong>，编写一个属于你自己的工作台插件仅需两个轻量文件：</p>\n\n<div class=\"doc-step-box\">\n\t<div class=\"doc-step-num\">1</div>\n\t<div class=\"doc-step-content\">\n\t\t<h4>编写清单配置文件：<code>manifest.json</code></h4>\n\t\t<p>声明插件的元数据、作者与需要挂载的 33 个 UI 插槽位置：</p>\n\t\t<pre><code class=\"language-json\">{\n  \"id\": \"my-cool-tool\",\n  \"name\": \"极客工具箱\",\n  \"nameEn\": \"Geek Toolkit\",\n  \"version\": \"1.0.0\",\n  \"apiVersion\": 2,\n  \"icon\": \"⚡\",\n  \"description\": \"一键执行自定义清理与格式化脚本\",\n  \"ui\": [\n    {\n      \"slot\": \"topbar.right\",\n      \"type\": \"button\",\n      \"label\": \"一键清理\",\n      \"icon\": \"🧹\",\n      \"action\": \"run-clean\"\n    }\n  ]\n}</code></pre>\n\t</div>\n</div>\n\n<div class=\"doc-step-box\">\n\t<div class=\"doc-step-num\">2</div>\n\t<div class=\"doc-step-content\">\n\t\t<h4>编写执行逻辑入口：<code>index.mjs</code></h4>\n\t\t<p>导出一个 <code>activate(host)</code> 函数，调用宿主提供的安全 Host API：</p>\n\t\t<pre><code class=\"language-javascript\">export async function activate(host) {\n  // 监听顶栏按钮点击事件\n  host.ui.onAction(\"run-clean\", async () => {\n    // 弹出宿主提示消息\n    host.notify.info(\"正在执行代码格式化与临时文件清理...\");\n    // 安全调用宿主终端执行脚本\n    const res = await host.exec(\"npm run format && rm -rf .tmp\");\n    host.notify.success(\"清理完成！\");\n  });\n\n  // 监听会话状态变化\n  host.events.on(\"conversation:message\", (msg) => {\n    console.log(\"收到新消息:\", msg);\n  });\n}\n\nexport async function deactivate() {\n  // 插件被卸载或停用时的资源清理\n}</code></pre>\n\t</div>\n</div>\n\n<h2 id=\"production-daemon\">2. 方案 A：操作系统级后台守护服务 (推荐)</h2>\n<p>生产服务器或个人开发机上，推荐使用内置的 <code>pi-web-ui server</code> 命令一键托管：</p>\n\n<pre><code class=\"language-bash\"># 一键将当前项目注册为开机自启后台服务\npi-web-ui server install --port 8787 --cwd /var/www/my-repo\n\n# 查看状态与健康度\npi-web-ui server status\n\n# 优雅重启或停止\npi-web-ui server restart\npi-web-ui server stop</code></pre>\n\n<h2 id=\"production-docker\">3. 方案 B：Docker / Docker Compose 容器化</h2>\n<p>在私有云或云服务器上，可直接使用官方 Docker 镜像运行：</p>\n<pre><code class=\"language-yaml\">version: \"3.8\"\nservices:\n  pi-web-ui:\n    image: xingshuyin/pi-web-ui:latest\n    container_name: pi-web-ui\n    restart: always\n    ports:\n      - \"8787:8787\"\n    environment:\n      - PI_WEB_HOST=0.0.0.0\n      - PI_WEB_PORT=8787\n      - PI_WEB_TOKEN=your_secure_password\n    volumes:\n      - ./data:/root/.pi-web\n      - ./workspace:/app/workspace</code></pre>\n\n<h2 id=\"production-nginx\">4. 方案 C：Nginx 反向代理配置（含 WebSocket 升级）</h2>\n<p>如果你需要通过域名访问，或者将 pi-web-ui 挂载在某个二级子路径（例如 <code>https://example.com/ai/</code>）下，由于系统所有资源路径均严格经 <code>appUrl()</code> 封装，配置极度简单：</p>\n\n<pre><code class=\"language-nginx\">server {\n    listen 80;\n    server_name ai.example.com;\n\n    location / {\n        proxy_pass http://127.0.0.1:8787;\n        proxy_http_version 1.1;\n\n        # 核心：必须开启 WebSocket 双向升级通道\n        proxy_set_header Upgrade $http_upgrade;\n        proxy_set_header Connection \"upgrade\";\n\n        # 传递真实主机名与客户端 IP\n        proxy_set_header Host $host;\n        proxy_set_header X-Real-IP $remote_addr;\n        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;\n        proxy_set_header X-Forwarded-Proto $scheme;\n\n        # 关闭大文件传输缓冲\n        proxy_buffering off;\n        proxy_read_timeout 86400s;\n        proxy_send_timeout 86400s;\n    }\n}</code></pre>\n\n<h2 id=\"security-best-practices\">5. 生产环境安全合规清单</h2>\n<ul>\n\t<li><strong>访问口令</strong>：只走环境变量 <code>PI_WEB_TOKEN</code>（无 <code>--token</code> flag），细则见第 16 章 <a href=\"#six-security-boundaries\">§4</a>；</li>\n\t<li><strong>HTTPS</strong>：在反向代理层（Nginx / Caddy）终止 SSL；</li>\n\t<li><strong>备份</strong>：数据目录默认 <code>~/.pi-web</code>（可用 <code>--data-dir</code> 指定），定期打包即无缝迁移。</li>\n</ul>\n",
-		"contentEn": "\n<h2 id=\"plugin-sdk-quickstart\">1. 5-Minute Plugin SDK v2 Quickstart</h2>\n<p>Build custom plugins with just two files: <code>manifest.json</code> to declare UI slots and <code>index.mjs</code> to implement logic with safe <code>host</code> APIs.</p>\n\n<h2 id=\"production-daemon\">2. Option A: OS Background Daemon</h2>\n<p>Install system-level background auto-start services with <code>pi-web-ui server install --port 8787</code>.</p>\n\n<h2 id=\"production-docker\">3. Option B: Docker Compose</h2>\n<p>Deploy using standard Docker compose containers mounting volumes for <code>/root/.pi-web</code> and <code>/app/workspace</code>.</p>\n\n<h2 id=\"production-nginx\">4. Option C: Nginx Reverse Proxy with WebSockets</h2>\n<p>Configure Nginx to proxy <code>http://127.0.0.1:8787</code> with <code>Upgrade $http_upgrade</code> and <code>proxy_read_timeout 86400s</code> for full-duplex WebSocket streaming.</p>\n\n<h2 id=\"security-best-practices\">5. Security Checklist</h2>\n<p>Always enforce <code>PI_WEB_TOKEN</code> (env only, see ch16 §4), terminate SSL at Nginx, and back up <code>~/.pi-web/</code> regularly.</p>\n"
-	}
+  {
+    id: "overview",
+    group: "getting-started",
+    badge: "Chapter 01",
+    icon: "🚀",
+    navTitle: "工作台入门",
+    navTitleEn: "Getting Started",
+    title: "工作台入门",
+    titleEn: "Getting Started",
+    summary: "了解工作台、启动方式与首个任务。",
+    summaryEn: "Explore the workspace, launch it, and start a task.",
+    contentZh:
+      '\n<h2 id="what-is-pi-web-ui">工作台</h2>\n<p>在同一界面使用 AI 对话、文件树、终端与 Git。浏览器版和桌面版均可操作项目；先选择正确目录，再让模型读写文件或执行命令。</p>\n<h2 id="workspace-layout">界面</h2>\n<p>顶栏切换项目与会话，中间查看消息和工具结果，右侧浏览文件，下方检查终端与变更。演示展示常用操作，可对照自己的界面练习。</p>\n<figure class="doc-figure"><img src="./assets/site-home-preview.png" alt="工作台中的对话、文件树与终端" /><figcaption>工作台布局</figcaption></figure>\n<h3 id="demo-video">演示</h3><span id="demo-video-en"></span>\n<div class="doc-video-card"><video controls preload="metadata" poster="./assets/demo-video-poster.png" playsinline style="width:100%"><source src="./assets/demo-video.mp4" type="video/mp4" /><source src="https://raw.githubusercontent.com/xing-shuyin/pi-web-ui/main/assets/demo-video.mp4" type="video/mp4" /><a href="https://raw.githubusercontent.com/xing-shuyin/pi-web-ui/main/assets/demo-video.mp4">下载演示</a></video></div>\n<h2 id="thirty-second-quickstart">启动</h2>\n<p>桌面包从 GitHub Releases 下载。命令行需 Node.js ≥ 22.19.0，在项目目录安装启动，再访问默认地址 localhost:8787 并配置模型。</p>\n<pre><code class="language-bash">npm i -g pi-web-ui@latest\npi-web-ui</code></pre>\n<h2 id="first-ai-task">首个任务</h2>\n<p>发送“创建带深色模式和重置按钮的秒表网页，并说明预览方法”。查看新增文件，运行预览，再提出具体修改要求。</p>\n<h2 id="chapter-01-faq">权限</h2>\n<p>模型使用你配置的凭据或本地端点。检查审批设置与文件差异；是否询问取决于规则，文件恢复也需满足下一章所述前提。</p>\n',
+    contentEn:
+      '\n<h2 id="what-is-pi-web-ui">Workspace</h2>\n<p>Use chat, files, terminals, and Git together. Select the project directory before asking AI to read, edit, or run commands.</p>\n<h2 id="workspace-layout">Layout</h2>\n<p>Switch projects and sessions above; review messages centrally, files on the right, and commands below. Use the demo for practice.</p>\n<figure class="doc-figure"><img src="./assets/site-home-preview.png" alt="Chat, file tree, and terminal in the workspace" /><figcaption>Workspace layout</figcaption></figure>\n<h3 id="demo-video">Demo</h3><span id="demo-video-en"></span>\n<div class="doc-video-card"><video controls preload="metadata" poster="./assets/demo-video-poster.png" playsinline style="width:100%"><source src="./assets/demo-video.mp4" type="video/mp4" /><source src="https://raw.githubusercontent.com/xing-shuyin/pi-web-ui/main/assets/demo-video.mp4" type="video/mp4" /><a href="https://raw.githubusercontent.com/xing-shuyin/pi-web-ui/main/assets/demo-video.mp4">Download demo</a></video></div>\n<h2 id="thirty-second-quickstart">Launch</h2>\n<p>Download desktop from GitHub Releases. CLI needs Node.js ≥ 22.19.0; launch in your project, open localhost:8787, and configure a model.</p>\n<pre><code class="language-bash">npm i -g pi-web-ui@latest\npi-web-ui</code></pre>\n<h2 id="first-ai-task">First task</h2>\n<p>Ask for a stopwatch page with dark mode, reset, and preview instructions. Inspect files, preview, then request changes.</p>\n<h2 id="chapter-01-faq">Permissions</h2>\n<p>Use configured credentials or a local endpoint. Check approval settings and diffs; confirmation follows rules, and file recovery has prerequisites.</p>\n',
+  },
+  {
+    id: "installation",
+    group: "getting-started",
+    badge: "Chapter 02",
+    icon: "📦",
+    navTitle: "安装与配置",
+    navTitleEn: "Installation",
+    title: "安装与配置",
+    titleEn: "Installation",
+    summary: "选择安装方式，配置模型并处理平台依赖。",
+    summaryEn:
+      "Choose an installation method, configure a model, and resolve platform dependencies.",
+    contentZh:
+      '\n<h2 id="desktop-releases-download">桌面下载</h2>\n<p>从 GitHub Releases 按系统和架构选择发布文件。便携包是否包含 Node.js 与 Git 以该产物说明为准，下载后核实来源再运行。</p>\n<span id="desktop-troubleshooting"></span>\n<h2 id="npm-install">命令行</h2>\n<p>确认 Node.js ≥ 22.19.0，在项目目录运行下方命令；临时试用可用 npx pi-web-ui@latest。启动前核对目录，避免打开错误项目。</p>\n<pre><code class="language-bash">npm i -g pi-web-ui@latest\npi-web-ui</code></pre>\n<h2 id="first-setup-wizard">模型配置</h2>\n<p>打开 localhost:8787，按向导选提供商，填写密钥或使用支持的登录方式。兼容接口需核对端点与模型名，发送短消息验证连接。</p>\n<figure class="doc-figure"><img src="./assets/settings.jpeg" alt="模型与提供商设置" /><figcaption>模型配置</figcaption></figure>\n<h2 id="npm-12-native-scripts">依赖脚本</h2>\n<p>npm 12 及以上需放行相关原生依赖脚本，终端依赖 node-pty；安装失败时先查看编译输出。</p>\n<pre><code class="language-bash">npm i -g --allow-scripts=node-pty,@google/genai,protobufjs pi-web-ui@latest</code></pre>\n<h2 id="platform-specifics">平台依赖</h2>\n<p>Windows 准备 Git Bash；Linux 编译需 Python 与编译工具。Termux 安装依赖，并以 CXXFLAGS="-std=c++20" 安装。</p>\n<pre><code class="language-bash">pkg install nodejs python make clang git</code></pre>\n<h2 id="install-faqs">端口</h2>\n<p>端口冲突时用 pi-web-ui --port 9000。桌面端会选择可用端口，按实际地址访问。连接失败先核对密钥权限、模型名称和端点；保存成功后仍需验证，更换提供商时也要重新测试。</p>\n',
+    contentEn:
+      '\n<h2 id="desktop-releases-download">Desktop</h2>\n<p>Choose your system and architecture on GitHub Releases. Check portable bundle notes for included Node.js and Git, and verify the source.</p>\n<span id="desktop-troubleshooting"></span>\n<h2 id="npm-install">CLI</h2>\n<p>With Node.js ≥ 22.19.0, run the commands in your project. For a temporary run, use npx pi-web-ui@latest.</p>\n<pre><code class="language-bash">npm i -g pi-web-ui@latest\npi-web-ui</code></pre>\n<h2 id="first-setup-wizard">Models</h2>\n<p>Open localhost:8787. Select a provider, enter credentials or sign in where supported, check endpoint and model, then test a message.</p>\n<figure class="doc-figure"><img src="./assets/settings.jpeg" alt="Model and provider settings" /><figcaption>Model configuration</figcaption></figure>\n<h2 id="npm-12-native-scripts">Scripts</h2>\n<p>For npm 12+, allow the listed dependency scripts; inspect build output if installation fails.</p>\n<pre><code class="language-bash">npm i -g --allow-scripts=node-pty,@google/genai,protobufjs pi-web-ui@latest</code></pre>\n<h2 id="platform-specifics">Platforms</h2>\n<p>Prepare Git Bash on Windows, Python and build tools on Linux; Termux needs dependencies and CXXFLAGS="-std=c++20".</p>\n<pre><code class="language-bash">pkg install nodejs python make clang git</code></pre>\n<h2 id="install-faqs">Ports</h2>\n<p>For conflicts use pi-web-ui --port 9000; desktop selects an available port. If connection fails, check key permissions, model, and endpoint. Retest new providers.</p>\n',
+  },
+  {
+    id: "cli-and-env",
+    group: "reference",
+    badge: "Chapter 03",
+    icon: "⚙️",
+    navTitle: "启动与部署",
+    navTitleEn: "Startup & Deployment",
+    title: "启动与部署",
+    titleEn: "Startup & Deployment",
+    summary: "查阅启动参数，配置环境变量与后台部署。",
+    summaryEn:
+      "Look up startup flags and configure environment variables and deployment.",
+    contentZh:
+      '\n<h2 id="cli-options">启动</h2>\n<p>在项目目录启动，或明确指定工作区和端口。参数见动态表，安装版本用帮助命令核对。工作区默认取启动目录，服务数据默认放在 ~/.pi-web，两者用途不同。</p>\n<div data-dynamic-table="cli-flags"></div>\n<pre><code class="language-bash">pi-web-ui --help\npi-web-ui --port 9000 --cwd /path/to/project</code></pre>\n<h2 id="env-vars">环境变量</h2>\n<p>变量由 shell、服务或容器传入，CLI 不自动读取 .env。支持映射时命令行优先。用 PI_WEB_SDK=bundled 固定自带 SDK，没有 --sdk 参数。对外监听时设置主机与共享口令。</p>\n<h2 id="daemon-service">后台服务</h2>\n<p>安装时指定项目，随后查询状态；登录或开机启动取决于系统服务机制。模型凭据和必要环境变量也应配置到服务环境，不能只在当前终端设置。</p>\n<pre><code class="language-bash">pi-web-ui server install --cwd /path/to/project\npi-web-ui server status\npi-web-ui server stop</code></pre>\n<h2 id="docker-compose">容器部署</h2>\n<p>使用源码仓库 Compose 本地构建，先修改共享口令。挂载项目时将 PI_WEB_CWD 指向容器路径，持久卷对应 /app/.pi-web；启动后检查日志与项目路径。部署后核对实际项目路径与配置是否保留，再开放给其他设备使用。</p>\n<pre><code class="language-bash">docker compose up -d --build\ndocker compose logs -f</code></pre>\n',
+    contentEn:
+      '\n<h2 id="cli-options">Startup</h2>\n<p>Launch in your project or specify a workspace and port. Use the dynamic table and installed help. Data defaults to ~/.pi-web.</p>\n<div data-dynamic-table="cli-flags"></div>\n<pre><code class="language-bash">pi-web-ui --help\npi-web-ui --port 9000 --cwd /path/to/project</code></pre>\n<h2 id="env-vars">Environment</h2>\n<p>Pass variables through your shell, service, or container; .env is not loaded automatically. Flags override mapped variables. PI_WEB_SDK=bundled pins the SDK; --sdk is unsupported.</p>\n<h2 id="daemon-service">Service</h2>\n<p>Install with the project path, then check status. Startup depends on system services; configure credentials and variables in that environment.</p>\n<pre><code class="language-bash">pi-web-ui server install --cwd /path/to/project\npi-web-ui server status\npi-web-ui server stop</code></pre>\n<h2 id="docker-compose">Containers</h2>\n<p>Use repository Compose, change the shared token, mount the project with PI_WEB_CWD, and persist /app/.pi-web. For external access, set host and authentication; check logs. Verify project paths and saved settings before sharing access.</p>\n<pre><code class="language-bash">docker compose up -d --build\ndocker compose logs -f</code></pre>\n',
+  },
+  {
+    id: "chat-and-sessions",
+    group: "workspace",
+    badge: "Chapter 04",
+    icon: "💬",
+    navTitle: "对话与恢复",
+    navTitleEn: "Chat & Recovery",
+    title: "对话与恢复",
+    titleEn: "Chat & Recovery",
+    summary: "追问、引用、管理会话，并了解文件恢复的前提。",
+    summaryEn:
+      "Follow up, quote text, manage sessions, and understand file recovery requirements.",
+    contentZh:
+      '\n<h2 id="streaming-chat-overview">查看结果</h2>\n<p>写清目标文件、预期结果与约束。任务执行时查看工具卡、命令输出与文件差异；模型报告完成后，运行预览或验证步骤，确认实际行为符合要求。</p>\n<h2 id="steer-and-interrupt">补充要求</h2>\n<p>用插队或排队补充要求，生效时机取决于执行状态。方向错误时停止并重新说明目标；停止不会撤销已经写入的文件，继续前先检查状态。</p>\n<h2 id="selection-quote">引用</h2>\n<p>选中消息或代码后引用，补充文件路径、函数名与报错条件。长日志只引用相关片段，便于模型定位，也便于你检查答复依据。</p>\n<h2 id="turn-rollback">恢复</h2>\n<p>文件恢复需 Git 仓库、成功的任务快照及选择恢复工作区。它可能覆盖人工或并发修改、清理新增未跟踪文件；先保留重要成果。对话回退不能撤销部署等外部操作。</p>\n<h2 id="multi-sessions">多个会话</h2>\n<p>按任务分会话，共享目录并发编辑可能冲突。跨设备接管需连接同一服务，任务仍在服务端运行。</p>\n',
+    contentEn:
+      '\n<h2 id="streaming-chat-overview">Results</h2>\n<p>State files, expected results, and constraints. Review tool cards, command output, and diffs, then preview or verify the result.</p>\n<h2 id="steer-and-interrupt">Follow-ups</h2>\n<p>Steer or queue instructions; timing depends on execution state. Stop to correct direction, then inspect existing edits before continuing.</p>\n<h2 id="selection-quote">Quotes</h2>\n<p>Quote relevant messages or code with paths, function names, and error conditions. Keep long logs focused.</p>\n<h2 id="turn-rollback">Recovery</h2>\n<p>File recovery needs Git, a successful task snapshot, and workspace restoration selected. Save work first: restoration can overwrite edits and remove untracked files, but cannot undo deployments.</p>\n<h2 id="multi-sessions">Sessions</h2>\n<p>Separate tasks into sessions; shared-directory edits can conflict. Device takeover connects to the same server, where execution continues.</p>\n',
+  },
+  {
+    id: "remote-ssh-projects",
+    group: "workspace",
+    badge: "Chapter 05",
+    icon: "🌐",
+    navTitle: "SSH 远程项目",
+    navTitleEn: "SSH Projects",
+    title: "SSH 远程项目",
+    titleEn: "SSH Projects",
+    summary: "连接远程目录，了解能力依赖与凭据保存方式。",
+    summaryEn:
+      "Connect remote directories and understand dependencies and credential storage.",
+    contentZh:
+      '\n<h2 id="why-remote-ssh">远程工作区</h2>\n<p>通过 SSH 将文件树、AI 工具、终端和 Git 指向远程项目。远端无需安装 pi-web-ui 代理，但需 SSH/SFTP、shell 和目录权限；各功能另有命令依赖。</p>\n<h2 id="connect-ssh-workspace">连接</h2>\n<p>在项目入口添加主机、端口、用户、认证与目录，打开 ssh:// 形式的项目。私钥路径由服务端读取；连接后核对文件树和终端目录，确认用户与项目正确。</p>\n<h2 id="remote-capabilities">操作</h2>\n<p>命令在远端运行，文件通过 SFTP 传回服务端供界面和模型使用。Git、压缩和解压依赖远端相应工具；功能失败时检查日志、依赖与权限，大文件传输也会占用网络资源。</p>\n<h2 id="security-encryption">凭据</h2>\n<p>主机保存在数据目录 global-hosts.json。密码与私钥口令用 AES-256-GCM 加密，密钥为同目录 .remote-ssh.key；私钥保存路径。异机部署由异机服务端处理凭据，迁移时保护配置和密钥。重要远程目录先提交或备份，写入前再次确认目标，避免误改其他项目。</p>\n',
+    contentEn:
+      '\n<h2 id="why-remote-ssh">Remote workspace</h2>\n<p>SSH directs files, AI tools, terminals, and Git to a remote project. No pi-web-ui agent is needed; SSH/SFTP, shell, permissions, and tool dependencies are required.</p>\n<h2 id="connect-ssh-workspace">Connect</h2>\n<p>Add host, port, user, authentication, and directory. Open the ssh:// project and verify files and terminal location. Key paths are server-side.</p>\n<h2 id="remote-capabilities">Operations</h2>\n<p>Commands run remotely; SFTP transfers file content to the server. Check logs, permissions, and remote tools for Git or archives. Large transfers consume bandwidth.</p>\n<h2 id="security-encryption">Credentials</h2>\n<p>Hosts use global-hosts.json. Passwords and passphrases use AES-256-GCM with .remote-ssh.key alongside it; private keys use paths. Protect both configuration and keys during migration. Commit or back up important work and confirm targets before writing.</p>\n',
+  },
+  {
+    id: "file-tree-and-transfer",
+    group: "workspace",
+    badge: "Chapter 06",
+    icon: "📁",
+    navTitle: "文件与传输",
+    navTitleEn: "Files & Transfer",
+    title: "文件与传输",
+    titleEn: "Files & Transfer",
+    summary: "浏览文件、上传目录、打包下载与解压归档。",
+    summaryEn:
+      "Browse files, upload directories, download bundles, and extract archives.",
+    contentZh:
+      '\n<h2 id="file-tree-overview">浏览</h2>\n<p>展开右侧文件树，打开文件或使用菜单上传、下载与归档。切换项目后先确认根目录和选中项；能否编辑取决于文件类型与大小，文档预览见下一章。</p>\n<h2 id="drag-drop-upload">上传</h2>\n<p>拖入文件或文件夹，确认目标。目录按相对路径逐项上传，保留层级；最多二万条目、单文件三十二 MiB。失败可能留下部分结果，重试前检查已完成项与同名文件。</p>\n<h2 id="archive-and-unarchive">归档</h2>\n<p>打包输出 tar.gz，先生成归档再下载，临时下载限二百 MiB。较大目录可先原地压缩。本地支持 ZIP、TAR、TGZ 和 GZ 解压，有冲突、大小与符号链接检查。</p>\n<h2 id="root-and-multiroot">根目录</h2>\n<p>远端 ZIP 使用 unzip -o，会覆盖同名文件；其他归档用 tar -xf，支持情况看远端工具。@root 与多根入口可浏览其他目录，仍受权限约束；交给 AI 时写清完整路径。解压失败也可能留下部分内容，操作完成后应检查目标目录。</p>\n',
+    contentEn:
+      '\n<h2 id="file-tree-overview">Browse</h2>\n<p>Browse files and use menu actions to transfer or archive them. Confirm the root after switching projects; editing depends on type and size.</p>\n<h2 id="drag-drop-upload">Upload</h2>\n<p>Drop files or folders and confirm the destination. Sequential uploads preserve paths, with 20,000 entries and 32 MiB per file. Check partial results before retrying.</p>\n<h2 id="archive-and-unarchive">Archives</h2>\n<p>Bundles are tar.gz, generated before download, with a 200 MiB temporary-download limit. Compress larger folders in place. Local ZIP, TAR, TGZ, and GZ extraction has conflict, size, and symlink checks.</p>\n<h2 id="root-and-multiroot">Roots</h2>\n<p>Remote ZIP uses unzip -o and overwrites matches; other archives use tar -xf. @root and added roots retain access limits. Give AI full paths. Extraction failures may also leave partial results; inspect the destination.</p>\n',
+  },
+  {
+    id: "attachments-and-vision",
+    group: "workspace",
+    badge: "Chapter 07",
+    icon: "📎",
+    navTitle: "附件与预览",
+    navTitleEn: "Attachments & Previews",
+    title: "附件与预览",
+    titleEn: "Attachments & Previews",
+    summary: "引用文件与行号，了解文档预览和视觉桥边界。",
+    summaryEn:
+      "Reference files and line ranges, with document preview and vision bridge limits.",
+    contentZh:
+      '\n<h2 id="zero-pollution-reference">附件</h2>\n<p>普通附件保存到服务端，消息提供路径，模型再按需读取。发送前说明希望查找、比较或总结什么；后续读取仍消耗上下文，不保证固定比例的费用节省。查看工具记录可确认实际读取范围。</p>\n<h2 id="line-range-quote">行号引用</h2>\n<p>使用引用入口附上文件和行号，发送的是路径与范围，正文需模型另行读取。自由文本中的路径加行号不保证解析为结构化附件；同时给出函数名可防止行号偏移造成歧义。</p>\n<h2 id="office-pdf-preview">预览</h2>\n<p>点击文件查看支持的文本、Office、PDF 或媒体。Office 转为 Markdown，不保证原版式；编辑入口只对符合条件的文本开放。修改复杂文档后，用对应办公软件核对内容与布局。</p>\n<h2 id="vision-bridge">视觉桥</h2>\n<p>主模型不支持图片时，启用视觉桥并配置可用视觉模型与认证，可将图片转为描述。它针对图片输入，会增加模型处理且可能遗漏细节；涉及图中文字、布局或数值时核对原图。</p>\n',
+    contentEn:
+      '\n<h2 id="zero-pollution-reference">Attachments</h2>\n<p>Ordinary attachments are saved server-side and referenced by path. State what to find, compare, or summarize. Later reads still cost context; inspect tool records to check coverage.</p>\n<h2 id="line-range-quote">Line ranges</h2>\n<p>Use quoting controls for file ranges. Metadata is sent; the model must read the text. Typed path-and-line references may remain plain text. Include function names when lines shift.</p>\n<h2 id="office-pdf-preview">Previews</h2>\n<p>Open supported text, Office, PDF, or media files. Office becomes Markdown; original layout is not guaranteed. Only eligible text is editable. Check changed documents in office software.</p>\n<h2 id="vision-bridge">Vision bridge</h2>\n<p>For image inputs, enable the bridge and configure an authenticated vision model when the main model lacks vision. Transcription adds processing and may miss details; check the source.</p>\n',
+  },
+  {
+    id: "terminal-and-bash",
+    group: "workspace",
+    badge: "Chapter 08",
+    icon: "🖥️",
+    navTitle: "终端与命令",
+    navTitleEn: "Terminal & Commands",
+    title: "终端与命令",
+    titleEn: "Terminal & Commands",
+    summary: "在终端中运行命令，理解持久会话、交互输入与权限边界。",
+    summaryEn:
+      "Run commands in terminals and understand persistent sessions, interactive input, and permissions.",
+    contentZh:
+      '\n<h2 id="real-pty-experience">打开终端</h2>\n<p>内置终端通过真实 shell 运行命令。先核对目录，再用不同标签分开服务、测试和临时操作。手动创建的用户终端在工作区共享显示，AI 终端归属对应对话；切换对话后注意选择正确标签。输入前确认当前程序是否正在等待回应。</p>\n<figure class="doc-figure"><img src="./assets/terminal.jpeg" alt="内置多标签真 PTY 终端" /></figure>\n\n<h2 id="ai-bash-takeover">启用接管</h2>\n<p>启用终端接管后，bash 在专用 AI 终端执行。终端标签配置、AI 工具开关和计划模式分别控制入口，遇到拒绝时按提示检查设置。</p>\n\n<h2 id="persist-shell-state">保留会话</h2>\n<p>接管下，persist=true 复用 ai-bash，保留存活会话的目录和环境；false 使用一次性终端，省略则采用设置默认值。交互程序用持久终端，再用 terminal_input、terminal_key 输入。</p>\n\n<h2 id="terminal-tips">查看结果</h2>\n<p>用 terminal_read 或 terminal_wait 查看后续输出。达到静默阈值时返回控制权，程序可能仍在运行；先读输出再输入。聚焦终端后用 Ctrl+C 中断，关闭前确认所需服务已停止。</p>\n',
+    contentEn:
+      '\n<h2 id="real-pty-experience">Open a terminal</h2>\n<p>Check the directory, then use separate shell tabs for services and tests. User terminals are shared across the workspace; AI terminals belong to their conversation. Check whether a program is awaiting input before typing.</p>\n<figure class="doc-figure"><img src="./assets/terminal.jpeg" alt="Multi-Tab Real PTY Terminal" /></figure>\n\n<h2 id="ai-bash-takeover">Enable takeover</h2>\n<p>Terminal takeover runs bash in dedicated AI terminals. Tab configuration, tool switches, and plan mode control different entry points.</p>\n\n<h2 id="persist-shell-state">Keep shell state</h2>\n<p>Use persist=true to reuse ai-bash and retain its live directory and environment; false creates a one-shot terminal. Omission follows settings. Drive interactive programs with terminal_input and terminal_key.</p>\n\n<h2 id="terminal-tips">Inspect results</h2>\n<p>Read subsequent output with terminal_read or terminal_wait. A silence return can leave the program running. Inspect output before typing; focus the terminal for Ctrl+C, and check services before closing.</p>\n',
+  },
+  {
+    id: "git-scm-and-ai-commit",
+    group: "workspace",
+    badge: "Chapter 09",
+    icon: "🌿",
+    navTitle: "Git 与提交",
+    navTitleEn: "Git & Commits",
+    title: "Git 与提交",
+    titleEn: "Git & Commits",
+    summary: "查看工作区差异、准备暂存内容，并核对 AI 生成的提交说明。",
+    summaryEn:
+      "Inspect workspace changes, prepare staged content, and review AI-generated commit messages.",
+    contentZh:
+      '\n<h2 id="git-scm-overview">检查状态</h2>\n<p>打开源码管理，确认当前目录属于目标仓库，再查看工作区、暂存区和文件差异。按文件阅读具体修改，确定本次提交范围；多人或多代理共用仓库时，特别留意已有暂存内容。</p>\n<figure class="doc-figure"><img src="./assets/git.jpeg" alt="Git SCM 源代码管理面板" /></figure>\n\n<h2 id="visual-git-operations">暂存与提交</h2>\n<p>面板支持暂存、取消暂存和提交。提交全部会先执行 git add -A，应先排除无关文件。写操作通过终端命令执行；实例关闭终端标签时，对应入口也受限。完成后查看输出并刷新状态。</p>\n\n<h2 id="ai-commit-generation">生成说明</h2>\n<p>AI 优先描述暂存差异，无暂存时参考工作区和未跟踪变化；未跟踪文件只提供名字。说明沿用近期提交的风格与语言，生成后填入输入框。核对内容与提交范围，再执行提交。</p>\n\n<h2 id="branch-and-history-quote">分支与历史</h2>\n<p>通过分支选择、push、pull 和历史入口继续操作。远程分支切换可能建立本地跟踪分支；查看历史用于理解已有改动。切换或同步前检查当前修改，避免把无关工作混入提交。</p>\n',
+    contentEn:
+      '\n<h2 id="git-scm-overview">Inspect status</h2>\n<p>Open source control, confirm the repository, and inspect working-tree and staged diffs. Check existing staged content when sharing a repository.</p>\n<figure class="doc-figure"><img src="./assets/git.jpeg" alt="Git SCM & AI Commit Generation" /></figure>\n\n<h2 id="visual-git-operations">Stage and commit</h2>\n<p>Stage or unstage files, then commit. Commit-all runs git add -A first, so exclude unrelated changes. Writes run through terminal commands and depend on terminal-tab availability. Refresh status afterward.</p>\n\n<h2 id="ai-commit-generation">Generate a message</h2>\n<p>AI describes staged changes first, otherwise working-tree and untracked changes. Untracked files supply names only. The generated input follows recent commit style and language; review its scope before committing.</p>\n\n<h2 id="branch-and-history-quote">Branches and history</h2>\n<p>Use branch selection, push, pull, and history. Remote checkout may create a tracking branch. Check local changes before switching or synchronizing.</p>\n',
+  },
+  {
+    id: "commands-and-shortcuts",
+    group: "reference",
+    badge: "Chapter 10",
+    icon: "⌨️",
+    navTitle: "命令与引用",
+    navTitleEn: "Commands & References",
+    title: "命令与引用",
+    titleEn: "Commands & References",
+    summary: "查阅共享快捷键与命令表，把上下文引用加入输入。",
+    summaryEn:
+      "Use the shared shortcut and command tables and add context references to your input.",
+    contentZh:
+      '\n<h2 id="shortcuts-table">快捷键</h2>\n<p>下表列出共享快捷键。先确认焦点在全局界面、输入框还是终端，再使用对应组合。发送规则受输入偏好影响；浏览器和系统也可能占用按键。需要停止回复时使用界面停止按钮。</p>\n<div data-dynamic-table="shortcuts"></div>\n\n<h2 id="slash-commands">斜杠命令</h2>\n<p>输入 / 查看当前候选，下表提供共享命令索引。扩展、技能和模板可增加入口，以候选及 /help 为准。按提示填写参数，例如 /model 可带模型名称，/plan 用于设置计划状态。</p>\n<div data-dynamic-table="slash-commands"></div>\n\n<h2 id="at-mentions">引用上下文</h2>\n<p>输入 @ 选择文件等上下文。来源随项目、连接和功能开关变化；选中后核对路径及内容。优先引用与问题相关的部分，并在正文写明希望分析或修改的范围。浏览器页面操作还需要扩展授权。</p>\n\n<h2 id="quick-prompt-chips">快捷短语</h2>\n<p>用快捷短语复用检查差异、解释代码等常见要求。点击前检查路径、任务范围和约束，按当前界面设置决定填入或发送。需要组合多项要求时，先在输入框整理完整指令，再一起提交。</p>\n',
+    contentEn:
+      '\n<h2 id="shortcuts-table">Shortcuts</h2>\n<p>Use the shared table below. Check whether focus is global, in the composer, or in a terminal. Sending follows input preferences; use the stop button to stop replies.</p>\n<div data-dynamic-table="shortcuts"></div>\n\n<h2 id="slash-commands">Slash commands</h2>\n<p>Type / for current candidates and consult the shared table or /help. Extensions, skills, and templates can add commands. Supply required arguments, such as a model name for /model.</p>\n<div data-dynamic-table="slash-commands"></div>\n\n<h2 id="at-mentions">Context references</h2>\n<p>Type @ to select relevant files or other available sources. Check paths and state the requested scope. Browser operations also require extension authorization.</p>\n\n<h2 id="quick-prompt-chips">Quick prompts</h2>\n<p>Reuse common instructions with prompt chips. Check paths, scope, constraints, and whether clicking inserts or sends. Combine requirements in the composer before submitting when needed.</p>\n',
+  },
+  {
+    id: "subagents-and-delegation",
+    group: "agent-modes",
+    badge: "Chapter 11",
+    icon: "🤖",
+    navTitle: "子代理与委派",
+    navTitleEn: "Subagents & Delegation",
+    title: "子代理与委派",
+    titleEn: "Subagents & Delegation",
+    summary: "拆分并行任务，明确文件范围、认领提示与交接内容。",
+    summaryEn:
+      "Split parallel work and define file scope, advisory claims, and handoff content.",
+    contentZh:
+      '\n<h2 id="what-are-subagents">拆分任务</h2>\n<p>把探索、实现和审查交给独立子代理。默认共享工作目录，文件与 Git 状态仍会互相影响；需要隔离时选择 worktree，完成后检查差异并整合。</p>\n<figure class="doc-figure"><img src="./assets/trajectory.jpeg" alt="运行轨迹时间线与子代理执行" /></figure>\n\n<h2 id="six-section-delegation">写任务书</h2>\n<p>delegate_task 需选择可用模板，并填写 TASK、EXPECTED OUTCOME、REQUIRED TOOLS、MUST DO、MUST NOT DO、CONTEXT。明确产物、允许修改路径和验证方式，便于代理执行与主线程验收。</p>\n\n<h2 id="claim-files-lock">认领文件</h2>\n<p>开始写入前用 claim_files 发布认领，完成后释放。它只提醒并行会话避让，不会阻止编辑；冲突较多时重新划分文件或使用独立工作树。</p>\n\n<h2 id="delegate-mode">委派模式</h2>\n<p>服务端把请求路由给常驻执行对话，主对话该轮不直接运行模型。执行和再次派发受门控，计划模式优先。</p>\n\n<h2 id="handoff-and-templates">交接结果</h2>\n<p>模板复用角色配置；handoff 只发送指定消息。交接时列出结论、证据路径、改动文件、验证结果和剩余事项，主代理据此核验。核验后再合并。</p>\n',
+    contentEn:
+      '\n<h2 id="what-are-subagents">Split work</h2>\n<p>Assign exploration, implementation, and review to subagents. The default directory is shared; use worktree isolation when needed, then review and integrate changes.</p>\n<figure class="doc-figure"><img src="./assets/trajectory.jpeg" alt="Execution Trajectory & Subagents" /></figure>\n\n<h2 id="six-section-delegation">Write a brief</h2>\n<p>Choose an available delegate_task template. Fill TASK, EXPECTED OUTCOME, REQUIRED TOOLS, MUST DO, MUST NOT DO, and CONTEXT with deliverables, paths, and validation.</p>\n\n<h2 id="claim-files-lock">Claim files</h2>\n<p>Publish claim_files claims before editing and release afterward. Claims advise others; they do not block writes. Split conflicting work or isolate it.</p>\n\n<h2 id="delegate-mode">Delegate mode</h2>\n<p>The server routes requests to a persistent executor instead of running the main model that turn. Execution is gated; plan mode takes priority.</p>\n\n<h2 id="handoff-and-templates">Hand off results</h2>\n<p>Templates reuse role settings. Handoff sends specified messages; include evidence, changed files, validation, and remaining work for review. Verify before merging.</p>\n',
+  },
+  {
+    id: "modes-guide",
+    group: "agent-modes",
+    badge: "Chapter 12",
+    icon: "🎯",
+    navTitle: "目标、计划与委派",
+    navTitleEn: "Goal, Plan & Delegate Modes",
+    title: "目标、计划与委派",
+    titleEn: "Goal, Plan & Delegate Modes",
+    summary: "理解三种模式的调度、调用限制和验收边界。",
+    summaryEn:
+      "Understand scheduling, tool restrictions, and acceptance boundaries in the three modes.",
+    contentZh:
+      '\n<h2 id="why-engineering-modes">选择模式</h2>\n<p>先写明目标、允许修改范围和验收方式。调研方案用计划模式，持续执行与审查用目标模式，把请求交给常驻执行者用委派模式。根据任务选择入口，再按结果核验完成情况。</p>\n\n<h2 id="goal-mode-2">目标模式</h2>\n<p>目标模式 2.0 由服务端创建执行角色对话、发送任务、等待并采样，再让当前对话审查，不依赖模型自行 spawn 或 wait。需要角色桥能力；审查 verdict 为 pass 时结束，验收仍应检查证据。</p>\n\n<h2 id="plan-mode">计划模式</h2>\n<p>计划模式允许调研，限制写工具、非允许命令和绕路派发。计划确认后，由用户点击计划看板的「开始实施」，关闭只规划闸门并在当前对话发起实施轮，继续遵守任务范围。</p>\n\n<h2 id="modes-delegate-mode">委派与停止</h2>\n<p>委派模式自动路由请求，主对话该轮不直接运行模型，计划模式优先。目标模式另有轮次预算、停滞及失败等停止条件；进入 blocked 或 exhausted 后，检查原因、证据与剩余事项，再决定如何继续。</p>\n',
+    contentEn:
+      '\n<h2 id="why-engineering-modes">Choose a mode</h2>\n<p>Define the goal, allowed paths, and acceptance checks. Use plan mode for proposals, goal mode for execution and review, or delegate mode for a persistent executor.</p>\n\n<h2 id="goal-mode-2">Goal mode</h2>\n<p>The server creates the executor, sends work, waits, samples state, and requests review; model-driven spawn or wait is unnecessary. A role bridge is required. A pass verdict ends the loop; inspect acceptance evidence.</p>\n\n<h2 id="plan-mode">Plan mode</h2>\n<p>Plan mode gates writes and unsupported commands. After review, click “Start implementing” on the plan board to close the planning gate and begin implementation in the current conversation.</p>\n\n<h2 id="modes-delegate-mode">Delegation and stopping</h2>\n<p>Delegate mode routes requests instead of running the main model; plan mode takes priority. Goal budgets or failures can stop execution. Inspect blocked or exhausted results before continuing.</p>\n',
+  },
+  {
+    id: "tools-and-markers",
+    group: "reference",
+    badge: "Chapter 13",
+    icon: "🧰",
+    navTitle: "工具与标记",
+    navTitleEn: "Tools & Markers",
+    title: "工具与标记",
+    titleEn: "Tools & Markers",
+    summary: "查阅共享工具目录，区分文件编辑、按需加载与回复标记。",
+    summaryEn:
+      "Consult the shared tool catalog and distinguish file editing, on-demand loading, and reply markers.",
+    contentZh:
+      '\n<h2 id="how-ai-uses-tools">选择工具</h2>\n<p>先查看当前可用工具和开关，再按返回结果继续。工具目录提供能力索引，实际可用性还取决于引擎、模式与依赖。下表由共享数据生成，便于集中维护。操作前确认范围。</p>\n\n<h2 id="core-tools-overview">读写与补丁</h2>\n<p>read 读取文件或列目录；目录下 limit 限条目，offset 忽略，file_path 是 path 别名。edit 精确替换，edit_soft 按去除首尾空白的行匹配，write 覆盖文件。patch 用 [path#TAG] 和 PUT、CUT、REM、MV；hashline 是文件内容摘要引擎。失败后重读确认。</p>\n<div data-dynamic-table="tools-catalog"></div>\n\n<h2 id="lazy-loading-architecture">按需加载</h2>\n<p>延迟加载默认关闭，保存设置优先。启用后按需减少初始工具描述；关闭时不暴露 load_tools。codemode 组合调用，lsp 依赖语言服务，eval 使用持久 Python 或 Node 子进程，可访问实际文件。</p>\n\n<h2 id="inline-markers">回复标记</h2>\n<p>在回复中使用重命名、通知和动作建议标记，由界面处理。通知等级为 info、warning、error。标记表达状态或提供入口，操作结果仍用文件、命令输出等证据说明。</p>\n',
+    contentEn:
+      '\n<h2 id="how-ai-uses-tools">Choose tools</h2>\n<p>Check available tools and switches, then follow results. The shared catalog indexes capabilities; availability depends on engine, mode, and dependencies. Confirm scope before acting.</p>\n\n<h2 id="core-tools-overview">Read and patch</h2>\n<p>read accepts files or directories; directory limit caps entries and ignores offset. file_path aliases path. edit matches exactly; edit_soft trims line whitespace; write overwrites. patch uses [path#TAG] with PUT, CUT, REM, MV. Hashline hashes file content. Reread after failures.</p>\n<div data-dynamic-table="tools-catalog"></div>\n\n<h2 id="lazy-loading-architecture">Load on demand</h2>\n<p>Lazy loading defaults off; saved settings prevail. When off, load_tools is hidden. codemode combines calls, lsp needs language services, and persistent Python/Node eval can access files.</p>\n\n<h2 id="inline-markers">Reply markers</h2>\n<p>Use rename, notice, and action markers in replies. Notice levels are info, warning, error. Support operation results with evidence.</p>\n',
+  },
+  {
+    id: "mcp-and-browser",
+    group: "extensibility",
+    badge: "Chapter 14",
+    icon: "🔌",
+    navTitle: "MCP 与浏览器",
+    navTitleEn: "MCP & Browser",
+    title: "MCP 与浏览器",
+    titleEn: "MCP & Browser",
+    summary: "配置外部 MCP 工具，并通过扩展操作已授权浏览器页面。",
+    summaryEn:
+      "Configure external MCP tools and use the extension to operate authorized browser pages.",
+    contentZh:
+      '\n<h2 id="what-is-mcp">连接 MCP</h2>\n<p>按服务文档选择本地 stdio 或远程 Streamable HTTP。HTTP 支持事件流响应；连接后检查实际注册工具，确认服务能力和访问范围，再让模型调用。</p>\n\n<h2 id="managing-mcp-servers">配置与重载</h2>\n<p>在面板填写命令、参数、目录和环境变量，或 URL 与请求头。保存后检查连接状态和工具返回。配置支持监视与重载；内容不变不重启，非法 JSON 保留旧实例。失败时检查配置及服务日志。</p>\n\n<h2 id="public-mcp-registry">寻找服务</h2>\n<p>市场搜索过滤市场与目录入口卡片，便于跳转查找。找到服务后核对依赖、凭据和配置，实际连接确认可用性；卡片不是实时服务器安装清单。</p>\n\n<h2 id="browser-page-control">授权浏览器</h2>\n<p>用户要求操作页面时，先启用 browser_page 并配对 Page Picker 扩展，再用 pages 查看已授权页面；缺少目标时请用户授权。它转发到用户自己的浏览器，支持读取、点击、输入、导航、等待和截图。eval 需另开扩展开关，截图用 maxEdge；页面引用与操作授权分别处理。</p>\n',
+    contentEn:
+      '\n<h2 id="what-is-mcp">Connect MCP</h2>\n<p>Choose stdio or Streamable HTTP from the service documentation. HTTP supports event streams. Inspect registered tools and access scope before use.</p>\n\n<h2 id="managing-mcp-servers">Configure and reload</h2>\n<p>Enter commands, arguments, directory, and environment, or a URL and headers. Check connection results. Configuration supports watching and reload: unchanged content avoids restarts; invalid JSON retains existing instances. Inspect logs on failure.</p>\n\n<h2 id="public-mcp-registry">Find services</h2>\n<p>Market search filters directory-link cards. Follow links, check dependencies and credentials, then connect to verify availability.</p>\n\n<h2 id="browser-page-control">Authorize browser access</h2>\n<p>When requested, enable browser_page, pair Page Picker, and call pages. Ask the user to authorize missing pages. Requests operate their browser with reads, clicks, typing, navigation, waits, and screenshots. eval needs a separate switch; screenshots use maxEdge. Context references and action authorization remain separate.</p>\n',
+  },
+  {
+    id: "bg-tasks-and-scheduler",
+    group: "agent-modes",
+    badge: "Guide",
+    icon: "⏳",
+    navTitle: "后台任务与调度",
+    navTitleEn: "Background Tasks & Scheduling",
+    title: "后台任务与调度",
+    titleEn: "Background Tasks & Scheduling",
+    summary: "查看后台服务，创建延时或周期任务，并了解调度的运行条件。",
+    summaryEn:
+      "Inspect background services, create delayed or recurring tasks, and understand when scheduling runs.",
+    contentZh:
+      '\n<h2 id="why-background-tasks">启动服务</h2>\n<p>让智能体运行 <code>npm run dev</code> 等常驻命令时，说明需要后台运行，并确认启动结果和端口。一次性构建、测试则等待退出后检查结果。</p>\n<h2 id="manage-background-tasks">管理后台任务</h2>\n<p>打开后台任务面板，查看监听端口、进程、运行时间、命令及插件任务。停止前核对服务归属；重启时确认旧进程退出，再执行启动命令。排错可回到原终端，或让智能体读取日志。插件任务按其提供的停止方式清理。</p>\n<h2 id="schedule-tasks-automation">安排调度</h2>\n<p>让智能体调用 <code>schedule</code> 创建任务，例如“二十分钟后检查日志”。支持相对时间和五字段 Cron，最短间隔六十秒。默认绑定当前对话、单次执行后删除；周期执行需设置 <code>recurring=true</code>。创建后用列表核对下次时间、目标对话和重复状态，不用时取消。任务持久化保存，触发需要服务运行；停机后的补跑取决于任务策略。</p>\n',
+    contentEn:
+      '\n<h2 id="why-background-tasks">Start a service</h2>\n<p>Ask the agent to run persistent commands such as <code>npm run dev</code> in the background, then confirm startup and port. Wait for builds and tests to finish.</p>\n<h2 id="manage-background-tasks">Manage tasks</h2>\n<p>Open background tasks to inspect ports, processes, uptime, commands and plugin tasks. Verify ownership before stopping. Restart after the old process exits. Read logs in the original terminal. Plugin cleanup follows its implementation.</p>\n<h2 id="schedule-tasks-automation">Schedule work</h2>\n<p>Ask the agent to use <code>schedule</code>. Relative delays and five-field Cron require at least sixty seconds. Tasks target this conversation and run once by default; set <code>recurring=true</code> to repeat. Check timing, target and recurrence in the list; cancel unused tasks. Persisted tasks require a running service; recovery follows the catch-up policy.</p>\n',
+  },
+  {
+    id: "approval-and-security",
+    group: "reference",
+    badge: "Guide",
+    icon: "🛡️",
+    navTitle: "工具审批与安全",
+    navTitleEn: "Approval & Security",
+    title: "工具审批与安全",
+    titleEn: "Approval & Security",
+    summary: "理解审批规则、放行范围与访问控制，按实际执行路径判断风险。",
+    summaryEn:
+      "Understand approval rules, permission scope and access controls for each execution path.",
+    contentZh:
+      '\n<h2 id="why-security-matters">检查执行环境</h2>\n<p>开始前确认当前引擎、项目目录与工具权限。审批作用于支持的执行路径；插件权限和系统账户权限也需分别配置。</p>\n<h2 id="three-tier-approval">处理审批</h2>\n<p>规则动作包括询问、拒绝和放行。弹窗可单次允许、在本对话允许同类，或扩大本对话的放行范围。全局审批开关会影响弹窗；根路径、破坏性操作和敏感密钥写入等仍有额外检查。修改规则时核对工具、参数与路径范围。</p>\n<h2 id="high-risk-bash-alerts">核对命令</h2>\n<p>查看完整命令、工作目录和命中原因，特别留意删除目标、重定向与组合命令。支持改写执行时，检查修改后的参数再确认。规则提示用于辅助判断，覆盖范围取决于实际调用路径。</p>\n<h2 id="six-security-boundaries">配置访问控制</h2>\n<p>远程部署时配置访问口令环境变量和 HTTPS，按需设置 Host 白名单。结合监听地址、来源校验、工作区约束与插件授权控制访问；让服务账户只获得任务所需的文件和网络权限。</p>\n',
+    contentEn:
+      '\n<h2 id="why-security-matters">Check the environment</h2>\n<p>Confirm the engine, project directory and tool permissions. Approval covers supported execution paths; configure plugin and operating-system permissions separately.</p>\n<h2 id="three-tier-approval">Handle approval</h2>\n<p>Rules ask, deny or allow. Allow once, remember a category, or broaden permission within the conversation. The global switch affects prompts. Root paths, destructive operations and sensitive key writes have additional checks. Review tool, parameter and path matching when editing rules.</p>\n<h2 id="high-risk-bash-alerts">Review commands</h2>\n<p>Read the command, directory and match reason, including deletion targets, redirection and compound commands. Verify edited parameters before approval. Coverage depends on the execution path.</p>\n<h2 id="six-security-boundaries">Configure access</h2>\n<p>For remote access, configure the access-token environment variable, HTTPS and any Host allowlist. Combine listener, origin, workspace and plugin controls with minimal account permissions.</p>\n',
+  },
+  {
+    id: "dual-engines-and-presets",
+    group: "extensibility",
+    badge: "Guide",
+    icon: "🔄",
+    navTitle: "引擎、登录与预设",
+    navTitleEn: "Engines, Login & Presets",
+    title: "引擎、登录与预设",
+    titleEn: "Engines, Login & Presets",
+    summary: "按能力选择引擎，完成提供商登录，并导入或分享设置预设。",
+    summaryEn:
+      "Choose an engine by capability, sign in to providers, and import or share settings presets.",
+    contentZh:
+      '\n<h2 id="dual-engines-comparison">选择引擎</h2>\n<p>按任务选择 pi 或 DSH。pi 提供宿主工具；DSH 使用独立进程，可用功能以引擎能力声明为准。切换前结束当前任务，再检查模型、工具和上下文；依赖特定引擎的流程可在新对话继续，切换不保证状态无损迁移。</p>\n<h2 id="oauth-one-click-login">登录提供商</h2>\n<p>在支持 OAuth 的提供商设置中启动登录，按提示打开授权链接，完成验证并填写所需信息。成功后核对模型是否可用；不同引擎使用的凭据和配置需分别确认。</p>\n<h2 id="presets-import-export">导入与导出</h2>\n<p>在设置的预设面板保存、应用或导出配置，也可从 JSON 文件或网址导入。先保存当前设置，检查来源，再应用并核对模型、工具和布局。本机路径、凭据及环境依赖需自行配置。</p>\n<h2 id="community-presets-hub">社区预设</h2>\n<p>社区面板可浏览、导入或准备发布预设。发布前检查名称、说明和内容，移除个人信息与密钥；试用他人配置后，验证版本、插件依赖和关键操作。</p>\n',
+    contentEn:
+      '\n<h2 id="dual-engines-comparison">Choose an engine</h2>\n<p>Choose pi for host tools or DSH for its separate runtime, following reported capabilities. Finish tasks before switching, then check model, tools and context. Use a new conversation for engine-specific workflows; state migration is not guaranteed.</p>\n<h2 id="oauth-one-click-login">Sign in</h2>\n<p>Start OAuth in a supported provider\'s settings. Follow the authorization link, verify and supply requested information. Check available models afterward and confirm credentials separately for each engine.</p>\n<h2 id="presets-import-export">Exchange presets</h2>\n<p>Save, apply or export in settings; import JSON files or URLs. Save current settings, inspect the source, then verify models, tools and layout. Configure local paths, credentials and dependencies separately.</p>\n<h2 id="community-presets-hub">Community presets</h2>\n<p>Browse, import or prepare publication in the community panel. Remove personal information and keys before sharing. Verify compatibility, plugins and essential operations after import.</p>\n',
+  },
+  {
+    id: "ui-customization-and-export",
+    group: "extensibility",
+    badge: "Guide",
+    icon: "🎨",
+    navTitle: "界面与图片复制",
+    navTitleEn: "Interface & Image Copying",
+    title: "界面与图片复制",
+    titleEn: "Interface & Image Copying",
+    summary: "调整布局、壁纸、语言和声音，将对话渲染为可复制的图片。",
+    summaryEn:
+      "Adjust layout, wallpaper, language and sounds, and render conversations as images to copy.",
+    contentZh:
+      '\n<h2 id="ui-slots-layout">整理布局</h2>\n<p>进入布局编辑，调整支持的按钮、面板和插件入口的位置或显隐。可用项目取决于界面和已启用插件。整理后检查窄窗口下的操作；查找缺失入口时，同时核对布局与插件状态。</p>\n<h2 id="custom-wallpapers">设置壁纸</h2>\n<p>填写可访问的图片地址，配合压暗与模糊保持正文和代码清晰。用户图片优先于主题背景。设置保存在当前浏览器，换设备或清理数据后需重新配置。</p>\n<h2 id="long-image-export">复制图片</h2>\n<p>打开对话图片预览，选择范围和样式，点击复制图片，再粘贴到目标应用。复制需要浏览器剪贴板权限和安全上下文。发送前检查内容完整性与敏感信息；长对话渲染可能较慢。</p>\n<h2 id="i18n-and-sound-synth">语言与提示音</h2>\n<p>在设置中选择语言并按需开启提示音。翻译覆盖取决于语言包及插件，已有对话保留原文。调整后实际试听，确认系统音量与浏览器播放权限；浏览器自动播放策略也会影响声音通知。</p>\n',
+    contentEn:
+      '\n<h2 id="ui-slots-layout">Arrange the layout</h2>\n<p>Use layout editing to move or hide supported buttons, panels and plugin entries. Availability depends on the interface and enabled plugins. Check narrow-window usability and plugin status when entries are missing.</p>\n<h2 id="custom-wallpapers">Set wallpaper</h2>\n<p>Provide a reachable image URL and adjust dimming and blur. User images override theme backgrounds. Settings stay in this browser; configure them again after clearing data or changing devices.</p>\n<h2 id="long-image-export">Copy images</h2>\n<p>Open conversation image preview, choose range and style, then copy and paste into another application. Clipboard permission and a secure context are required. Check completeness and sensitive information; long conversations take longer.</p>\n<h2 id="i18n-and-sound-synth">Language and sound</h2>\n<p>Select language and notification sounds in settings. Coverage depends on language packs and plugins; existing messages retain their language. Test volume and browser playback permissions, including autoplay restrictions.</p>\n',
+  },
+  {
+    id: "plugins-marketplace",
+    group: "extensibility",
+    badge: "Guide",
+    icon: "🧩",
+    navTitle: "插件管理",
+    navTitleEn: "Plugin Management",
+    title: "插件管理",
+    titleEn: "Plugin Management",
+    summary: "查找、安装和管理插件，按权限与依赖选择扩展能力。",
+    summaryEn:
+      "Find, install and manage plugins according to their permissions and dependencies.",
+    contentZh:
+      '\n<h2 id="why-plugins-matter">选择插件</h2>\n<p>插件可以增加工具、设置、界面入口和外部集成。在插件管理中查看来源、说明、系统支持、权限与依赖，再按任务选择。仓库目录或市场条目存在，不代表当前安装已启用；同类插件的工具名和操作也可能不同。</p>\n<h2 id="top-featured-plugins">按任务配置</h2>\n<p>代码编辑可查看 <code>vscode-editor</code>，数据库操作可查看 <code>db-client</code>，远程文件传输可查看 <code>sftp</code>。浏览器、桌面自动化需要本机环境或辅助进程配合，微信通道按说明连接和配对。完成配置后，用小任务验证连接与权限。</p>\n<h2 id="install-and-manage-plugins">安装与维护</h2>\n<p>安装或启用所需条目，按提示重载、授权并填写连接参数，再确认工具和入口出现。排错时分别核对安装状态、启用状态和外部连接，查看插件诊断及日志。</p>\n<p>升级前检查配置与依赖变更；不再使用时禁用或卸载，并整理外部进程和凭据。宿主会清理登记的资源，自建资源由插件负责。备份必要配置，公开反馈和共享预设中移除密钥。</p>\n',
+    contentEn:
+      '\n<h2 id="why-plugins-matter">Choose plugins</h2>\n<p>Plugins add tools, settings, interface entries and integrations. Review source, platform support, permissions and dependencies in plugin management. Repository or marketplace presence does not imply enablement; similar plugins may use different tools.</p>\n<h2 id="top-featured-plugins">Configure by task</h2>\n<p>Consider <code>vscode-editor</code> for editing, <code>db-client</code> for databases and <code>sftp</code> for file transfer. Browser and desktop automation require local support; follow connection and pairing instructions for WeChat. Verify permissions with a small task.</p>\n<h2 id="install-and-manage-plugins">Install and maintain</h2>\n<p>Install or enable, reload, grant permissions and configure connections as prompted. Confirm entries and tools appear. Diagnose installation, enablement and connectivity separately using diagnostics and logs. Review changes before upgrading. Disable unused plugins and review external processes and credentials. The host cleans registered resources; plugins handle custom resources. Back up configuration without exposing keys.</p>\n',
+  },
+  {
+    id: "plugin-sdk-and-deployment",
+    group: "reference",
+    badge: "Guide",
+    icon: "🚀",
+    navTitle: "插件开发与部署",
+    navTitleEn: "Plugin Development & Deployment",
+    title: "插件开发与部署",
+    titleEn: "Plugin Development & Deployment",
+    summary:
+      "使用宿主生命周期编写插件，并核对守护服务、Docker 与反向代理配置。",
+    summaryEn:
+      "Build plugins around the host lifecycle and configure daemon services, Docker and reverse proxies.",
+    contentZh:
+      '\n<h2 id="plugin-sdk-quickstart">开发入口</h2>\n<p>运行 <code>pi-web-ui plugin create my-plugin</code>，在 manifest 声明入口和能力。服务端通过宿主激活，浏览器动作放在客户端处理。插件禁用或重载时，宿主执行登记的清理函数。监听器、连接和计时器都应释放，清理逻辑应支持重复调用。开发后验证启用与禁用流程。自建资源用 effect 登记清理：</p>\n<pre><code>export default {\n  activate(host) {\n    const timer = setInterval(() =&gt; host.log("info", "tick"), 60000);\n    host.effect("timer", () =&gt; clearInterval(timer));\n  }\n};</code></pre>\n<h2 id="production-daemon">安装服务</h2>\n<p>执行 <code>pi-web-ui server install</code>，用 <code>pi-web-ui server status</code> 查看状态。核对服务账户、目录、环境和日志，更新后重启验证。</p>\n<h2 id="production-docker">容器部署</h2>\n<p>源码根目录执行 <code>docker compose up -d --build</code>。数据卷挂到 <code>/app/.pi-web</code>；配置访问口令环境变量，另挂项目和凭据目录，备份数据卷。</p>\n<h2 id="production-nginx">反向代理</h2>\n<p>转发至<code>127.0.0.1:8787</code>，使用 HTTP/1.1，传递 Upgrade、Connection 头并延长超时。保留 <code>proxy_set_header Host $http_host;</code>，保留端口供来源校验。子路径参照 <code>deploy/nginx-subpath.conf</code>。</p>\n<h2 id="security-best-practices">上线验证</h2>\n<p>配置 HTTPS 和所需白名单，检查数据卷可写、重建后数据仍在、聊天及终端连接正常。记录备份恢复步骤后开放远程访问。</p>\n',
+    contentEn:
+      '\n<h2 id="plugin-sdk-quickstart">Develop</h2>\n<p>Run <code>pi-web-ui plugin create my-plugin</code>. Declare manifest entries and capabilities. Handle browser actions client-side. Effects release listeners, connections and timers on disable/reload; make cleanup repeatable and verify enable/disable:</p>\n<pre><code>export default {\n  activate(host) {\n    const timer = setInterval(() =&gt; host.log("info", "tick"), 60000);\n    host.effect("timer", () =&gt; clearInterval(timer));\n  }\n};</code></pre>\n<h2 id="production-daemon">Install service</h2>\n<p>Run <code>pi-web-ui server install</code>, then <code>pi-web-ui server status</code>. Check account, directory, environment and logs; verify updates.</p>\n<h2 id="production-docker">Deploy containers</h2>\n<p>Run <code>docker compose up -d --build</code> from the source root. Mount data at <code>/app/.pi-web</code>. Configure the access-token environment variable, separate project/credential mounts and volume backups.</p>\n<h2 id="production-nginx">Proxy</h2>\n<p>Proxy to local port 8787 using HTTP/1.1, Upgrade/Connection headers and longer timeouts. Preserve <code>proxy_set_header Host $http_host;</code> for origin checks including ports. Follow <code>deploy/nginx-subpath.conf</code> for subpaths.</p>\n<h2 id="security-best-practices">Verify</h2>\n<p>Set HTTPS and allowlists. Verify volume writes, persistence, chat and terminals; document restoration before remote access.</p>\n',
+  },
 ];

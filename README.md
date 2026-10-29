@@ -1,17 +1,30 @@
 # 🌐 pi-web-ui Official Website & Documentation Portal (`pi-web-ui-site`)
 
-本项目是 [pi-web-ui](https://github.com/xing-shuyin/pi-web-ui) 的官方产品宣传主页与 **20 章全景保姆级新手与进阶使用文档中心**，专为 **GitHub Pages** 托管设计（零构建步骤即可直接由 GitHub Pages 托管，同时内置 GitHub Actions 自动校验与部署流水线）。
+本项目是 [pi-web-ui](https://github.com/xing-shuyin/pi-web-ui) 的官网与使用文档。文档采用独立的三栏阅读界面，保留 20 篇双语指南，并按「开始使用、使用指南、进阶工作流、扩展与定制、参考」组织。支持 GitHub Pages 静态托管，无需运行服务端构建。
 
 ## ✨ 网站结构与功能亮点
 
-| 页面 / 模块 | 文件路径 | 核心内容 |
-| :--- | :--- | :--- |
-| **🏠 官方产品宣传主页** | `index.html` | Hero 交互式一行安装切换器、5 标签真实工作台交互预览（含高清放大灯箱）、6 大核心研发支柱、4 大智能体工程模式（标准 / 目标模式 2.0 / 计划模式 / 审查者模式）可视化推演、39 款插件市场实时筛选与一键复制安装命令、35 套内置主题实时演播室预览 |
-| **📖 20 章全景新手文档中心** | `docs.html` | **以新手用户视角全面重构**的三栏式现代化文档中心：涵盖全景工作台导览、首次配置向导（DeepSeek/Claude/Ollama 模型接入）、CLI 与环境变量速查、流式对话与代码快照秒级回滚、SSH 远程主机免安装直连、拖拽上传文件与文件夹、在线 Office/PDF 预览与视觉桥、真 PTY 终端 AI 接管、Git 可视化 SCM 与一键 AI 提交说明、子代理并发与六段式任务书、目标模式 2.0 证据链审查、30+ 工具延迟加载与内联标记、MCP 市场与浏览器控制、后台长任务与调度器、三级审批与六大安全边界、双引擎与社区预设、33 插槽定制与长图海报导出、39 款插件盘点以及 Plugin SDK v2 生产部署。 |
-| **🔍 全局即时搜索 (`Ctrl+K`)** | `app.js` | 在任意页面按下 `Ctrl/Cmd + K` 即可跨 20 章文档、39 款插件、30 个工具、CLI 参数与环境变量进行毫秒级全文检索 |
-| **🖼️ 高清截图与灯箱放大** | `styles.css` + `app.js` | 嵌入全景工作台、模型设置向导、流式对话、内置终端、Git SCM、运行轨迹等真实工作台高清截图，支持点击即开灯箱（Lightbox）平滑缩放与 ESC 快速退出 |
-| **🎨 多主题 & 中英双语** | `styles.css` + `app.js` | 网站自身支持 **暗夜深邃 / 纯净浅色 / 赛博霓虹 / 朱批御览** 四套视觉风格，并支持 **简体中文 / English** 一键切换（超 5.2 万字中文 + 2 万字英文双语详实内容） |
-| **🔄 主仓库数据自动同步** | `scripts/sync-data.mjs` | 一键从 `../pi-web-ui` 同步最新版本号、`plugins/catalog.json`（39 款插件）与 `themes/*.css`（35 套主题色板） |
+| 页面 / 模块                    | 文件路径                                                  | 核心内容                                                                                                                                                                                                                                   |
+| :----------------------------- | :-------------------------------------------------------- | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **🏠 官方产品宣传主页**        | `index.html`                                              | Hero 交互式一行安装切换器、5 标签真实工作台交互预览（含高清放大灯箱）、6 大核心研发支柱、4 大智能体工程模式（标准 / 目标模式 2.0 / 计划模式 / 审查者模式）可视化推演、39 款插件市场实时筛选与一键复制安装命令、35 套内置主题实时演播室预览 |
+| **📖 使用文档**                | `docs.html`                                               | 三栏阅读、首页入门路径、五组导航与 20 篇双语指南，覆盖安装与模型、会话、SSH、文件、终端、Git、任务模式、插件与部署。                                                                                                                       |
+| **🔍 全局即时搜索 (`Ctrl+K`)** | 官网 `app.js`；文档 `docs.js`                             | 按 `Ctrl/Cmd + K` 搜索文档正文和共享参考表；文档支持方向键选择与 Enter 打开结果                                                                                                                                                            |
+| **🖼️ 高清截图与灯箱放大**      | 官网 `styles.css` + `app.js`；文档 `docs.css` + `docs.js` | 嵌入全景工作台、模型设置向导、流式对话、内置终端、Git SCM、运行轨迹等真实工作台高清截图，支持点击即开灯箱（Lightbox）平滑缩放与 ESC 快速退出                                                                                               |
+| **🎨 多主题 & 中英双语**       | `styles.css` + `app.js`                                   | 官网保留原有视觉主题；文档默认浅色，支持独立深色主题和简体中文 / English 切换                                                                                                                                                              |
+| **🔄 主仓库数据自动同步**      | `scripts/sync-data.mjs`                                   | 一键从 `../pi-web-ui` 同步最新版本号、`plugins/catalog.json`（39 款插件）与 `themes/*.css`（35 套主题色板）                                                                                                                                |
+
+## 文档架构与维护
+
+- `docs.html`：语义化页面骨架、移动导航、搜索与图片预览弹窗。
+- `docs.css`：文档独立样式，默认浅色，可切换深色；手机端使用折叠导航。
+- `docs.js`：三栏导航、首页学习路径、全文搜索、正文目录、上下篇、命令复制与双语切换。
+- `scripts/docs-content/ch01.mjs` 至 `ch20.mjs`：双语正文事实源。修改后运行 `npm run build:docs` 生成 `docs-data.js`，不要直接编辑生成文件。
+- `scripts/build-docs-data.mjs`：五组导航的事实源。章节 ID 和正文标题 ID 保持稳定，兼容现有 `docs.html#章节` 与段落链接。
+- `site-data.js`：CLI、快捷键、工具、插件与主题表的共享数据源，正文渲染时按需填充，搜索也覆盖这些表格。
+
+文档首页提供安装、首个任务、结果检查的入门路径。每篇指南只渲染对应正文，保留浏览器前进后退及深链接。设计探索稿位于 `proposals/docs-redesign/`，不作为正式文档内容源。
+
+内容核验依据、适用范围与自动检查说明见 [DOCS-REVIEW.md](./DOCS-REVIEW.md)。正文和参考数据的准确性以当前产品实现为准；结构检查不替代各平台和外部服务的实际验证。
 
 ## 🚀 本地预览与文档构建
 
@@ -34,6 +47,7 @@ npm run check
 本项目已配置好 `.nojekyll` 与 `.github/workflows/deploy-pages.yml`，支持以下任意一种 GitHub Pages 部署方式：
 
 ### 方式一：通过 GitHub Actions 自动部署（推荐）
+
 1. 在 GitHub 上创建一个公开仓库（如 `pi-web-ui-site` 或直接在自定义仓库下）；
 2. 将本目录推送至 GitHub：
    ```bash
@@ -45,7 +59,8 @@ npm run check
    git push -u origin main
    ```
 3. 打开 GitHub 仓库的 **Settings → Pages**，在 **Build and deployment → Source** 中选择 **GitHub Actions**；
-4. 每次推送到 `main` 分支，GitHub Actions 都会自动运行 `node scripts/verify-site.mjs` 校验并发布到 `https://<your-username>.github.io/pi-web-ui-site/`！
+4. 每次推送到 `main` 分支，GitHub Actions 都会自动运行 `npm run check` 校验并发布到 `https://<your-username>.github.io/pi-web-ui-site/`！
 
 ### 方式二：Branch 直出模式（免 Actions）
+
 由于本项目采用原生 ES Modules 构建，根目录直接包含 `index.html`、`docs.html` 与 `.nojekyll`，你也可以在 **Settings → Pages → Source** 中直接选择 **Deploy from a branch (`main` / `/(root)`)**，零等待即刻上线。
