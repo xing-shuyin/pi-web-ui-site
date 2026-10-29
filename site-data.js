@@ -12,7 +12,7 @@ export const SITE_DATA = {
     qqGroup: "1126050727",
     license: "MIT",
     author: "xingshuyin",
-    updatedAt: "2026-10-28",
+    updatedAt: "2026-10-29",
   },
   plugins: [
     {
@@ -1752,6 +1752,43 @@ export const SITE_DATA = {
   ],
   cliFlags: [
     {
+      flag: "--no-browser",
+      env: "—",
+      def: "false",
+      desc: "前台启动时不自动打开浏览器",
+      descEn: "Do not open a browser during foreground startup",
+    },
+    {
+      flag: "--agent-dir <dir>",
+      env: "PI_CODING_AGENT_DIR",
+      def: "~/.pi/agent",
+      desc: "pi 智能体配置目录，区别于项目和服务数据目录",
+      descEn:
+        "pi agent configuration directory, separate from project and server data",
+    },
+    {
+      flag: "--name <name>",
+      env: "—",
+      def: "pi-web-ui",
+      desc: "server 子命令的服务实例名称；后续管理使用同名",
+      descEn: "Service name for server subcommands; reuse it for management",
+    },
+    {
+      flag: "--print",
+      env: "—",
+      def: "false",
+      desc: "server install 时只预览生成配置，不安装",
+      descEn: "Preview generated service configuration without installing",
+    },
+    {
+      flag: "—",
+      env: "PI_WEB_ALLOW_HOSTS",
+      def: "空 / empty",
+      desc: "请求 Host 白名单，逗号分隔；不是客户端 IP 白名单",
+      descEn:
+        "Comma-separated request Host allowlist, not a client IP allowlist",
+    },
+    {
       flag: "--port <n>",
       env: "PI_WEB_PORT",
       def: "8787",
@@ -1776,7 +1813,7 @@ export const SITE_DATA = {
     {
       flag: "--data-dir <dir>",
       env: "PI_WEB_DATA_DIR",
-      def: "<cwd>/.pi-web",
+      def: "~/.pi-web",
       desc: "持久化数据目录（存放界面状态、插件、上传附件、自定义主题、SSH 加密配置、审批规则库等）",
       descEn:
         "Data directory for UI state, plugins, uploads, custom themes, SSH profiles, and approval rules",

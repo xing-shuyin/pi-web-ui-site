@@ -51,7 +51,7 @@ const labels = {
 const titles = {
   overview: ["快速开始", "Quick start"],
   installation: ["安装与模型配置", "Installation & models"],
-  "cli-and-env": ["CLI 与环境变量", "CLI & environment"],
+  "cli-and-env": ["启动参数与 /setup", "Startup flags & /setup"],
   "chat-and-sessions": ["对话与会话", "Chat & sessions"],
   "remote-ssh-projects": ["SSH 远程项目", "Remote SSH projects"],
   "file-tree-and-transfer": ["文件管理与传输", "Files & transfers"],

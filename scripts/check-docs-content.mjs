@@ -67,5 +67,5 @@ console.log(
   `Verified ${DOCS_CHAPTERS.length} bilingual chapters, ${routes.size} routes and translated anchors.`,
 );
 console.log(
-  `Body characters excluding markup and whitespace: ${before} → ${after} (${Math.round((1 - after / before) * 100)}% reduction vs HEAD).`,
+  `Body characters excluding markup and whitespace: ${before} → ${after} (${after >= before ? "+" : ""}${Math.round(((after - before) / before) * 100)}% vs HEAD).`,
 );
